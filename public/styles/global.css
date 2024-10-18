@@ -11,4 +11,10 @@
 
 body {
   font-family: "Akira Expanded", sans-serif;
+  background-image: url("/UTS/public/img/backgroundHome.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 40;
+  background-position: center;
+  height: 700px;
 }

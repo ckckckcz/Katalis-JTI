@@ -1,13 +1,6 @@
 .navbarBackground {
   background-color: black;
 }
-body {
-  background-image: url("/UTS/public/img/backgroundHome.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: 40;
-  background-position: center;
-}
 
 .navbar {
   position: relative; /* Menjaga navbar tetap berada di atas */
