@@ -36,3 +36,4 @@
 <?php include('./client/components/Home/News.php'); ?>
 <?php include('./client/components/Home/Match.php'); ?>
 <?php include('./client/components/Home/Shop.php'); ?>
+<?php include('./client/components/Home/Community.php'); ?>
