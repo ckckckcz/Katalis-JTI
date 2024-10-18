@@ -1,4 +1,4 @@
-<section class="bg-white mt-24">
+<section class="bg-white">
     <div class="py-8 lg:py-16 mx-auto max-w-screen-xl px-4 ">
         <div class="topNew justify-between flex mb-5">
             <h1 class="text-5xl">NEWS</h1>
