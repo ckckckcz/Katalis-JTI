@@ -11,9 +11,28 @@
 .optionDetination {
   width: 800px;
 }
+.positionHome {
+  display: flex; /* Pastikan ini ada */
+  justify-content: center; /* Untuk men-center secara horizontal */
+  align-items: center; /* Untuk men-center secara vertical */
+  text-align: center; /* Untuk men-center teks */
+  /* Tambahan ini jika diperlukan */
+  flex-direction: row; /* Atur agar elemen disusun secara horizontal */
+}
+
+.textHome {
+  text-align: center;
+}
 @media (max-width: 768px) {
   .optionDetination {
     width: 400px;
+  }
+  .positionHome {
+    justify-content: left;
+    align-items: left;
+  }
+  .textHome {
+    text-align: left;
   }
 }
 .parentContainer {
