@@ -8,16 +8,16 @@ $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'; 
 // Routing
 switch ($request) {
     case $location . '/':
-        $filePath = 'client/views/Home.html';
+        $filePath = 'client/views/Home.php';
         break;
     case $location . '/login':
-        $filePath = 'client/views/auth/Login.html';
+        $filePath = 'client/views/auth/Login.php';
         break;
     case $location . '/daftar':
-        $filePath = 'client/views/auth/Daftar.html';
+        $filePath = 'client/views/auth/Daftar.php';
         break;
     case $location . '/admin':
-        $filePath = 'client/views/admin/Home.html';
+        $filePath = 'client/views/admin/Home.php';
         break;
     default:
         http_response_code(404);

@@ -17,8 +17,8 @@
 
 <body>
     <?php
-    if ($filePath !== 'client/pages/auth/Login.php' && $filePath !== 'client/pages/auth/Daftar.php' && $filePath !== 'client/pages/admin/Home.html') {
-        include('./client/components/Navbar.html');
+    if ($filePath !== 'client/pages/auth/Login.php' && $filePath !== 'client/pages/auth/Daftar.php' && $filePath !== 'client/pages/admin/Home.php') {
+        include('./client/components/Navbar.php');
     }
     ?>
     <div id="content">
@@ -29,8 +29,8 @@
         ?>
     </div>
     <?php
-    if ($filePath !== 'client/pages/auth/Login.php' && $filePath !== 'client/pages/auth/Daftar.php' && $filePath !== 'client/pages/admin/Home.html') {
-        include('./client/components/Footer.html');
+    if ($filePath !== 'client/pages/auth/Login.php' && $filePath !== 'client/pages/auth/Daftar.php' && $filePath !== 'client/pages/admin/Home.php') {
+        include('./client/components/Footer.php');
     }
     ?>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
