@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         akira: ["Akira Expanded", "sans-serif"],
       },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+      },
     },
   },
   plugins: [],

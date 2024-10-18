@@ -7,6 +7,7 @@
     <title><?php echo isset($title) ? $title : 'Grit & Grind'; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/UTS/public/styles/global.css">
     <link rel="stylesheet" href="/UTS/public/styles/Navbar.css">
     <link rel="stylesheet" href="/UTS/public/styles/Home.css">

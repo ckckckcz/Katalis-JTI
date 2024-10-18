@@ -33,3 +33,4 @@
   </div>
 </section>
 <?php include('./client/components/Home/Brand.php'); ?>
+<?php include('./client/components/Home/News.php'); ?>
