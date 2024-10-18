@@ -1,0 +1,23 @@
+.gradientText {
+  background: linear-gradient(90deg, #ee8c61 27%, #4c43c4 87%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.bgUp {
+  background-color: rgba(235, 102, 43, 0.05);
+}
+.optionDetination {
+  width: 800px;
+}
+@media (max-width: 768px) {
+  .optionDetination {
+    width: 400px;
+  }
+}
+.parentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
