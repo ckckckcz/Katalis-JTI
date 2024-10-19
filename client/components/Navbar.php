@@ -5,7 +5,7 @@
             <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Grit & Grind</span>
         </a>
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse justify-center items-center mt-2">
-            <button type="button"
+            <button type="button" onclick="window.location.href='/UTS/login'"
                 class="text-red-600 bg-white border border-gray-300 focus:outline-none hidden lg:block hover:bg-gray-200 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">
                 Login
             </button>
