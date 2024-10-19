@@ -11,7 +11,7 @@
     $currentFile = basename($filePath);
 
     // Menentukan CSS berdasarkan halaman yang sedang diakses
-    if ($currentFile === 'Login.php' || $currentFile === 'Daftar.php') {
+    if ($currentFile === 'Login.php' || $currentFile === 'Register.php') {
         echo '<link rel="stylesheet" href="/UTS/public/styles/globalAuth.css">';
     } else {
         echo '<link rel="stylesheet" href="/UTS/public/styles/global.css">';
@@ -31,7 +31,7 @@
 <body>
     <?php
     // Menampilkan Navbar jika bukan halaman Login, Daftar, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Daftar.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php') {
         include('./client/components/Navbar.php');
     }
     ?>
@@ -46,8 +46,8 @@
     </div>
 
     <?php
-    // Menampilkan Footer jika bukan halaman Login, Daftar, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Daftar.php') {
+    // Menampilkan Footer jika bukan halaman Login, Register, atau Admin
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php') {
         include('./client/components/Footer.php');
     }
     ?>
