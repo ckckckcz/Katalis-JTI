@@ -1,13 +1,10 @@
 <?php
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
-
-    // Validasi kata sandi dan konfirmasi
-    if ($password !== $password_confirm) {
-        die("Kata sandi dan konfirmasi tidak cocok.");
-    }
 
     $file_path = '../data/users.json';
 
@@ -19,9 +16,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $users = [];
     }
 
+    // Validasi kata sandi dan konfirmasi
+    if ($password !== $password_confirm) {
+        $_SESSION['register_error'] = true;
+        header('Location: /UTS/daftar');
+        exit();
+    }
+
+    // Cek apakah email sudah terdaftar
     foreach ($users as $user) {
         if ($user['email'] === $email) {
-            die("Email sudah terdaftar.");
+            $_SESSION['register_error'] = true;
+            header('Location: /UTS/daftar');
+            exit();
         }
     }
 
@@ -35,7 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Menyimpan data pengguna ke file JSON
     file_put_contents($file_path, json_encode($users, JSON_PRETTY_PRINT));
 
-    echo "Pendaftaran berhasil!";
+    // Set session untuk notifikasi sukses
+    $_SESSION['register_success'] = true;
+
+    header('Location: login.php');
+    exit();
 } else {
     die("Server Error.");
 }

@@ -21,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_SESSION['loggedin'] = true;
                     $_SESSION['email'] = $user['email'];
 
+                    // Set session untuk notifikasi sukses
+                    $_SESSION['login_success'] = true;
+
                     // Redirect ke halaman /UTS/
                     header("Location: /UTS/");
                     exit();
@@ -29,9 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // Jika email atau password salah
-    echo "Email atau kata sandi salah.";
+    // Jika email atau password salah, atur session notifikasi gagal
+    $_SESSION['login_error'] = true;
+
+    // Redirect kembali ke halaman login
+    header("Location: /UTS/login");
+    exit();
 } else {
-    die("Server Erro.");
+    die("Server Error.");
 }
 ?>
