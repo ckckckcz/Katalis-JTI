@@ -31,7 +31,7 @@
 <body>
     <?php
     // Menampilkan Navbar jika bukan halaman Login, Daftar, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'processRegister.php.php') {
         include('./client/components/Navbar.php');
     }
     ?>
