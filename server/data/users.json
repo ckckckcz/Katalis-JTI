@@ -1,12 +1,14 @@
 [
     {
         "email": "rriovld@gmail.com",
-        "password": "$2y$10$3Suk6ehjHJUlrbDWOqg\/2enM0iK.DiNNo5GlEHHZjTyND.HHZsGPe",
-        "remember_me": 1
+        "password": "$2y$10$3Suk6ehjHJUlrbDWOqg\/2enM0iK.DiNNo5GlEHHZjTyND.HHZsGPe"
     },
     {
         "email": "123@gmail.com",
-        "password": "$2y$10$GONK.HeIuR91JbumRrkAF.DglUI3s\/nVicxKZWplGHaCkPQsduHze",
-        "remember_me": 1
+        "password": "$2y$10$GONK.HeIuR91JbumRrkAF.DglUI3s\/nVicxKZWplGHaCkPQsduHze"
+    },
+    {
+        "email": "rionih@gmail.com",
+        "password": "$2y$10$27iE3qhznhEH5X3AND9WteSkFuxkZ0tn5\/CVrUvK0aaCLniTB22Xu"
     }
 ]

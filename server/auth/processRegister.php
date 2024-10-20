@@ -3,7 +3,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
-    $remember_me = isset($_POST['remember_me']) ? 1 : 0;
 
     // Validasi kata sandi dan konfirmasi
     if ($password !== $password_confirm) {
@@ -30,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $new_user = [
         'email' => $email,
         'password' => password_hash($password, PASSWORD_BCRYPT),
-        'remember_me' => $remember_me
     ];
     $users[] = $new_user;
 
