@@ -9,6 +9,102 @@
   font-style: normal;
 }
 
+/* Roboto Black */
+@font-face {
+  font-family: "Roboto";
+  src: url("/UTS/public/font/Roboto-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Roboto Black Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("/UTS/public/font/Roboto-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* Roboto Bold */
+@font-face {
+  font-family: "Roboto";
+  src: url("/UTS/public/font/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Roboto Bold Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("/UTS/public/font/Roboto-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Roboto Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("/UTS/public/font/Roboto-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Roboto Light */
+@font-face {
+  font-family: "Roboto";
+  src: url("/UTS/public/font/Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Roboto Light Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("/UTS/public/font/Roboto-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Roboto Medium */
+@font-face {
+  font-family: "Roboto";
+  src: url("/UTS/public/font/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Roboto Medium Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("/UTS/public/font/Roboto-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Roboto Regular */
+@font-face {
+  font-family: "Roboto";
+  src: url("/UTS/public/font/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Roboto Thin */
+@font-face {
+  font-family: "Roboto";
+  src: url("/UTS/public/font/Roboto-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+/* Roboto Thin Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("/UTS/public/font/Roboto-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
 body {
   font-family: "Akira Expanded", sans-serif;
   background-image: url("/UTS/public/img/backgroundHome.png");
