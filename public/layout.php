@@ -11,13 +11,13 @@
     $currentFile = basename($filePath);
 
     // Menentukan CSS berdasarkan halaman yang sedang diakses
-    if ($currentFile === 'Login.php' || $currentFile === 'Register.php') {
+    if ($currentFile === 'Login.php' || $currentFile === 'Register.php' || $currentFile === 'Premium.php') {
         echo '<link rel="stylesheet" href="/UTS/public/styles/globalAuth.css">';
     } else {
         echo '<link rel="stylesheet" href="/UTS/public/styles/global.css">';
     }
     ?>
-
+    <link rel="stylesheet" href="/UTS/public/styles/font.css">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
 <body>
     <?php
     // Menampilkan Navbar jika bukan halaman Login, Daftar, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'processRegister.php.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Premium.php') {
         include('./client/components/Navbar.php');
     }
     ?>
@@ -47,7 +47,7 @@
 
     <?php
     // Menampilkan Footer jika bukan halaman Login, Register, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Premium.php') {
         include('./client/components/Footer.php');
     }
     ?>

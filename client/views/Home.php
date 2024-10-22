@@ -20,7 +20,7 @@
       class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-left text-white md:text-5xl lg:text-6xl dark:text-white textHome">
       Where <span class="text-red-600">Winning</span> Is The Only Option</h1>
     <div class="flex items-left justify-left space-x-4 mb-8">
-      <a href="#"
+      <a href="#" onclick="window.location.href='/UTS/premium';"
         class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
         Go Premium Today !
       </a>
