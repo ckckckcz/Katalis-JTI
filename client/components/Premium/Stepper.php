@@ -1,8 +1,8 @@
 <div class="flex justify-center items-center">
     <ol class="flex items-center space-x-12 w-full max-w-3xl">
-        <li class="flex items-center gap-x-4 text-blue-600 dark:text-blue-500">
+        <li class="flex items-center gap-x-4 text-red-600 dark:text-red-500">
             <span
-                class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
+                class="flex items-center justify-center w-8 h-8 border border-red-600 rounded-full shrink-0 dark:border-red-500">
                 1
             </span>
             <span>
