@@ -6,7 +6,7 @@
                 1
             </span>
             <span>
-                <h3 class="font-medium text-lg leading-tight roboto-medium">User info</h3>
+                <h3 class="font-medium text-lg leading-tight roboto-medium">Team Information</h3>
                 <p class="text-sm roboto-medium">Step details here</p>
             </span>
         </li>
@@ -16,7 +16,7 @@
                 2
             </span>
             <span>
-                <h3 class="font-medium text-lg leading-tight roboto-medium">User info</h3>
+                <h3 class="font-medium text-lg leading-tight roboto-medium">User ID Information</h3>
                 <p class="text-sm roboto-medium">Step details here</p>
             </span>
         </li>

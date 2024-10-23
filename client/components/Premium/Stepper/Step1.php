@@ -9,8 +9,9 @@
         <div class="mb-5">
             <label for="games" class="block mb-2 text-sm font-medium text-gray-900">Selected Game</label>
             <select id="games"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                <option selected>-</option>
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required>
+                <option selected disabled>-</option>
                 <option value="ML">Mobile Legends</option>
                 <option value="PG">Pubg</option>
                 <option value="FF">Free Fire</option>
@@ -18,9 +19,10 @@
         </div>
     </div>
 
-    <div id="team-members" class="grid grid-cols-2 gap-3"></div>
 
-    <hr>
+    <div id="team-members" class="grid grid-cols-2 gap-3"></div>
+    <hr class="border-2 rounded-full">
+    <div id="member-role" class="grid grid-cols-2 gap-3 mt-5"></div>
 
     <!-- <label for="repeat-text" class="block mb-2 text-sm font-medium text-gray-900">Upload KTP</label>
     <div class="flex items-center justify-center w-full">
@@ -40,14 +42,14 @@
         </label>
     </div> -->
 
-    <div class="flex items-start mb-5 mt-5">
+    <!-- <div class="flex items-start mb-5 mt-5">
         <div class="flex items-center h-5">
             <input id="terms" type="checkbox" value=""
                 class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-red-300 checked:bg-red-600">
         </div>
         <label for="terms" class="ms-2 text-sm font-medium text-gray-900">I agree with the <a href="#"
                 class="text-red-600 hover:underline">terms and conditions</a></label>
-    </div>
+    </div> -->
 
     <button type="submit"
         class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Next
