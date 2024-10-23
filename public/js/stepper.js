@@ -46,7 +46,7 @@ document.getElementById("games").addEventListener("change", function () {
       // Add role input for each member
       memberRoleContainer.innerHTML += `
                 <div class="mb-5">
-                    <label for="role${i}" class="block mb-2 text-sm font-medium text-gray-900">Member ${i} Role</label>
+                    <label for="role${i}" class="block mb-2 text-sm font-medium text-gray-900"> Role ${i}</label>
                     <input type="text" id="role${i}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" required placeholder="Enter role for member ${i}">
                 </div>
             `;
