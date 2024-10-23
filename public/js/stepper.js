@@ -1,9 +1,23 @@
+// Function to show the specified step in the form
+function showStep(stepNumber) {
+  // Hide all steps
+  const steps = document.querySelectorAll(".step");
+  steps.forEach((step) => step.classList.add("hidden"));
+
+  // Show the selected step
+  const stepToShow = document.getElementById(`step-${stepNumber}`);
+  if (stepToShow) {
+    stepToShow.classList.remove("hidden");
+  }
+}
+
+// Handle game selection change
 document.getElementById("games").addEventListener("change", function () {
   const selectedGame = this.value;
   const teamMembersContainer = document.getElementById("team-members");
   const memberRoleContainer = document.getElementById("member-role");
 
-  // Clear any existing input fields
+  // Clear existing input fields
   teamMembersContainer.innerHTML = "";
   memberRoleContainer.innerHTML = "";
 
@@ -16,57 +30,55 @@ document.getElementById("games").addEventListener("change", function () {
     numberOfMembers = 3; // PUBG and Free Fire have 3 members + 1 captain
   }
 
-  // Dynamically create input fields for the captain and members
+  // Create input fields for captain and members
   if (numberOfMembers > 0) {
-    // Add captain input
+    // Captain input
     teamMembersContainer.innerHTML += `
-            <div class="mb-5">
-                <label for="captain" class="block mb-2 text-sm font-medium text-gray-900">Captain</label>
-                <input type="text" id="captain" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" required placeholder="Enter captain's name">
-            </div>
-        `;
+          <div class="mb-5">
+              <label for="captain" class="block mb-2 text-sm font-medium text-gray-900">Captain</label>
+              <input type="text" id="captain" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" required placeholder="Enter captain's name">
+          </div>
+      `;
 
-    // Add Role Captain at the end
+    // Role for Captain
     memberRoleContainer.innerHTML += `
-            <div class="mb-5">
-                <label for="role-captain" class="block mb-2 text-sm font-medium text-gray-900">Role Captain</label>
-                <input type="text" id="role-captain" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" required placeholder="Enter captain's role">
-            </div>
-        `;
+          <div class="mb-5">
+              <label for="role-captain" class="block mb-2 text-sm font-medium text-gray-900">Role Captain</label>
+              <input type="text" id="role-captain" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" required placeholder="Enter captain's role">
+          </div>
+      `;
 
-    // Add inputs for each team member
+    // Inputs for each team member
     for (let i = 1; i <= numberOfMembers; i++) {
       teamMembersContainer.innerHTML += `
-                <div class="mb-5">
-                    <label for="member${i}" class="block mb-2 text-sm font-medium text-gray-900">Member ${i}</label>
-                    <input type="text" id="member${i}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" required placeholder="Enter member ${i}'s name">
-                </div>
-            `;
+              <div class="mb-5">
+                  <label for="member${i}" class="block mb-2 text-sm font-medium text-gray-900">Member ${i}</label>
+                  <input type="text" id="member${i}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" required placeholder="Enter member ${i}'s name">
+              </div>
+          `;
 
-      // Add role input for each member
+      // Role input for each member
       memberRoleContainer.innerHTML += `
-                <div class="mb-5">
-                    <label for="role${i}" class="block mb-2 text-sm font-medium text-gray-900"> Role ${i}</label>
-                    <input type="text" id="role${i}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" required placeholder="Enter role for member ${i}">
-                </div>
-            `;
+              <div class="mb-5">
+                  <label for="role${i}" class="block mb-2 text-sm font-medium text-gray-900">Role ${i}</label>
+                  <input type="text" id="role${i}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" required placeholder="Enter role for member ${i}">
+              </div>
+          `;
     }
   }
 });
 
-document.getElementById("team-form").addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevent the form from submitting normally
-
-  // Get team name
-  const teamName = document.getElementById("text").value.trim();
+// Handle submission of Step 1
+document.getElementById("step-1-form").addEventListener("submit", function (e) {
+  e.preventDefault(); // Prevent normal form submission
 
   // Gather input data
+  const teamName = document.getElementById("team-name").value.trim();
   const captain = document.getElementById("captain").value.trim();
   const roleCaptain = document.getElementById("role-captain").value.trim();
   const members = [];
   const roles = [];
 
-  // Collect member names and roles
   const numberOfMembers = document.getElementById("games").value === "ML" ? 4 : 3;
 
   for (let i = 1; i <= numberOfMembers; i++) {
@@ -99,9 +111,36 @@ document.getElementById("team-form").addEventListener("submit", function (e) {
     .then((data) => {
       if (data.success) {
         alert("Team data saved successfully!");
-        // Optionally, you can clear the form here or redirect
+        showStep(2); // Show step 2
       } else {
         alert("Failed to save team data: " + data.message);
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+});
+
+// Handle submission of Step 2
+document.getElementById("step-2-form").addEventListener("submit", function (e) {
+  e.preventDefault(); // Prevent normal form submission
+
+  // Gather additional information
+  const additionalInfo = document.getElementById("additional-info").value.trim();
+
+  // Send additional data to server via AJAX
+  fetch("/UTS/server/dataTeam.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ additionalInfo }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        alert("Additional information submitted successfully!");
+        showStep(3); // Show step 3 or handle accordingly
+      } else {
+        alert("Failed to submit additional information: " + data.message);
       }
     })
     .catch((error) => console.error("Error:", error));
