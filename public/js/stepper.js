@@ -53,3 +53,56 @@ document.getElementById("games").addEventListener("change", function () {
     }
   }
 });
+
+document.getElementById("team-form").addEventListener("submit", function (e) {
+  e.preventDefault(); // Prevent the form from submitting normally
+
+  // Get team name
+  const teamName = document.getElementById("text").value.trim();
+
+  // Gather input data
+  const captain = document.getElementById("captain").value.trim();
+  const roleCaptain = document.getElementById("role-captain").value.trim();
+  const members = [];
+  const roles = [];
+
+  // Collect member names and roles
+  const numberOfMembers = document.getElementById("games").value === "ML" ? 4 : 3;
+
+  for (let i = 1; i <= numberOfMembers; i++) {
+    members.push(document.getElementById(`member${i}`).value.trim());
+    roles.push(document.getElementById(`role${i}`).value.trim());
+  }
+
+  // Create data object
+  const teamData = {
+    teamName: teamName,
+    captain: {
+      name: captain,
+      role: roleCaptain,
+    },
+    members: members.map((name, index) => ({
+      name: name,
+      role: roles[index],
+    })),
+  };
+
+  // Send data to server via AJAX
+  fetch("/UTS/server/dataTeam.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(teamData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        alert("Team data saved successfully!");
+        // Optionally, you can clear the form here or redirect
+      } else {
+        alert("Failed to save team data: " + data.message);
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+});

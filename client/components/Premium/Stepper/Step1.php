@@ -1,4 +1,4 @@
-<form class="max-w-xl mx-auto bg-gray-50 p-5 border-2 rounded-xl border-gray-200 mt-10">
+<form id="team-form" class="max-w-xl mx-auto bg-gray-50 p-5 border-2 rounded-xl border-gray-200 mt-10">
     <div class="grid grid-cols-2 gap-3">
         <div class="mb-5">
             <label for="text" class="block mb-2 text-sm font-medium text-gray-900">Tim Name</label>
