@@ -5,12 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo isset($title) ? $title : 'Grit & Grind'; ?></title>
-
     <?php
-    // Mendapatkan nama file yang sedang diakses
     $currentFile = basename($filePath);
 
-    // Menentukan CSS berdasarkan halaman yang sedang diakses
     if ($currentFile === 'Login.php' || $currentFile === 'Register.php' || $currentFile === 'Premium.php') {
         echo '<link rel="stylesheet" href="/UTS/public/styles/globalAuth.css">';
     } else {

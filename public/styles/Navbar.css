@@ -3,10 +3,10 @@
 }
 
 .navbar {
-  position: relative; /* Menjaga navbar tetap berada di atas */
-  z-index: 30; /* Menetapkan z-index untuk navbar */
+  position: relative;
+  z-index: 30;
 }
 
 button {
-  cursor: pointer; /* Menambahkan kursor pointer pada tombol */
+  cursor: pointer;
 }

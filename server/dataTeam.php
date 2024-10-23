@@ -1,5 +1,4 @@
 <?php
-// Set the path for the photos and data folders
 $photoFolder = './data/photos/';
 $dataFolder = './data/team/';
 
@@ -32,13 +31,13 @@ for ($i = 1; isset($_POST["gameInfo$i"]); $i++) {
 }
 
 // Simpan dokumen pembayaran tanpa mengubah nama file (jika ada)
-$paymentInfo = [];
-if (isset($_FILES['paymentDocument'])) {
-    $paymentFileName = $photoFolder . basename($_FILES['paymentDocument']['name']); // Gunakan nama file asli
-    if (move_uploaded_file($_FILES['paymentDocument']['tmp_name'], $paymentFileName)) {
-        $paymentInfo['paymentDocument'] = $paymentFileName; // Simpan path file di paymentInfo
+$teamLogoInfo = [];
+if (isset($_FILES['teamLogo'])) {
+    $logoFileName = $photoFolder . basename($_FILES['teamLogo']['name']); // Gunakan nama file asli
+    if (move_uploaded_file($_FILES['teamLogo']['tmp_name'], $logoFileName)) {
+        $teamLogoInfo['teamLogo'] = $logoFileName; // Simpan path file di teamLogoInfo
     } else {
-        echo json_encode(['success' => false, 'message' => 'Failed to upload payment document.']);
+        echo json_encode(['success' => false, 'message' => 'Failed to upload logo document.']);
         exit;
     }
 }
@@ -50,7 +49,7 @@ $teamData = [
     'members' => $members,
     'roles' => $roles,
     'gameInfo' => $gameInfo,
-    'paymentInfo' => $paymentInfo
+    'teamLogoInfo' => $teamLogoInfo
 ];
 
 // Simpan data tim ke file JSON
