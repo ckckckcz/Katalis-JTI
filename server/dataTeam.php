@@ -1,29 +1,63 @@
 <?php
-// Set the path for the data folder
+// Set the path for the photos and data folders
+$photoFolder = './data/photos/';
 $dataFolder = './data/team/';
 
-// Get the JSON data from the POST request
-$teamData = json_decode(file_get_contents('php://input'), true);
+if (!file_exists($photoFolder)) {
+    mkdir($photoFolder, 0777, true);
+}
 
-// Extract team name
-$teamName = $teamData['teamName'];
+// Cek apakah ada data tim yang diterima
+if (!isset($_POST['teamName'])) {
+    echo json_encode(['success' => false, 'message' => 'No team name provided.']);
+    exit;
+}
 
-// Create a valid filename
-$filename = preg_replace('/[^a-zA-Z0-9-_]/', '_', $teamName) . '.json';
-$filePath = $dataFolder . $filename;
+// Ambil data dari POST
+$teamName = preg_replace('/[^a-zA-Z0-9-_]/', '_', $_POST['teamName']); // Buat nama tim aman untuk dijadikan nama file
+$captain = $_POST['captain'];
+$members = [];
+$roles = [];
+$gameInfo = [];
 
-// Create the directory if it does not exist
-if (!file_exists($dataFolder)) {
-    if (!mkdir($dataFolder, 0755, true) && !is_dir($dataFolder)) {
-        echo json_encode(['success' => false, 'message' => 'Failed to create directory.']);
+// Mendapatkan anggota tim dan perannya
+for ($i = 1; isset($_POST["member$i"]); $i++) {
+    $members[] = preg_replace('/[^a-zA-Z0-9-_]/', '_', $_POST["member$i"]); // Buat nama anggota aman untuk dijadikan nama file
+    $roles[] = $_POST["role$i"];
+}
+
+// Mendapatkan game info
+for ($i = 1; isset($_POST["gameInfo$i"]); $i++) {
+    $gameInfo[] = $_POST["gameInfo$i"];
+}
+
+// Simpan dokumen pembayaran tanpa mengubah nama file (jika ada)
+$paymentInfo = [];
+if (isset($_FILES['paymentDocument'])) {
+    $paymentFileName = $photoFolder . basename($_FILES['paymentDocument']['name']); // Gunakan nama file asli
+    if (move_uploaded_file($_FILES['paymentDocument']['tmp_name'], $paymentFileName)) {
+        $paymentInfo['paymentDocument'] = $paymentFileName; // Simpan path file di paymentInfo
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Failed to upload payment document.']);
         exit;
     }
 }
 
-// Save the data to a JSON file
-if (file_put_contents($filePath, json_encode($teamData, JSON_PRETTY_PRINT))) {
-    echo json_encode(['success' => true]);
+// Membuat objek data tim untuk disimpan sebagai JSON
+$teamData = [
+    'teamName' => $teamName,
+    'captain' => $captain,
+    'members' => $members,
+    'roles' => $roles,
+    'gameInfo' => $gameInfo,
+    'paymentInfo' => $paymentInfo
+];
+
+// Simpan data tim ke file JSON
+$filename = $dataFolder . $teamName . '.json';
+if (file_put_contents($filename, json_encode($teamData, JSON_PRETTY_PRINT))) {
+    echo json_encode(['success' => true, 'message' => 'Data and files saved successfully.']);
 } else {
-    echo json_encode(['success' => false, 'message' => 'Unable to save data.']);
+    echo json_encode(['success' => false, 'message' => 'Failed to save team data as JSON.']);
 }
 ?>

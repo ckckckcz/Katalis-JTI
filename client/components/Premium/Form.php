@@ -1,4 +1,5 @@
-<form id="team-form" class="max-w-xl mx-auto bg-gray-50 p-5 border-2 rounded-xl border-gray-200 mt-10">
+<form id="team-form" class="max-w-xl mx-auto bg-gray-50 p-5 border-2 rounded-xl border-gray-200 mt-10" method="POST"
+    enctype="multipart/form-data">
     <!-- Team Information -->
     <h2 class="text-lg font-semibold mb-5 text-red-700">Team Information</h2>
     <div class="grid grid-cols-2 gap-3">
@@ -33,11 +34,6 @@
 
     <hr class="border-2 rounded-full mb-5">
 
-    <!-- Document Information -->
-    <h2 class="text-lg font-semibold mb-5 text-red-700">Document Information</h2>
-    <div id="document-info-container" class="grid grid-cols-2 gap-3"></div>
-
-    <hr class="border-2 rounded-full mb-5">
 
     <!-- Payment -->
     <h2 class="text-lg font-semibold mb-5 text-red-700">Payment</h2>

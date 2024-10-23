@@ -3,14 +3,12 @@ document.getElementById("games").addEventListener("change", function () {
   const teamMembersContainer = document.getElementById("team-members");
   const memberRoleContainer = document.getElementById("member-role");
   const gameInfoContainer = document.getElementById("game-info-container");
-  const documentInfoContainer = document.getElementById("document-info-container");
   const paymentInfoContainer = document.getElementById("payment-info-container");
 
   // Clear existing input fields
   teamMembersContainer.innerHTML = "";
   memberRoleContainer.innerHTML = "";
   gameInfoContainer.innerHTML = "";
-  documentInfoContainer.innerHTML = "";
   paymentInfoContainer.innerHTML = "";
 
   let numberOfMembers = 0;
@@ -56,13 +54,13 @@ document.getElementById("games").addEventListener("change", function () {
       `;
     }
 
-    // Menambahkan field Game Information
+    // Game Information fields
     gameInfoContainer.innerHTML += `
       <div class="mb-5">
         <label for="game-info-1" class="block mb-2 text-sm font-medium text-gray-900">ID Game Captain</label>
         <input type="text" id="game-info-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" required placeholder="Enter game info Captain">
       </div>
-      `;
+    `;
 
     for (let i = 1; i <= numberOfMembers; i++) {
       gameInfoContainer.innerHTML += `
@@ -73,63 +71,23 @@ document.getElementById("games").addEventListener("change", function () {
       `;
     }
 
-    // Menambahkan field Document Information
-    documentInfoContainer.innerHTML += `
-    <div class="mb-5">
-      <label for="document-info-1" class="block mb-2 text-sm font-medium text-gray-900">ID Card Photo Captain</label>
-      <div class="flex items-center justify-center w-full text-center">
-        <label for="dropzone-file-1" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
-          <div class="flex flex-col items-center justify-center pt-5 pb-6">
-            <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-            </svg>
-            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-          </div>
-          <input id="dropzone-file-1" type="file" class="hidden" />
-        </label>
-      </div>
-    </div>
-  `;
-
-    // Menggunakan loop untuk anggota 1-4
-    for (let i = 1; i <= numberOfMembers; i++) {
-      documentInfoContainer.innerHTML += `
-    <div class="mb-5">
-      <label for="document-info-${i + 1}" class="block mb-2 text-sm font-medium text-gray-900">ID Card Photo ${i}</label>
-      <div class="flex items-center justify-center w-full text-center">
-        <label for="dropzone-file-${i + 1}" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
-          <div class="flex flex-col items-center justify-center pt-5 pb-6">
-            <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-            </svg>
-            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-          </div>
-          <input id="dropzone-file-${i + 1}" type="file" class="hidden" />
-        </label>
-      </div>
-    </div>
-  `;
-    }
-
-    // Add Payment fields (example)
+    // Payment Document fields (Example)
     paymentInfoContainer.innerHTML += `
       <div class="mb-5">
-      <label for="document-info-1" class="block mb-2 text-sm font-medium text-gray-900">ID Card Photo Captain</label>
-      <div class="flex items-center justify-center w-full text-center">
-        <label for="dropzone-file-1" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
-          <div class="flex flex-col items-center justify-center pt-5 pb-6">
-            <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-            </svg>
-            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-          </div>
-          <input id="dropzone-file-1" type="file" class="hidden" />
-        </label>
+        <label for="payment-file-1" class="block mb-2 text-sm font-medium text-gray-900">ID Card Photo Captain</label>
+        <div class="flex items-center justify-center w-full text-center">
+          <label for="payment-file-1" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+              <svg class="w-8 h-8 mb-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+              </svg>
+              <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+              <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+            </div>
+            <input id="payment-file-1" type="file" name="paymentDocument" class="hidden" />
+          </label>
+        </div>
       </div>
-    </div>
     `;
   }
 });
@@ -140,28 +98,53 @@ function confirmTournament() {
   const captain = document.getElementById("captain").value;
   const members = [];
   const roles = [];
+  const gameInfo = [];
+  const paymentInfo = []; // Untuk menyimpan informasi pembayaran (jika ada)
 
   const numberOfMembers = document.getElementById("games").value === "ML" ? 4 : 3;
 
+  // Mengambil nama anggota tim dan perannya
   for (let i = 1; i <= numberOfMembers; i++) {
     members.push(document.getElementById(`member${i}`).value);
     roles.push(document.getElementById(`role${i}`).value);
   }
 
+  // Mengambil informasi ID Game captain dan anggota tim
+  gameInfo.push(document.getElementById(`game-info-1`).value); // Captain ID Game
+  for (let i = 1; i <= numberOfMembers; i++) {
+    gameInfo.push(document.getElementById(`game-info-${i + 1}`).value); // Member ID Game
+  }
+
+  // Mengambil informasi pembayaran (jika ada)
+  const paymentDocument = document.getElementById("payment-file-1")?.files[0]; // Updated ID for payment file input
+  if (paymentDocument) {
+    paymentInfo.paymentDocument = paymentDocument;
+  }
+
+  // Membuat objek data tim
   const teamData = {
     teamName,
     captain,
     members,
     roles,
+    gameInfo,
+    paymentInfo,
   };
 
-  // Example: send team data via fetch
+  // Contoh: mengirim data tim menggunakan fetch
+  const formData = new FormData();
+  formData.append("teamName", teamData.teamName);
+  formData.append("captain", teamData.captain);
+  members.forEach((member, index) => formData.append(`member${index + 1}`, member));
+  roles.forEach((role, index) => formData.append(`role${index + 1}`, role));
+  gameInfo.forEach((game, index) => formData.append(`gameInfo${index + 1}`, game));
+  if (paymentInfo.paymentDocument) {
+    formData.append("paymentDocument", paymentInfo.paymentDocument);
+  }
+
   fetch("/UTS/server/dataTeam.php", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(teamData),
+    body: formData,
   })
     .then((response) => response.json())
     .then((data) => {
