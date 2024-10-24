@@ -22,8 +22,7 @@
             <div class="flex items-start mb-5">
                 <div class="flex items-center h-5">
                     <input id="terms" type="checkbox"
-                        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 checked:bg-red-600 focus:ring-3 focus:ring-red-600"
-                        required>
+                        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 checked:bg-red-600 focus:ring-3 focus:ring-red-600">
                 </div>
                 <label for="terms" class="ms-2 text-sm font-medium text-gray-900">Ingat Saya</label>
             </div>

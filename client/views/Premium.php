@@ -39,11 +39,11 @@
 
             <!-- Payment -->
             <h2 class="text-lg font-semibold mb-5 text-red-700">Team Logo</h2>
-            <div id="team-logo-container" class="grid grid-cols-2 gap-3"></div>
+            <div id="team-logo-container" class=""></div>
 
             <!-- Confirm Button -->
             <button type="button"
-                class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center w-full"
                 onclick="confirmTournament()">Confirm Tournament</button>
         </form>
     </div>
