@@ -1,0 +1,23 @@
+{
+    "teamName": "gogo",
+    "captain": "riovaldo",
+    "members": [
+        "alfiyan",
+        "fahmi",
+        "rahman"
+    ],
+    "roles": [
+        "kiri",
+        "bawah",
+        "atas"
+    ],
+    "gameInfo": [
+        "123",
+        "456",
+        "789",
+        "012"
+    ],
+    "teamLogoInfo": {
+        "teamLogo": ".\/data\/photos\/unair.png"
+    }
+}

@@ -1,5 +1,5 @@
 <section class="flex justify-center sectionHome">
-  <div class="py-8 px-4 text-center mx-auto max-w-screen-xl relative">
+  <div class="py-8 px-4 text-center mx-auto max-w-screen-xl relative mt-[150px] mb-[100px]">
     <div class="flex -space-x-4 rtl:space-x-reverse items-left justify-left mb-4">
       <img class="w-10 h-10 border-2 border-red-700 rounded-full object-cover"
         src="https://www.wwe.com/f/styles/gallery_img_l/public/all/2022/12/032_Roman_02102022PB_5570--6d0f152505dca2f8f9ae158c24210795.jpg"
