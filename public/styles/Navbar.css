@@ -1,6 +1,7 @@
 /* Navbar */
 .navbar {
   background-color: #ffffff;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.11);
 }
 
 .navbar.dark {
