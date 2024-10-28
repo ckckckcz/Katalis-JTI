@@ -1,6 +1,6 @@
 <?php
 session_start(); // Pastikan sesi dimulai
-$location = '/UTS';
+$location = '/katalis';
 $request = $_SERVER['REQUEST_URI'];
 $filePath = '';
 $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'; // Cek apakah pengguna adalah admin

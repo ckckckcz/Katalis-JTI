@@ -1,0 +1,176 @@
+/* Navbar */
+.navbar {
+  background-color: #ffffff;
+}
+
+.navbar.dark {
+  background-color: #1f2937;
+}
+
+/* Container */
+.container {
+  max-width: 1280px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 2rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #000000;
+}
+
+.dark .logo-text {
+  color: #ffffff;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Button Primary */
+.button-primary {
+  color: #ffffff;
+  background-color: #1d4ed8;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.button-primary:hover {
+  background-color: #1e40af;
+}
+
+.button-primary:focus {
+  outline: 4px solid #93c5fd;
+}
+
+.dark .button-primary {
+  background-color: #2563eb;
+}
+
+.dark .button-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.dark .button-primary:focus {
+  outline-color: #1e3a8a;
+}
+
+/* Button Menu */
+.button-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #6b7280;
+  border-radius: 0.5rem;
+}
+
+.button-menu:hover {
+  background-color: #f3f4f6;
+}
+
+.button-menu:focus {
+  outline: 2px solid #d1d5db;
+}
+
+.dark .button-menu {
+  color: #9ca3af;
+}
+
+.dark .button-menu:hover {
+  background-color: #374151;
+}
+
+.dark .button-menu:focus {
+  outline-color: #4b5563;
+}
+
+/* Menu Icon */
+.menu-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Navbar Content */
+.navbar-content {
+  display: none;
+  width: 100%;
+}
+
+.navbar-content.md {
+  display: flex;
+  width: auto;
+}
+
+/* Navbar List */
+.navbar-list {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+}
+
+.navbar-list.md {
+  flex-direction: row;
+  margin-top: 0;
+  border: none;
+  background-color: #ffffff;
+}
+
+.dark .navbar-list {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+/* Navbar Link */
+.navbar-link {
+  padding: 0.5rem 1rem;
+  color: #1f2937;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.navbar-link:hover {
+  background-color: #f3f4f6;
+  color: #1d4ed8;
+}
+
+.dark .navbar-link {
+  color: #ffffff;
+}
+
+.dark .navbar-link:hover {
+  background-color: #374151;
+}
+
+.navbar-link.active {
+  color: #1d4ed8;
+}
+
+.dark .navbar-link.active {
+  color: #3b82f6;
+}
