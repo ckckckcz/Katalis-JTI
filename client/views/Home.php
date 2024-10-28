@@ -20,3 +20,4 @@
 
 
 <?php include('./client/components/Home/Brand.php'); ?>
+<?php include('./client/components/Home/Blog.php'); ?>
