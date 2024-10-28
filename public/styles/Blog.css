@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .blog-container {
   max-width: 1280px;
@@ -24,17 +24,18 @@
   background-color: #1f2937; /* gray-800 */
   border-color: #374151; /* gray-700 */
 }
-
 .blog-image {
-  border-top-left-radius: 0.5rem; /* rounded-t-lg */
-  border-top-right-radius: 0.5rem;
-  width: 100%;
-  height: auto;
+  width: 500px; /* Lebar gambar 100 piksel */
+  height: 350px; /* Tinggi gambar 100 piksel */
+  object-fit: cover; /* Memastikan gambar terjaga proporsinya dan terpotong jika perlu */
+  border-top-left-radius: 8px; /* Menambahkan sudut melengkung (opsional) */
+  border-top-right-radius: 8px; /* Menambahkan sudut melengkung (opsional) */
 }
+
 .card-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 kolom pada desktop */
-  gap: 1.5rem; /* Jarak antar kolom */
+  gap: 2em; /* Jarak antar kolom */
 }
 
 @media (max-width: 768px) {

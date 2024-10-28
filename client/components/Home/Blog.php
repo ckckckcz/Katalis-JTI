@@ -3,7 +3,7 @@
         <div class="card-list">
             <div class="blog-card">
                 <a href="#">
-                    <img class="blog-image" src="/docs/images/blog/image-1.jpg" alt="" />
+                    <img class="blog-image" src="/katalis/public/img/article/aic.jpg" alt="" />
                 </a>
                 <div class="blog-content">
                     <a href="#">
@@ -23,7 +23,7 @@
             </div>
             <div class="blog-card">
                 <a href="#">
-                    <img class="blog-image" src="/docs/images/blog/image-1.jpg" alt="" />
+                    <img class="blog-image" src="/katalis/public/img/article/ctf.jpg" alt="" />
                 </a>
                 <div class="blog-content">
                     <a href="#">
@@ -43,7 +43,7 @@
             </div>
             <div class="blog-card">
                 <a href="#">
-                    <img class="blog-image" src="/docs/images/blog/image-1.jpg" alt="" />
+                    <img class="blog-image" src="/katalis/public/img/article/igi.jpg" alt="" />
                 </a>
                 <div class="blog-content">
                     <a href="#">
