@@ -17,7 +17,7 @@
   max-width: 24rem; /* sm */
   background-color: white;
   border: 1px solid #e5e7eb; /* gray-200 */
-  border-radius: 0.5rem; /* rounded-lg */
+  border-radius: 1rem; /* rounded-lg */
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* shadow */
 }
 .blog-card.dark {
@@ -28,8 +28,8 @@
   width: 500px; /* Lebar gambar 100 piksel */
   height: 350px; /* Tinggi gambar 100 piksel */
   object-fit: cover; /* Memastikan gambar terjaga proporsinya dan terpotong jika perlu */
-  border-top-left-radius: 8px; /* Menambahkan sudut melengkung (opsional) */
-  border-top-right-radius: 8px; /* Menambahkan sudut melengkung (opsional) */
+  border-top-left-radius: 1rem; /* Menambahkan sudut melengkung (opsional) */
+  border-top-right-radius: 1rem; /* Menambahkan sudut melengkung (opsional) */
 }
 
 .card-list {

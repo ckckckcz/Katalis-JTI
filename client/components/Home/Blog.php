@@ -12,7 +12,7 @@
                     </a>
                     <p class="blog-description">Here are the biggest enterprise technology acquisitions of 2021 so far,
                         in reverse chronological order.</p>
-                    <a href="#" class="blog-button">
+                    <a href="#" class="blog-button font-bold">
                         Read more
                         <svg class="blog-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 10">
@@ -32,7 +32,7 @@
                     </a>
                     <p class="blog-description">Here are the biggest enterprise technology acquisitions of 2021 so far,
                         in reverse chronological order.</p>
-                    <a href="#" class="blog-button">
+                    <a href="#" class="blog-button font-bold">
                         Read more
                         <svg class="blog-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 10">
@@ -52,7 +52,7 @@
                     </a>
                     <p class="blog-description">Here are the biggest enterprise technology acquisitions of 2021 so far,
                         in reverse chronological order.</p>
-                    <a href="#" class="blog-button">
+                    <a href="#" class="blog-button font-bold">
                         Read more
                         <svg class="blog-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 10">
