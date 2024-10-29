@@ -32,10 +32,17 @@
   color: #ffffff;
 }
 
-/* Responsive Title */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .home-title {
     font-size: 3rem;
+    text-align: left;
+    margin-bottom: 0.3rem;
+  }
+  .home-section {
+    margin-top: 20px;
+  }
+  .home-description {
+    text-align: left;
   }
 }
 @media (min-width: 1024px) {
@@ -50,7 +57,6 @@
   font-size: 1.125rem;
   font-weight: 400;
   color: #6b7280;
-  padding: 0 2rem;
 }
 .home-section.dark .home-description {
   color: #9ca3af;
