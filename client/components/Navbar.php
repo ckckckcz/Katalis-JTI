@@ -17,7 +17,8 @@
 
         <!-- Actions (Button) -->
         <div class="actions">
-            <button type="button" class="button-primary font-bold">Masuk</button>
+            <button type="button" class="button-primary font-bold"
+                onclick="window.location.href='/katalis/login'">Masuk</button>
         </div>
     </div>
 </nav>
