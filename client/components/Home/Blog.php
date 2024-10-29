@@ -1,5 +1,6 @@
 <section class="blog-section">
     <div class="blog-container">
+        <h1 class="blog-title">Blog dan Artikel</h1>
         <div class="card-list">
             <div class="blog-card">
                 <a href="#">
