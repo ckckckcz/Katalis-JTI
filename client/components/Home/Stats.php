@@ -4,23 +4,23 @@
             <div class="brand-card">
                 <div class="brand-card-content">
                     <div class="brand-card-item">
-                        <h2>70%</h2>
-                        <p>Mahasiswa Berprestasi</p>
+                        <h2 class="font-bold">70%</h2>
+                        <p class="font-regular">Mahasiswa Berprestasi</p>
                     </div>
                     <div class="brand-card-divider"></div>
                     <div class="brand-card-item">
-                        <h2>100+</h2>
-                        <p>Mahasiswa Berprestasi</p>
+                        <h2 class="font-bold">100+</h2>
+                        <p class="font-regular">Mahasiswa Berprestasi</p>
                     </div>
                     <div class="brand-card-divider"></div>
                     <div class="brand-card-item">
-                        <h2>100+</h2>
-                        <p>Mahasiswa Berprestasi</p>
+                        <h2 class="font-bold">100+</h2>
+                        <p class="font-regular">Mahasiswa Berprestasi</p>
                     </div>
                     <div class="brand-card-divider"></div>
                     <div class="brand-card-item">
-                        <h2>300+</h2>
-                        <p>Mahasiswa Berprestasi</p>
+                        <h2 class="font-bold">300+</h2>
+                        <p class="font-regular">Mahasiswa Berprestasi</p>
                     </div>
                 </div>
             </div>
