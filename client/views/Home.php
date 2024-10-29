@@ -1,6 +1,6 @@
 <section class="home-section">
   <div class="home-container">
-    <h1 class="home-title">We invest in the world’s potential</h1>
+    <h1 class="home-title font-bold">We invest in the world’s potential</h1>
     <p class="home-description">Here at Flowbite we focus on markets where technology, innovation, and capital can
       unlock long-term value and drive economic growth.</p>
     <div class="home-buttons">

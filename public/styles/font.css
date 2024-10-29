@@ -1,117 +1,105 @@
-/* Font Family: Inkination */
+/* Tambahkan font-face untuk setiap variasi font */
+@font-face {
+  font-family: "Lota Grotesque Alt 1";
+  src: url("../font/Lota\ Grotesque\ Alt\ 1\ Black\ Italic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
 
 @font-face {
-  font-family: "Inkination";
-  src: url("path/to/fonts/InkinationMonoTRIAL-Bd.otf") format("opentype");
-  font-weight: bold;
+  font-family: "Lota Grotesque Alt 1";
+  src: url("../font/Lota\ Grotesque\ Alt\ 1\ Black.otf") format("opentype");
+  font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inkination";
-  src: url("path/to/fonts/InkinationMonoTRIAL-Lt.otf") format("opentype");
-  font-weight: 300;
+  font-family: "Lota Grotesque Alt 1";
+  src: url("../font/Lota\ Grotesque\ Alt\ 1\ Bold\ Italic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lota Grotesque Alt 1";
+  src: url("../font/Lota\ Grotesque\ Alt\ 1\ Bold.otf") format("opentype");
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inkination";
-  src: url("path/to/fonts/InkinationMonoTRIAL-Md.otf") format("opentype");
-  font-weight: 500;
+  font-family: "Lota Grotesque Alt 1";
+  src: url("../font//Lota\ Grotesque\ Alt\ 1\ Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lota Grotesque Alt 1";
+  src: url("../font/Lota\ Grotesque\ Alt\ 1\ Regular.otf") format("opentype");
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inkination";
-  src: url("path/to/fonts/InkinationMonoTRIAL-Rg.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Inkination";
-  src: url("path/to/fonts/InkinationMonoTRIAL-SmBd.otf") format("opentype");
+  font-family: "Lota Grotesque Alt 1";
+  src: url("../font//Lota\ Grotesque\ Alt\ 1\ Semi\ Bold.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inkination";
-  src: url("path/to/fonts/InkinationTRIAL-Bdlt.otf") format("opentype");
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Inkination";
-  src: url("path/to/fonts/InkinationTRIAL-BdltTwo.otf") format("opentype");
-  font-weight: bold;
-  font-style: italic;
-}
-
-/* Tambahkan aturan serupa untuk font lainnya */
-
-@font-face {
-  font-family: "Inkination";
-  src: url("path/to/fonts/InkinationTRIAL-Rglt.otf") format("opentype");
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Inkination";
-  src: url("path/to/fonts/InkinationTRIAL-SmBdlt.otf") format("opentype");
+  font-family: "Lota Grotesque Alt 1";
+  src: url("../font/Lota\ Grotesque\ Alt\ 1\ SemiBold\ Italic.otf") format("opentype");
   font-weight: 600;
   font-style: italic;
 }
 
-/* Class untuk masing-masing font */
-.font-mono-bold {
-  font-family: "Inkination";
-  font-weight: bold;
-  font-style: normal;
+/* Buat kelas untuk masing-masing font */
+.font-black-italic {
+  font-family: "Lota Grotesque Alt 1";
+  font-weight: 900;
+  font-style: italic;
 }
 
-.font-mono-light {
-  font-family: "Inkination";
-  font-weight: 300;
-  font-style: normal;
-}
-
-.font-mono-medium {
-  font-family: "Inkination";
-  font-weight: 500;
-  font-style: normal;
-}
-
-.font-mono-regular {
-  font-family: "Inkination";
-  font-weight: normal;
-  font-style: normal;
-}
-
-.font-mono-semibold {
-  font-family: "Inkination";
-  font-weight: 600;
+.font-black {
+  font-family: "Lota Grotesque Alt 1";
+  font-weight: 900;
   font-style: normal;
 }
 
 .font-bold-italic {
-  font-family: "Inkination";
-  font-weight: bold;
+  font-family: "Lota Grotesque Alt 1";
+  font-weight: 700;
   font-style: italic;
 }
 
-/* Tambahkan class serupa untuk font lainnya */
+.font-bold {
+  font-family: "Lota Grotesque Alt 1";
+  font-weight: 700;
+  font-style: normal;
+}
 
-.font-italic-regular {
-  font-family: "Inkination";
-  font-weight: normal;
+.font-regular-italic {
+  font-family: "Lota Grotesque Alt 1";
+  font-weight: 400;
   font-style: italic;
 }
 
-.font-semibold-italic {
-  font-family: "Inkination";
+.font-regular {
+  font-family: "Lota Grotesque Alt 1";
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-semi-bold {
+  font-family: "Lota Grotesque Alt 1";
+  font-weight: 600;
+  font-style: normal;
+}
+
+.font-semi-bold-italic {
+  font-family: "Lota Grotesque Alt 1";
   font-weight: 600;
   font-style: italic;
 }
