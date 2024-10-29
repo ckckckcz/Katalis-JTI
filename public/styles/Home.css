@@ -87,12 +87,12 @@
   font-weight: 500;
   text-align: center;
   color: #ffffff;
-  background-color: #1d4ed8;
+  background-color: #01bc8d;
   border-radius: 0.5rem;
   transition: background-color 0.2s;
 }
 .home-button-primary:hover {
-  background-color: #1e40af;
+  background-color: #059470;
 }
 .home-button-primary:focus {
   outline: none;
@@ -127,7 +127,7 @@
 }
 .home-button-secondary:hover {
   background-color: #f3f4f6;
-  color: #1d4ed8;
+  color: #01bc8d;
 }
 .home-button-secondary:focus {
   outline: none;

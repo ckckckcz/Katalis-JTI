@@ -75,13 +75,13 @@
   font-size: 0.875rem; /* text-sm */
   font-weight: 500; /* font-medium */
   color: white;
-  background-color: #1d4ed8; /* bg-blue-700 */
+  background-color: #01bc8d;
   border-radius: 0.5rem; /* rounded-lg */
   text-align: center;
   transition: background-color 0.2s;
 }
 .blog-button:hover {
-  background-color: #1e40af; /* hover:bg-blue-800 */
+  background-color: #059470; /* hover:bg-blue-800 */
 }
 .blog-button:focus {
   outline: none;

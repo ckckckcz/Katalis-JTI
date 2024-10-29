@@ -50,13 +50,13 @@
 }
 
 .navbar-link:hover {
-  color: #1d4ed8;
+  color: #01bc8d;
   background-color: #f3f4f6;
   border-radius: 0.5rem;
 }
 
 .navbar-link.active {
-  color: #1d4ed8;
+  color: #01bc8d;
 }
 
 /* Actions */
@@ -69,7 +69,7 @@
 /* Button Primary */
 .button-primary {
   color: #ffffff;
-  background-color: #1d4ed8;
+  background-color: #01bc8d;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   font-weight: 500;
@@ -79,7 +79,7 @@
 }
 
 .button-primary:hover {
-  background-color: #1e40af;
+  background-color: #059470;
 }
 
 .button-primary:focus {
