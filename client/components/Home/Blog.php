@@ -1,6 +1,6 @@
 <section class="blog-section">
     <div class="blog-container">
-        <h1 class="blog-title">Blog dan Artikel</h1>
+        <h1 class="blog-title-top font-bold">Blog dan Artikel</h1>
         <div class="card-list">
             <div class="blog-card">
                 <a href="#">
@@ -8,7 +8,7 @@
                 </a>
                 <div class="blog-content">
                     <a href="#">
-                        <h5 class="blog-title">Noteworthy technology acquisitions 2021</h5>
+                        <h5 class="blog-title font-regular">Pemenang AIC Audience Award, dan 2nd Runner-Up</h5>
                     </a>
                     <p class="blog-description">Here are the biggest enterprise technology acquisitions of 2021 so far,
                         in reverse chronological order.</p>
@@ -28,7 +28,7 @@
                 </a>
                 <div class="blog-content">
                     <a href="#">
-                        <h5 class="blog-title">Noteworthy technology acquisitions 2021</h5>
+                        <h5 class="blog-title font-regular">Champion CTF pada Acara Compfest-16</h5>
                     </a>
                     <p class="blog-description">Here are the biggest enterprise technology acquisitions of 2021 so far,
                         in reverse chronological order.</p>
@@ -48,7 +48,7 @@
                 </a>
                 <div class="blog-content">
                     <a href="#">
-                        <h5 class="blog-title">Noteworthy technology acquisitions 2021</h5>
+                        <h5 class="blog-title font-regular">Pemenang Kategori IGI Best Narative</h5>
                     </a>
                     <p class="blog-description">Here are the biggest enterprise technology acquisitions of 2021 so far,
                         in reverse chronological order.</p>
