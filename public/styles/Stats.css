@@ -1,0 +1,99 @@
+.brand-section {
+  background-color: #ffffff;
+  color: #111827;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.brand-container {
+  text-align: center; /* Menjaga agar konten di dalam kontainer rata tengah */
+  margin: auto;
+  max-width: 1230px;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.brand-card {
+  background: white;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid #e6e7e9;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.brand-card-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-card-item {
+  text-align: center;
+  flex: 1;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-card-item h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.brand-text {
+  color: #6b7280;
+  margin: 0;
+}
+
+.brand-card-divider {
+  border-left: 1px solid #d1d5db;
+  height: 4rem;
+  margin: 0 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .brand-card-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .brand-card-divider {
+    display: none;
+  }
+
+  .brand-card-item h2 {
+    font-size: 1.5rem;
+  }
+
+  .brand-text {
+    font-size: 1rem;
+    white-space: nowrap; /* Menghindari teks terlalu mepet saat berada dalam dua baris */
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-title-top {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .brand-card-item h2 {
+    font-size: 1.25rem;
+  }
+
+  .brand-text {
+    font-size: 0.875rem; /* Ukuran font lebih kecil pada perangkat kecil */
+  }
+}

@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/katalis/public/styles/Navbar.css">
     <link rel="stylesheet" href="/katalis/public/styles/Home.css">
     <link rel="stylesheet" href="/katalis/public/styles/Blog.css">
-    <link rel="stylesheet" href="/katalis/public/styles/Brand.css">
+    <link rel="stylesheet" href="/katalis/public/styles/Stats.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,600;1,600&display=swap" rel="stylesheet">

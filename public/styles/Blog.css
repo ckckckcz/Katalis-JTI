@@ -89,19 +89,6 @@
 .blog-button:hover {
   background-color: #059470; /* hover:bg-blue-800 */
 }
-.blog-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.5); /* focus:ring-4 focus:ring-blue-300 */
-}
-.blog-button.dark {
-  background-color: #2563eb; /* dark:bg-blue-600 */
-}
-.blog-button.dark:hover {
-  background-color: #1e3a8a; /* dark:hover:bg-blue-700 */
-}
-.blog-button.dark:focus {
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.5); /* dark:focus:ring-blue-800 */
-}
 
 .blog-icon {
   width: 0.875rem; /* w-3.5 */
