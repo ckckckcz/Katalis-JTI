@@ -1,8 +1,8 @@
 <section class="home-section">
   <div class="home-container">
-    <h1 class="home-title font-bold">We invest in the world’s potential</h1>
-    <p class="home-description">Here at Flowbite we focus on markets where technology, innovation, and capital can
-      unlock long-term value and drive economic growth.</p>
+    <h1 class="home-title font-bold">Raih Prestasi, Wujudkan Mimpi 🏆</h1>
+    <p class="home-description">Kami hadir untuk menginspirasi, mendukung, dan merayakan setiap pencapaian serta langkah
+      maju anda dalam mencetak prestasi gemilang.</p>
     <div class="home-buttons">
       <a href="#" class="home-button-primary">
         Get started
