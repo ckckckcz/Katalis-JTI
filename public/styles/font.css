@@ -1,83 +1,117 @@
-/* Roboto Black */
-.roboto-black {
-  font-family: "Roboto";
-  font-weight: 900;
+/* Font Family: Inkination */
+
+@font-face {
+  font-family: "Inkination";
+  src: url("path/to/fonts/InkinationMonoTRIAL-Bd.otf") format("opentype");
+  font-weight: bold;
   font-style: normal;
 }
 
-/* Roboto Black Italic */
-.roboto-black-italic {
-  font-family: "Roboto";
-  font-weight: 900;
-  font-style: italic;
-}
-
-/* Roboto Bold */
-.roboto-bold {
-  font-family: "Roboto";
-  font-weight: 700;
-  font-style: normal;
-}
-
-/* Roboto Bold Italic */
-.roboto-bold-italic {
-  font-family: "Roboto";
-  font-weight: 700;
-  font-style: italic;
-}
-
-/* Roboto Italic */
-.roboto-italic {
-  font-family: "Roboto";
-  font-weight: 400;
-  font-style: italic;
-}
-
-/* Roboto Light */
-.roboto-light {
-  font-family: "Roboto";
+@font-face {
+  font-family: "Inkination";
+  src: url("path/to/fonts/InkinationMonoTRIAL-Lt.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
-/* Roboto Light Italic */
-.roboto-light-italic {
-  font-family: "Roboto";
+@font-face {
+  font-family: "Inkination";
+  src: url("path/to/fonts/InkinationMonoTRIAL-Md.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inkination";
+  src: url("path/to/fonts/InkinationMonoTRIAL-Rg.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inkination";
+  src: url("path/to/fonts/InkinationMonoTRIAL-SmBd.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inkination";
+  src: url("path/to/fonts/InkinationTRIAL-Bdlt.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Inkination";
+  src: url("path/to/fonts/InkinationTRIAL-BdltTwo.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Tambahkan aturan serupa untuk font lainnya */
+
+@font-face {
+  font-family: "Inkination";
+  src: url("path/to/fonts/InkinationTRIAL-Rglt.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Inkination";
+  src: url("path/to/fonts/InkinationTRIAL-SmBdlt.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Class untuk masing-masing font */
+.font-mono-bold {
+  font-family: "Inkination";
+  font-weight: bold;
+  font-style: normal;
+}
+
+.font-mono-light {
+  font-family: "Inkination";
   font-weight: 300;
-  font-style: italic;
+  font-style: normal;
 }
 
-/* Roboto Medium */
-.roboto-medium {
-  font-family: "Roboto";
+.font-mono-medium {
+  font-family: "Inkination";
   font-weight: 500;
   font-style: normal;
 }
 
-/* Roboto Medium Italic */
-.roboto-medium-italic {
-  font-family: "Roboto";
-  font-weight: 500;
+.font-mono-regular {
+  font-family: "Inkination";
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-mono-semibold {
+  font-family: "Inkination";
+  font-weight: 600;
+  font-style: normal;
+}
+
+.font-bold-italic {
+  font-family: "Inkination";
+  font-weight: bold;
   font-style: italic;
 }
 
-/* Roboto Regular */
-.roboto-regular {
-  font-family: "Roboto";
-  font-weight: 400;
-  font-style: normal;
+/* Tambahkan class serupa untuk font lainnya */
+
+.font-italic-regular {
+  font-family: "Inkination";
+  font-weight: normal;
+  font-style: italic;
 }
 
-/* Roboto Thin */
-.roboto-thin {
-  font-family: "Roboto";
-  font-weight: 100;
-  font-style: normal;
-}
-
-/* Roboto Thin Italic */
-.roboto-thin-italic {
-  font-family: "Roboto";
-  font-weight: 100;
+.font-semibold-italic {
+  font-family: "Inkination";
+  font-weight: 600;
   font-style: italic;
 }

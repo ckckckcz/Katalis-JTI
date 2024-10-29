@@ -17,7 +17,7 @@
 
         <!-- Actions (Button) -->
         <div class="actions">
-            <button type="button" class="button-primary">Get started</button>
+            <button type="button" class="button-primary">Masuk</button>
         </div>
     </div>
 </nav>
