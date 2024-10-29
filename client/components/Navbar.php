@@ -2,12 +2,12 @@
     <div class="container">
         <!-- Logo -->
         <a href="https://flowbite.com/" class="logo">
-            <span class="logo-text">Katalis</span>
+            <span class="logo-text font-bold">Katalis</span>
         </a>
 
         <!-- Navbar Content (Links) -->
         <div class="navbar-content" id="navbar-cta">
-            <ul class="navbar-list">
+            <ul class="navbar-list font-semi-bold">
                 <li><a href="#" class="navbar-link active">Home</a></li>
                 <li><a href="#" class="navbar-link">About</a></li>
                 <li><a href="#" class="navbar-link">Services</a></li>
@@ -17,7 +17,7 @@
 
         <!-- Actions (Button) -->
         <div class="actions">
-            <button type="button" class="button-primary">Masuk</button>
+            <button type="button" class="button-primary font-bold">Masuk</button>
         </div>
     </div>
 </nav>
