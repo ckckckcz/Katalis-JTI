@@ -14,15 +14,20 @@
         echo '<link rel="stylesheet" href="/katalis/public/styles/global.css">';
     }
     ?>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="/katalis/public/styles/font.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/katalis/public/styles/Navbar.css">
     <link rel="stylesheet" href="/katalis/public/styles/Home.css">
     <link rel="stylesheet" href="/katalis/public/styles/Blog.css">
     <link rel="stylesheet" href="/katalis/public/styles/Stats.css">
     <link rel="stylesheet" href="/katalis/public/styles/About.css">
+    <!-- Auth -->
+    <link rel="stylesheet" href="/katalis/public/styles/auth/Login.css">
+    <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 </head>
 
