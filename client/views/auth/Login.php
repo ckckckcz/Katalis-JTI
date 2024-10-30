@@ -1,7 +1,7 @@
 <div class="login-container">
     <div class="login-card">
         <div class="login-logo">
-            <img aria-hidden="true" alt="Flowbite logo" src="path-to-keadilanBersama-image" class="login-image" />
+            <img aria-hidden="true" alt="Katalis logo" src="/katalis/public/img/katalis.png" class="login-image" />
         </div>
         <form class="login-form">
             <div class="input-group nim">
