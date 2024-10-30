@@ -1,8 +1,1 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /UTS/
-    RewriteRule ^index\.php$ - [L]
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule . /UTS/index.php [L]
-</IfModule>
+<IfModule mod_rewrite.c> RewriteEngine On RewriteBase /katalis/ RewriteRule ^index\.php$ - [L] RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d RewriteRule . /katalis/index.php [L] </IfModule>
