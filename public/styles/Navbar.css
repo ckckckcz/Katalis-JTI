@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 /* Logo */
@@ -30,6 +30,12 @@
   flex: 1;
   display: flex;
   justify-content: center; /* Mengatur agar berada di tengah */
+}
+
+@media (max-width: 767px) {
+  .navbar-content {
+    display: none;
+  }
 }
 
 /* Navbar List */

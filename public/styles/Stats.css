@@ -1,11 +1,10 @@
 .brand-section {
   background-color: #f3f0ee;
   color: #111827;
-  padding: 2rem 1rem;
+  padding: 2rem 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
 }
 
 .brand-container {
@@ -13,7 +12,6 @@
   margin: auto;
   max-width: 1270px;
   width: 100%;
-  padding: 0 1rem;
 }
 
 .brand-card {

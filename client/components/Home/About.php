@@ -1,6 +1,6 @@
 <section class="about-section">
     <div class="about-container">
-        <div class="about-card">
+        <div class="about-card about-first">
             <div href="#" class="about-link about-link-blue font-regular">
                 <svg class="about-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                     viewBox="0 0 20 14">
