@@ -1,0 +1,73 @@
+/* Main container */
+.blog-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 0.5rem;
+}
+
+/* Grid layout */
+.blog-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr); /* Default untuk mobile */
+}
+
+/* Tablet layout: 2 columns */
+@media (min-width: 640px) {
+  .blog-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop layout: 3 columns */
+@media (min-width: 1024px) {
+  .blog-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card styling */
+.blog-card {
+  background-color: #e3342f;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Image styling */
+.blog-image {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+/* Content styling */
+.blog-content {
+  padding: 1rem;
+}
+
+.blog-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.blog-text {
+  margin-top: 0.5rem;
+  color: #6b7280;
+}
+
+.blog-button {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #4a5568;
+  color: #e2e8f0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.blog-button:hover {
+  background-color: rgba(74, 85, 104, 0.8);
+}
