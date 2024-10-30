@@ -23,7 +23,7 @@
 }
 
 .home-title {
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   font-size: 2.25rem;
   font-weight: 800;
   line-height: 1.2;
@@ -166,7 +166,7 @@
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
   border: 1px solid rgba(255, 255, 255, 0.699);
-  width: 120px;
+  width: 100px;
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 200px;

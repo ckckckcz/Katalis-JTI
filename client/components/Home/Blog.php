@@ -1,4 +1,7 @@
 <section class="blog-section">
+    <div class="blog-title font-bold">
+        <h1>Blog dan Artikel</h1>
+    </div>
     <div class="blog-container">
         <div class="blog-card">
             <img src="/katalis/public/img/article/aic.jpg" alt="Desk with laptop and flowers" class="blog-image" />
