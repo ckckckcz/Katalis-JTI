@@ -1,0 +1,31 @@
+.footer-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 0.5rem;
+}
+.footer-container {
+  background-color: white;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center items vertically */
+  padding: 0.8rem;
+}
+.footer-credit {
+  font-size: 1rem;
+}
+.footer-social {
+  display: flex;
+  gap: 10px;
+  justify-content: center; /* Center icons horizontally */
+  align-items: center;
+}
+.socials-1 {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: #01bc8d;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers icon within each social element */
+}

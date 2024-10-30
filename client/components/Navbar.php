@@ -9,8 +9,8 @@
         <div class="navbar-content" id="navbar-cta">
             <ul class="navbar-list font-semi-bold">
                 <li><a href="#" class="navbar-link active">Home</a></li>
-                <li><a href="#" class="navbar-link">About</a></li>
-                <li><a href="#" class="navbar-link">Services</a></li>
+                <li><a href="#" class="navbar-link">Leaderboard</a></li>
+                <li><a href="#" class="navbar-link">Competition</a></li>
                 <li><a href="#" class="navbar-link">Contact</a></li>
             </ul>
         </div>
