@@ -34,7 +34,8 @@
                     </svg>
                 </div>
             </div>
-            <div class="about-card">
+            <div class="about-cards">
+                <img src="/katalis/public/img/illus.png" alt="" class="about-img">
             </div>
         </div>
     </div>

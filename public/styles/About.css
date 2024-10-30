@@ -112,3 +112,32 @@
 span {
   color: #01bc8d;
 }
+
+/* Container styling */
+.about-grid {
+  display: flex;
+  flex-direction: column; /* Default to column for mobile */
+  gap: 1rem;
+  align-items: center; /* Center-aligns items in mobile view */
+}
+
+/* Image alignment */
+.about-img {
+  display: block;
+  max-width: 100%; /* Ensure the image doesn't overflow */
+  background: rgba(255, 255, 255, 0.1); /* Background retained */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.048);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border: 1px solid rgba(255, 255, 255, 0.57);
+  border-radius: 1rem;
+}
+
+/* For tablet and desktop: place image on the right */
+@media (min-width: 640px) {
+  .about-grid {
+    flex-direction: row; /* Horizontal layout for larger screens */
+    align-items: flex-start; /* Align items to the top */
+    justify-content: space-between;
+  }
+}
