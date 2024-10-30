@@ -5,14 +5,13 @@
         </div>
         <form class="login-form">
             <div class="input-group nim">
-                <label for="email" class="login-label font-bold">Your email</label>
-                <input type="email" id="email" aria-describedby="email-helper" class="login-input font-semi-bold"
-                    placeholder="Masukkan nim anda">
+                <label for="text" class="login-label font-bold">NIM</label>
+                <input type="text" id="text" class=" login-input font-semi-bold" placeholder="Masukkan nim anda">
                 </p>
             </div>
             <div class="input-group password">
-                <label for="email" class="login-label font-bold">Your email</label>
-                <input type="email" id="email" aria-describedby="email-helper" class="login-input font-semi-bold"
+                <label for="password" class="login-label font-bold">Kata Sandi</label>
+                <input type="password" id="password" class=" login-input font-semi-bold"
                     placeholder="Masukkan kata sandi anda">
                 </p>
             </div>
