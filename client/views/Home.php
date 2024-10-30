@@ -13,8 +13,8 @@
     <p class="home-description font-regular">Kami hadir untuk menginspirasi, mendukung, dan merayakan setiap pencapaian
       serta langkah
       maju anda dalam mencetak prestasi gemilang.</p>
-    <div class="home-buttons font-bold">
-      <button href="#" class="home-button-primary">
+    <div class="home-buttons">
+      <button href="#" class="home-button-primary font-bold">
         Get started
         <svg class="home-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

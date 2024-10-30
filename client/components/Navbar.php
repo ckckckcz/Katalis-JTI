@@ -1,9 +1,9 @@
 <nav class="navbar">
     <div class="container">
         <!-- Logo -->
-        <a href="https://flowbite.com/" class="logo">
+        <div href="https://flowbite.com/" class="logo">
             <span class="logo-text font-bold">Katalis</span>
-        </a>
+        </div>
 
         <!-- Navbar Content (Links) -->
         <div class="navbar-content" id="navbar-cta">
