@@ -16,8 +16,8 @@ switch ($request) {
     case $location . '/daftar':
         $filePath = 'client/views/auth/Register.php';
         break;
-    case $location . '/premium':
-        $filePath = 'client/views/Premium.php';
+    case $location . '/admin':
+        $filePath = 'client/views/admin/Admin.php';
         break;
     default:
         http_response_code(404);

@@ -10,9 +10,12 @@
 
     if ($currentFile === 'Login.php' || $currentFile === 'Register.php' || $currentFile === 'Premium.php') {
         echo '<link rel="stylesheet" href="/katalis/public/styles/globalAuth.css">';
+    } elseif ($currentFile === 'Admin.php') {
+        echo '<link rel="stylesheet" href="/katalis/public/styles/globalAdmin.css">';
     } else {
         echo '<link rel="stylesheet" href="/katalis/public/styles/global.css">';
     }
+
     ?>
     <link rel="stylesheet" href="/katalis/public/styles/font.css">
     <link rel="stylesheet" href="/katalis/public/styles/Navbar.css">
@@ -33,7 +36,7 @@
 <body>
     <?php
     // Menampilkan Navbar jika bukan halaman Login, Daftar, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Admin.php') {
         include('./client/components/Navbar.php');
     }
     ?>
@@ -49,7 +52,7 @@
 
     <?php
     // Menampilkan Footer jika bukan halaman Login, Register, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Admin.php') {
         include('./client/components/Footer.php');
     }
     ?>
