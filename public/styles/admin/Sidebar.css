@@ -99,6 +99,7 @@
 .sidebar-li {
   margin-top: 0.5rem;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .sidebar-link {
@@ -123,4 +124,10 @@
 .sidebar-text {
   margin-top: 5px;
   color: #111827;
+}
+
+.sidebar-hr {
+  border: none; /* Menghapus border default */
+  height: 2px; /* Tinggi garis */
+  background-color: #f3f4f6; /* Warna garis */
 }
