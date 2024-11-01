@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="/katalis/public/styles/admin/Sidebar.css">
     <link rel="stylesheet" href="/katalis/public/styles/admin/components/Cards.css">
     <link rel="stylesheet" href="/katalis/public/styles/admin/components/Prestasi.css">
+    <link rel="stylesheet" href="/katalis/public/styles/admin/components/TabelPrestasi.css">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
