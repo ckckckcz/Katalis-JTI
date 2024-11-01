@@ -3,10 +3,10 @@
     <div class="admin-container">
         <div class="kegiatan-title font-bold">
             <p>Data Mahasiswa</p>
-            <div class="actions">
+            <!-- <div class="actions">
                 <button type="button" class="button-primary font-bold"
                     onclick="window.location.href='/katalis/tambahKegiatan.php'">Tambah Kegiatan </button>
-            </div>
+            </div> -->
         </div>
         <div class="table-prestasi-container">
             <table class="table-prestasi-table">
