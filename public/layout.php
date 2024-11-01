@@ -26,8 +26,9 @@
     <link rel="stylesheet" href="/katalis/public/styles/About.css">
     <!-- Auth -->
     <link rel="stylesheet" href="/katalis/public/styles/auth/Login.css">
-    <!-- Auth -->
+    <!-- Admin  -->
     <link rel="stylesheet" href="/katalis/public/styles/admin/Sidebar.css">
+    <link rel="stylesheet" href="/katalis/public/styles/admin/components/Cards.css">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
