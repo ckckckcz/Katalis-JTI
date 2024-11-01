@@ -10,7 +10,7 @@
 
     if ($currentFile === 'Login.php' || $currentFile === 'Register.php' || $currentFile === 'Premium.php') {
         echo '<link rel="stylesheet" href="/katalis/public/styles/globalAuth.css">';
-    } elseif ($currentFile === 'Admin.php') {
+    } elseif ($currentFile === 'Admin.php' || $currentFile != 'Kegiatan.php' || $currentFile != 'Prestasi.php' || $currentFile != 'Export.php' || $currentFile != 'Mahasiswa.php') {
         echo '<link rel="stylesheet" href="/katalis/public/styles/globalAdmin.css">';
     } else {
         echo '<link rel="stylesheet" href="/katalis/public/styles/global.css">';
@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="/katalis/public/styles/admin/components/Cards.css">
     <link rel="stylesheet" href="/katalis/public/styles/admin/components/Prestasi.css">
     <link rel="stylesheet" href="/katalis/public/styles/admin/components/TabelPrestasi.css">
+    <link rel="stylesheet" href="/katalis/public/styles/admin/Admin.css">
+    <link rel="stylesheet" href="/katalis/public/styles/admin/Kegiatan.css">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +43,7 @@
 <body>
     <?php
     // Menampilkan Navbar jika bukan halaman Login, Daftar, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Admin.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Admin.php' && $currentFile != 'Kegiatan.php' && $currentFile != 'Export.php' && $currentFile != 'Mahasiswa.php') {
         include('./client/components/Navbar.php');
     }
     ?>
@@ -57,7 +59,7 @@
 
     <?php
     // Menampilkan Footer jika bukan halaman Login, Register, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Admin.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Admin.php' && $currentFile != 'Kegiatan.php' && $currentFile != 'Export.php' && $currentFile != 'Mahasiswa.php') {
         include('./client/components/Footer.php');
     }
     ?>

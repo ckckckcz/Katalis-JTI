@@ -3,7 +3,7 @@
     <div class="sidebar-menu">
         <ul class="sidebar-ul">
             <li class="sidebar-li">
-                <div href="#" class="sidebar-link">
+                <div onclick="window.location.href='/katalis/admin'" class="sidebar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="sidebar-svg">
                         <path
                             d="M19.006 3.705a.75.75 0 1 0-.512-1.41L6 6.838V3a.75.75 0 0 0-.75-.75h-1.5A.75.75 0 0 0 3 3v4.93l-1.006.365a.75.75 0 0 0 .512 1.41l16.5-6Z" />
@@ -11,12 +11,11 @@
                             d="M3.019 11.114 18 5.667v3.421l4.006 1.457a.75.75 0 1 1-.512 1.41l-.494-.18v8.475h.75a.75.75 0 0 1 0 1.5H2.25a.75.75 0 0 1 0-1.5H3v-9.129l.019-.007ZM18 20.25v-9.566l1.5.546v9.02H18Zm-9-6a.75.75 0 0 0-.75.75v4.5c0 .414.336.75.75.75h3a.75.75 0 0 0 .75-.75V15a.75.75 0 0 0-.75-.75H9Z"
                             clip-rule="evenodd" />
                     </svg>
-
                     <span class="sidebar-text font-bold">Dashboard</span>
                 </div>
             </li>
             <li class="sidebar-li">
-                <div href="#" class="sidebar-link">
+                <div onclick="window.location.href='/katalis/kegiatan'" class="sidebar-link">
                     <svg class="sidebar-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd"
@@ -27,7 +26,7 @@
                 </div>
             </li>
             <li class="sidebar-li">
-                <div href="#" class="sidebar-link">
+                <div onclick="window.location.href='/katalis/dataPrestasi'" class="sidebar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="sidebar-svg">
                         <path
                             d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
@@ -44,7 +43,7 @@
                 <hr class="sidebar-hr">
             </li>
             <li class="sidebar-li">
-                <div href="#" class="sidebar-link">
+                <div onclick="window.location.href='/katalis/daftarMahasiswa'" class="sidebar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="sidebar-svg">
                         <path
                             d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z" />
@@ -53,7 +52,7 @@
                 </div>
             </li>
             <li class="sidebar-li">
-                <div href="#" class="sidebar-link">
+                <div onclick="window.location.href='/katalis/exportData'" class="sidebar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="sidebar-svg">
                         <path
                             d="M21 6.375c0 2.692-4.03 4.875-9 4.875S3 9.067 3 6.375 7.03 1.5 12 1.5s9 2.183 9 4.875Z" />
@@ -72,7 +71,7 @@
                 <hr class="sidebar-hr">
             </li>
             <li class="sidebar-li">
-                <div href="#" class="sidebar-link">
+                <div onclick="window.location.href='/katalis/login'" class="sidebar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="sidebar-svg">
                         <path fill-rule="evenodd"
                             d="M9.53 2.47a.75.75 0 0 1 0 1.06L4.81 8.25H15a6.75 6.75 0 0 1 0 13.5h-3a.75.75 0 0 1 0-1.5h3a5.25 5.25 0 1 0 0-10.5H4.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0Z"

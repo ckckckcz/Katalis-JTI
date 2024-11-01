@@ -1,0 +1,12 @@
+.kegiatan-title {
+  margin-top: 0;
+  font-size: 1.7rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.kegiatan-title p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
