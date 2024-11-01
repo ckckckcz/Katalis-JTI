@@ -82,7 +82,11 @@
   border-right: 1px solid #e5e7eb;
   transition: transform 0.3s;
 }
-
+@media (max-width: 1024px) {
+  .sidebar-aside {
+    display: none;
+  }
+}
 .sidebar-menu {
   height: 100%;
   padding: 0 0.75rem 1rem;
