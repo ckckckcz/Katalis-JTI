@@ -1,24 +1,27 @@
 .custom-card {
-  display: block;
+  display: flex;
+  justify-content: space-between;
   padding: 1.5rem;
   background-color: #ffffff;
   border: 2px solid #e5e7eb;
   border-radius: 0.5rem;
+  align-items: center;
 }
 
 .custom-card-title {
   margin-bottom: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.025em;
-  color: #111827;
+  color: #9ca3af;
   margin-top: 0;
 }
 
 .custom-card-text {
-  font-weight: 400;
-  color: #9ca3af;
+  color: #111827;
+  font-size: 1.5rem;
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .admin-section {
@@ -66,4 +69,14 @@
   border: none; /* Menghapus border default */
   height: 2px; /* Tinggi garis */
   background-color: #e5e7eb; /* Warna garis */
+}
+.icon-admin {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #01bc8d;
+  background-color: #f3f4f6;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
 }
