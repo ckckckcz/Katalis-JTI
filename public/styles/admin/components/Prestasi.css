@@ -1,0 +1,26 @@
+.prestasi-card {
+  display: block;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+}
+
+.prestasi-card-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #111827;
+  margin-top: 0;
+}
+
+.prestasi-card-text {
+  font-weight: 400;
+  color: #9ca3af;
+  margin-bottom: 0;
+}
+
+.prestasi-container {
+  margin-top: 20px;
+}
