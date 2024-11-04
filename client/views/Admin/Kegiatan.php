@@ -5,7 +5,7 @@
             <p>Kegiatan Katalis</p>
             <div class="actions">
                 <button type="button" class="button-primary font-bold"
-                    onclick="window.location.href='/katalis/tambahKegiatan.php'">Tambah Kegiatan </button>
+                    onclick="window.location.href='/katalis/kegiatan/tambah_kegiatan'">Tambah Kegiatan </button>
             </div>
         </div>
         <div class="table-prestasi-container">
