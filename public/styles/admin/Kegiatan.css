@@ -10,3 +10,58 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.kegiatan-card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.kegiatan-input {
+}
+
+.kegiatan-group {
+  margin-bottom: 1.5rem;
+  margin-right: 20px;
+}
+.kegiatan-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.kegiatan-input {
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  color: #111827;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  width: 100%;
+}
+
+.kegiatan-input:focus {
+  border-color: #01bc8d;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+}
+.kegiatan-hr {
+  border: none; /* Menghapus border default */
+  height: 2px; /* Tinggi garis */
+  background-color: #e5e7eb; /* Warna garis */
+  margin-bottom: 1.5rem;
+}
+
+.kegiatan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .kegiatan-grid {
+    display: block;
+  }
+}
