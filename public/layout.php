@@ -10,7 +10,7 @@
 
     if ($currentFile === 'Login.php' || $currentFile === 'Register.php' || $currentFile === 'Premium.php') {
         echo '<link rel="stylesheet" href="/katalis/public/styles/globalAuth.css">';
-    } elseif ($currentFile === 'Admin.php' || $currentFile != 'Kegiatan.php' || $currentFile != 'Prestasi.php' || $currentFile != 'Export.php' || $currentFile != 'Mahasiswa.php' || $currentFile != 'Tambah_Kegiatan.php') {
+    } elseif ($currentFile === 'Admin.php' || $currentFile != 'Kegiatan.php' || $currentFile != 'Prestasi.php' || $currentFile != 'Export.php' || $currentFile != 'Mahasiswa.php' || $currentFile != 'Tambah_Kegiatan.php' || $currentFile != 'Tambah_Prestasi.php') {
         echo '<link rel="stylesheet" href="/katalis/public/styles/globalAdmin.css">';
     } else {
         echo '<link rel="stylesheet" href="/katalis/public/styles/global.css">';
@@ -43,7 +43,7 @@
 <body>
     <?php
     // Menampilkan Navbar jika bukan halaman Login, Daftar, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Admin.php' && $currentFile != 'Kegiatan.php' && $currentFile != 'Export.php' && $currentFile != 'Mahasiswa.php' && $currentFile != 'Prestasi.php' && $currentFile != 'Tambah_Kegiatan.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Admin.php' && $currentFile != 'Kegiatan.php' && $currentFile != 'Export.php' && $currentFile != 'Mahasiswa.php' && $currentFile != 'Prestasi.php' && $currentFile != 'Tambah_Kegiatan.php' && $currentFile != 'Tambah_Prestasi.php') {
         include('./client/components/Navbar.php');
     }
     ?>
@@ -59,7 +59,7 @@
 
     <?php
     // Menampilkan Footer jika bukan halaman Login, Register, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Admin.php' && $currentFile != 'Kegiatan.php' && $currentFile != 'Export.php' && $currentFile != 'Mahasiswa.php' && $currentFile != 'Prestasi.php' && $currentFile != 'Tambah_Kegiatan.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Admin.php' && $currentFile != 'Kegiatan.php' && $currentFile != 'Export.php' && $currentFile != 'Mahasiswa.php' && $currentFile != 'Prestasi.php' && $currentFile != 'Tambah_Kegiatan.php' && $currentFile != 'Tambah_Prestasi.php') {
         include('./client/components/Footer.php');
     }
     ?>
@@ -70,6 +70,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/katalis/public/js/input.js"></script>
     <script src="/katalis/public/js/stepper.js"></script>
+    <?php include("./public/js/Lokasi.php"); ?>
 </body>
 
 </html>

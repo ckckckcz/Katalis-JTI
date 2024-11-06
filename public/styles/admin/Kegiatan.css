@@ -17,9 +17,6 @@
   padding: 1.5rem;
 }
 
-.kegiatan-input {
-}
-
 .kegiatan-group {
   margin-bottom: 1.5rem;
   margin-right: 20px;
@@ -57,11 +54,37 @@
 .kegiatan-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 1rem;
 }
 
 @media (max-width: 640px) {
   .kegiatan-grid {
     display: block;
   }
+}
+.kegiatan-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1f2937; /* text-gray-900 */
+}
+
+.kegiatan-select {
+  background-color: #f9fafb; /* bg-gray-50 */
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  color: #1f2937; /* text-gray-900 */
+  font-size: 0.875rem; /* text-sm */
+  border-radius: 0.5rem; /* rounded-lg */
+  width: 100%;
+  padding: 0.8rem; /* p-2.5 */
+  appearance: none; /* Sembunyikan panah bawaan */
+  -webkit-appearance: none; /* Untuk Safari */
+  -moz-appearance: none; /* Untuk Firefox */
+}
+
+.kegiatan-select:focus {
+  border-color: #01bc8d;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
 }

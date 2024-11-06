@@ -34,6 +34,9 @@ switch ($request) {
     case $location . '/kegiatan/tambah_kegiatan':
         $filePath = 'client/views/admin/Functions/Tambah_Kegiatan.php';
         break;
+    case $location . '/kegiatan/tambah_prestasi':
+        $filePath = 'client/views/admin/Functions/Tambah_Prestasi.php';
+        break;
     default:
         http_response_code(404);
         $filePath = '404.php';

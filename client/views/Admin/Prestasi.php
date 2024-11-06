@@ -5,7 +5,7 @@
             <p>Prestasi Mahasiswa</p>
             <div class="actions">
                 <button type="button" class="button-primary font-bold"
-                    onclick="window.location.href='/katalis/tambahKegiatan.php'">Tambah Prestasi </button>
+                    onclick="window.location.href='/katalis/kegiatan/tambah_prestasi'">Tambah Prestasi </button>
             </div>
         </div>
         <div class="table-prestasi-container">
