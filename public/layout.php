@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="/katalis/public/styles/Navbar.css">
     <link rel="stylesheet" href="/katalis/public/styles/Footer.css">
     <link rel="stylesheet" href="/katalis/public/styles/Home.css">
+    <link rel="stylesheet" href="/katalis/public/styles/Leaderboard.css">
     <link rel="stylesheet" href="/katalis/public/styles/Blog.css">
     <link rel="stylesheet" href="/katalis/public/styles/Stats.css">
     <link rel="stylesheet" href="/katalis/public/styles/About.css">
@@ -38,6 +39,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/charts/chart-1/assets/css/chart-1.css">
 </head>
 
 <body>
@@ -70,6 +73,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/katalis/public/js/input.js"></script>
     <script src="/katalis/public/js/stepper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://unpkg.com/bs-brain@2.0.4/components/charts/chart-1/assets/controller/chart-1.js"></script>
     <?php include("./public/js/Lokasi.php"); ?>
 </body>
 

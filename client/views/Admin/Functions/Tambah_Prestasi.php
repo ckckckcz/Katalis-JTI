@@ -5,14 +5,31 @@
         <div class="kegiatan-card">
             <form action="" class="kegiatan-form">
                 <div class="kegiatan-group">
-                    <label for="nama-kegiatan" class="kegiatan-label font-bold">Nama Kegiatan</label>
-                    <input type="text" id="nama-kegiatan" class="kegiatan-input font-semi-bold"
-                        placeholder="Masukkan nama kegiatan">
+                    <label for="studi-kegiatan" class="kegiatan-label font-bold">Program Studi</label>
+                    <input type="text" id="studi-kegiatan" class="kegiatan-input font-semi-bold"
+                        placeholder="Masukkan studi kegiatan">
                 </div>
-                <div class="kegiatan-group">
-                    <label for="deskripsi-kegiatan" class="kegiatan-label font-bold">Deskripsi Kegiatan</label>
-                    <textarea id="deskripsi-kegiatan" class="kegiatan-input font-semi-bold"
-                        placeholder="Masukkan deskripsi kegiatan"></textarea>
+                <div class="kegiatan-grid">
+                    <div class="kegiatan-group">
+                        <label for="jenis-kompetisi" class="kegiatan-label font-bold">Jenis Kompetisi</label>
+                        <select id="jenis-kompetisi" class="kegiatan-input kegiatan-select font-semi-bold">
+                            <option selected>Pilih Jenis Kompetisi</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option>
+                        </select>
+                    </div>
+                    <div class="kegiatan-group">
+                        <label for="kota" class="kegiatan-label font-bold">Kota/Kabupaten</label>
+                        <select id="kota" class="kegiatan-input  kegiatan-select font-semi-bold">
+                            <option selected>Pilih Kota/Kabupaten</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option>
+                        </select>
+                    </div>
                 </div>
                 <hr class="kegiatan-hr">
                 <div class="kegiatan-group">
