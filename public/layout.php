@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="/katalis/public/styles/admin/components/Prestasi.css">
     <link rel="stylesheet" href="/katalis/public/styles/admin/components/TabelPrestasi.css">
     <link rel="stylesheet" href="/katalis/public/styles/admin/Admin.css">
+    <link rel="stylesheet" href="/katalis/public/styles/admin/Prestasi.css">
     <link rel="stylesheet" href="/katalis/public/styles/admin/Kegiatan.css">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
