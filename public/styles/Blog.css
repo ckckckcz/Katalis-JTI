@@ -74,3 +74,10 @@
 .blog-button:hover {
   background-color: #059470;
 }
+
+.blog-hr {
+  border: none; /* Menghapus border default */
+  height: 2px; /* Tinggi garis */
+  background-color: #e5e7eb; /* Warna garis */
+  margin-bottom: 50px;
+}
