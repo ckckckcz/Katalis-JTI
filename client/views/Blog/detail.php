@@ -1,5 +1,5 @@
 <?php
-// Ambil id dari URL
+
 $id = isset($_GET['id']) ? $_GET['id'] : 1; // Default id adalah 1
 
 // Baca file JSON
@@ -24,7 +24,6 @@ if (isset($data[$id])) {
         foreach ($blog['description'] as $index => $paragraph) {
             echo "<p class='detail-paragraph'>{$paragraph}</p>";
             
-            // Tampilkan video setelah paragraf ketiga
             if ($index === 2) {
                 echo "<div class='blog-img'>
                         <iframe width='560' height='315' src='{$blog['video_url']}' title='YouTube video player'

@@ -14,7 +14,6 @@
                         class="navbar-link">Leaderboard</a></li>
                 <li><a href="javascript:void(0)" class="navbar-link">Competition</a></li>
                 <li><a href="javascript:void(0)" onclick="window.location.href='/katalis/blog'" class="navbar-link">Blog</a></li>
-                <li><a href="javascript:void(0)" class="navbar-link">Contact</a></li>
             </ul>
         </div>
         <!-- Actions (Button) -->
