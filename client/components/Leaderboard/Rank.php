@@ -12,7 +12,7 @@
                 </div>
                 <h1 class="leaderboard-rank-title font-semi-bold">Chart 1</h1>
                 <p class="leaderboard-rank-text font-regular">Content for Chart 1</p>
-                <div id="bsb-chart-1" style="width: 100%; max-width: 600px; height: 400px;"></div>
+                <div id="bsb-chart-1" style="width: 100%; max-width: 600px; height: 300px;"></div>
             </div>
             <div class="leaderboard-rank-card leaderboard-rank-first">
                 <div class="leaderboard-rank-link leaderboard-rank-link-blue font-regular">
@@ -25,7 +25,7 @@
                 </div>
                 <h1 class="leaderboard-rank-title font-semi-bold">Chart 2</h1>
                 <p class="leaderboard-rank-text font-regular">Content for Chart 2</p>
-                <div id="bsb-chart-2" style="width: 100%; max-width: 600px; height: 400px;"></div>
+                <div id="bsb-chart-2" style="width: 100%; max-width: 600px; height: 300px;"></div>
             </div>
             <div class="leaderboard-rank-card leaderboard-rank-first">
                 <div class="leaderboard-rank-link leaderboard-rank-link-blue font-regular">
@@ -38,7 +38,7 @@
                 </div>
                 <h1 class="leaderboard-rank-title font-semi-bold">Chart 3</h1>
                 <p class="leaderboard-rank-text font-regular">Content for Chart 3</p>
-                <div id="bsb-chart-3" style="width: 100%; max-width: 600px; height: 400px;"></div>
+                <div id="bsb-chart-3" style="width: 100%; max-width: 600px; height: 300px;"></div>
             </div>
         </div>
     </div>
