@@ -23,7 +23,7 @@ if (isset($data[$id])) {
         // Loop melalui setiap paragraf dan sisipkan video setelah paragraf ketiga
         foreach ($blog['description'] as $index => $paragraph) {
             echo "<p class='detail-paragraph'>{$paragraph}</p>";
-
+            
             // Tampilkan video setelah paragraf ketiga
             if ($index === 2) {
                 echo "<div class='blog-img'>
@@ -38,11 +38,13 @@ if (isset($data[$id])) {
         ?>
     </div>
     <h1 class="font-bold blog-detail-diskusi">Diskusi</h1>
-        <div class="kegiatan-group">
-            <textarea id="deskripsi-kegiatan" class="blog-input font-semi-bold"
-            placeholder="Tulis Komentar Anda Disini..."></textarea>
-            <div class="actions">
-                <button type="button" class="button-primary font-bold"onclick="window.location.href='/katalis/login'">Komentar</button>
-            </div>
+    <div class="kegiatan-group">
+        <textarea id="deskripsi-kegiatan" class="blog-input font-semi-bold"
+        placeholder="Tulis Komentar Anda Disini..."></textarea>
+        <div class="actions">
+            <button type="button" class="button-primary font-bold"onclick="window.location.href='/katalis/login'">Komentar</button>
         </div>
+    </div>
+    <hr class="blog-hr-2">
 </section>
+<?php include './client/components/Blog/components/related.php'; ?>

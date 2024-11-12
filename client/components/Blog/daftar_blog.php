@@ -1,5 +1,4 @@
 <section class="blog-section">
-    <hr class="blog-hr">
     <div class="blog-container">
         <div class="blog-card">
             <img src="/katalis/public/img/article/aic.jpg" alt="Desk with laptop and flowers" class="blog-image" />
