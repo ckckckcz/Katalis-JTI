@@ -76,8 +76,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/katalis/public/js/input.js"></script>
     <script src="/katalis/public/js/stepper.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://unpkg.com/bs-brain@2.0.4/components/charts/chart-1/assets/controller/chart-1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <?php include("./public/js/Lokasi.php"); ?>
 </body>
 

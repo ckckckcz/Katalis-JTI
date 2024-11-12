@@ -2,7 +2,7 @@
     <div class="leaderboard-rank-container">
         <div class="leaderboard-rank-grid">
             <div class="leaderboard-rank-card leaderboard-rank-first">
-                <div href="#" class="leaderboard-rank-link leaderboard-rank-link-blue font-regular">
+                <div class="leaderboard-rank-link leaderboard-rank-link-blue font-regular">
                     <svg class="leaderboard-rank-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor" viewBox="0 0 20 14">
                         <path
@@ -10,12 +10,12 @@
                     </svg>
                     Tutorial
                 </div>
-                <h1 class="leaderboard-rank-title font-semi-bold">Tentang <span>Katalis</span></h1>
-                <p class="leaderboard-rank-text font-regular">Here's some additional content</p>
-                <div id="bsb-chart-2"></div>
+                <h1 class="leaderboard-rank-title font-semi-bold">Chart 1</h1>
+                <p class="leaderboard-rank-text font-regular">Content for Chart 1</p>
+                <div id="bsb-chart-1" style="width: 100%; max-width: 600px; height: 400px;"></div>
             </div>
             <div class="leaderboard-rank-card leaderboard-rank-first">
-                <div href="#" class="leaderboard-rank-link leaderboard-rank-link-blue font-regular">
+                <div class="leaderboard-rank-link leaderboard-rank-link-blue font-regular">
                     <svg class="leaderboard-rank-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor" viewBox="0 0 20 14">
                         <path
@@ -23,12 +23,12 @@
                     </svg>
                     Tutorial
                 </div>
-                <h1 class="leaderboard-rank-title font-semi-bold">Tentang <span>Katalis</span></h1>
-                <p class="leaderboard-rank-text font-regular">Here's some additional content</p>
-                <div id="bsb-chart-2"></div>
+                <h1 class="leaderboard-rank-title font-semi-bold">Chart 2</h1>
+                <p class="leaderboard-rank-text font-regular">Content for Chart 2</p>
+                <div id="bsb-chart-2" style="width: 100%; max-width: 600px; height: 400px;"></div>
             </div>
             <div class="leaderboard-rank-card leaderboard-rank-first">
-                <div href="#" class="leaderboard-rank-link leaderboard-rank-link-blue font-regular">
+                <div class="leaderboard-rank-link leaderboard-rank-link-blue font-regular">
                     <svg class="leaderboard-rank-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor" viewBox="0 0 20 14">
                         <path
@@ -36,36 +36,13 @@
                     </svg>
                     Tutorial
                 </div>
-                <h1 class="leaderboard-rank-title font-semi-bold">Tentang <span>Katalis</span></h1>
-                <p class="leaderboard-rank-text font-regular">Here's some additional content</p>
-                <div id="bsb-chart-3"></div>
+                <h1 class="leaderboard-rank-title font-semi-bold">Chart 3</h1>
+                <p class="leaderboard-rank-text font-regular">Content for Chart 3</p>
+                <div id="bsb-chart-3" style="width: 100%; max-width: 600px; height: 400px;"></div>
             </div>
         </div>
     </div>
 </section>
 
-<script>
-    const ctx = document.getElementById('leaderboardChart').getContext('2d');
-    const leaderboardChart = new Chart(ctx, {
-        type: 'bar', // Chart type, e.g., bar, line, pie
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May'],
-            datasets: [{
-                label: 'Monthly Data',
-                data: [10, 20, 30, 40, 50], // Sample data
-                backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/katalis/public/js/rank.js"></script>
