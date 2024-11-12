@@ -97,9 +97,32 @@
 .blog-detail-title {
   font-size: 50px;
 }
+.blog-detail-diskusi {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
 
 .blog-detail-paragraph {
   font-size: 20px;
+}
+
+.blog-input {
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  color: #111827;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  align-items: right;
+  width: 99.5%;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.blog-input:focus {
+  border-color: #01bc8d;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
 }
 
 .detail-paragraph {
@@ -132,4 +155,9 @@
     height: 400px;
     border-radius: 1rem;
   }
+  .blog-detail-diskusi {
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
 }
+
