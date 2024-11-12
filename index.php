@@ -7,6 +7,7 @@ $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'; 
 
 // Routing
 switch ($request) {
+    // Anonymous Dashboard Routing
     case $location . '/':
         $filePath = 'client/views/Home.php';
         break;
@@ -25,6 +26,7 @@ switch ($request) {
     case $location . '/daftar':
         $filePath = 'client/views/auth/Register.php';
         break;
+    // Admin Dashboard Routing
     case $location . '/admin':
         $filePath = 'client/views/admin/Admin.php';
         break;
@@ -45,6 +47,10 @@ switch ($request) {
         break;
     case $location . '/kegiatan/tambah_prestasi':
         $filePath = 'client/views/admin/Functions/Tambah_Prestasi.php';
+        break;
+    // User Dashboard Routing
+    case $location . '/dashboard':
+        $filePath = 'client/views/User/Dashboard.php';
         break;
     default:
         http_response_code(404);
