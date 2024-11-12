@@ -41,8 +41,11 @@
                 <div id="bsb-chart-3" style="width: 100%; max-width: 600px; height: 300px;"></div>
             </div>
         </div>
+        <hr class="blog-hr-2">
     </div>
 </section>
+
+<?php include'./client/components/Leaderboard/components/Podium.php'; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/katalis/public/js/rank.js"></script>

@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="/katalis/public/styles/Blog.css">
     <link rel="stylesheet" href="/katalis/public/styles/Stats.css">
     <link rel="stylesheet" href="/katalis/public/styles/About.css">
+    <link rel="stylesheet" href="/katalis/public/styles/Podium.css">
     <!-- Auth -->
     <link rel="stylesheet" href="/katalis/public/styles/auth/Login.css">
     <!-- Admin  -->
