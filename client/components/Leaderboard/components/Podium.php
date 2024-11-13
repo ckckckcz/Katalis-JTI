@@ -10,7 +10,6 @@
                                                         <th scope="col" class="table-podium-th">Mahasiswa</th>
                                                         <th scope="col" class="table-podium-th">Kompetisi</th>
                                                         <th scope="col" class="table-podium-th">Kategori</th>
-                                                        <th scope="col" class="table-podium-th">Aksi</th>
                                                 </tr>
                                         </thead>
                                         <tbody class="font-regular">
@@ -21,10 +20,6 @@
                                                         <td class="table-podium-cell">Riovaldo Alfiyan Fahmi Rahman</td>
                                                         <td class="table-podium-cell">Compfest</td>
                                                         <td class="table-podium-cell">Nasional</td>
-                                                        <td class="table-podium-cell">
-                                                                <a href="#" class="table-podium-link">Edit</a>
-                                                                <a href="#" class="table-podium-link">Hapus</a>
-                                                        </td>
                                                 </tr>
                                                 <tr class="table-podium-row">
                                                         <th scope="row"
@@ -33,10 +28,6 @@
                                                         <td class="table-podium-cell">Arya Mahendra Wijaya</td>
                                                         <td class="table-podium-cell">KMPIN</td>
                                                         <td class="table-podium-cell">Nasional</td>
-                                                        <td class="table-podium-cell">
-                                                                <a href="#" class="table-podium-link">Edit</a>
-                                                                <a href="#" class="table-podium-link">Hapus</a>
-                                                        </td>
                                                 </tr>
                                                 <tr class="table-podium-row">
                                                         <th scope="row"
@@ -45,10 +36,6 @@
                                                         <td class="table-podium-cell">Bagaskara Pradipta Satriya</td>
                                                         <td class="table-podium-cell">Gemastik</td>
                                                         <td class="table-podium-cell">Nasioanl</td>
-                                                        <td class="table-podium-cell">
-                                                                <a href="#" class="table-podium-link">Edit</a>
-                                                                <a href="#" class="table-podium-link">Hapus</a>
-                                                        </td>
                                                 </tr>
                                         </tbody>
                                 </table>

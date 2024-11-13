@@ -148,3 +148,7 @@
 .kegiatan-input-file-hidden {
   display: none;
 }
+
+.kegiatan-deskripsi{
+  height: 100px;
+}
