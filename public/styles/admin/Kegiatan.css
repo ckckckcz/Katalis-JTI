@@ -36,7 +36,7 @@
   font-size: 0.875rem;
   border-radius: 0.5rem;
   padding: 0.8rem;
-  width: 100%;
+  width: 99.5%;
 }
 
 .kegiatan-input:focus {
@@ -65,7 +65,7 @@
 .kegiatan-label {
   display: block;
   margin-bottom: 0.5rem;
-  font-size: 0.875rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: #1f2937; /* text-gray-900 */
 }
@@ -76,7 +76,7 @@
   color: #1f2937; /* text-gray-900 */
   font-size: 0.875rem; /* text-sm */
   border-radius: 0.5rem; /* rounded-lg */
-  width: 100%;
+  width: 102%;
   padding: 0.8rem; /* p-2.5 */
   appearance: none; /* Sembunyikan panah bawaan */
   -webkit-appearance: none; /* Untuk Safari */
@@ -87,4 +87,64 @@
   border-color: #01bc8d;
   outline: none;
   box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+}
+
+.kegiatan-input-file-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.kegiatan-input-file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 16rem; /* 64 */
+  border: 2px dashed #d1d5db; /* Gray-300 */
+  border-radius: 0.5rem; /* Rounded-lg */
+  cursor: pointer;
+  background-color: #fff; /* Gray-50 */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.kegiatan-input-file-label:hover {
+  background-color: #f3f4f6; /* Gray-100 */
+}
+
+.kegiatan-input-file-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1.25rem; /* pt-5 */
+  padding-bottom: 1.5rem; /* pb-6 */
+}
+
+.kegiatan-input-file-icon {
+  width: 2rem; /* w-8 */
+  height: 2rem; /* h-8 */
+  margin-bottom: 1rem; /* mb-4 */
+  color: #6b7280; /* Gray-500 */
+}
+
+.kegiatan-input-file-text {
+  margin-bottom: 0.5rem; /* mb-2 */
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* Gray-500 */
+}
+
+.kegiatan-input-file-highlight {
+  font-weight: 600; /* font-semibold */
+}
+
+.kegiatan-input-file-subtext {
+  font-size: 0.75rem; /* text-xs */
+  color: #6b7280; /* Gray-500 */
+}
+
+.kegiatan-input-file-hidden {
+  display: none;
 }

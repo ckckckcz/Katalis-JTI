@@ -1,0 +1,71 @@
+.prestasi-inline-flex {
+  display: inline-flex;
+  width: 100.5%;
+  margin-bottom: 1.5rem;
+  border-radius: 1rem;
+}
+
+.prestasi-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2937;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.prestasi-button:hover {
+  background-color: #f3f4f6;
+  color: #01bc8d;
+}
+
+.prestasi-button:focus {
+  z-index: 10;
+  outline-offset: 2px;
+  color: #fff;
+  background-color: #01bc8d;
+}
+
+.prestasi-button-left {
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+}
+
+.prestasi-button-middle {
+  border-left: 0;
+  border-right: 0;
+}
+
+.prestasi-button-middle-2 {
+  border-left: 0;
+  border-right: 0;
+  border-left: 1px solid #d1d5db;
+}
+.prestasi-button-right {
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
+.prestasi-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  fill: currentColor;
+}
+
+/* Responsive styling */
+@media (max-width: 640px) {
+  .prestasi-button {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .prestasi-icon {
+    margin-right: 0.25rem;
+  }
+}
