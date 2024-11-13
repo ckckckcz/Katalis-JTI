@@ -20,8 +20,8 @@
                                                 <td class="table-prestasi-cell">Compfest</td>
                                                 <td class="table-prestasi-cell">Nasional</td>
                                                 <td class="table-prestasi-cell">
-                                                        <a href="#" class="table-prestasi-link">Edit</a>
-                                                        <a href="#" class="table-prestasi-link">Hapus</a>
+                                                        <a href="#" class="table-prestasi-link">Detail</a>
+                                                        <a href="#" class="table-prestasi-link"></a>
                                                 </td>
                                         </tr>
                                         <tr class="table-prestasi-row">
@@ -31,8 +31,7 @@
                                                 <td class="table-prestasi-cell">KMPIN</td>
                                                 <td class="table-prestasi-cell">Nasional</td>
                                                 <td class="table-prestasi-cell">
-                                                        <a href="#" class="table-prestasi-link">Edit</a>
-                                                        <a href="#" class="table-prestasi-link">Hapus</a>
+                                                        <a href="#" class="table-prestasi-link">Detail</a>
                                                 </td>
                                         </tr>
                                         <tr class="table-prestasi-row">
@@ -42,8 +41,7 @@
                                                 <td class="table-prestasi-cell">Gemastik</td>
                                                 <td class="table-prestasi-cell">Nasioanl</td>
                                                 <td class="table-prestasi-cell">
-                                                        <a href="#" class="table-prestasi-link">Edit</a>
-                                                        <a href="#" class="table-prestasi-link">Hapus</a>
+                                                        <a href="#" class="table-prestasi-link">Detail</a>
                                                 </td>
                                         </tr>
                                 </tbody>

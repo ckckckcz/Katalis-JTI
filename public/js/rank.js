@@ -4,7 +4,7 @@ function createChart(chartId, chartLabel, chartData) {
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: ['Jhapusary', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [{
                 label: chartLabel,
                 data: chartData,
