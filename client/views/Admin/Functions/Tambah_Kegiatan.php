@@ -79,6 +79,9 @@ $kotaList = $data['kota'];
                         </select>
                     </div>
                 </div>
+                <div class="actions">
+                    <button type="button" class="button-primary font-bold">Submit Kegiatan</button>
+                </div>
             </form>
         </div>
     </div>
