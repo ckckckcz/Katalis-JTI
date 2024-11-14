@@ -3,15 +3,15 @@
         <div class="login-logo">
             <img aria-hidden="true" alt="Katalis logo" src="/katalis/public/img/katalis.png" class="login-image" />
         </div>
-        <form class="login-form">
+        <form class="login-form" method="POST" action="./server/proses/Login.php">
             <div class="input-group nim">
                 <label for="text" class="login-label font-bold">NIM</label>
-                <input type="text" id="text" class=" login-input font-semi-bold" placeholder="Masukkan nim anda">
+                <input type="text" id="text" name="username" class=" login-input font-semi-bold" placeholder="Masukkan nim anda">
                 </p>
             </div>
             <div class="input-group password">
                 <label for="password" class="login-label font-bold">Kata Sandi</label>
-                <input type="password" id="password" class=" login-input font-semi-bold"
+                <input type="password" id="password" name="password" class=" login-input font-semi-bold"
                     placeholder="Masukkan kata sandi anda">
                 </p>
             </div>
