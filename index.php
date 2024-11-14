@@ -60,7 +60,7 @@ switch ($request) {
 
 // Tentukan layout yang akan digunakan
 if ($isAdmin) {
-    include('public/layoutAdmin.php'); // Gunakan layoutAdmin untuk admin
+    include('public/layout.php'); // Gunakan layoutAdmin untuk admin
 } else {
     include('public/layout.php'); // Gunakan layout biasa untuk pengguna
 }
