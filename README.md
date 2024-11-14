@@ -5,7 +5,7 @@
 - **Galung Erlyan Tama**
 - **Naditya P A**
 - **Roy Wijaya**
-- **Riovaldo Alvian F R**
+- **Riovaldo Alfiyan F R**
 
 ---
 
