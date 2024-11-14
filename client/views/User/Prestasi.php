@@ -1,8 +1,8 @@
-<?php include('./client/components/Admin/Sidebar.php'); ?>
-<section class="admin-section">
-    <div class="admin-container">
+<?php include('./client/components/User/Sidebar.php'); ?>
+<section class="user-section">
+    <div class="user-container">
         <div class="kegiatan-title font-bold">
-            <p>Prestasi Mahasiswa</p>
+            <p>Daftar Prestasi</p>
             <!-- <div class="actions">
                 <button type="button" class="button-primary font-bold"
                     onclick="window.location.href='/katalis/kegiatan/tambah_prestasi'">Tambah Prestasi </button>
@@ -13,7 +13,6 @@
                 <thead class="table-prestasi-thead font-bold">
                     <tr>
                         <th scope="col" class="table-prestasi-th">No</th>
-                        <th scope="col" class="table-prestasi-th">Mahasiswa</th>
                         <th scope="col" class="table-prestasi-th">Kompetisi</th>
                         <th scope="col" class="table-prestasi-th">Kategori</th>
                         <th scope="col" class="table-prestasi-th">Aksi</th>
@@ -23,7 +22,6 @@
                     <tr class="table-prestasi-row">
                         <th scope="row" class="table-prestasi-cell table-prestasi-header-cell">
                             1</th>
-                        <td class="table-prestasi-cell">Riovaldo Alfiyan Fahmi Rahman</td>
                         <td class="table-prestasi-cell">Compfest</td>
                         <td class="table-prestasi-cell">Nasional</td>
                         <td class="table-prestasi-cell">
@@ -33,7 +31,6 @@
                     <tr class="table-prestasi-row">
                         <th scope="row" class="table-prestasi-cell table-prestasi-header-cell">
                             2</th>
-                        <td class="table-prestasi-cell">Arya Mahendra Wijaya</td>
                         <td class="table-prestasi-cell">KMPIN</td>
                         <td class="table-prestasi-cell">Nasional</td>
                         <td class="table-prestasi-cell">
@@ -43,7 +40,6 @@
                     <tr class="table-prestasi-row">
                         <th scope="row" class="table-prestasi-cell table-prestasi-header-cell">
                             3</th>
-                        <td class="table-prestasi-cell">Bagaskara Pradipta Satriya</td>
                         <td class="table-prestasi-cell">Gemastik</td>
                         <td class="table-prestasi-cell">Nasioanl</td>
                         <td class="table-prestasi-cell">

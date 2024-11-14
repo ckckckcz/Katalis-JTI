@@ -52,6 +52,9 @@ switch ($request) {
     case $location . '/dashboard':
         $filePath = 'client/views/User/Dashboard.php';
         break;
+    case $location . '/daftarPrestasi':
+        $filePath = 'client/views/User/Prestasi.php';
+        break;
     default:
         http_response_code(404);
         $filePath = '404.php';
