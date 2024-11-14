@@ -19,7 +19,7 @@ $kotaList = $data['kota'];
                 </div>
                 <div class="kegiatan-group">
                     <label for="deskripsi-kegiatan" class="kegiatan-label font-bold">Deskripsi Kegiatan</label>
-                    <textarea id="deskripsi-kegiatan" class="kegiatan-input font-semi-bold"
+                    <textarea id="deskripsi-kegiatan" class="kegiatan-input kegiatan-deskripsi font-semi-bold"
                         placeholder="Masukkan deskripsi kegiatan"></textarea>
                 </div>
                 <hr class="kegiatan-hr">
@@ -78,6 +78,9 @@ $kotaList = $data['kota'];
                             <option value="DE">Germany</option>
                         </select>
                     </div>
+                </div>
+                <div class="actions">
+                    <button type="button" class="button-primary font-bold">Submit Kegiatan</button>
                 </div>
             </form>
         </div>
