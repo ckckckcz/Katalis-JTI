@@ -1,6 +1,5 @@
 <div class="prestasi-container">
-        <div href="#" class="prestasi-card">
-                <h5 class="prestasi-card-title font-bold">Data Ranking</h5>
+        <h5 class="prestasi-card-title font-bold">Data Ranking</h5>
                 <div class="table-prestasi-container">
                         <table class="table-prestasi-table">
                                 <thead class="table-prestasi-thead font-bold">
@@ -21,7 +20,6 @@
                                                 <td class="table-prestasi-cell">Nasional</td>
                                                 <td class="table-prestasi-cell">
                                                         <a href="#" class="table-prestasi-link">Detail</a>
-                                                        <a href="#" class="table-prestasi-link"></a>
                                                 </td>
                                         </tr>
                                         <tr class="table-prestasi-row">
@@ -47,5 +45,4 @@
                                 </tbody>
                         </table>
                 </div>
-        </div>
 </div>

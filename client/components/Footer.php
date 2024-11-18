@@ -1,6 +1,6 @@
 <footer class="footer-section">
     <div class="footer-container">
-        <h1 class="footer-crDetail font-semi-bold">© 2024 Katalis.</h1>
+        <h1 class="footer-detail font-semi-bold">© 2024 Katalis.</h1>
         <div class="footer-social font-bold">
             <div class="socials-1">
                 <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"

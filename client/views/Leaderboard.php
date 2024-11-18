@@ -11,4 +11,4 @@
         <h1 class="leaderboard-title font-bold">Tunjukkan Potensimu, Raih Puncak Prestasi!</h1>
     </div>
 </section>
-<?php include('./client/components/Leaderboard/Rank.php'); ?>
+<?php include('./client/components/Leaderboard/Statistik.php'); ?>

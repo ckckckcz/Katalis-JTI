@@ -2,7 +2,7 @@
 
 require_once '../config/Database.php';
 
-class Mahasiswa {
+class Admin {
     private $conn;
     private $stmt;
     public function __construct() {
@@ -10,21 +10,20 @@ class Mahasiswa {
         $this->conn = $db->getDBConnection();
     }
 
-    public function getAllMahasiswa() {
-        $sql = "SELECT * FROM mahasiswa";
+    public function getAllAdmin() {
+        $sql = "SELECT * FROM dbo.Admin";
         $this->stmt = $this->conn->prepare($sql);
         $this->stmt->execute();
         $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
-    public function getMahasiswaByNim($nim) {
-        $sql = "SELECT * FROM mahasiswa WHERE nim = :nim";
+    public function getAdminByNip($nip) {
+        $sql = "SELECT * FROM dbo.Admin WHERE nip = :nip";
         $this->stmt = $this->conn->prepare($sql);
-        $this->stmt->bindParam(':nim', $nim);
+        $this->stmt->bindParam(':nip', $nip);
         $this->stmt->execute();
         $result = $this->stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
-
 }

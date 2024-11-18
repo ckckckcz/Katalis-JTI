@@ -52,6 +52,9 @@ switch ($request) {
     case $location . '/dashboard':
         $filePath = 'client/views/User/Dashboard.php';
         break;
+    case $location . '/daftarPrestasi':
+        $filePath = 'client/views/User/Prestasi.php';
+        break;
     default:
         http_response_code(404);
         $filePath = '404.php';
@@ -60,7 +63,7 @@ switch ($request) {
 
 // Tentukan layout yang akan digunakan
 if ($isAdmin) {
-    include('public/layoutAdmin.php'); // Gunakan layoutAdmin untuk admin
+    include('public/layout.php'); // Gunakan layoutAdmin untuk admin
 } else {
     include('public/layout.php'); // Gunakan layout biasa untuk pengguna
 }
