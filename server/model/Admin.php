@@ -18,4 +18,12 @@ class Admin {
         return $result;
     }
 
+    public function getAdminByNip($nip) {
+        $sql = "SELECT * FROM dbo.Admin WHERE nip = :nip";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam(':nip', $nip);
+        $this->stmt->execute();
+        $result = $this->stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }

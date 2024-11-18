@@ -18,4 +18,13 @@ class Mahasiswa {
         return $result;
     }
 
+    public function getMahasiswaByNim($nim) {
+        $sql = "SELECT * FROM mahasiswa WHERE nim = :nim";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam(':nim', $nim);
+        $this->stmt->execute();
+        $result = $this->stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
 }
