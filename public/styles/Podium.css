@@ -103,3 +103,35 @@
   text-decoration: underline;
 }
 
+.podium-grid {
+  display: grid;
+  gap: 10px; /* Space between grid items */
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  justify-content: center;
+  align-items: end;
+}
+
+.podium-cards {
+  display: flex;
+  align-items: flex-end; /* Mengatur teks agar berada di bawah */
+  justify-content: center; /* Mengatur teks agar berada di tengah secara horizontal */
+  text-align: center;
+  background: #f9fafb;
+  padding-bottom: 20px;
+  border-radius: 1rem;
+  font-size: 20px; /* Mengatur ukuran teks */
+  color: #000; /* Mengatur warna teks */
+  border: 2px solid #01bc8d2c;
+}
+
+.podium-2 {
+  height: 200px;
+}
+
+.podium-1 {
+  height: 300px;
+}
+
+.podium-3 {
+  height: 150px;
+}
