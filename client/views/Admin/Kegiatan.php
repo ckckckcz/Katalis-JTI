@@ -1,4 +1,7 @@
-<?php include('./client/components/Admin/Sidebar.php'); ?>
+<?php 
+    include('./server/model/Event.php');
+    include('./client/components/Admin/Sidebar.php'); 
+?>
 <section class="admin-section">
     <div class="admin-container">
         <div class="kegiatan-title font-bold">
@@ -20,6 +23,10 @@
                     </tr>
                 </thead>
                 <tbody class="font-regular">
+                    <?php
+                        $no = 1;
+                        $allData = getAllEvent();
+                    ?>
                     <tr class="table-prestasi-row">
                         <th scope="row" class="table-prestasi-cell table-prestasi-header-cell">
                             1</th>

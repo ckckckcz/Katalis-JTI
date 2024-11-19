@@ -1,8 +1,11 @@
+<?php
+    include './server/model/Prestasi.php';
+?>
 <div class="admin-card">
     <div href="#" class="custom-card">
         <div class="title-admin">
-            <h5 class="custom-card-title font-semi-bold">Jumlah Prestasi</h5>
-            <p class="custom-card-text font-bold">100+</p>
+            <h5 class="custom-card-title font-semi-bold">Jumlah Prestasi Lokal</h5>
+            <p class="custom-card-text font-bold"><?php echo getCountPrestasi('lokal'); ?></p>
         </div>
         <div class="icon-admin">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -15,8 +18,8 @@
     </div>
     <div href="#" class="custom-card">
         <div class="title-admin">
-            <h5 class="custom-card-title font-semi-bold">Jumlah Prestasi</h5>
-            <p class="custom-card-text font-bold">100+</p>
+            <h5 class="custom-card-title font-semi-bold">Jumlah Prestasi Nasional</h5>
+            <p class="custom-card-text font-bold"><?php echo getCountPrestasi('nasional'); ?></p>
         </div>
         <div class="icon-admin">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -29,8 +32,8 @@
     </div>
     <div href="#" class="custom-card">
         <div class="title-admin">
-            <h5 class="custom-card-title font-semi-bold">Jumlah Prestasi</h5>
-            <p class="custom-card-text font-bold">100+</p>
+            <h5 class="custom-card-title font-semi-bold">Jumlah Internasional</h5>
+            <p class="custom-card-text font-bold"><?php echo getCountPrestasi('internasional'); ?></p>
         </div>
         <div class="icon-admin">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">

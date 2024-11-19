@@ -21,15 +21,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (!empty($allAdmin)) {
                     $_SESSION['user_data'] = $allAdmin;
                 } else {
-                    $_SESSION['error'] = 'Data admin tidak ditemukan.';
+                    $_SESSION['error_login'] = 'Data tidak ditemukan.';
                     header('Location: /katalis/login');
                 }
 
                 header('Location: /katalis/admin');
                 die();
-            } else {
-                $allMhs = $mhs->getMahasiswaByNim($username);
-                $_SESSION['user_data'] = $allMhs;
+            } else  {
+                $allMhs = getMahasiswaByNim($username);
+
+                if (!empty($allMhs)) {
+                    $_SESSION['user_data'] = $allMhs;
+                } else {
+                    $_SESSION['error_login'] = 'Data tidak ditemukan.';
+                    header('Location: /katalis/login');
+                }
+
                 header('Location: /katalis/dashboard');
                 die();
             }

@@ -5,6 +5,7 @@
 $stmt;
 
 function getAllUsers() {
+    require_once '../config/Database.php';
     $sql = "SELECT * FROM dbo.Users";
     $stmt = getDBConnection()->prepare($sql);
     $stmt->execute();
