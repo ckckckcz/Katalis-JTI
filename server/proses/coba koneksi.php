@@ -3,12 +3,20 @@
 require_once '../model/Mahasiswa.php';
 require_once '../model/Admin.php';
 require_once '../model/Users.php';
+include '../model/Event.php';
+require_once '../model/Berita.php';
+require_once '../model/Prestasi.php';
 
-$data = new Users();
-$user = $data->getAllUsers();
-$data = new Admin();
-$admin = $data->getAllAdmin();
-$data = new Mahasiswa();
-$mhs = $data->getAllMahasiswa();
-var_dump($user);
+// $user = getAllUsers();
+// $admin = getAllAdmin();
+// $mhs = getAllMahasiswa();
+// $evt = getAllEvent();
+// $berita = getAllBerita();
+$prestasi = getCountPrestasi('lokal');
+// var_dump($user);
+// var_dump($admin);
+// var_dump($mhs);
+// var_dump($evt);
+// var_dump($berita);
+var_dump($prestasi);
 
