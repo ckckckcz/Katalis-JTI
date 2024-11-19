@@ -7,28 +7,34 @@ require_once '../model/Admin.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $user = new Users();
-    $allUser = $user->getAllUsers();
+    $allUser = getAllUsers();
 
     foreach($allUser as $data) {
         if ($username == $data['username'] && $password == $data['password']) {
             session_start();
             $_SESSION['user_role'] = $data['role'];    
-            $_SESSION['is_login'] = true;   
+            $_SESSION['is_login'] = true;
             
             if ($data['role'] == 'admin') {
-                $admin = new Admin();
-                $allAdmin = $admin->getAdminByNip($username);
-                $_SESSION['user_data'] = $allAdmin;
+                $allAdmin = getAdminByNip($username); 
+                
+                if (!empty($allAdmin)) {
+                    $_SESSION['user_data'] = $allAdmin;
+                } else {
+                    $_SESSION['error'] = 'Data admin tidak ditemukan.';
+                    header('Location: /katalis/login');
+                }
+
                 header('Location: /katalis/admin');
                 die();
             } else {
-                $mhs = new Mahasiswa();
                 $allMhs = $mhs->getMahasiswaByNim($username);
                 $_SESSION['user_data'] = $allMhs;
                 header('Location: /katalis/dashboard');
                 die();
             }
+        } else {
+            Header('Location: /katalis/login');
         }
     }
 }
