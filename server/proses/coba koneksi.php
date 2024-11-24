@@ -8,15 +8,15 @@ require_once '../model/Berita.php';
 require_once '../model/Prestasi.php';
 
 // $user = getAllUsers();
-// $admin = getAllAdmin();
+$admin = new Admin();
 // $mhs = getAllMahasiswa();
 // $evt = getAllEvent();
 // $berita = getAllBerita();
-$prestasi = getCountPrestasi('lokal');
+// $prestasi = getCountPrestasi('lokal');
 // var_dump($user);
-// var_dump($admin);
+var_dump($admin->getAllAdmin());
 // var_dump($mhs);
 // var_dump($evt);
 // var_dump($berita);
-var_dump($prestasi);
+// var_dump($prestasi);
 

@@ -37,7 +37,8 @@
                 <tbody class="font-regular">
                 <?php
                         $no = 1;
-                        $prestasi = getAllByMhs($_SESSION['user_data']['nim']);
+                        $data = new Prestasi();
+                        $prestasi = $data->getAllByMhs($_SESSION['user_data']['nim']);
                         
                         if (!empty($prestasi)) {
                             foreach ($prestasi as $p) {

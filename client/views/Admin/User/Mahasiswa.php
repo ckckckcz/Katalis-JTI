@@ -27,7 +27,8 @@
                 <tbody class="font-regular">
                 <?php
                         $no = 1;
-                        $mahasiswa = getAllMahasiswa();
+                        $data = new Mahasiswa();
+                        $mahasiswa = $data->getAllMahasiswa();
                         
                         if (!empty($mahasiswa)) {
                             foreach ($mahasiswa as $m) {

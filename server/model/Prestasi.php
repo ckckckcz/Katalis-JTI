@@ -1,50 +1,57 @@
 <?php
 
-@include './server/config/Database.php';
+require_once __DIR__ . '/../config/Database.php';
 
-$stmt;
+class Prestasi {
+    private $conn;
+    private $stmt;
+    public function __construct() {
+        $db = new Database();
+        $this->conn = $db->getDBConnection();
+    }
 
-function getAllPrestasi() {
-    $sql = "SELECT * FROM prestasi";
-    $stmt = getDBConnection()->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}
+    function getAllPrestasi() {
+        $sql = "SELECT * FROM prestasi";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
-function getAllWithMhs() {
-    $sql = "SELECT
-                m.nama_lengkap,
-                p.nama_kegiatan,
-                p.tingkat_lomba
-            FROM dbo.Prestasi p
-            INNER JOIN dbo.Mahasiswa m ON p.id_mahasiswa = m.nim";
-    $stmt = getDBConnection()->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}
+    function getAllWithMhs() {
+        $sql = "SELECT
+                    m.nama_lengkap,
+                    p.nama_kegiatan,
+                    p.tingkat_lomba
+                FROM dbo.Prestasi p
+                INNER JOIN dbo.Mahasiswa m ON p.id_mahasiswa = m.nim";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
-function getAllByMhs($nim) {
-    $sql = "SELECT
-                nama_kegiatan,
-                tingkat_lomba
-            FROM dbo.Prestasi 
-            WHERE id_mahasiswa = :id_mahasiswa";
-    $stmt = getDBConnection()->prepare($sql);
-    $stmt->bindParam(':id_mahasiswa', $nim);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}
+    function getAllByMhs($nim) {
+        $sql = "SELECT
+                    nama_kegiatan,
+                    tingkat_lomba
+                FROM dbo.Prestasi 
+                WHERE id_mahasiswa = :id_mahasiswa";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam(':id_mahasiswa', $nim);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
-function getCountPrestasi($tipe) {
-    $sql = "SELECT COUNT(id_prestasi) as jml
-            FROM Prestasi 
-            WHERE tingkat_lomba = :tingkat_lomba;";
-    $stmt = getDBConnection()->prepare($sql);
-    $stmt->bindParam(':tingkat_lomba', $tipe);
-    $stmt->execute();
-    $result = $stmt->fetchColumn();
-    return $result;
+    function getCountPrestasi($tipe) {
+        $sql = "SELECT COUNT(id_prestasi) as jml
+                FROM Prestasi 
+                WHERE tingkat_lomba = :tingkat_lomba;";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam(':tingkat_lomba', $tipe);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchColumn();
+        return $result;
+    }
 }
