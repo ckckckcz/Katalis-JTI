@@ -38,7 +38,8 @@
                 <tbody class="font-regular">
                     <?php
                         $no = 1;
-                        $prestasi = getAllWithMhs();
+                        $data = new Prestasi();
+                        $prestasi = $data->getAllWithMhs();
                         
                         if (!empty($prestasi)) {
                             foreach ($prestasi as $p) {

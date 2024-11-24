@@ -25,7 +25,8 @@
                 <tbody class="font-regular">
                     <?php
                         $no = 1;
-                        $allData = getAllEvent();
+                        $event = new Event();
+                        $allData = $event->getAllEvent();
                     ?>
                     <tr class="table-prestasi-row">
                         <th scope="row" class="table-prestasi-cell table-prestasi-header-cell">

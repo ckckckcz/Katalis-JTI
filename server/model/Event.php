@@ -1,29 +1,36 @@
 <?php
 
-@include './server/config/Database.php';
+require_once __DIR__ . '/../config/Database.php';
 
-$stmt;
+class Event {
+    private $conn;
+    private $stmt;
+    public function __construct() {
+        $db = new Database();
+        $this->conn = $db->getDBConnection();
+    }
 
-function getAllEvent() {
-    $sql = "SELECT * FROM event";
-    $stmt = getDBConnection()->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}
+    function getAllEvent() {
+        $sql = "SELECT * FROM event";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
 
-function getIndexWithNim($nim) {
-    $sql = "SELECT
-            m.nama_lengkap,
-            p.nama_kegiatan,
-            p.tingkat_lomba
-        FROM dbo.Prestasi p
-        INNER JOIN dbo.Mahasiswa m ON p.id_mahasiswa = m.nim
-        WHERE p.id_mahasiswa = :nim;";
-    $stmt = getDBConnection()->prepare($sql);
-    $stmt->bindParam(':nim', $nim);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
+    function getIndexWithNim($nim) {
+        $sql = "SELECT
+                m.nama_lengkap,
+                p.nama_kegiatan,
+                p.tingkat_lomba
+            FROM dbo.Prestasi p
+            INNER JOIN dbo.Mahasiswa m ON p.id_mahasiswa = m.nim
+            WHERE p.id_mahasiswa = :nim;";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam(':nim', $nim);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }

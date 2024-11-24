@@ -7,7 +7,8 @@ require_once '../model/Admin.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $allUser = getAllUsers();
+    $data = new Users(); 
+    $allUser = $data->getAllUsers();
 
     foreach($allUser as $data) {
         if ($username == $data['username'] && $password == $data['password']) {
@@ -16,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['is_login'] = true;
             
             if ($data['role'] == 'admin') {
-                $allAdmin = getAdminByNip($username); 
+                $dataAdmin = new Admin();
+                $allAdmin = $dataAdmin->getAdminByNip($username); 
                 
                 if (!empty($allAdmin)) {
                     $_SESSION['user_data'] = $allAdmin;
@@ -28,7 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header('Location: /katalis/admin');
                 die();
             } else  {
-                $allMhs = getMahasiswaByNim($username);
+                $dataMhs = new Mahasiswa();
+                $allMhs = $dataMhs->getMahasiswaByNim($username);
 
                 if (!empty($allMhs)) {
                     $_SESSION['user_data'] = $allMhs;
