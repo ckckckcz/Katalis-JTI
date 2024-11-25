@@ -113,15 +113,35 @@
 
 .podium-cards {
   display: flex;
-  align-items: flex-end; /* Mengatur teks agar berada di bawah */
-  justify-content: center; /* Mengatur teks agar berada di tengah secara horizontal */
+  flex-direction: column; /* Atur elemen secara vertikal */
+  align-items: center; /* Pusatkan elemen secara horizontal */
+  justify-content: flex-end; /* Teks tetap di bagian bawah */
   text-align: center;
   background: #f9fafb;
   padding-bottom: 20px;
   border-radius: 1rem;
-  font-size: 20px; /* Mengatur ukuran teks */
-  color: #000; /* Mengatur warna teks */
+  font-size: 20px;
+  color: #000;
   border: 2px solid #01bc8d2c;
+  position: relative; /* Untuk pengaturan elemen di dalamnya */
+}
+
+.badge-img {
+  height: auto;
+  position: absolute; /* Posisi absolut untuk badge */
+  top: -40px; /* Jarak badge dari atas */
+  left: 50%; /* Pusatkan badge secara horizontal */
+  transform: translateX(-50%); /* Perbaikan agar benar-benar di tengah */
+}
+
+.badge-silver{
+  width: 100px;
+}
+.badge-gold{
+  width: 110px;
+}
+.badge-bronze{
+  width: 75px;
 }
 
 .podium-2 {
