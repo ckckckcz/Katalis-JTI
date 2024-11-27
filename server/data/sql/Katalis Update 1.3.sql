@@ -111,6 +111,14 @@ INSERT INTO Berita (id_prestasi, nama_berita, deskripsi, tanggal_upload) VALUES
 
 --rank Leaderboard
 SELECT 
+    ROW_NUMBER() OVER (ORDER BY SUM(
+        CASE 
+            WHEN p.tingkat_lomba = 'internasional' THEN 3
+            WHEN p.tingkat_lomba = 'nasional' THEN 2
+            WHEN p.tingkat_lomba = 'lokal' THEN 1
+            ELSE 0
+        END
+    ) DESC) AS ranking,
     m.nama_lengkap AS nama_mahasiswa,
     m.prodi,
     SUM(
