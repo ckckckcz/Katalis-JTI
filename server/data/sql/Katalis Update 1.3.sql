@@ -108,3 +108,24 @@ INSERT INTO Berita (id_prestasi, nama_berita, deskripsi, tanggal_upload) VALUES
 (1, 'Mahasiswa Raih Juara 2 AI Innovation Challenge', 'Prestasi gemilang oleh mahasiswa Teknik Informatika.', '2024-02-16'),
 (2, 'Mahasiswa Raih 10 Besar Intuitiva UI UX Competition', 'Prestasi luar biasa oleh mahasiswa Teknik Informatika.', '2024-01-08'),
 (3, 'Mahasiswa Raih 10 Besar FESIFO 2.0 ', 'Prestasi membanggakan oleh mahasiswa Teknologi Informasi.', '2024-03-26');
+
+--rank Leaderboard
+SELECT 
+    m.nama_lengkap AS nama_mahasiswa,
+    m.prodi,
+    SUM(
+        CASE 
+            WHEN p.tingkat_lomba = 'internasional' THEN 3
+            WHEN p.tingkat_lomba = 'nasional' THEN 2
+            WHEN p.tingkat_lomba = 'lokal' THEN 1
+            ELSE 0
+        END
+    ) AS total_poin
+FROM 
+    Mahasiswa m
+JOIN 
+    Prestasi p ON m.nim = p.id_mahasiswa
+GROUP BY 
+    m.nama_lengkap, m.prodi
+ORDER BY 
+    total_poin DESC;
