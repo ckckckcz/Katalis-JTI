@@ -38,6 +38,13 @@
                 <?php
                         $no = 1;
                         $data = new Prestasi();
+                        if (isset($_SESSION['is_login']) == false) {
+                            echo "
+                            <tr class='table-prestasi-row'>
+                                td class='table-prestasi-cell'>Data Kosong</td>
+                            </tr>";
+                            die;
+                        }
                         $prestasi = $data->getAllByMhs($_SESSION['user_data']['nim']);
                         
                         if (!empty($prestasi)) {

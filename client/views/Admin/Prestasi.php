@@ -6,23 +6,6 @@
     <div class="admin-container">
         <div class="kegiatan-title font-bold">
             <p>Prestasi Mahasiswa</p>
-            <?php
-                if(isset($_SESSION['is_login']) == true) {
-                    if($_SESSION['role'] == 'mahasiswa') {
-                        echo '
-                            <div class="actions">
-                                <button type="button" class="button-primary font-bold"
-                                    onclick="window.location.href=\'/katalis/kegiatan/tambah_prestasi\'">Tambah Prestasi
-                                </button>
-                            </div>';
-                    }
-                    else  {
-                        
-                    }
-                } else {
-                    
-                }
-            ?>
         </div>
         <div class="table-prestasi-container">
             <table class="table-prestasi-table">
