@@ -1,3 +1,6 @@
+<?php
+include './server/model/Berita.php';
+?>
 <section class="podium-rank-section">
         <div class="podium-rank-container">
                 <h5 class="podium-card-title font-bold">Data Ranking</h5>
@@ -22,13 +25,39 @@
                                                 <tr>
                                                         <th scope="col" class="table-podium-th">No</th>
                                                         <th scope="col" class="table-podium-th">Mahasiswa</th>
+                                                        <th scope="col" class="table-podium-th">Prodi</th>
                                                         <th scope="col" class="table-podium-th">Kompetisi</th>
-                                                        <th scope="col" class="table-podium-th">Kategori</th>
+                                                        <!-- <th scope="col" class="table-podium-th">Kategori</th> -->
                                                         <th scope="col" class="table-podium-th">Poin</th>
                                                 </tr>
                                         </thead>
                                         <tbody class="font-regular">
-                                                <tr class="table-podium-row">
+                                                <?php
+                                                        $no = 1;
+                                                        $data = new Berita();
+                                                        $leaderboard = $data->getForLeaderboard();
+                                                        
+                                                        if (!empty($leaderboard)) {
+                                                        foreach ($leaderboard as $l) {
+                                                                echo "
+                                                                        <tr class='table-prestasi-row'>
+                                                                                <th scope='row' class='table-prestasi-cell table-prestasi-header-cell'>
+                                                                                $no</th>
+                                                                                <td class='table-prestasi-cell'>$l[nama_mahasiswa]</td>
+                                                                                <td class='table-prestasi-cell'>$l[prodi]</td>
+                                                                                <td class='table-prestasi-cell'>$l[nama_kegiatan]</td>
+                                                                                <td class='table-prestasi-cell'>$l[total_poin]</td>
+                                                                        </tr>";
+                                                                        $no++;
+                                                                }
+                                                                } else {
+                                                                echo "
+                                                                <tr class='table-prestasi-row'>
+                                                                        td class='table-prestasi-cell'>Data Kosong</td>
+                                                                </tr>";
+                                                                }
+                                                        ?>
+                                                <!-- <tr class="table-podium-row">
                                                         <th scope="row"
                                                                 class="table-podium-cell table-podium-header-cell">
                                                                 1</th>
@@ -36,25 +65,7 @@
                                                         <td class="table-podium-cell">Compfest</td>
                                                         <td class="table-podium-cell">Nasional</td>
                                                         <td class="table-podium-cell">1200</td>
-                                                </tr>
-                                                <tr class="table-podium-row">
-                                                        <th scope="row"
-                                                                class="table-podium-cell table-podium-header-cell">
-                                                                2</th>
-                                                        <td class="table-podium-cell">Arya Mahendra Wijaya</td>
-                                                        <td class="table-podium-cell">KMPIN</td>
-                                                        <td class="table-podium-cell">Nasional</td>
-                                                        <td class="table-podium-cell">1100</td>
-                                                </tr>
-                                                <tr class="table-podium-row">
-                                                        <th scope="row"
-                                                                class="table-podium-cell table-podium-header-cell">
-                                                                3</th>
-                                                        <td class="table-podium-cell">Bagaskara Pradipta Satriya</td>
-                                                        <td class="table-podium-cell">Gemastik</td>
-                                                        <td class="table-podium-cell">Nasioanl</td>
-                                                        <td class="table-podium-cell">1090</td>
-                                                </tr>
+                                                </tr> -->
                                         </tbody>
                                 </table>
                         </div>

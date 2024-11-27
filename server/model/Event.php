@@ -11,7 +11,13 @@ class Event {
     }
 
     function getAllEvent() {
-        $sql = "SELECT * FROM event";
+        $sql = "SELECT 
+                nama_event,
+                tingkat_lomba,
+                instansi_penyelenggara,
+                tanggal_mulai,
+                tanggal_selesai
+                FROM event";
         $this->stmt = $this->conn->prepare($sql);
         $this->stmt->execute();
         $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
