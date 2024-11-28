@@ -7,16 +7,21 @@ include '../model/Event.php';
 require_once '../model/Berita.php';
 require_once '../model/Prestasi.php';
 
-// $user = getAllUsers();
-$admin = new Admin();
-// $mhs = getAllMahasiswa();
-// $evt = getAllEvent();
-// $berita = getAllBerita();
-// $prestasi = getCountPrestasi('lokal');
-// var_dump($user);
-var_dump($admin->getAllAdmin());
-// var_dump($mhs);
-// var_dump($evt);
-// var_dump($berita);
-// var_dump($prestasi);
+// $user = new Users();
+// $admin = new Admin();
+// $mhs = new Mahasiswa();
+// $evt = new Event();
+$berita = new Berita();
+$prestasi = new Prestasi();
+
+// var_dump($user->getAllUsers());
+// var_dump($admin->getAllAdmin());
+echo "<pre>";
+var_dump($berita->getAllBerita());
+echo "<pre>";
+// var_dump($mhs->getAllMahasiswa());
+// var_dump($evt->getAllEvent());
+echo "<pre>";
+var_dump($prestasi->getAllPrestasi());
+echo "</pre>";
 

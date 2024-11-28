@@ -54,4 +54,17 @@ class Prestasi {
         $result = $this->stmt->fetchColumn();
         return $result;
     }
+
+
+    function getCountByMhs($tipe, $user_id) {
+        $sql = "SELECT COUNT(id_prestasi) as jml
+                FROM Prestasi 
+                WHERE tingkat_lomba = :tingkat_lomba AND id_mahasiswa = :id_mahasiswa;";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam(':tingkat_lomba', $tipe);
+        $this->stmt->bindParam(':id_mahasiswa', $user_id);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchColumn();
+        return $result;
+    }
 }

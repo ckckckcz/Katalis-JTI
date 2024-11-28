@@ -1,11 +1,22 @@
 <?php
     include './server/model/Prestasi.php';
+    $prestasi = new Prestasi();
 ?>
 <div class="admin-card">
     <div href="#" class="custom-card">
         <div class="title-admin">
             <h5 class="custom-card-title font-semi-bold">Jumlah Prestasi Lokal</h5>
-            <p class="custom-card-text font-bold"><?php echo getCountPrestasi('lokal'); ?></p>
+            <p class="custom-card-text font-bold">
+                <?php 
+                    if (!isset($_SESSION['user_role']) || !isset($_SESSION['user_id'])) {
+                        echo "0";
+                    } else if ($_SESSION['user_role'] == 'admin') {
+                        echo $prestasi->getCountPrestasi('lokal'); 
+                    } else if ($_SESSION['user_role'] == 'mahasiswa') {
+                        echo $prestasi->getCountByMhs('lokal', $_SESSION['user_id']);
+                    }
+                ?>
+            </p>
         </div>
         <div class="icon-admin">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -19,7 +30,20 @@
     <div href="#" class="custom-card">
         <div class="title-admin">
             <h5 class="custom-card-title font-semi-bold">Jumlah Prestasi Nasional</h5>
-            <p class="custom-card-text font-bold"><?php echo getCountPrestasi('nasional'); ?></p>
+            <p class="custom-card-text font-bold">
+                <?php 
+                    if (!isset($_SESSION['user_role'])) {
+                        echo "0";
+                    } else if ($_SESSION['user_role'] == 'admin') {
+                        echo $prestasi->getCountPrestasi('nasional'); 
+                    } else if ($_SESSION['user_role'] == 'mahasiswa') {
+                        if (!isset($_SESSION['user_data'])) {
+                            echo "0";
+                        }
+                        echo $prestasi->getCountByMhs('nasional', $_SESSION['user_data']['nim']);
+                    }
+                ?>
+            </p>
         </div>
         <div class="icon-admin">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -33,7 +57,7 @@
     <div href="#" class="custom-card">
         <div class="title-admin">
             <h5 class="custom-card-title font-semi-bold">Jumlah Internasional</h5>
-            <p class="custom-card-text font-bold"><?php echo getCountPrestasi('internasional'); ?></p>
+            <p class="custom-card-text font-bold"><?php echo $prestasi->getCountPrestasi('internasional'); ?></p>
         </div>
         <div class="icon-admin">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
