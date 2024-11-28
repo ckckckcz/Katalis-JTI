@@ -41,7 +41,7 @@
                 <div id="bsb-chart-3" style="width: 100%; max-width: 600px; height: 300px;"></div>
             </div>
         </div>
-        <hr class="blog-hr-2">
+        <!-- <hr class="blog-hr-2"> -->
     </div>
 </section>
 

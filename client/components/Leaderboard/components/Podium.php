@@ -27,7 +27,6 @@ include './server/model/Berita.php';
                                                         <th scope="col" class="table-podium-th">Mahasiswa</th>
                                                         <th scope="col" class="table-podium-th">Prodi</th>
                                                         <th scope="col" class="table-podium-th">Kompetisi</th>
-                                                        <!-- <th scope="col" class="table-podium-th">Kategori</th> -->
                                                         <th scope="col" class="table-podium-th">Poin</th>
                                                 </tr>
                                         </thead>

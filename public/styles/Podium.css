@@ -9,17 +9,9 @@
   max-width: 80rem;
 }
 
-/* .podium-card {
-  display: block;
-  padding: 1.5rem;
-  background-color: red;
-  border: 2px solid #e5e7eb;
-  border-radius: 1rem;
-} */
-
 .podium-card-title {
   margin-bottom: 0;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.025em;
   color: #111827;
@@ -105,10 +97,10 @@
 
 .podium-grid {
   display: grid;
-  gap: 10px; /* Space between grid items */
   grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
   justify-content: center;
   align-items: end;
+  margin-top: 50px;
 }
 
 .podium-cards {
@@ -119,10 +111,8 @@
   text-align: center;
   background: #f9fafb;
   padding-bottom: 20px;
-  border-radius: 1rem;
   font-size: 20px;
   color: #000;
-  border: 2px solid #01bc8d2c;
   position: relative; /* Untuk pengaturan elemen di dalamnya */
 }
 
@@ -154,4 +144,11 @@
 
 .podium-3 {
   height: 150px;
+}
+
+@media (max-width: 640px){
+  .podium-cards{
+    font-size: 15px;
+    margin-top: 30px;
+  }
 }

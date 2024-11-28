@@ -318,3 +318,9 @@ span {
     justify-content: space-between;
   }
 }
+
+@media (max-width: 640px){
+  .leaderboard-rank-container{
+    padding: 40px;
+  }
+}
