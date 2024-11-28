@@ -133,7 +133,6 @@ span {
   border-radius: 1rem;
 }
 
-/* For tablet and desktop: place image on the right */
 @media (min-width: 640px) {
   .about-grid {
     flex-direction: row; /* Horizontal layout for larger screens */

@@ -17,6 +17,9 @@ switch ($request) {
     case $location . '/blog':
         $filePath = 'client/views/Blog.php';
         break;
+    case $location . '/competition':
+        $filePath = 'client/views/Competition.php';
+        break;
     case $location . '/blog/read':
         $filePath = 'client/views/Blog/detail.php';
         break;

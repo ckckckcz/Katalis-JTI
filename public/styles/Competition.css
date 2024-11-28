@@ -1,0 +1,172 @@
+.competition-input {
+    background: rgba(255, 255, 255, 0.1); /* Background retained */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.048);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border: 1px solid rgba(255, 255, 255, 0.57);
+    border-radius: 400px;
+    color: #111827;
+    font-size: 0.875rem;
+    padding: 0 1rem; /* Horizontal padding untuk teks */
+    width: 99.5%;
+    margin-top: 30px;
+    height: 50px; /* Tinggi elemen input */
+    line-height: 50px; /* Tinggi garis sama dengan tinggi input untuk tengah vertikal */
+    text-align: left; /* Teks rata kiri */
+}
+
+/* Main container */
+.competition-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 0.5rem;
+  }
+  
+  /* Grid layout */
+  .competition-container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(1, 1fr); /* Default untuk mobile */
+  }
+  
+  /* Tablet layout: 2 columns */
+  @media (min-width: 640px) {
+    .competition-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .competition-detail-title {
+      font-size: 10px;
+    }
+  }
+  
+  /* Desktop layout: 3 columns */
+  @media (min-width: 1024px) {
+    .competition-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .competition-detail-title {
+      font-size: 50px;
+    }
+  }
+  
+  /* Card styling */
+  .competition-card {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  /* Image styling */
+  .competition-image {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    background-position: center;
+  }
+  
+  /* Content styling */
+  .competition-content {
+    padding: 1rem;
+  }
+  
+  .competition-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+  }
+  
+  .competition-text {
+    color: #6b7280;
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .competition-button {
+    display: inline-block;
+    background-color: #01bc8d;
+    color: white;
+    margin-bottom: 5px;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .competition-button:hover {
+    background-color: #059470;
+  }
+  
+  .competition-hr {
+    border: none; /* Menghapus border default */
+    height: 2px; /* Tinggi garis */
+    background-color: #e5e7eb; /* Warna garis */
+    margin-bottom: 50px;
+  }
+  .competition-hr-2 {
+    border: none; /* Menghapus border default */
+    height: 2px; /* Tinggi garis */
+    background-color: #e5e7eb; /* Warna garis */
+    margin-bottom: 30px;
+  }
+  
+  .competition-detail-title {
+    font-size: 50px;
+  }
+  .competition-detail-diskusi {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .competition-detail-paragraph {
+    font-size: 20px;
+  }
+  
+  .detail-paragraph {
+    margin-bottom: 50px;
+  }
+  
+  .detail-img {
+    width: 100%;
+    height: 600px;
+    border-radius: 1rem;
+  }
+  
+  .competition-img h5 {
+    margin-top: 15px;
+    color: #a9abaf;
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .competition-detail-title {
+      font-size: 35px;
+    }
+    .competition-detail-paragraph {
+      font-size: 15px;
+    }
+    .detail-paragraph {
+      margin-bottom: 20px;
+    }
+    .detail-img {
+      width: 100%;
+      height: 400px;
+      border-radius: 1rem;
+    }
+    .competition-detail-diskusi {
+      font-size: 35px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .related-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0rem 0.5rem;
+  }
+  .competition-related {
+    font-size: 40px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+  
