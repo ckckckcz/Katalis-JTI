@@ -3,7 +3,7 @@
     <div class="sidebar-menu">
         <ul class="sidebar-ul">
             <li class="sidebar-li">
-                <div onclick="window.location.href='/katalis/user/dashboard'" class="sidebar-link">
+                <div onclick="window.location.href='/katalis/user'" class="sidebar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="sidebar-svg">
                         <path
                             d="M19.006 3.705a.75.75 0 1 0-.512-1.41L6 6.838V3a.75.75 0 0 0-.75-.75h-1.5A.75.75 0 0 0 3 3v4.93l-1.006.365a.75.75 0 0 0 .512 1.41l16.5-6Z" />

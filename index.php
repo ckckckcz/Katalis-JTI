@@ -49,7 +49,7 @@ switch ($request) {
         $filePath = 'client/views/admin/Functions/Tambah_Prestasi.php';
         break;
     // User Dashboard Routing
-    case $location . '/user/dashboard':
+    case $location . '/user':
         $filePath = 'client/views/User/Dashboard.php';
         break;
     case $location . '/user/daftarPrestasi':
