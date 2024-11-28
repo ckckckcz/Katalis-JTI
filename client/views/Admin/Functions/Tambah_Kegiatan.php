@@ -17,67 +17,67 @@ $kotaList = $data['kota'];
                     <input type="text" id="nama-kegiatan" class="kegiatan-input font-semi-bold"
                         placeholder="Masukkan nama kegiatan">
                 </div>
+                <div class="kegiatan-grid">
+                    <div class="kegiatan-group">
+                        <label for="Tingkat" class="kegiatan-label font-bold">Tingkat Kompetisi</label>
+                        <select id="Tingkat" class="kegiatan-input kegiatan-select font-semi-bold">
+                            <option selected>International</option>
+                            <option value="">National</option>
+                            <option value="">Kota / Kabupaten</option>
+                            <option value="">Provinsi</option>
+                            <option value="">Internal</option>
+                        </select>
+                    </div>
+                    <div class="kegiatan-group">
+                        <label for="nama-kompetisi" class="kegiatan-label font-bold">Tempat Kompetisi</label>
+                        <input type="text" id="nama-kompetisi" class="kegiatan-input font-semi-bold"
+                            placeholder="Masukkan nama kompetisi">
+                    </div>
+                </div>
+                <div class="kegiatan-group">
+                    <label for="nama-kompetisi" class="kegiatan-label font-bold">URL Kompetisi</label>
+                    <input type="text" id="nama-kompetisi" class="kegiatan-input font-semi-bold"
+                        placeholder="Masukkan nama kompetisi">
+                </div>
                 <div class="kegiatan-group">
                     <label for="deskripsi-kegiatan" class="kegiatan-label font-bold">Deskripsi Kegiatan</label>
                     <textarea id="deskripsi-kegiatan" class="kegiatan-input kegiatan-deskripsi font-semi-bold"
                         placeholder="Masukkan deskripsi kegiatan"></textarea>
                 </div>
                 <hr class="kegiatan-hr">
-                <div class="kegiatan-group">
-                    <label for="jenis-kegiatan" class="kegiatan-label font-bold">Jenis Kegiatan</label>
-                    <input type="text" id="jenis-kegiatan" class="kegiatan-input font-semi-bold"
-                        placeholder="Masukkan jenis kegiatan">
-                </div>
-                <div class="kegiatan-group">
-                    <label for="penyelenggara" class="kegiatan-label font-bold">Penyelenggara Kegiatan</label>
-                    <input type="text" id="penyelenggara" class="kegiatan-input font-semi-bold"
-                        placeholder="Masukkan Penyelenggara kegiatan">
-                </div>
-                <div class="kegiatan-grid">
-                    <!-- Dropdown Provinsi -->
-                    <div class="kegiatan-group">
-                        <label for="provinsi" class="kegiatan-label font-bold">Provinsi</label>
-                        <select id="provinsi" class="kegiatan-input kegiatan-select font-semi-bold"
-                            onchange="updateKotaDropdown()">
-                            <option value="" selected>Pilih Provinsi</option>
-                            <?php foreach ($provinsiList as $provinsi): ?>
-                                <option value="<?= htmlspecialchars($provinsi['id']) ?>">
-                                    <?= htmlspecialchars($provinsi['nama']) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                    <!-- Dropdown Kota/Kabupaten -->
-                    <div class="kegiatan-group">
-                        <label for="kota" class="kegiatan-label font-bold">Kota/Kabupaten</label>
-                        <select id="kota" class="kegiatan-input kegiatan-select font-semi-bold">
-                            <option value="" selected>Pilih Kota/Kabupaten</option>
-                        </select>
-                    </div>
-                </div>
-                <hr class="kegiatan-hr">
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
-                        <label for="provinsi" class="kegiatan-label font-bold">Tanggal Mulai</label>
-                        <select id="provinsi" class="kegiatan-input kegiatan-select font-semi-bold">
-                            <option selected>Pilih Provinsi</option>
-                            <option value="US">United States</option>
-                            <option value="CA">Canada</option>
-                            <option value="FR">France</option>
-                            <option value="DE">Germany</option>
-                        </select>
+                        <label for="Tingkat" class="kegiatan-label font-bold">Tanggal Mulai</label>
+                        <input type="date" id="nama-kompetisi" class="kegiatan-input font-semi-bold"
+                            placeholder="Masukkan nama kompetisi">
                     </div>
                     <div class="kegiatan-group">
-                        <label for="kota" class="kegiatan-label font-bold">Tanggal Selesai</label>
-                        <select id="kota" class="kegiatan-input kegiatan-select font-semi-bold">
-                            <option selected>Pilih Kota/Kabupaten</option>
-                            <option value="US">United States</option>
-                            <option value="CA">Canada</option>
-                            <option value="FR">France</option>
-                            <option value="DE">Germany</option>
-                        </select>
+                        <label for="Tingkat" class="kegiatan-label font-bold">Tanggal Selesai</label>
+                        <input type="date" id="nama-kompetisi" class="kegiatan-input font-semi-bold"
+                            placeholder="Masukkan nama kompetisi">
                     </div>
+                </div>
+                <div class="kegiatan-group">
+                    <label for="nama-kompetisi" class="kegiatan-label font-bold">File Poster Kompetisi</label>
+                        <div class="kegiatan-input-file-container">
+                            <label for="dropzone-file" class="kegiatan-input-file-label">
+                                <div class="kegiatan-input-file-content">
+                                    <svg class="kegiatan-input-file-icon" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                    </svg>
+                                    <p class="kegiatan-input-file-text"><span
+                                            class="kegiatan-input-file-highlight font-semi-bold">Click to upload</span>
+                                        or drag and
+                                        drop</p>
+                                    <p class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG, JPG or GIF (MAX.
+                                        800x400px)</p>
+                                </div>
+                                <input id="dropzone-file" type="file" class="kegiatan-input-file-hidden" />
+                            </label>
+                        </div>
                 </div>
                 <div class="actions">
                     <button type="button" class="button-primary font-bold">Submit Kegiatan</button>
