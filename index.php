@@ -49,11 +49,14 @@ switch ($request) {
         $filePath = 'client/views/admin/Functions/Tambah_Prestasi.php';
         break;
     // User Dashboard Routing
-    case $location . '/dashboard':
+    case $location . '/user/dashboard':
         $filePath = 'client/views/User/Dashboard.php';
         break;
-    case $location . '/daftarPrestasi':
+    case $location . '/user/daftarPrestasi':
         $filePath = 'client/views/User/Prestasi.php';
+        break;
+    case $location . '/user/tambahPrestasi':
+        $filePath = 'client/views/User/functions/Tambah_Prestasi.php';
         break;
     default:
         http_response_code(404);

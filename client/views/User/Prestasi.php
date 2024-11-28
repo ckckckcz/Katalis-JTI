@@ -6,6 +6,10 @@
     <div class="user-container">
         <div class="kegiatan-title font-bold">
             <p>Daftar Prestasi</p>
+            <div class="actions">
+                <button type="button" class="button-primary font-bold"
+                    onclick="window.location.href='/katalis/user/tambahPrestasi'">Tambah Prestasi </button>
+            </div>
             <?php
                 if(isset($_SESSION['is_login']) == true) {
                     if($_SESSION['user_role'] == 'mahasiswa') {
