@@ -138,3 +138,8 @@ GROUP BY
     m.nama_lengkap, m.prodi
 ORDER BY 
     total_poin DESC;
+
+--filter prestasi
+SELECT *
+FROM Prestasi
+where DAY(dibuat_pada) BETWEEN 1 AND 30;
