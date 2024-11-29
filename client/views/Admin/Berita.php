@@ -5,7 +5,7 @@
             <p>Berita Katalis</p>
             <div class="actions">
                 <button type="button" class="button-primary font-bold"
-                    onclick="window.location.href='/katalis/kegiatan/tambah_kegiatan'">Tambah Berita</button>
+                    onclick="window.location.href='/katalis/kegiatan/tambah_berita'">Tambah Berita</button>
             </div>
         </div>
         <div class="blog-container">
