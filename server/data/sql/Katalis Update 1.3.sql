@@ -52,6 +52,7 @@ CREATE TABLE Prestasi (
     file_poster VARCHAR(255),
     file_dokumentasi VARCHAR(255),
     file_sertifikat VARCHAR(255),
+    status_validasi VARCHAR(20) CHECK (status_validasi IN ('proses_validasi', 'tidak_divalidasi', 'data_tervalidasi')) NOT NULL,
 	dibuat_pada DATETIME DEFAULT GETDATE(),
     FOREIGN KEY (id_mahasiswa) REFERENCES Mahasiswa(nim) ON DELETE CASCADE ON UPDATE CASCADE
 );
