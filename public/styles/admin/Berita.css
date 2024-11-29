@@ -1,0 +1,155 @@
+.berita-title {
+    margin-top: 0;
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+  .berita-title p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .berita-card {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 50px;
+  }
+  
+  .berita-group {
+    margin-bottom: 1.5rem;
+    margin-right: 20px;
+  }
+  .berita-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #111827;
+  }
+  
+  .berita-input {
+    background-color: #f9fafb;
+    border: 1px solid #d1d5db;
+    color: #111827;
+    font-size: 0.875rem;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    width: 99.5%;
+  }
+  
+  .berita-input:focus {
+    border-color: #01bc8d;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+  }
+  .berita-hr {
+    border: none; /* Menghapus border default */
+    height: 2px; /* Tinggi garis */
+    background-color: #e5e7eb; /* Warna garis */
+    margin-bottom: 1.5rem;
+  }
+  
+  .berita-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  @media (max-width: 640px) {
+    .berita-grid {
+      display: block;
+    }
+  }
+  .berita-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1f2937; /* text-gray-900 */
+  }
+  
+  .berita-select {
+    background-color: #f9fafb; /* bg-gray-50 */
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    color: #1f2937; /* text-gray-900 */
+    font-size: 0.875rem; /* text-sm */
+    border-radius: 0.5rem; /* rounded-lg */
+    width: 102%;
+    padding: 0.8rem; /* p-2.5 */
+    appearance: none; /* Sembunyikan panah bawaan */
+    -webkit-appearance: none; /* Untuk Safari */
+    -moz-appearance: none; /* Untuk Firefox */
+  }
+  
+  .berita-select:focus {
+    border-color: #01bc8d;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+  }
+  
+  .berita-input-file-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .berita-input-file-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 16rem; /* 64 */
+    border: 2px dashed #d1d5db; /* Gray-300 */
+    border-radius: 0.5rem; /* Rounded-lg */
+    cursor: pointer;
+    background-color: #fff; /* Gray-50 */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .berita-input-file-label:hover {
+    background-color: #f3f4f6; /* Gray-100 */
+  }
+  
+  .berita-input-file-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1.25rem; /* pt-5 */
+    padding-bottom: 1.5rem; /* pb-6 */
+  }
+  
+  .berita-input-file-icon {
+    width: 2rem; /* w-8 */
+    height: 2rem; /* h-8 */
+    margin-bottom: 1rem; /* mb-4 */
+    color: #6b7280; /* Gray-500 */
+  }
+  
+  .berita-input-file-text {
+    margin-bottom: 0.5rem; /* mb-2 */
+    font-size: 0.875rem; /* text-sm */
+    color: #6b7280; /* Gray-500 */
+  }
+  
+  .berita-input-file-highlight {
+    font-weight: 600; /* font-semibold */
+  }
+  
+  .berita-input-file-subtext {
+    font-size: 0.75rem; /* text-xs */
+    color: #6b7280; /* Gray-500 */
+  }
+  
+  .berita-input-file-hidden {
+    display: none;
+  }
+  
+  .berita-deskripsi{
+    height: 100px;
+  }

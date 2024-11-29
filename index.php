@@ -36,6 +36,9 @@ switch ($request) {
     case $location . '/kegiatan':
         $filePath = 'client/views/admin/Kegiatan.php';
         break;
+    case $location . '/berita':
+        $filePath = 'client/views/admin/Berita.php';
+        break;
     case $location . '/dataPrestasi':
         $filePath = 'client/views/admin/Prestasi.php';
         break;
@@ -45,6 +48,7 @@ switch ($request) {
     case $location . '/daftarMahasiswa':
         $filePath = 'client/views/admin/User/Mahasiswa.php';
         break;
+    // CRUD ADMIN
     case $location . '/kegiatan/tambah_kegiatan':
         $filePath = 'client/views/admin/Functions/Tambah_Kegiatan.php';
         break;
