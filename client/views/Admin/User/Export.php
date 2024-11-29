@@ -8,6 +8,22 @@
                     onclick="window.location.href='/katalis/tambahKegiatan.php'">Download Data</button>
             </div>
         </div>
+        <hr class="blog-hr-2">
+        <div class="kegiatan-grid">
+            <div class="kegiatan-group">
+                <label for="Tingkat" class="kegiatan-label font-bold">Tanggal Awal</label>
+                <input type="date" id="nama-kompetisi" class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi">
+            </div>
+            <div class="kegiatan-group">
+                <label for="Tingkat" class="kegiatan-label font-bold">Tanggal Akhir</label>
+                <input type="date" id="nama-kompetisi" class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi">
+            </div>
+        </div>
+        <div class="kegiatan-title font-bold">
+            <div class="actions">
+                <button type="button" class="button-primary font-bold">Terapkan Filter</button>
+            </div>
+        </div>
         <div class="table-prestasi-container">
             <table class="table-prestasi-table">
                 <thead class="table-prestasi-thead font-bold">
