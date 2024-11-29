@@ -29,25 +29,31 @@
                         $no = 1;
                         $data = new Mahasiswa();
                         $mahasiswa = $data->getAllMahasiswa();
-                        
-                        if (!empty($mahasiswa)) {
-                            foreach ($mahasiswa as $m) {
-                                echo "
-                                    <tr class='table-prestasi-row'>
-                                        <th scope='row' class='table-prestasi-cell table-prestasi-header-cell'>
-                                            $no</th>
-                                        <td class='table-prestasi-cell'>$m[nim]</td>
-                                        <td class='table-prestasi-cell'>$m[nama_lengkap]</td>
-                                        <td class='table-prestasi-cell'>$m[prodi]</td>
-                                        <td class='table-prestasi-cell'>$m[tahun_angkatan]</td>
-                                        <td class='table-prestasi-cell'>$m[status_mahasiswa]</td>
-                                        <td class='table-prestasi-cell'>
-                                            <a href='#' class='table-prestasi-link'>Detail</a>
-                                        </td>
-                                    </tr>";
-                                $no++;
-                            }
-                        } else {
+
+                            if (!empty($mahasiswa)) {
+                                foreach ($mahasiswa as $m) {
+                                    $status = $m['status_mahasiswa'];
+                                    $class = ($status === 'aktif') ? 'aktif' : 'nonaktif';
+                                    echo "
+                                        <tr class='table-prestasi-row'>
+                                            <th scope='row' class='table-prestasi-cell table-prestasi-header-cell'>
+                                                $no</th>
+                                            <td class='table-prestasi-cell'>$m[nim]</td>
+                                            <td class='table-prestasi-cell'>$m[nama_lengkap]</td>
+                                            <td class='table-prestasi-cell'>$m[prodi]</td>
+                                            <td class='table-prestasi-cell'>$m[tahun_angkatan]</td>
+                                            <td class='table-prestasi-cell'>
+                                                <span class='mahasiswa-status $class'>
+                                                    $status
+                                                </span>
+                                            </td>
+                                            <td class='table-prestasi-cell'>
+                                                <a href='#' class='table-prestasi-link'>Detail</a>
+                                            </td>
+                                        </tr>";
+                                    $no++;
+                                }
+                            } else {
                             echo "
                             <tr class='table-prestasi-row'>
                                 td class='table-prestasi-cell'>Data Kosong</td>

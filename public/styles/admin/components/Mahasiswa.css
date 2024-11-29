@@ -1,0 +1,12 @@
+.mahasiswa-status{
+    color: black;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+}
+.mahasiswa-status.aktif {
+    background-color: rgba(1, 188, 141, 0.4);
+}
+
+.mahasiswa-status.nonaktif {
+    background-color: rgba(255, 0, 0, 0.4);
+}
