@@ -1,6 +1,3 @@
-use KATALIS_NEW;
-
-
 CREATE TABLE Users (
     id_user INT PRIMARY KEY IDENTITY(1,1),
     username VARCHAR(20) NOT NULL UNIQUE,
