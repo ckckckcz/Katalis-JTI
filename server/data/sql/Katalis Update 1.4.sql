@@ -1,6 +1,3 @@
-use KATALIS_NEW;
-
--- Membuat tabel User
 CREATE TABLE Users (
     id_user INT PRIMARY KEY IDENTITY(1,1),
     username VARCHAR(20) NOT NULL UNIQUE,
@@ -8,7 +5,6 @@ CREATE TABLE Users (
     role VARCHAR(20) CHECK (role IN ('admin', 'mahasiswa')) NOT NULL
 );
 
--- Membuat tabel Mahasiswa
 CREATE TABLE Mahasiswa (
     nim VARCHAR(10) PRIMARY KEY,
     nama_lengkap VARCHAR(50) NOT NULL,
@@ -17,13 +13,11 @@ CREATE TABLE Mahasiswa (
     status_mahasiswa VARCHAR(20) DEFAULT 'aktif' CHECK (status_mahasiswa IN ('aktif', 'nonaktif'))
 );
 
--- Membuat tabel Admin
 CREATE TABLE Admin (
     nip VARCHAR(20) PRIMARY KEY,
     nama_lengkap VARCHAR(50) NOT NULL
 );
 
--- Membuat tabel Event
 CREATE TABLE Event (
     id_event INT PRIMARY KEY IDENTITY(1,1),
     nama_event VARCHAR(100) NOT NULL,
@@ -37,7 +31,6 @@ CREATE TABLE Event (
 	dibuat_pada DATETIME DEFAULT GETDATE()
 	);
 
--- Membuat tabel Prestasi
 CREATE TABLE Prestasi (
     id_prestasi INT PRIMARY KEY IDENTITY(1,1),
     id_mahasiswa VARCHAR(10),
@@ -58,7 +51,6 @@ CREATE TABLE Prestasi (
     FOREIGN KEY (id_mahasiswa) REFERENCES Mahasiswa(nim) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- Membuat tabel Berita
 CREATE TABLE Berita (
     id_berita INT PRIMARY KEY IDENTITY(1,1),
     id_prestasi INT,
@@ -92,20 +84,16 @@ INSERT INTO Admin (nip, nama_lengkap) VALUES
 ('2024004', 'Siti Aminah'),
 ('2024005', 'Doni Wahyudi');
 
--- Mengisi tabel Event 
 INSERT INTO Event (nama_event, tingkat_lomba, instansi_penyelenggara, deskripsi, tanggal_mulai, tanggal_selesai, url_event, poster_gambar) VALUES
 ('Lomba Pemrograman Nasional', 'nasional', 'Kemenristek', 'Lomba Pemrograman Tingkat Nasional', '2024-05-10', '2024-05-15', 'https://lomba1.com', 'AI Innovation Challenge.jpg'),
 ('Lomba Pemrograman Lokal', 'lokal', 'Komunitas Pemrograman', 'Lomba Pemrograman Tingkat Lokal', '2024-03-01', '2024-03-03', 'https://lomba2.com', 'Intuitiva UI UX Competition.jpg'),
 ('Lomba Pemrograman Universitas', 'nasional', 'Universitas A', 'Lomba Pemrograman Tingkat Universitas', '2024-06-20', '2024-06-25', 'https://lomba3.com', 'FESIFO 2.0.jpg');
 
--- Mengisi tabel Prestasi dengan data dummy
 INSERT INTO Prestasi (id_mahasiswa, nama_kegiatan, jenis_kegiatan, tanggal_mulai, tanggal_selesai, tingkat_lomba, peringkat, lokasi, deskripsi, dosen_pembimbing, file_karya, file_poster, file_dokumentasi, file_sertifikat) VALUES
 ('1234567890', 'AI Innovation Challenge', 'akademik', '2024-05-10', '2024-05-15', 'nasional', 2, 'Jakarta', 'Prestasi gemilang oleh mahasiswa Teknik Informatika.', 'Dr. Sutrisno', 'Sqill Quest.pdf', 'AI Innovation Challenge_2024.jpg', 'dokumentasi AI Innovation Challenge.jpg', 'sertif AI Innovation Challenge.jpg'),
 ('0987654321', 'Intuitiva UI UX Competition', 'akademik', '2024-01-05', '2024-01-08', 'nasional', 0, 'Malang', 'Prestasi luar biasa oleh mahasiswa Teknik Informatika.', 'Dr. Budi', 'Pintar Path.pdf', 'Intuitiva UI UX Competition_2024.jpg', 'dokumentasi Intuitiva UI UX Competition.jpg', 'sertif Intuitiva UI UX Competition.jpg'),
 ('1122334455', 'FESIFO 2.0', 'akademik', '2024-03-20', '2024-03-25', 'nasional', 0, 'Garut', 'Prestasi membanggakan oleh mahasiswa Teknologi Informasi.', 'Dr. Sari', 'ReWear.pdf', 'FESIFO 2.0_2024.jpg', 'dokumentasi FESIFO 2.0.jpg', 'sertif FESIFO 2.0.jpg');
 
-
--- Mengisi tabel Berita
 INSERT INTO Berita (id_prestasi, nama_berita, deskripsi,url_demo) VALUES
 (1, 'Mahasiswa Raih Juara 2 AI Innovation Challenge', 'Prestasi gemilang oleh mahasiswa Teknik Informatika.','https://youtu.be/oaYWN9_gLzk?si=a0J-4dT05GALLbQJ'),
 (2, 'Mahasiswa Raih 10 Besar Intuitiva UI UX Competition', 'Prestasi luar biasa oleh mahasiswa Teknik Informatika.','https://www.youtube.com/live/aGNTJkomLu0?si=T6dexZLsxInHMqkJ'),
