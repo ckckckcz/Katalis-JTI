@@ -80,6 +80,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/katalis/public/js/input.js"></script>
     <script src="/katalis/public/js/sidebar.js"></script>
+    <script src="/katalis/public/js/validasi.js"></script>
     <script src="/katalis/public/js/stepper.js"></script>
     <script src="/katalis/public/js/statusMahasiswa.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
