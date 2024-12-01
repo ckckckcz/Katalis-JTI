@@ -7,6 +7,12 @@
             <div class="input-group nim">
                 <label for="text" class="login-label font-bold">NIM</label>
                 <input type="text" id="text" name="username" class=" login-input font-semi-bold" placeholder="Masukkan nim anda">
+                <p>
+                    <?php
+                        if (isset($errors['username'])) {
+                            echo $errors['username'];
+                        }
+                    ?>
                 </p>
             </div>
             <div class="input-group password">
