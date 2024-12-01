@@ -7,7 +7,7 @@ $berita = $data->getAllBerita();
 ?>
 <section class="blog-section">
     <div class="blog-container">
-    <?php
+        <?php
         if (!empty($berita)) {
             foreach ($berita as $b) { ?>
             <div class="blog-card">

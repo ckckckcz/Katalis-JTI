@@ -4,15 +4,30 @@ require_once '../model/Users.php';
 require_once '../model/Mahasiswa.php';
 require_once '../model/Admin.php';
 
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $data = new Users(); 
     $allUser = $data->getAllUsers();
+    $errors = $_SESSION['errors'] ?? [];
+
+    if (empty($username)) {
+        $errors['username'] = 'Username tidak boleh kosong.';
+    }
+
+    if (empty($password)) {
+        $errors['password'] = 'Password tidak boleh kosong.';
+    }
+
+    if (!empty($errors)) {
+        header('Location: /katalis/login');
+        die();
+    }
 
     foreach($allUser as $data) {
         if ($username == $data['username'] && $password == $data['password']) {
-            session_start();
             $_SESSION['user_role'] = $data['role'];    
             $_SESSION['is_login'] = true;
             
@@ -22,9 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 if (!empty($allAdmin)) {
                     $_SESSION['user_data'] = $allAdmin;
+                    unset($_SESSION['errors']);
                 } else {
-                    $_SESSION['error_login'] = 'Data tidak ditemukan.';
+                    $errors['data_admin'] = 'Data tidak ditemukan.';
                     header('Location: /katalis/login');
+                    die;
                 }
 
                 header('Location: /katalis/admin');
@@ -35,12 +52,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 if (!empty($allMhs)) {
                     $_SESSION['user_data'] = $allMhs;
+                    unset($_SESSION['errors']);
                 } else {
-                    $_SESSION['error_login'] = 'Data tidak ditemukan.';
+                    $errors['data_mhs'] = 'Data tidak ditemukan.';
                     header('Location: /katalis/login');
+                    die;
                 }
 
-                header('Location: /katalis/dashboard');
+                header('Location: /katalis/user');
                 die();
             }
         } else {
