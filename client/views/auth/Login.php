@@ -5,10 +5,9 @@
         </div>
         <form class="login-form" method="POST" action="./server/proses/Login.php" onsubmit="return validateForm(event)">
             <div class="input-group nim">
-                <label for="nim" class="login-label font-bold">NIM</label>
-                <input type="text" id="nim" name="username" class="login-input font-semi-bold"
-                    placeholder="Masukkan nim anda">
-                <span class="error-message font-semi-bold"></span>
+                <label for="text" class="login-label font-bold">NIM</label>
+                <input type="text" id="text" name="username" class=" login-input font-semi-bold" placeholder="Masukkan nim anda">
+                </p>
             </div>
             <div class="input-group password">
                 <label for="password" class="login-label font-bold">Kata Sandi</label>

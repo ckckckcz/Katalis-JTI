@@ -10,23 +10,6 @@
                 <button type="button" class="button-primary font-bold"
                     onclick="window.location.href='/katalis/user/tambahPrestasi'">Tambah Prestasi </button>
             </div>
-            <?php
-                if(isset($_SESSION['is_login']) == true) {
-                    if($_SESSION['user_role'] == 'mahasiswa') {
-                        echo '
-                            <div class="actions">
-                                <button type="button" class="button-primary font-bold"
-                                    onclick="window.location.href=\'/katalis/kegiatan/tambah_prestasi\'">Tambah Prestasi
-                                </button>
-                            </div>';
-                    }
-                    else  {
-                        
-                    }
-                } else {
-                    
-                }
-            ?>
         </div>
         <div class="table-prestasi-container">
             <table class="table-prestasi-table">

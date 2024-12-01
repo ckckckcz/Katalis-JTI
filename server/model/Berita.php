@@ -57,4 +57,39 @@ class Berita {
         $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    function insertBerita($value) {
+        $sql = "INSERT INTO berita 
+                (id_prestasi, nama_berita, deskripsi, url_demo)
+                VALUES (?, ?, ?, ?)";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam(1, $value['id_prestasi']);
+        $this->stmt->bindParam(2, $value['nama_berita']);
+        $this->stmt->bindParam(3, $value['deskripsi']);
+        $this->stmt->bindParam(4, $value['url_demo']);
+        $this->stmt->execute();
+    }
+
+    function editBerita($id, $value) {
+        $sql = "UPDATE berita SET
+                id_prestasi = ?,
+                nama_berita = ?,
+                deskripsi = ?,
+                url_demo = ?
+                WHERE id_berita = ?";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam(1, $value['id_prestasi']);
+        $this->stmt->bindParam(2, $value['nama_berita']);
+        $this->stmt->bindParam(3, $value['deskripsi']);
+        $this->stmt->bindParam(4, $value['url_demo']);
+        $this->stmt->bindParam(4, $id);
+        $this->stmt->execute();
+    }
+
+    function deleteBerita($id) {
+        $sql = "DELETE FROM berita WHERE id_berita = ?";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam(1, $id);
+        $this->stmt->execute();
+    }
 }

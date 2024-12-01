@@ -55,7 +55,6 @@ class Prestasi {
         return $result;
     }
 
-
     function getCountByMhs($tipe, $user_id) {
         $sql = "SELECT COUNT(id_prestasi) as jml
                 FROM Prestasi 
@@ -65,6 +64,17 @@ class Prestasi {
         $this->stmt->bindParam(':id_mahasiswa', $user_id);
         $this->stmt->execute();
         $result = $this->stmt->fetchColumn();
+        return $result;
+    }
+
+    function getForBerita() {
+        $sql = "SELECT 
+                'Juara ' + CONVERT(varchar, peringkat) + ' ' + nama_kegiatan as input_prestasi,
+                id_prestasi
+                FROM prestasi WHERE peringkat > 0;";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 }
