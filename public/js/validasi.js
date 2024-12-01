@@ -1,12 +1,12 @@
 function validateForm(event) {
+    event.preventDefault();
     let isValid = true;
 
-    const nimInput = document.getElementById('nim');
+    const nimInput = document.querySelector('.nimInput');
     const passwordInput = document.getElementById('password');
     const nimError = nimInput.nextElementSibling;
     const passwordError = passwordInput.nextElementSibling;
 
-    // Reset semua error dan style
     nimError.style.display = 'none';
     passwordError.style.display = 'none';
     nimInput.style.border = '';
@@ -18,11 +18,20 @@ function validateForm(event) {
         nimError.style.display = 'block';
         nimInput.style.border = '3px solid red';
         isValid = false;
-    } else if (nimInput.value.trim() !== 'valid_nim') { // Simulasi validasi NIM
-        nimError.textContent = 'NIM Tidak Terdaftar';
-        nimError.style.display = 'block';
-        nimInput.style.border = '3px solid red';
-        isValid = false;
+    } else {
+        // Validasi NIM ke database menggunakan AJAX
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', './server/validation/validate.php', false); // Sinkron untuk mempermudah validasi langsung
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(`nim=${nimInput.value.trim()}`);
+
+        const response = JSON.parse(xhr.responseText);
+        if (!response.isValid) {
+            nimError.textContent = 'NIM Tidak Terdaftar';
+            nimError.style.display = 'block';
+            nimInput.style.border = '3px solid red';
+            isValid = false;
+        }
     }
 
     // Validasi Kata Sandi
@@ -31,13 +40,10 @@ function validateForm(event) {
         passwordError.style.display = 'block';
         passwordInput.style.border = '3px solid red';
         isValid = false;
-    } else if (passwordInput.value.trim() !== 'valid_password') { // Simulasi validasi Kata Sandi
-        passwordError.textContent = 'Kata Sandi Salah';
-        passwordError.style.display = 'block';
-        passwordInput.style.border = '3px solid red';
-        isValid = false;
     }
 
-    // Return false jika ada error
-    return isValid;
+    // Jika validasi sukses, kirim form
+    if (isValid) {
+        document.querySelector('.login-form').submit();
+    }
 }
