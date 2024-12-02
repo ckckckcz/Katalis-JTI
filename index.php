@@ -26,6 +26,9 @@ switch ($request) {
     case $location . '/login':
         $filePath = 'client/views/auth/Login.php';
         break;
+    case $location . '/logout':
+        $filePath = 'server/proses/Logout.php';
+        break;
     case $location . '/daftar':
         $filePath = 'client/views/auth/Register.php';
         break;

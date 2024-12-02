@@ -1,4 +1,10 @@
-<?php include('./client/components/Admin/Sidebar.php'); ?>
+<?php 
+
+include('./client/components/Admin/Sidebar.php'); 
+include('./server/model/Prestasi.php');
+
+
+?>
 <section class="admin-section">
     <div class="admin-container">
         <div class="kegiatan-title font-bold">
@@ -11,17 +17,17 @@
         <hr class="blog-hr-2">
         <div class="kegiatan-grid">
             <div class="kegiatan-group">
-                <label for="Tingkat" class="kegiatan-label font-bold">Tanggal Awal</label>
-                <input type="date" id="nama-kompetisi" class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi">
+                <label for="start-date" class="kegiatan-label font-bold">Tanggal Awal</label>
+                <input type="date" id="start-date" name="start-date" class="kegiatan-input font-semi-bold">
             </div>
             <div class="kegiatan-group">
-                <label for="Tingkat" class="kegiatan-label font-bold">Tanggal Akhir</label>
-                <input type="date" id="nama-kompetisi" class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi">
+                <label for="end-date" class="kegiatan-label font-bold">Tanggal Akhir</label>
+                <input type="date" id="end-date" name="end-date" class="kegiatan-input font-semi-bold">
             </div>
         </div>
         <div class="kegiatan-title font-bold">
             <div class="actions">
-                <button type="button" class="button-primary font-bold">Terapkan Filter</button>
+                <button type="submit" class="button-primary font-bold">Terapkan Filter</button>
             </div>
         </div>
         <div class="table-prestasi-container">
@@ -36,6 +42,33 @@
                     </tr>
                 </thead>
                 <tbody class="font-regular">
+                <?php
+                        $no = 1;
+                        $data = new Prestasi();
+                        $prestasi = $data->getAllWithMhs();
+                        
+                        if (!empty($prestasi)) {
+                            foreach ($prestasi as $p) {
+                                echo "
+                                    <tr class='table-prestasi-row'>
+                                        <th scope='row' class='table-prestasi-cell table-prestasi-header-cell'>
+                                            $no</th>
+                                        <td class='table-prestasi-cell'>$p[nama_lengkap]</td>
+                                        <td class='table-prestasi-cell'>$p[nama_kegiatan]</td>
+                                        <td class='table-prestasi-cell'>" . ucwords($p['tingkat_lomba']) . "</td>
+                                        <td class='table-prestasi-cell'>
+                                            <a href='#' class='table-prestasi-link'>Detail</a>
+                                        </td>
+                                    </tr>";
+                                $no++;
+                            }
+                        } else {
+                            echo "
+                            <tr class='table-prestasi-row'>
+                                td class='table-prestasi-cell'>Data Kosong</td>
+                            </tr>";
+                        }
+                    ?>
                     <tr class="table-prestasi-row">
                         <th scope="row" class="table-prestasi-cell table-prestasi-header-cell">
                             1</th>

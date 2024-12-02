@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("File dengan nama tersebut sudah ada.");
     }
     // Hanya izinkan format tertentu
-    if (!in_array($imageFileType, ['jpg', 'png', 'jpeg', 'gif'])) {
-        die("Hanya file dengan format JPG, JPEG, PNG, dan GIF yang diperbolehkan.");
+    if (!in_array($imageFileType, ['jpg', 'png', 'jpeg'])) {
+        die("Hanya file dengan format JPG, JPEG, PNG yang diperbolehkan.");
     }
 
     // Upload file

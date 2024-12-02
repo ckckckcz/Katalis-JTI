@@ -17,6 +17,7 @@ class Event {
                 instansi_penyelenggara,
                 tanggal_mulai,
                 tanggal_selesai,
+                deskripsi,
                 url_event,
                 poster_gambar
                 FROM event";

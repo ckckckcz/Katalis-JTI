@@ -19,9 +19,12 @@ $prestasi = new Prestasi();
 echo "<pre>";
 // var_dump($berita->getAllBerita());
 // var_dump($evt->getAllEvent());
+// var_dump($prestasi->getAllPrestasi());
 echo "<pre>";
 // var_dump($mhs->getAllMahasiswa());
 echo "<pre>";
-var_dump($prestasi->getAllPrestasi());
+// var_dump($prestasi->getWithRangeDate(, end: date('Y-m-d H:i:s', strtotime('2024-11-30 13:56:10.070'))));
+var_dump(date('Y-m-d H:i:s', strtotime('2024-01-01 13:56:10.070')));
+var_dump($prestasi->getWithRangeDate('2024-11-01 00:00:00', '2024-12-31 23:59:59'));
 echo "</pre>";
 
