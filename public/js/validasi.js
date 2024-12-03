@@ -21,7 +21,7 @@ function validateForm(event) {
     } else {
         // Validasi NIM ke database menggunakan AJAX
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', './server/validation/validate.php', false); // Sinkron untuk mempermudah validasi langsung
+        xhr.open('POST', './server/validation/Login.php', false);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.send(`nim=${nimInput.value.trim()}`);
 
