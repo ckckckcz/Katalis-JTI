@@ -18,8 +18,15 @@
         </div>
         <!-- Actions (Button) -->
         <div class="actions">
-            <button type="button" class="button-primary font-bold"
-                onclick="window.location.href='/katalis/login'">Masuk</button>
+            <?php
+            if (isset($_SESSION['is_login'])) {
+                echo '<button type="button" class="button-primary font-bold"
+                onclick="window.location.href=\'/katalis/logout\'">Keluar</button>';
+            } else {
+                echo '<button type="button" class="button-primary font-bold"
+                onclick="window.location.href=\'/katalis/login\'">Masuk</button>';
+            }
+            ?>
         </div>
     </div>
 </nav>
