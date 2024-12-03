@@ -127,22 +127,21 @@
                         <div class="kegiatan-input-file-container">
                             <label for="dropzone-file" class="kegiatan-input-file-label">
                                 <div class="kegiatan-input-file-content">
-                                    <svg class="kegiatan-input-file-icon" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                    <svg class="kegiatan-input-file-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                     </svg>
-                                    <p class="kegiatan-input-file-text"><span
-                                            class="kegiatan-input-file-highlight font-semi-bold">Click to upload</span>
-                                        or drag and
-                                        drop</p>
-                                    <p class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG, JPG or GIF (MAX.
-                                        800x400px)</p>
+                                    <p class="kegiatan-input-file-text">
+                                        <span class="kegiatan-input-file-highlight font-semi-bold">Click to upload</span> or drag and drop
+                                    </p>
+                                    <p class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                 </div>
                                 <input id="dropzone-file" type="file" class="kegiatan-input-file-hidden" />
                             </label>
                         </div>
+                        <div id="file-preview" class="file-preview-container">
+                            <!-- Pratinjau akan muncul di sini -->
+                        </div>
+                        <button id="remove-file" class="btn-remove-file hidden">Hapus File</button>
                     </div>
                     <div class="kegiatan-group">
                         <label for="nama-kompetisi" class="kegiatan-label font-bold">Foto Poster</label>
