@@ -91,6 +91,16 @@ class Prestasi {
         return $result;
     }
 
+    function getLastId() {
+        $sql = "SELECT TOP 1 id_prestasi
+                FROM prestasi
+                ORDER BY id_prestasi DESC";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchColumn();
+        return $result;
+    }
+
     function insertPrestasi($value) {
         $sql = "INSERT INTO prestasi 
                 (id_mahasiswa,
@@ -106,8 +116,9 @@ class Prestasi {
                 file_karya,
                 file_poster,
                 file_dokumentasi,
-                file_sertifikat)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                file_sertifikat,
+                status_validasi)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $this->stmt = $this->conn->prepare($sql);
         $this->stmt->bindParam(1, $value['id_mahasiswa']);
         $this->stmt->bindParam(2, $value['nama_kegiatan']);
@@ -123,6 +134,7 @@ class Prestasi {
         $this->stmt->bindParam(12, $value['file_poster']);
         $this->stmt->bindParam(13, $value['file_dokumentasi']);
         $this->stmt->bindParam(14, $value['file_sertifikat']);
+        $this->stmt->bindParam(15, $value['status_validasi']);
         $this->stmt->execute();
     }
 }
