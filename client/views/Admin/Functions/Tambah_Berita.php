@@ -31,11 +31,13 @@
                     <textarea id="deskripsi-berita" name="deskripsi-berita" class="berita-input berita-deskripsi font-semi-bold"
                         placeholder="Masukkan deskripsi berita"></textarea>
                 </div>
-
                 <div class="berita-group">
                     <label for="url-demo" class="berita-label font-bold">URL Karya</label>
-                    <input type="text" id="url-demo" name="url-demo" class="berita-input font-semi-bold"
-                        placeholder="Masukkan URL Karya">
+                    <input type="text" id="url-demo" name="url-demo" class="berita-input font-semi-bold" placeholder="Masukkan URL Karya">
+                </div>
+
+                <div id="video-preview" class="hidden">
+                    <iframe id="youtube-iframe" width="560" height="315" style="border-radius:1rem" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
                 <hr class="berita-hr">
                 <div class="actions">
@@ -45,3 +47,26 @@
         </div>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+<script>
+    $(document).ready(function() {
+    $('#url-demo').on('input', function() {
+        const url = $(this).val().trim();
+        const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/]+\/.*\/|(?:v|e(?:mbed)?)\/?([\w-]+))|youtu\.be\/([\w-]+))/;
+
+        const match = url.match(youtubeRegex);
+        if (match) {
+            const videoId = match[1] || match[2];
+            if (videoId) {
+                const iframeUrl = `https://www.youtube.com/embed/${videoId}`;
+
+                $('#youtube-iframe').attr('src', iframeUrl);
+                $('#video-preview').removeClass('hidden');
+            }
+        } else {
+            $('#video-preview').addClass('hidden');
+        }
+    });
+});
+
+</script>
