@@ -136,3 +136,21 @@ FROM Prestasi
 where DAY(dibuat_pada) BETWEEN 1 AND 30;
 
 select * from Berita;
+
+--Export data Mawapres
+SELECT 
+    p.id_prestasi,
+    m.nama_lengkap AS nama_mahasiswa,
+    p.id_mahasiswa AS nim_mahasiswa,
+    p.jenis_kegiatan,
+    p.tingkat_lomba,
+    p.peringkat,
+    p.lokasi,
+    CONCAT(p.tanggal_mulai, ' s.d. ', p.tanggal_selesai) AS tanggal_mulai_tanggal_selesai,
+    p.dosen_pembimbing,
+    p.deskripsi,
+    p.dibuat_pada AS tanggal_dibuat
+FROM 
+    Prestasi p
+JOIN 
+    Mahasiswa m ON p.id_mahasiswa = m.nim;

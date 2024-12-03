@@ -28,7 +28,7 @@
                         if (isset($_SESSION['is_login']) == false) {
                             echo "
                             <tr class='table-prestasi-row'>
-                                td class='table-prestasi-cell'>Data Kosong</td>
+                                <td class='table-prestasi-cell'>Data Kosong</td>
                             </tr>";
                             die;
                         }
@@ -51,7 +51,7 @@
                         } else {
                             echo "
                             <tr class='table-prestasi-row'>
-                                td class='table-prestasi-cell'>Data Kosong</td>
+                                <td class='table-prestasi-cell'>Data Kosong</td>
                             </tr>";
                         }
                     ?>
