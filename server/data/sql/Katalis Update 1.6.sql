@@ -1,6 +1,3 @@
-use KATALIS_NEW;
-
--- Membuat tabel User
 CREATE TABLE Users (
     id_user INT PRIMARY KEY IDENTITY(1,1),
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -8,7 +5,6 @@ CREATE TABLE Users (
     role VARCHAR(20) CHECK (role IN ('admin', 'mahasiswa')) NOT NULL
 );
 
--- Membuat tabel Mahasiswa
 CREATE TABLE Mahasiswa (
     nim VARCHAR(20) PRIMARY KEY,
     nama_lengkap VARCHAR(50) NOT NULL,
@@ -23,13 +19,11 @@ CREATE TABLE Dosen (
     Jurusan VARCHAR(100) NOT NULL
 );
 
--- Membuat tabel Admin
 CREATE TABLE Admin (
     nip VARCHAR(20) PRIMARY KEY,
     nama_lengkap VARCHAR(50) NOT NULL
 );
 
--- Membuat tabel Event
 CREATE TABLE Event (
     id_event INT PRIMARY KEY IDENTITY(1,1),
     nama_event VARCHAR(100) NOT NULL,
@@ -43,7 +37,6 @@ CREATE TABLE Event (
 	dibuat_pada DATETIME DEFAULT GETDATE()
 	);
 
---PRESTASI
 CREATE TABLE Prestasi (
     id_prestasi INT PRIMARY KEY IDENTITY(1,1),
     id_mahasiswa VARCHAR(20),
@@ -67,7 +60,6 @@ CREATE TABLE Prestasi (
 	FOREIGN KEY (id_dosen) REFERENCES Dosen(nidn) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- Membuat tabel Berita
 CREATE TABLE Berita (
     id_berita INT PRIMARY KEY IDENTITY(1,1),
     id_prestasi INT,
@@ -101,32 +93,28 @@ INSERT INTO Admin (nip, nama_lengkap) VALUES
 ('2024004', 'Siti Aminah'),
 ('2024005', 'Doni Wahyudi');
 
--- Mengisi tabel Dosen dengan data dummy
 INSERT INTO Dosen (nidn, nama_lengkap, jurusan) VALUES
 ('197903132008121002', 'Arief Prasetyo, S.Kom', 'Teknologi Informasi'),
 ('197305102008011010', 'Indra Dharma Wijaya, ST., MMT', 'Teknologi Informasi'),
 ('198211302014041001', 'Luqman Affandi, S.Kom., MMSI', 'Teknologi Informasi');
 
--- Mengisi tabel Event 
 INSERT INTO Event (nama_event, tingkat_lomba, instansi_penyelenggara, deskripsi, tanggal_mulai, tanggal_selesai, url_event, poster_gambar) VALUES
 ('Lomba Pemrograman Nasional', 'nasional', 'Kemenristek', 'Lomba Pemrograman Tingkat Nasional', '2024-05-10', '2024-05-15', 'https://lomba1.com', 'AI Innovation Challenge.jpg'),
 ('Lomba Pemrograman Lokal', 'lokal', 'Komunitas Pemrograman', 'Lomba Pemrograman Tingkat Lokal', '2024-03-01', '2024-03-03', 'https://lomba2.com', 'Intuitiva UI UX Competition.jpg'),
 ('Lomba Pemrograman Universitas', 'nasional', 'Universitas A', 'Lomba Pemrograman Tingkat Universitas', '2024-06-20', '2024-06-25', 'https://lomba3.com', 'FESIFO 2.0.jpg');
 
--- Mengisi tabel Prestasi dengan data dummy
 INSERT INTO Prestasi (id_mahasiswa, id_dosen, nama_kegiatan, jenis_kegiatan, tanggal_mulai, tanggal_selesai, tingkat_lomba, peringkat, lokasi, deskripsi, file_karya, file_poster, file_dokumentasi, file_sertifikat, surat_tugas, status_validasi) VALUES
 ('2341720032', '197903132008121002', 'AI Innovation Challenge', 'akademik', '2024-05-10', '2024-05-15', 'nasional', 2, 'Jakarta', 'Prestasi gemilang oleh mahasiswa Teknik Informatika.', 'Sqill Quest.pdf', 'AI Innovation Challenge_2024.jpg', 'dokumentasi AI Innovation Challenge.jpg', 'sertif AI Innovation Challenge.jpg', 'surat_tugas_AI_Innovation_Challenge.pdf', 'proses_validasi'),
 ('2341720054', '197305102008011010', 'Intuitiva UI UX Competition', 'akademik', '2024-01-05', '2024-01-08', 'nasional', 0, 'Malang', 'Prestasi luar biasa oleh mahasiswa Teknik Informatika.', 'Pintar Path.pdf', 'Intuitiva UI UX Competition_2024.jpg', 'dokumentasi Intuitiva UI UX Competition.jpg', 'sertif Intuitiva UI UX Competition.jpg', 'surat_tugas_Intuitiva_UI_UX_Competition.pdf', 'proses_validasi'),
 ('24410702300', '198211302014041001', 'FESIFO 2.0', 'akademik', '2024-03-20', '2024-03-25', 'nasional', 0, 'Garut', 'Prestasi membanggakan oleh mahasiswa Teknologi Informasi.', 'ReWear.pdf', 'FESIFO 2.0_2024.jpg', 'dokumentasi FESIFO 2.0.jpg', 'sertif FESIFO 2.0.jpg', 'surat_tugas_FESIFO_2.0.pdf', 'proses_validasi');
 	
--- Mengisi tabel Berita
 INSERT INTO Berita (id_prestasi, nama_berita, deskripsi,url_demo) VALUES
 (7, 'Mahasiswa Raih Juara 2 AI Innovation Challenge', 'Prestasi gemilang oleh mahasiswa Teknik Informatika.','https://youtu.be/oaYWN9_gLzk?si=a0J-4dT05GALLbQJ'),
 (8, 'Mahasiswa Raih 10 Besar Intuitiva UI UX Competition', 'Prestasi luar biasa oleh mahasiswa Teknik Informatika.','https://www.youtube.com/live/aGNTJkomLu0?si=T6dexZLsxInHMqkJ'),
 (6, 'Mahasiswa Raih 10 Besar FESIFO 2.0 ', 'Prestasi membanggakan oleh mahasiswa Teknologi Informasi.', 'https://youtu.be/VOXmSFzgI_s?si=OD5IA_lelDvEP8wK');
 
 
---Leaderboard
+--Leaderboard berdasarkan tingkatan kompetisi
 SELECT DISTINCT
     ROW_NUMBER() OVER (ORDER BY total_poin DESC) AS ranking,
     nama_mahasiswa,
@@ -138,9 +126,15 @@ FROM (
         m.prodi,
         SUM(
             CASE 
-                WHEN p.tingkat_lomba = 'internasional' THEN 3
-                WHEN p.tingkat_lomba = 'nasional' THEN 2
-                WHEN p.tingkat_lomba = 'lokal' THEN 1
+                WHEN p.tingkat_lomba = 'internasional' AND p.peringkat = 1 THEN 6
+                WHEN p.tingkat_lomba = 'internasional' AND p.peringkat = 2 THEN 5
+                WHEN p.tingkat_lomba = 'internasional' AND p.peringkat = 3 THEN 4
+                WHEN p.tingkat_lomba = 'nasional' AND p.peringkat = 1 THEN 4
+                WHEN p.tingkat_lomba = 'nasional' AND p.peringkat = 2 THEN 3
+                WHEN p.tingkat_lomba = 'nasional' AND p.peringkat = 3 THEN 2
+                WHEN p.tingkat_lomba = 'lokal' AND p.peringkat = 1 THEN 2
+                WHEN p.tingkat_lomba = 'lokal' AND p.peringkat = 2 THEN 1
+                WHEN p.tingkat_lomba = 'lokal' AND p.peringkat = 3 THEN 0.5
                 ELSE 0
             END
         ) AS total_poin
@@ -153,6 +147,7 @@ FROM (
 ) AS Subquery
 ORDER BY 
     total_poin DESC;
+
 
 
 
