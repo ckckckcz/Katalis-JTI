@@ -27,7 +27,7 @@
                         
                         if (!empty($prestasi)) {
                             foreach ($prestasi as $p) {
-                                $status = $p['status_prestasi'];
+                            $status = $p['status_validasi'];
                             $class = ($status === 'disetujui') ? 'disetujui' : (($status === 'ditolak') ? 'ditolak' : 'proses');
                             echo "
                                     <tr class='table-prestasi-row'>
@@ -38,11 +38,11 @@
                                         <td class='table-prestasi-cell'>" . ucwords($p['tingkat_lomba']) . "</td>
                                         <td class='table-prestasi-cell'>
                                             <span class='prestasi-status $class'>
-                                                $status
+                                                $p[status_validasi]
                                             </span>
                                         </td>
                                         <td class='table-prestasi-cell'>
-                                            <a href='#' class='table-prestasi-link'>Detail</a>
+                                            <a href='/katalis/prestasi/detail?id=$p[id_prestasi]' class='table-prestasi-link'>Detail</a>
                                         </td>
                                     </tr>";
                                 $no++;

@@ -26,7 +26,6 @@ include './server/model/Berita.php';
                                                         <th scope="col" class="table-podium-th">No</th>
                                                         <th scope="col" class="table-podium-th">Mahasiswa</th>
                                                         <th scope="col" class="table-podium-th">Prodi</th>
-                                                        <th scope="col" class="table-podium-th">Kompetisi</th>
                                                         <th scope="col" class="table-podium-th">Poin</th>
                                                 </tr>
                                         </thead>
@@ -44,7 +43,6 @@ include './server/model/Berita.php';
                                                                                 $no</th>
                                                                                 <td class='table-prestasi-cell'>$l[nama_mahasiswa]</td>
                                                                                 <td class='table-prestasi-cell'>$l[prodi]</td>
-                                                                                <td class='table-prestasi-cell'>$l[nama_kegiatan]</td>
                                                                                 <td class='table-prestasi-cell'>$l[total_poin]</td>
                                                                         </tr>";
                                                                         $no++;
