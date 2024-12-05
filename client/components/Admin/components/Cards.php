@@ -8,12 +8,12 @@
             <h5 class="custom-card-title font-semi-bold">Jumlah Prestasi Lokal</h5>
             <p class="custom-card-text font-bold">
                 <?php 
-                    if (!isset($_SESSION['user_role']) || !isset($_SESSION['user_id'])) {
+                    if (!isset($_SESSION['user_role']) ) {
                         echo "0";
                     } else if ($_SESSION['user_role'] == 'admin') {
                         echo $prestasi->getCountPrestasi('lokal'); 
                     } else if ($_SESSION['user_role'] == 'mahasiswa') {
-                        echo $prestasi->getCountByMhs('lokal', $_SESSION['user_id']);
+                        echo $prestasi->getCountByMhs('lokal', $_SESSION['user_data']['nim']);
                     }
                 ?>
             </p>
@@ -57,7 +57,20 @@
     <div href="#" class="custom-card">
         <div class="title-admin">
             <h5 class="custom-card-title font-semi-bold">Jumlah Internasional</h5>
-            <p class="custom-card-text font-bold"><?php echo $prestasi->getCountPrestasi('internasional'); ?></p>
+            <p class="custom-card-text font-bold">
+            <?php 
+                if (!isset($_SESSION['user_role'])) {
+                    echo "0";
+                } else if ($_SESSION['user_role'] == 'admin') {
+                    echo $prestasi->getCountPrestasi('internasional'); 
+                } else if ($_SESSION['user_role'] == 'mahasiswa') {
+                    if (!isset($_SESSION['user_data'])) {
+                        echo "0";
+                    }
+                    echo $prestasi->getCountByMhs('internasional', $_SESSION['user_data']['nim']);
+                }
+            ?>
+            </p>
         </div>
         <div class="icon-admin">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">

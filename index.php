@@ -37,7 +37,7 @@ switch ($request) {
         break;
     // Admin Dashboard Routing
     case $location . '/admin':
-        checkAdmin();
+        // checkAdmin();
         $filePath = 'client/views/admin/Admin.php';
         break;
     case $location . '/kegiatan':

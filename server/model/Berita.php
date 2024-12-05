@@ -24,34 +24,32 @@ class Berita {
     }
 
     function getForLeaderboard() {
-        $sql = "SELECT 
-                    ROW_NUMBER() OVER (ORDER BY SUM(
-                        CASE 
-                            WHEN p.tingkat_lomba = 'internasional' THEN 3
-                            WHEN p.tingkat_lomba = 'nasional' THEN 2
-                            WHEN p.tingkat_lomba = 'lokal' THEN 1
-                            ELSE 0
-                        END
-                    ) DESC) AS ranking,
-                    m.nama_lengkap AS nama_mahasiswa,
-                    m.prodi,
-                    SUM(
-                        CASE 
-                            WHEN p.tingkat_lomba = 'internasional' THEN 3
-                            WHEN p.tingkat_lomba = 'nasional' THEN 2
-                            WHEN p.tingkat_lomba = 'lokal' THEN 1
-                            ELSE 0
-                        END
-                    ) AS total_poin,
-                    p.nama_kegiatan
-                FROM 
-                    Mahasiswa m
-                JOIN 
-                    Prestasi p ON m.nim = p.id_mahasiswa
-                GROUP BY 
-                    m.nama_lengkap, m.prodi, p.nama_kegiatan
+        $sql = "SELECT DISTINCT
+                    ROW_NUMBER() OVER (ORDER BY total_poin DESC) AS ranking,
+                    nama_mahasiswa,
+                    prodi,
+                    total_poin
+                FROM (
+                    SELECT 
+                        m.nama_lengkap AS nama_mahasiswa,
+                        m.prodi,
+                        SUM(
+                            CASE 
+                                WHEN p.tingkat_lomba = 'internasional' THEN 3
+                                WHEN p.tingkat_lomba = 'nasional' THEN 2
+                                WHEN p.tingkat_lomba = 'lokal' THEN 1
+                                ELSE 0
+                            END
+                        ) AS total_poin
+                    FROM 
+                        Mahasiswa m
+                    JOIN 
+                        Prestasi p ON m.nim = p.id_mahasiswa
+                    GROUP BY 
+                        m.nama_lengkap, m.prodi
+                ) AS Subquery
                 ORDER BY 
-                    total_poin DESC;";
+                total_poin DESC;";
         $this->stmt = $this->conn->prepare($sql);
         $this->stmt->execute();
         $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
