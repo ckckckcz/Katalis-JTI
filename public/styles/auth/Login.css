@@ -96,3 +96,34 @@
 .login-input.invalid {
   border: 2px solid red;
 }
+.containerr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.login-help {
+  display: flex;
+  font-size: 1.2rem;
+  gap: 5px;
+  text-align: center;
+}
+
+.login-help-1{
+  color: gray;
+}
+
+.login-solution {
+  cursor: pointer
+}
+
+.forgot-container {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-top: 20px;
+}
+.pointer{
+  cursor: pointer;
+}
