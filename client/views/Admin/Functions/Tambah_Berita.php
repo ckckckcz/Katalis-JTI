@@ -1,6 +1,7 @@
 <?php 
     include('./client/components/Admin/Sidebar.php'); 
     include('./server/model/Prestasi.php');
+    include('./client/components/Notification/Blog/notif_upload.php');
     $prestasi = new Prestasi();
 ?>
 <section class="admin-section">
@@ -41,7 +42,7 @@
                 </div>
                 <hr class="berita-hr">
                 <div class="actions">
-                    <button type="submit" class="button-primary font-bold">Submit Berita</button>
+                    <button type="button" id="submit-button" class="button-primary font-bold">Submit Berita</button>
                 </div>
             </form>
         </div>

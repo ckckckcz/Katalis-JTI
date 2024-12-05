@@ -1,6 +1,7 @@
 <?php
 include('./client/components/Admin/Sidebar.php');
 include('./server/model/Prestasi.php');
+include('./client/components/Notification/Blog/notif_edit.php');
 $prestasi = new Prestasi();
 ?>
 <section class="admin-section">

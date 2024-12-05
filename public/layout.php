@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="/katalis/public/styles/Leaderboard.css">
     <link rel="stylesheet" href="/katalis/public/styles/Blog.css">
     <link rel="stylesheet" href="/katalis/public/styles/Stats.css">
+    <link rel="stylesheet" href="/katalis/public/styles/Notification.css">
     <link rel="stylesheet" href="/katalis/public/styles/About.css">
     <link rel="stylesheet" href="/katalis/public/styles/Podium.css">
     <link rel="stylesheet" href="/katalis/public/styles/Competition.css">
@@ -82,6 +83,7 @@
     <script src="/katalis/public/js/sidebar.js"></script>
     <script src="/katalis/public/js/validasi.js"></script>
     <script src="/katalis/public/js/stepper.js"></script>
+    <script src="/katalis/public/js/Notification/Blog/blog.js"></script>
     <script src="/katalis/public/js/statusMahasiswa.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <?php include("./public/js/Lokasi.php"); ?>
