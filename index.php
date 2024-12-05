@@ -52,6 +52,10 @@ switch ($request) {
         checkAdmin();
         $filePath = 'client/views/admin/Berita.php';
         break;
+    case $location . '/detailBerita':
+        checkAdmin();
+        $filePath = 'client/views/admin/blog/detailBlog.php';
+        break;
     case $location . '/dataPrestasi':
         checkAdmin();
         $filePath = 'client/views/admin/Prestasi.php';

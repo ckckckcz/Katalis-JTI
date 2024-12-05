@@ -171,3 +171,21 @@
   margin-top: 0px;
   margin-bottom: 20px;
 }
+.gap-5{
+  gap: 10px;
+}
+
+.button-back {
+  color: #000;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.button-back:hover {
+  background-color: #dadada;
+}

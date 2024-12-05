@@ -2,6 +2,7 @@
 
 include('./client/components/Admin/Sidebar.php'); 
 include './server/model/Berita.php';
+include './server/php/cutText.php';
 
 $data = new Berita();
 $berita = $data->getAllBerita();
@@ -22,11 +23,11 @@ $berita = $data->getAllBerita();
                 <div class="blog-card">
                     <img src="/katalis/public/Prestasi/Dokumentasi/<?php echo $b['file_dokumentasi']; ?>" alt="Desk with laptop and flowers" class="blog-image" />
                     <div class="blog-content">
-                        <div class="blog-title font-bold"><?php echo $b['nama_berita']; ?></div>
-                        <div class="blog-text font-regular"><?php echo $b['deskripsi']; ?></div>
+                        <div class="blog-title font-bold"><?php echo cutText($b['nama_berita'], 6); ?></div>
+                        <div class="blog-text font-regular"> <?php echo $b['tanggal_upload']; ?></div>
                         <div class="actions">
                             <button type="button" class="button-primary font-bold"
-                                onclick="window.location.href='/katalis/blog/detail?id=<?php echo $b['id_berita']; ?>'">Baca Artikel</button>
+                                onclick="window.location.href='/katalis/detailBerita'">Baca Artikel</button>
                         </div>
                     </div>
                 </div>

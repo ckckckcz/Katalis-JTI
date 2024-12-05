@@ -37,8 +37,9 @@ if (isset($data[$id])) {
     <div class="kegiatan-group">
         <textarea id="deskripsi-kegiatan" class="blog-input font-semi-bold"
         placeholder="Tulis Komentar Anda Disini..."></textarea>
-        <div class="actions">
+        <div class="actions gap-5">
             <button type="button" class="button-primary font-bold"onclick="window.location.href='/katalis/login'">Komentar</button>
+            <button type="button" class="button-back font-bold"onclick="window.location.href='/katalis/blog'">Kembali</button>
         </div>
     </div>
     <hr class="blog-hr-2">
