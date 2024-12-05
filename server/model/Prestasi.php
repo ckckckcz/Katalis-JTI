@@ -20,9 +20,11 @@ class Prestasi {
 
     function getAllWithMhs() {
         $sql = "SELECT
+                    p.id_prestasi,
                     m.nama_lengkap,
                     p.nama_kegiatan,
-                    p.tingkat_lomba
+                    p.tingkat_lomba,
+                    p.status_validasi
                 FROM dbo.Prestasi p
                 INNER JOIN dbo.Mahasiswa m ON p.id_mahasiswa = m.nim";
         $this->stmt = $this->conn->prepare($sql);

@@ -12,6 +12,7 @@ class Berita {
 
     function getAllBerita() {
         $sql = "SELECT
+                b.id_berita,
                 p.file_dokumentasi, 
                 b.nama_berita,
                 b.deskripsi

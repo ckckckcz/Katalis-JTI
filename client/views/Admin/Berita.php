@@ -26,7 +26,7 @@ $berita = $data->getAllBerita();
                         <div class="blog-text font-regular"><?php echo $b['deskripsi']; ?></div>
                         <div class="actions">
                             <button type="button" class="button-primary font-bold"
-                                onclick="window.location.href='/katalis/blog/read'">Baca Artikel</button>
+                                onclick="window.location.href='/katalis/blog/detail?id=<?php echo $b['id_berita']; ?>'">Baca Artikel</button>
                         </div>
                     </div>
                 </div>

@@ -12,6 +12,7 @@ class Event {
 
     function getAllEvent() {
         $sql = "SELECT 
+                id_event,
                 nama_event,
                 tingkat_lomba,
                 instansi_penyelenggara,

@@ -42,7 +42,7 @@
                                         <td class='table-prestasi-cell'>$e[tanggal_mulai]</td>
                                         <td class='table-prestasi-cell'>$e[tanggal_selesai]</td>
                                         <td class='table-prestasi-cell'>
-                                            <a href='#' class='table-prestasi-link'>Detail</a>
+                                            <a href='/katalis/kegiatan/detail?id=$e[id_event]' class='table-prestasi-link'>Detail</a>
                                         </td>
                                     </tr>";
                                 $no++;

@@ -7,6 +7,7 @@ $location = '/katalis';
 $request = $_SERVER['REQUEST_URI'];
 $filePath = '';
 $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'; // Cek apakah pengguna adalah admin
+$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 // Routing
 switch ($request) {
@@ -40,7 +41,7 @@ switch ($request) {
         break;
     // Admin Dashboard Routing
     case $location . '/admin':
-        // checkAdmin();
+        checkAdmin();
         $filePath = 'client/views/admin/Admin.php';
         break;
     case $location . '/kegiatan':
@@ -76,6 +77,15 @@ switch ($request) {
         checkAdmin();
         $filePath = 'client/views/admin/Functions/Tambah_Berita.php';
         break;
+    // Detail Admin
+    case $location . '/kegiatan/detail?id='.$id:
+        checkAdmin();
+        $filePath = 'client/views/Admin/Content/Detail_Kegiatan.php';
+        break;
+    case $location . '/prestasi/detail?id='.$id:
+            checkAdmin();
+            $filePath = 'client/views/Admin/Content/Detail_Prestasi.php';
+            break;
     // User Dashboard Routing
     case $location . '/user':
         checkMahasiswa();
