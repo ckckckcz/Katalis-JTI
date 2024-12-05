@@ -1,5 +1,5 @@
 <?php
-function cutText($text, $maxWords = 10)
+function cutText($text, $maxWords = 6)
 {
     $words = explode(' ', $text);
     if (count($words) > $maxWords) {

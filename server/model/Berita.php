@@ -14,7 +14,8 @@ class Berita {
         $sql = "SELECT
                 p.file_dokumentasi, 
                 b.nama_berita,
-                b.deskripsi
+                b.deskripsi,
+                b.tanggal_upload
                 FROM berita b
                 JOIN prestasi p ON b.id_prestasi = p.id_prestasi";
         $this->stmt = $this->conn->prepare($sql);
