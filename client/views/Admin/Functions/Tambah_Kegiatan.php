@@ -1,4 +1,7 @@
-<?php include('./client/components/Admin/Sidebar.php'); ?>
+<?php
+    include('./client/components/Admin/Sidebar.php');
+    include('./client/components/Notification/Event/notif_upload.php');  
+?>
 <?php
 // Baca data JSON
 $data = json_decode(file_get_contents('./server/data/Lokasi.json'), true);
@@ -84,7 +87,7 @@ $kotaList = $data['kota'];
                     </div>
                 </div>
                 <div class="actions">
-                    <button type="submit" class="button-primary font-bold">Submit Kegiatan</button>
+                    <button type="submit" id="submit-button-upload-event" class="button-primary font-bold">Submit Kegiatan</button>
                 </div>
             </form>
         </div>

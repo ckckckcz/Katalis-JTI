@@ -84,6 +84,7 @@
     <script src="/katalis/public/js/validasi.js"></script>
     <script src="/katalis/public/js/stepper.js"></script>
     <script src="/katalis/public/js/Notification/Blog/blog.js"></script>
+    <script src="/katalis/public/js/Notification/Event/event.js"></script>
     <script src="/katalis/public/js/statusMahasiswa.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <?php include("./public/js/Lokasi.php"); ?>

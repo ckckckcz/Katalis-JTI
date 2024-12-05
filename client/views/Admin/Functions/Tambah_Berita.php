@@ -42,7 +42,7 @@
                 </div>
                 <hr class="berita-hr">
                 <div class="actions">
-                    <button type="button" id="submit-button" class="button-primary font-bold">Submit Berita</button>
+                    <button type="button" id="submit-button-upload-berita" class="button-primary font-bold">Submit Berita</button>
                 </div>
             </form>
         </div>

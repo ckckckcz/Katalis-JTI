@@ -1,4 +1,7 @@
-<?php include('./client/components/Admin/Sidebar.php'); ?>
+<?php 
+    include('./client/components/Admin/Sidebar.php');
+    include('./client/components/Notification/Prestasi/notif_upload.php');
+?>
 <section class="admin-section">
     <div class="admin-container">
         <h1 class="font-bold kegiatan-title">Tambah Prestasi</h1>
@@ -189,7 +192,7 @@
                     </div>
                 </div>
                 <div class="actions">
-                    <button type="button" class="button-primary font-bold">Submit Prestasi</button>
+                    <button type="button" id="submit-button-upload-prestasi" class="button-primary font-bold">Submit Prestasi</button>
                 </div>
             </form>
         </div>
