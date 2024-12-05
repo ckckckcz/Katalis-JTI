@@ -148,17 +148,8 @@ FROM (
 ORDER BY 
     total_poin DESC;
 
-
-
-
---Filter Mawapres
-SELECT *
-FROM Prestasi
-where DAY(dibuat_pada) BETWEEN 1 AND 30;
-
 --export data Mawapres
 SELECT 
-    p.id_prestasi,
     m.nama_lengkap AS nama_mahasiswa,
     p.id_mahasiswa AS nim_mahasiswa,
     p.jenis_kegiatan,
@@ -173,5 +164,28 @@ FROM
 JOIN 
     Mahasiswa m ON p.id_mahasiswa = m.nim;
 
-	SELECT id_prestasi FROM Prestasi;
+--Event detail
+SELECT 
+    nama_event, 
+    tingkat_lomba, 
+    instansi_penyelenggara, 
+    deskripsi, 
+    tanggal_mulai, 
+    tanggal_selesai, 
+    url_event, 
+    poster_gambar
+FROM Event
 
+--Mahasiswa Detail
+SELECT 
+    Mahasiswa.nim, 
+    Mahasiswa.nama_lengkap, 
+    Mahasiswa.prodi,
+	Mahasiswa.tahun_angkatan,
+	Mahasiswa.status_mahasiswa,
+	Prestasi.tingkat_lomba, 
+    Prestasi.jenis_kegiatan, 
+    Prestasi.peringkat, 
+    Prestasi.file_karya
+FROM Mahasiswa
+INNER JOIN Prestasi ON Mahasiswa.nim = Prestasi.id_mahasiswa;

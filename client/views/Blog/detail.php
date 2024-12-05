@@ -1,12 +1,10 @@
 <?php
 
-$id = isset($_GET['id']) ? $_GET['id'] : 1; // Default id adalah 1
+$id = isset($_GET['id']) ? $_GET['id'] : 1; 
 
-// Baca file JSON
 $jsonData = file_get_contents('./server/data/Blog.json');
 $data = json_decode($jsonData, true);
 
-// Pastikan id yang diminta ada di data
 if (isset($data[$id])) {
     $blog = $data[$id];
 } else {
@@ -20,7 +18,6 @@ if (isset($data[$id])) {
     <hr class="blog-hr-2">
     <div class="blog-detail-paragraph font-regular">
         <?php
-        // Loop melalui setiap paragraf dan sisipkan video setelah paragraf ketiga
         foreach ($blog['description'] as $index => $paragraph) {
             echo "<p class='detail-paragraph'>{$paragraph}</p>";
             

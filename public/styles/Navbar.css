@@ -87,3 +87,17 @@
 .button-primary:hover {
   background-color: #059470;
 }
+.button-delete {
+  color: #ffffff;
+  background-color: #ff0000;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.button-delete:hover {
+  background-color: #b80000;
+}
