@@ -7,7 +7,7 @@ $kotaList = $data['kota'];
 ?>
 <section class="admin-section">
     <div class="admin-container">
-        <h1 class="font-bold kegiatan-title">Detail Kegiatan</h1>
+        <h1 class="font-bold kegiatan-title">Edit Kegiatan</h1>
         <div class="kegiatan-card">
             <form action="../server/proses/event/TambahEvent.php" method="post" enctype="multipart/form-data"
                 class="kegiatan-form">
@@ -81,8 +81,8 @@ $kotaList = $data['kota'];
                     </div>
                 </div>
                 <div class="actions">
-                    <button type="submit" class="button-primary font-bold">Edit Kegiatan</button>
-                    <button type="submit" class="button-delete font-bold">Hapus Kegiatan</button>
+                    <button type="submit" class="button-primary font-bold">Submit Edit</button>
+                    <button type="submit" class="button-delete font-bold">Batal Edit</button>
                 </div>
             </form>
         </div>

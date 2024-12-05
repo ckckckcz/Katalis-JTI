@@ -45,7 +45,8 @@ $prestasi = new Prestasi();
                 </div>
                 <hr class="berita-hr">
                 <div class="actions">
-                    <button type="submit" class="button-primary font-bold">Submit Berita</button>
+                    <button type="submit" class="button-primary font-bold">Edit Berita</button>
+                    <button type="submit" class="button-delete font-bold">Hapus Berita</button>
                 </div>
             </form>
         </div>
