@@ -44,7 +44,7 @@ $prestasi = new Prestasi();
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
                 <hr class="berita-hr">
-                <div class="actions">
+                <div class="actions gap-5">
                     <button type="submit" class="button-primary font-bold">Edit Berita</button>
                     <button type="submit" class="button-delete font-bold">Hapus Berita</button>
                 </div>

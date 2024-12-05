@@ -80,7 +80,7 @@ $kotaList = $data['kota'];
                         </label>
                     </div>
                 </div>
-                <div class="actions">
+                <div class="actions gap-5">
                     <button type="submit" class="button-primary font-bold">Edit Kegiatan</button>
                     <button type="submit" class="button-delete font-bold">Hapus Kegiatan</button>
                 </div>

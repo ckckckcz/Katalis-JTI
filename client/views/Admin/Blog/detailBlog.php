@@ -38,16 +38,6 @@ if (isset($data[$id])) {
                 }
                 ?>
             </div>
-            <h1 class="font-bold blog-detail-diskusi">Diskusi</h1>
-            <div class="kegiatan-group">
-                <textarea id="deskripsi-kegiatan" class="blog-input font-semi-bold"
-                    placeholder="Tulis Komentar Anda Disini..."></textarea>
-                <div class="actions">
-                    <button type="button" class="button-primary font-bold"
-                        onclick="window.location.href='/katalis/login'">Komentar</button>
-                </div>
-            </div>
-            <hr class="blog-hr-2">
         </section>
     </div>
 </section>
