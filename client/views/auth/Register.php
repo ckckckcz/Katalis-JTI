@@ -16,6 +16,12 @@
                     placeholder="Masukkan kata sandi anda">
                 <span class="error-message font-semi-bold"></span>
             </div>
+            <div class="input-group password">
+                <label for="password" class="login-label font-bold">Konfirmasi Kata Sandi</label>
+                <input type="password" id="password" name="password" class="login-input font-semi-bold"
+                    placeholder="Masukkan kata sandi anda">
+                <span class="error-message font-semi-bold"></span>
+            </div>
             <button type="submit" class="login-button font-bold">Masuk</button>
             <div class="containerr font-bold">
                 <span class="login-help">
