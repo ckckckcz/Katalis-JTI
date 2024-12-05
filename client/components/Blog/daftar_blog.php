@@ -1,17 +1,10 @@
 <?php
 include './server/model/Berita.php';
+include './server/php/cutText.php';
 
 $data = new Berita();
 $berita = $data->getAllBerita();
 
-function cutText($text, $maxWords = 10)
-{
-    $words = explode(' ', $text);
-    if (count($words) > $maxWords) {
-        return implode(' ', array_slice($words, 0, $maxWords)) . '...';
-    }
-    return $text;
-}
 ?>
 <section class="blog-section">
     <div class="blog-container">
