@@ -25,9 +25,11 @@ $berita = $data->getAllBerita();
                     <div class="blog-content">
                         <div class="blog-title font-bold"><?php echo cutText($b['nama_berita'], 6); ?></div>
                         <div class="blog-text font-regular"> <?php echo $b['tanggal_upload']; ?></div>
-                        <div class="actions">
+                        <div class="actions gap-5">
                             <button type="button" class="button-primary font-bold"
                                 onclick="window.location.href='/katalis/detailBerita'">Baca Artikel</button>
+                            <button type="button" class="button-edit font-bold"
+                                onclick="window.location.href='/katalis/editBerita'">Edit Artikel</button>
                         </div>
                     </div>
                 </div>
