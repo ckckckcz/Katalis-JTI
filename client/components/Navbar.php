@@ -17,7 +17,7 @@
             </ul>
         </div>
         <!-- Actions (Button) -->
-        <div class="actions">
+        <div class="actions gap-5">
             <?php
             if (isset($_SESSION['is_login'])) {
                 echo '<button type="button" class="button-primary font-bold"
@@ -27,6 +27,11 @@
                 onclick="window.location.href=\'/katalis/login\'">Masuk</button>';
             }
             ?>
+            <div href="https://flowbite.com" class="navbar-bar" id="sidebar-toggle">
+                <svg class="bar-navbar" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+                </svg>
+            </div>
         </div>
     </div>
 </nav>
