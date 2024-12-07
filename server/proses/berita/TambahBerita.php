@@ -1,21 +1,17 @@
 <?php 
 
 include_once '../../model/Berita.php';
+include_once '../../helper/ValidationHelper.php';
 
 $berita = new Berita();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $value = array();
     $value['id_prestasi'] = $_POST['prestasi'];
-    $value['nama_berita'] = $_POST['nama-berita'];
-    $value['deskripsi'] = $_POST['deskripsi-berita'];
-    $value['url_demo'] = $_POST['url-demo'];
+    $value['nama_berita'] = $_POST['nama_berita'];
+    $value['deskripsi'] = $_POST['deskripsi_berita'];
+    $value['url_demo'] = $_POST['url_demo'];
 
-    if ($berita->insertBerita($value)) {
-        echo "Berita berhasil disimpan.";
-        die;
-    } else {
-        echo "Berita gagal disimpan";
-        die;
-    }
+
+    $berita->insertBerita($value);
 }

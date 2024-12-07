@@ -35,6 +35,7 @@ class Prestasi {
 
     function getAllByMhs($nim) {
         $sql = "SELECT
+                    id_prestasi,
                     nama_kegiatan,
                     tingkat_lomba
                 FROM dbo.Prestasi 
@@ -92,6 +93,33 @@ class Prestasi {
         $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    function getAllById($id) {
+        $sql = "SELECT 
+                d.nama_lengkap as dosen_pembimbing,
+                p.nama_kegiatan,
+                p.jenis_kegiatan,
+                p.tanggal_mulai,
+                p.tanggal_selesai,
+                p.tingkat_lomba,
+                p.peringkat,
+                p.lokasi,
+                p.deskripsi,
+                p.file_karya,
+                p.file_poster,
+                p.file_sertifikat,
+                p.file_dokumentasi,
+                p.surat_tugas,
+                p.status_validasi
+                FROM dbo.Prestasi p
+                JOIN dbo.Dosen d ON p.id_dosen = d.nidn
+                WHERE p.id_prestasi = :id";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam('id', $id);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    } 
 
     function getLastId() {
         $sql = "SELECT TOP 1 id_prestasi

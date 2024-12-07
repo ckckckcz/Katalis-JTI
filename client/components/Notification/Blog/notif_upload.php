@@ -24,3 +24,33 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('#confirm-upload').on('click', function () {  
+        // Ambil data form
+        const formData = {
+            prestasi: $('#prestasi').val(),
+            nama_berita: $('#nama-berita').val(),
+            deskripsi_berita: $('#deskripsi-berita').val(),
+            url_demo: $('#url-demo').val(),
+        };
+
+        // Kirim data melalui AJAX
+        $.ajax({
+            url: '../server/proses/berita/TambahBerita.php', // Sesuaikan dengan path logic server
+            type: 'POST',
+            data: formData,
+            success: function (response) {
+                // Tampilkan notifikasi berhasil
+                console.log('Berita berhasil disimpan:\n' + response);
+                window.location.href = "/katalis/berita";
+                // Tutup modal
+                // $('#popup-modal').addClass('hidden');
+            },
+            error: function (xhr, status, error) {
+                // Tampilkan error jika gagal
+                console.log('Terjadi kesalahan: ' + error);
+            },
+        });
+    });
+</script> 

@@ -29,7 +29,7 @@ $berita = $data->getAllBerita();
                             <button type="button" class="button-primary font-bold"
                                 onclick="window.location.href='/katalis/detailBerita'">Baca Artikel</button>
                             <button type="button" class="button-edit font-bold"
-                                onclick="window.location.href='/katalis/editBerita'">Edit Artikel</button>
+                                onclick="window.location.href='/katalis/berita/edit?id=<?php echo $b['id_berita'] ?>'">Edit Artikel</button>
                         </div>
                     </div>
                 </div>

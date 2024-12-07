@@ -59,8 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $value["file_$key"] = null; // Jika file tidak diunggah
         }
     }
-    $prestasi->insertPrestasi($value);
-    die;
     // Simpan data ke database
     if ($prestasi->insertPrestasi($value)) {
         echo "Prestasi berhasil disimpan.";

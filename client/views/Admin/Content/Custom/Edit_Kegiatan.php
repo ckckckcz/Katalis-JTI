@@ -1,9 +1,16 @@
-<?php include('./client/components/Admin/Sidebar.php'); ?>
+<?php 
+
+include('./client/components/Admin/Sidebar.php'); 
+include('./server/model/Event.php'); 
+
+?>
 <?php
 $data = json_decode(file_get_contents('./server/data/Lokasi.json'), true);
 
 $provinsiList = $data['provinsi'];
 $kotaList = $data['kota'];
+$kegiatan = new Event();
+$old = $kegiatan->getById($_GET['id']);
 ?>
 <section class="admin-section">
     <div class="admin-container">
@@ -14,45 +21,57 @@ $kotaList = $data['kota'];
                 <div class="kegiatan-group">
                     <label for="nama-kegiatan" class="kegiatan-label font-bold">Nama Kegiatan</label>
                     <input type="text" id="nama-kegiatan" name="nama-kegiatan" class="kegiatan-input font-semi-bold"
-                        placeholder="Masukkan nama kegiatan">
+                        placeholder="Masukkan nama kegiatan" value="<?php echo $old[0]['nama_event'] ?>">
                 </div>
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
                         <label for="Tingkat" class="kegiatan-label font-bold">Tingkat Kompetisi</label>
                         <select id="Tingkat" name="tingkat" class="kegiatan-input kegiatan-select font-semi-bold">
-                            <option value="internasional">International</option>
-                            <option value="nasional">National</option>
-                            <option value="lokal">Lokal</option>
+                            <?php 
+                            if ($old[0]['tingkat_lomba'] == 'internasional') {
+                                echo "<option value='{$old[0]['tingkat_lomba']}'>International</option>";
+                                echo '<option value="nasional">National</option>';
+                                echo '<option value="lokal">Lokal</option>';
+                            } else if ($old[0]['tingkat_lomba'] == 'nasional') {
+                                echo "<option value='{$old[0]['tingkat_lomba']}'>National</option>";
+                                echo '<option value="nasional">International</option>';
+                                echo '<option value="lokal">Lokal</option>';
+                            } else {
+                                echo "<option value='{$old[0]['tingkat_lomba']}'>Lokal</option>";
+                                echo '<option value="nasional">International</option>';
+                                echo '<option value="lokal">National</option>';
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="kegiatan-group">
                         <label for="nama-kompetisi" class="kegiatan-label font-bold">Tempat Kompetisi</label>
                         <input type="text" id="nama-kompetisi" name="nama-kompetisi"
-                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi">
+                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" value="<?php  echo $old[0]['instansi_penyelenggara'] ?>">
                     </div>
                 </div>
                 <div class="kegiatan-group">
                     <label for="url-kompetisi" class="kegiatan-label font-bold">URL Kompetisi</label>
                     <input type="text" id="url-kompetisi" name="url-kompetisi" class="kegiatan-input font-semi-bold"
-                        placeholder="Masukkan nama kompetisi">
+                        placeholder="Masukkan nama kompetisi" value="<?php echo $old[0]['url_event'] ?>">
                 </div>
                 <div class="kegiatan-group">
                     <label for="deskripsi-kegiatan" class="kegiatan-label font-bold">Deskripsi Kegiatan</label>
                     <textarea id="deskripsi-kegiatan" name="deskripsi-kegiatan"
                         class="kegiatan-input kegiatan-deskripsi font-semi-bold"
-                        placeholder="Masukkan deskripsi kegiatan"></textarea>
+                        placeholder="Masukkan deskripsi kegiatan"><?php echo $old[0]['deskripsi'] ?></textarea>
                 </div>
                 <hr class="kegiatan-hr">
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
                         <label for="tanggal-mulai" class="kegiatan-label font-bold">Tanggal Mulai</label>
                         <input type="date" id="tanggal-mulai" name="tanggal-mulai" class="kegiatan-input font-semi-bold"
-                            placeholder="Masukkan nama kompetisi">
+                            placeholder="Masukkan nama kompetisi" value="<?php echo $old[0]['tanggal_mulai'] ?>">
                     </div>
                     <div class="kegiatan-group">
                         <label for="tanggal-selesai" class="kegiatan-label font-bold">Tanggal Selesai</label>
                         <input type="date" id="tanggal-selesai" name="tanggal-selesai"
-                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi">
+                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" value="<?php echo $old[0]['tanggal_mulai'] ?>">
                     </div>
                 </div>
                 <div class="kegiatan-group">
@@ -82,7 +101,7 @@ $kotaList = $data['kota'];
                 </div>
                 <div class="actions">
                     <button type="submit" class="button-primary font-bold">Submit Edit</button>
-                    <button type="submit" class="button-delete font-bold">Batal Edit</button>
+                    <button type="button" class="button-delete font-bold" onclick="window.location.href='/katalis/kegiatan' ">Batal Edit</button>
                 </div>
             </form>
         </div>

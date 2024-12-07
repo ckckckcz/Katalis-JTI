@@ -8,7 +8,7 @@
     <div class="admin-container">
         <h1 class="font-bold berita-title">Tambah Berita</h1>
         <div class="berita-card">
-            <form action="../server/proses/berita/TambahBerita.php" method="post" class="berita-form"> 
+            <form id="berita-form" class="berita-form"> 
                 <div class="berita-grid">
                     <div class="berita-group">
                         <label for="nama-berita" class="berita-label font-bold">Nama berita</label>
