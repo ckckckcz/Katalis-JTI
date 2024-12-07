@@ -189,3 +189,23 @@ SELECT
     Prestasi.file_karya
 FROM Mahasiswa
 INNER JOIN Prestasi ON Mahasiswa.nim = Prestasi.id_mahasiswa;
+
+--traffic update
+CREATE PROCEDURE GetTrafficPrestasiPerBulan
+    @bulan INT,
+    @tahun INT
+AS
+BEGIN
+    SELECT 
+        CAST(p.dibuat_pada AS DATE) AS tanggal_input, 
+        m.nama_lengkap AS mahasiswa_berprestasi,
+        COUNT(p.id_prestasi) AS jumlah_prestasi,
+        STRING_AGG(CONCAT('Juara ', p.peringkat, ' (', p.tingkat_lomba, ')'), ', ') AS daftar_juara 
+    FROM Prestasi p
+    JOIN Mahasiswa m ON p.id_mahasiswa = m.nim 
+    WHERE MONTH(p.dibuat_pada) = @bulan AND YEAR(p.dibuat_pada) = @tahun
+    GROUP BY CAST(p.dibuat_pada AS DATE), m.nama_lengkap
+    ORDER BY tanggal_input, m.nama_lengkap;
+END;
+
+EXEC GetTrafficPrestasiPerBulan @bulan = 12, @tahun = 2024;
