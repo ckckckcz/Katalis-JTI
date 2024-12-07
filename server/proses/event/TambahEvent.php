@@ -4,19 +4,16 @@ include_once '../../model/Event.php';
 
 $event = new Event();
 
+// var_dump($_FILE);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header('Content-Type: application/json');
-echo json_encode($_FILES, JSON_PRETTY_PRINT);
-die;
-
     $value = array();
-    $value['nama_event'] = $_POST['nama_event'];
-    $value['tingkat_lomba'] = $_POST['tingkat'];
-    $value['instansi_penyelenggara'] = $_POST['instansi_penyelenggara'];
-    $value['deskripsi'] = $_POST['deskripsi'];
-    $value['tanggal_mulai'] = $_POST['tanggal_mulai'];
-    $value['tanggal_selesai'] = $_POST['tanggal_selesai'];
-    $value['url_event'] = $_POST['url_event'];
+    $value['nama_event'] = $_POST['nama-kegiatan'];
+    $value['tingkat_lomba'] = $_POST['tingkat-lomba'];
+    $value['instansi_penyelenggara'] = $_POST['tempat-kompetisi'];
+    $value['deskripsi'] = $_POST['deskripsi-kegiatan'];
+    $value['tanggal_mulai'] = $_POST['tanggal-mulai'];
+    $value['tanggal_selesai'] = $_POST['tanggal-selesai'];
+    $value['url_event'] = $_POST['url-kompetisi'];
     
     if (isset($_FILES['poster-kompetisi']) && $_FILES['poster-kompetisi']['error'] === UPLOAD_ERR_OK) {
         $fileName = $_FILES['poster-kompetisi']['name'];
