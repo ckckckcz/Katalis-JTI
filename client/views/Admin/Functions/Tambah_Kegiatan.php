@@ -14,17 +14,17 @@ $kotaList = $data['kota'];
     <div class="admin-container">
         <h1 class="font-bold kegiatan-title">Tambah Kegiatan</h1>
         <div class="kegiatan-card">
-            <!-- <form enctype="multipart/form-data" class="kegiatan-form"> -->
             <form action="../server/proses/event/TambahEvent.php" method="post" enctype="multipart/form-data" class="kegiatan-form">
                 <div class="kegiatan-group">
                     <label for="nama-kegiatan" class="kegiatan-label font-bold">Nama Kegiatan</label>
-                    <input type="text" id="nama-kegiatan" name="nama_event" class="kegiatan-input font-semi-bold"
+                    <input type="text" id="nama-kegiatan" name="nama-kegiatan" class="kegiatan-input font-semi-bold"
                         placeholder="Masukkan nama kegiatan">
+                    <span id="nama-kegiatan-error" class="error-message font-semi-bold"></span>
                 </div>
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
                         <label for="tingkat" class="kegiatan-label font-bold">Tingkat Kompetisi</label>
-                        <select id="tingkat" name="tingkat_lomba" class="kegiatan-input kegiatan-select font-semi-bold">
+                        <select id="tingkat" name="tingkat-lomba" class="kegiatan-input kegiatan-select font-semi-bold">
                             <option value="internasional">International</option>
                             <option value="nasional">National</option>
                             <option value="lokal">Lokal</option>
@@ -88,7 +88,7 @@ $kotaList = $data['kota'];
                     </div>
                 </div>
                 <div class="actions">
-                    <button type="button" id="submit-button-upload-event" class="button-primary font-bold">Submit Kegiatan</button>
+                    <button type="submit" id="submit-button-upload-event" class="button-primary font-bold">Submit Kegiatan</button>
                 </div>
             </form>
         </div>

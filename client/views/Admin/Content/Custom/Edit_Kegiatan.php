@@ -16,8 +16,9 @@ $old = $kegiatan->getById($_GET['id']);
     <div class="admin-container">
         <h1 class="font-bold kegiatan-title">Edit Kegiatan</h1>
         <div class="kegiatan-card">
-            <form action="../server/proses/event/TambahEvent.php" method="post" enctype="multipart/form-data"
+            <form action="../server/proses/event/EditEvent.php" method="post" enctype="multipart/form-data"
                 class="kegiatan-form">
+                <input id="id-event" name="id-event" type="text" class="kegiatan-input-file-hidden" value="<?php echo $_GET['id'] ?>"/>
                 <div class="kegiatan-group">
                     <label for="nama-kegiatan" class="kegiatan-label font-bold">Nama Kegiatan</label>
                     <input type="text" id="nama-kegiatan" name="nama-kegiatan" class="kegiatan-input font-semi-bold"
@@ -45,8 +46,8 @@ $old = $kegiatan->getById($_GET['id']);
                         </select>
                     </div>
                     <div class="kegiatan-group">
-                        <label for="nama-kompetisi" class="kegiatan-label font-bold">Tempat Kompetisi</label>
-                        <input type="text" id="nama-kompetisi" name="nama-kompetisi"
+                        <label for="tempat-kompetisi" class="kegiatan-label font-bold">Tempat Kompetisi</label>
+                        <input type="text" id="tempat-kompetisi" name="tempat-kompetisi"
                             class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" value="<?php  echo $old[0]['instansi_penyelenggara'] ?>">
                     </div>
                 </div>
@@ -76,6 +77,9 @@ $old = $kegiatan->getById($_GET['id']);
                 </div>
                 <div class="kegiatan-group">
                     <label for="poster-kompetisi" class="kegiatan-label font-bold">File Poster Kompetisi</label>
+                    <div>
+                        <img src="../public/Prestasi/PosterEvent/<?php echo $old[0]['poster_gambar'] ?>" style="max-width: 80%;">
+                    </div>
                     <div class="kegiatan-input-file-container">
                         <label for="dropzone-file" class="kegiatan-input-file-label">
                             <div class="kegiatan-input-file-content">
@@ -100,7 +104,7 @@ $old = $kegiatan->getById($_GET['id']);
                     </div>
                 </div>
                 <div class="actions">
-                    <button type="submit" class="button-primary font-bold">Submit Edit</button>
+                    <button type="submit" class="button-primary font-bold ">Submit Edit</button>
                     <button type="button" class="button-delete font-bold" onclick="window.location.href='/katalis/kegiatan' ">Batal Edit</button>
                 </div>
             </form>
