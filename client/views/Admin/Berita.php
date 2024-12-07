@@ -27,7 +27,7 @@ $berita = $data->getAllBerita();
                         <div class="blog-text font-regular"> <?php echo $b['tanggal_upload']; ?></div>
                         <div class="actions gap-5">
                             <button type="button" class="button-primary font-bold"
-                                onclick="window.location.href='/katalis/detailBerita'">Baca Artikel</button>
+                                onclick="window.location.href='/katalis/detailBerita?id=<?php echo $b['id_berita'] ?>'">Baca Artikel</button>
                             <button type="button" class="button-edit font-bold"
                                 onclick="window.location.href='/katalis/berita/edit?id=<?php echo $b['id_berita'] ?>'">Edit Artikel</button>
                         </div>
