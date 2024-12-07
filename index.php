@@ -87,9 +87,19 @@ switch ($request) {
         $filePath = 'client/views/Admin/Content/Detail_Kegiatan.php';
         break;
     case $location . '/prestasi/detail?id='.$id:
-            checkAdmin();
-            $filePath = 'client/views/Admin/Content/Detail_Prestasi.php';
-            break;
+        checkAdmin();
+        $filePath = 'client/views/Admin/Content/Detail_Prestasi.php';
+        break;
+    // EDIT ADMIN
+    case $location . '/berita/edit?id='.$id:
+        checkAdmin();
+        $filePath = 'client/views/Admin/Content/Custom/Edit_Berita.php';
+        $id = 0;
+        break;
+    case $location . '/kegiatan/edit?id='.$id:
+        checkAdmin();
+        $filePath = 'client/views/Admin/Content/Custom/Edit_Kegiatan.php';
+        break;
     // User Dashboard Routing
     case $location . '/user':
         checkMahasiswa();
@@ -102,6 +112,10 @@ switch ($request) {
     case $location . '/user/tambahPrestasi':
         checkMahasiswa();
         $filePath = 'client/views/User/functions/Tambah_Prestasi.php';
+        break;
+    case $location . '/user/detailPrestasi?id='.$id:
+        checkMahasiswa();
+        $filePath = 'client/views/User/functions/Detail_Prestasi.php';
         break;
     default:
         http_response_code(404);

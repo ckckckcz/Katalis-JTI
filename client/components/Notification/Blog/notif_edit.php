@@ -1,4 +1,4 @@
-<div id="popup-modal" tabindex="-1" class="notification-modal">
+<!-- <div id="popup-modal" tabindex="-1" class="notification-modal">
     <div class="notification-modal__content">
         <div class="notification-modal__box">
             <button type="button" class="notification-modal__close" data-modal-hide="popup-modal">
@@ -23,4 +23,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

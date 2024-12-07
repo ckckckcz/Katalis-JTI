@@ -1,5 +1,6 @@
 <?php
 include('./client/components/Admin/Sidebar.php');
+include('./server/model/Berita.php');
 
 $id = isset($_GET['id']) ? $_GET['id'] : 1;
 
