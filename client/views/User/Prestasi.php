@@ -43,7 +43,7 @@
                                         <td class='table-prestasi-cell'>$p[nama_kegiatan]</td>
                                         <td class='table-prestasi-cell'>" . ucwords($p['tingkat_lomba']) . "</td>
                                         <td class='table-prestasi-cell'>
-                                            <a href='#' class='table-prestasi-link'>Detail</a>
+                                            <a href='/katalis/user/detailPrestasi?id=$p[id_prestasi]' class='table-prestasi-link'>Detail</a>
                                         </td>
                                     </tr>";
                                 $no++;

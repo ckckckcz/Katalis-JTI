@@ -57,7 +57,23 @@ class Event {
         $this->stmt->bindParam(6, $value['tanggal_selesai']);
         $this->stmt->bindParam(7, $value['url_event']);
         $this->stmt->bindParam(8, $value['poster_gambar']);
+        if ($this->stmt->execute()) {
+            return true;  // Successfully inserted
+        } else {
+            return false; // Failed to insert
+        }
+    }
+
+    function getById($id) {
+        $sql = "SELECT 
+                *
+                FROM event 
+                WHERE id_event = :id";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam('id', $id);
         $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 
     function editKegiatan($id, $value) {

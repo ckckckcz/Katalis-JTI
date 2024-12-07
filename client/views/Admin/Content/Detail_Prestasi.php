@@ -1,5 +1,5 @@
 <?php
-include('./client/components/User/Sidebar.php');
+include('./client/components/Admin/Sidebar.php');
 include('./server/model/Prestasi.php');
 ?>
 <section class="admin-section">
@@ -12,15 +12,13 @@ include('./server/model/Prestasi.php');
                     <div class="kegiatan-group">
                         <label for="nama-kompetisi" class="kegiatan-label font-bold">Nama Kompetisi</label>
                         <input type="text" id="nama-kompetisi" name="nama-kompetisi"
-                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi">
+                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" disabled>
                     </div>
                     <div class="kegiatan-group">
                         <label for="tingkat-lomba" class="kegiatan-label font-bold">Tingkat Kompetisi</label>
                         <select id="tingkat-lomba" name="tingkat-lomba"
-                            class="kegiatan-input kegiatan-select font-semi-bold">
+                            class="kegiatan-input kegiatan-select font-semi-bold" disabled>
                             <option value="internasional">International</option>
-                            <option value="nasional">National</option>
-                            <option value="lokal">Lokal</option>
                         </select>
                     </div>
                 </div>
@@ -28,14 +26,13 @@ include('./server/model/Prestasi.php');
                     <div class="kegiatan-group">
                         <label for="tempat-kompetisi" class="kegiatan-label font-bold">Tempat Kompetisi</label>
                         <input type="text" id="tempat-kompetisi" name="tempat-kompetisi"
-                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi">
+                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" disabled>
                     </div>
                     <div class="kegiatan-group">
                         <label for="jenis-kompetisi" class="kegiatan-label font-bold">Jenis Kompetisi</label>
                         <select id="jenis-kompetisi" name="jenis-kompetisi"
-                            class="kegiatan-input kegiatan-select font-semi-bold">
+                            class="kegiatan-input kegiatan-select font-semi-bold" disabled>
                             <option value="akademik">Akademik</option>
-                            <option value="non_akademik">Non Akademik</option>
                         </select>
                     </div>
                 </div>
@@ -43,12 +40,12 @@ include('./server/model/Prestasi.php');
                     <div class="kegiatan-group">
                         <label for="tanggal-mulai" class="kegiatan-label font-bold">Tanggal Mulai</label>
                         <input type="date" id="tanggal-mulai" name="tanggal-mulai" class="kegiatan-input font-semi-bold"
-                            placeholder="Masukkan nama kompetisi">
+                            placeholder="Masukkan nama kompetisi" disabled>
                     </div>
                     <div class="kegiatan-group">
                         <label for="tanggal-selesai" class="kegiatan-label font-bold">Tanggal Selesai</label>
                         <input type="date" id="tanggal-selesai" name="tanggal-selesai"
-                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi">
+                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" disabled>
                     </div>
                 </div>
                 <div class="kegiatan-grid">

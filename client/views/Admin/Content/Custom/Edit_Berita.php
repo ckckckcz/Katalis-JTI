@@ -1,8 +1,11 @@
 <?php
 include('./client/components/Admin/Sidebar.php');
+include('./server/model/Berita.php');
 include('./server/model/Prestasi.php');
 include('./client/components/Notification/Blog/notif_edit.php');
 $prestasi = new Prestasi();
+$berita = new Berita();
+$old = $berita->getById($_GET['id']);
 ?>
 <section class="admin-section">
     <div class="admin-container">
@@ -13,14 +16,16 @@ $prestasi = new Prestasi();
                     <div class="berita-group">
                         <label for="nama-berita" class="berita-label font-bold">Nama berita</label>
                         <input type="text" id="nama-berita" name="nama-berita" class="berita-input font-semi-bold"
-                            placeholder="Masukkan nama berita">
+                            placeholder="Masukkan nama berita" value="<?php echo $old[0]['nama_berita'] ?>">
                     </div>
                     <div class="berita-group">
                         <label for="prestasi" class="berita-label font-bold">Prestasi</label>
                         <select id="prestasi" name="prestasi" class="berita-input berita-select font-semi-bold">
                             <?php
                             $dataPrestasi = $prestasi->getForBerita();
+                            echo "<option value='{$old[0]['id_prestasi']}'selected>{$old[0]['input_prestasi']}</option>";
                             foreach ($dataPrestasi as $prestasi) {
+                                if($old[0]['id_prestasi'] == $prestasi['id_prestasi']) continue;
                                 echo "<option value='{$prestasi['id_prestasi']}'>{$prestasi['input_prestasi']}</option>";
                             }
                             ?>
@@ -31,12 +36,12 @@ $prestasi = new Prestasi();
                     <label for="deskripsi-berita" class="berita-label font-bold">Deskripsi berita</label>
                     <textarea id="deskripsi-berita" name="deskripsi-berita"
                         class="berita-input berita-deskripsi font-semi-bold"
-                        placeholder="Masukkan deskripsi berita"></textarea>
+                        placeholder="Masukkan deskripsi berita"><?php echo $old[0]['deskripsi'] ?></textarea>
                 </div>
                 <div class="berita-group">
                     <label for="url-demo" class="berita-label font-bold">URL Karya</label>
                     <input type="text" id="url-demo" name="url-demo" class="berita-input font-semi-bold"
-                        placeholder="Masukkan URL Karya">
+                        placeholder="Masukkan URL Karya" value="<?php echo $old[0]['url_demo'] ?>">
                 </div>
 
                 <div id="video-preview" class="hidden">

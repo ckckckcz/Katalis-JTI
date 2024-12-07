@@ -2,10 +2,10 @@
 
 class Database {
     function getDBConnection() {
-        // $servername = "GE08T\MSSQLKATALIS";
-        // $dbname = "Katalis_New";
-        $servername = "RIOVALDOALFIYAN\MSQLRIO";
-        $dbname = "katalis_new";
+        $servername = "GE08T\MSSQLKATALIS";
+        $dbname = "Katalis_New";
+        // $servername = "RIOVALDOALFIYAN\MSQLRIO";
+        // $dbname = "katalis_new";
     
         try {
             $conn = new PDO("sqlsrv:Server=$servername;Database=$dbname");

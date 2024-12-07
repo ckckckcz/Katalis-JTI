@@ -67,7 +67,28 @@ class Berita {
         $this->stmt->bindParam(2, $value['nama_berita']);
         $this->stmt->bindParam(3, $value['deskripsi']);
         $this->stmt->bindParam(4, $value['url_demo']);
+        if ($this->stmt->execute()) {
+            return true;  // Successfully inserted
+        } else {
+            return false; // Failed to insert
+        }
+    }
+
+    function getById($id) {
+        $sql = "SELECT 
+                b.id_prestasi,
+                'Juara ' + CONVERT(varchar, p.peringkat) + ' ' + p.nama_kegiatan as input_prestasi,
+                b.nama_berita,
+                b.deskripsi,
+                b.url_demo
+                FROM prestasi p  
+                JOIN berita b ON p.id_prestasi = b.id_prestasi
+                WHERE b.id_berita = :id";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam('id', $id);
         $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 
     function editBerita($id, $value) {
@@ -83,7 +104,11 @@ class Berita {
         $this->stmt->bindParam(3, $value['deskripsi']);
         $this->stmt->bindParam(4, $value['url_demo']);
         $this->stmt->bindParam(4, $id);
-        $this->stmt->execute();
+        if ($this->stmt->execute()) {
+            return true;  // Successfully inserted
+        } else {
+            return false; // Failed to insert
+        }
     }
 
     function deleteBerita($id) {
