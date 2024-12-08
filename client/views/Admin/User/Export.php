@@ -15,37 +15,46 @@ include('./server/model/Prestasi.php');
             </div>
         </div>
         <hr class="blog-hr-2">
-        <div class="kegiatan-grid">
-            <div class="kegiatan-group">
-                <label for="start-date" class="kegiatan-label font-bold">Tanggal Awal</label>
-                <input type="date" id="start-date" name="start-date" class="kegiatan-input font-semi-bold">
+        <form id="berita-form" method="GET" action="" class="berita-form"> 
+            <div class="kegiatan-grid">
+                <div class="kegiatan-group">
+                    <label for="start-date" class="kegiatan-label font-bold">Tanggal Awal</label>
+                    <input type="date" id="start-date" name="start-date" class="kegiatan-input font-semi-bold" value="<?= isset($_GET['start-date']) == true ? $_GET['start-date'] : '' ?>">
+                </div>
+                <div class="kegiatan-group">
+                    <label for="end-date" class="kegiatan-label font-bold">Tanggal Akhir</label>
+                    <input type="date" id="end-date" name="end-date" class="kegiatan-input font-semi-bold" value="<?= isset($_GET['end-date']) == true ? $_GET['end-date'] : '' ?>">
+                </div>
             </div>
-            <div class="kegiatan-group">
-                <label for="end-date" class="kegiatan-label font-bold">Tanggal Akhir</label>
-                <input type="date" id="end-date" name="end-date" class="kegiatan-input font-semi-bold">
+            <div class="kegiatan-title font-bold">
+                <div class="actions">
+                    <button type="submit" class="button-primary font-bold">Terapkan Filter</button>
+                </div>
             </div>
-        </div>
-        <div class="kegiatan-title font-bold">
-            <div class="actions">
-                <button type="submit" class="button-primary font-bold">Terapkan Filter</button>
-            </div>
-        </div>
+        </form>
         <div class="table-prestasi-container">
             <table class="table-prestasi-table">
                 <thead class="table-prestasi-thead font-bold">
                     <tr>
                         <th scope="col" class="table-prestasi-th">No</th>
-                        <th scope="col" class="table-prestasi-th">Mahasiswa</th>
-                        <th scope="col" class="table-prestasi-th">Kompetisi</th>
-                        <th scope="col" class="table-prestasi-th">Kategori</th>
-                        <th scope="col" class="table-prestasi-th">Aksi</th>
+                        <th scope="col" class="table-prestasi-th">NIM</th>
+                        <th scope="col" class="table-prestasi-th">Nama Mahasiswa</th>
+                        <th scope="col" class="table-prestasi-th">Jenis Prestasi</th>
+                        <th scope="col" class="table-prestasi-th">Tingkat Lomba</th>
+                        <th scope="col" class="table-prestasi-th">Peringkat</th>
+                        <th scope="col" class="table-prestasi-th">Lokasi</th>
+                        <th scope="col" class="table-prestasi-th">Tanggal Lomba</th>
                     </tr>
                 </thead>
                 <tbody class="font-regular">
                 <?php
                         $no = 1;
                         $data = new Prestasi();
-                        $prestasi = $data->getAllWithMhs();
+                        if (isset($_GET['start-date']) && $_GET['start-date'] != '' && isset($_GET['end-date']) && $_GET['end-date'] != '') {
+                            $prestasi = $data->getWithRangeDate($_GET['start-date'], $_GET['end-date']);
+                        } else {
+                            $prestasi = $data->getForDefaultExport();
+                        }
                         
                         if (!empty($prestasi)) {
                             foreach ($prestasi as $p) {
@@ -53,52 +62,23 @@ include('./server/model/Prestasi.php');
                                     <tr class='table-prestasi-row'>
                                         <th scope='row' class='table-prestasi-cell table-prestasi-header-cell'>
                                             $no</th>
-                                        <td class='table-prestasi-cell'>$p[nama_lengkap]</td>
-                                        <td class='table-prestasi-cell'>$p[nama_kegiatan]</td>
+                                        <td class='table-prestasi-cell'>$p[nim_mahasiswa]</td>
+                                        <td class='table-prestasi-cell'>$p[nama_mahasiswa]</td>
+                                        <td class='table-prestasi-cell'>" . ucwords($p['jenis_kegiatan']) . "</td>
                                         <td class='table-prestasi-cell'>" . ucwords($p['tingkat_lomba']) . "</td>
-                                        <td class='table-prestasi-cell'>
-                                            <a href='#' class='table-prestasi-link'>Detail</a>
-                                        </td>
+                                        <td class='table-prestasi-cell'>$p[peringkat]</td>
+                                        <td class='table-prestasi-cell'>$p[lokasi]</td>
+                                        <td class='table-prestasi-cell'>$p[tanggal_mulai_tanggal_selesai]</td>
                                     </tr>";
                                 $no++;
                             }
                         } else {
                             echo "
                             <tr class='table-prestasi-row'>
-                                td class='table-prestasi-cell'>Data Kosong</td>
+                                <td class='table-prestasi-cell'>Data Kosong</td>
                             </tr>";
                         }
                     ?>
-                    <tr class="table-prestasi-row">
-                        <th scope="row" class="table-prestasi-cell table-prestasi-header-cell">
-                            1</th>
-                        <td class="table-prestasi-cell">Riovaldo Alfiyan Fahmi Rahman</td>
-                        <td class="table-prestasi-cell">Compfest</td>
-                        <td class="table-prestasi-cell">Nasional</td>
-                        <td class="table-prestasi-cell">
-                            <a href="#" class="table-prestasi-link">Detail</a>
-                        </td>
-                    </tr>
-                    <tr class="table-prestasi-row">
-                        <th scope="row" class="table-prestasi-cell table-prestasi-header-cell">
-                            2</th>
-                        <td class="table-prestasi-cell">Arya Mahendra Wijaya</td>
-                        <td class="table-prestasi-cell">KMPIN</td>
-                        <td class="table-prestasi-cell">Nasional</td>
-                        <td class="table-prestasi-cell">
-                            <a href="#" class="table-prestasi-link">Detail</a>
-                        </td>
-                    </tr>
-                    <tr class="table-prestasi-row">
-                        <th scope="row" class="table-prestasi-cell table-prestasi-header-cell">
-                            3</th>
-                        <td class="table-prestasi-cell">Bagaskara Pradipta Satriya</td>
-                        <td class="table-prestasi-cell">Gemastik</td>
-                        <td class="table-prestasi-cell">Nasioanl</td>
-                        <td class="table-prestasi-cell">
-                            <a href="#" class="table-prestasi-link">Detail</a>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>

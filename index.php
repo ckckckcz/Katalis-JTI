@@ -8,6 +8,8 @@ $request = $_SERVER['REQUEST_URI'];
 $filePath = '';
 $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'; // Cek apakah pengguna adalah admin
 $id = isset($_GET['id']) ? $_GET['id'] : null;
+$startDate = isset($_GET['start-date']) ? $_GET['start-date'] : null;
+$endDate = isset($_GET['end-date']) ? $_GET['end-date'] : null;
 
 // Routing
 switch ($request) {
@@ -65,6 +67,10 @@ switch ($request) {
         $filePath = 'client/views/admin/Prestasi.php';
         break;
     case $location . '/exportData':
+        checkAdmin();
+        $filePath = 'client/views/admin/User/Export.php';
+        break;
+    case $location . '/exportData?start-date='.$startDate.'&end-date='.$endDate:
         checkAdmin();
         $filePath = 'client/views/admin/User/Export.php';
         break;

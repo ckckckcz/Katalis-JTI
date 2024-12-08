@@ -81,11 +81,40 @@ class Prestasi {
         return $result;
     }
 
+    function getForDefaultExport() {
+        $sql = "SELECT 
+                    m.nama_lengkap AS nama_mahasiswa,
+                    p.id_mahasiswa AS nim_mahasiswa,
+                    p.jenis_kegiatan,
+                    p.tingkat_lomba,
+                    p.peringkat,
+                    p.lokasi,
+                    CONCAT(p.tanggal_mulai, ' s.d. ', p.tanggal_selesai) AS tanggal_mulai_tanggal_selesai,
+                    p.deskripsi,
+                    p.dibuat_pada AS tanggal_dibuat
+                FROM Prestasi p
+                JOIN Mahasiswa m ON p.id_mahasiswa = m.nim;";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     function getWithRangeDate($start, $end) {
-        $sql = "SELECT *
-                FROM prestasi
-                WHERE dibuat_pada >= CONVERT(datetime, ?) 
-                AND dibuat_pada <= CONVERT(datetime, ?);";
+        $sql = "SELECT 
+                    m.nama_lengkap AS nama_mahasiswa,
+                    p.id_mahasiswa AS nim_mahasiswa,
+                    p.jenis_kegiatan,
+                    p.tingkat_lomba,
+                    p.peringkat,
+                    p.lokasi,
+                    CONCAT(p.tanggal_mulai, ' s.d. ', p.tanggal_selesai) AS tanggal_mulai_tanggal_selesai,
+                    p.deskripsi,
+                    p.dibuat_pada AS tanggal_dibuat
+                FROM Prestasi p
+                JOIN Mahasiswa m ON p.id_mahasiswa = m.nim
+                WHERE p.dibuat_pada >= CONVERT(datetime, ?) 
+                AND p.dibuat_pada <= CONVERT(datetime, ?);";
         $this->stmt = $this->conn->prepare($sql);
         $this->stmt->bindParam(1, $start);
         $this->stmt->bindParam(2, $end);
