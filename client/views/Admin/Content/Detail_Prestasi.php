@@ -124,35 +124,12 @@ $allDosen = $dataDosen->getAllDosen();
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
                         <label for="karya" class="kegiatan-label font-bold">File Karya</label>
-                        <div class="kegiatan-group">
-                            <input type="text" id="tempat-kompetisi" name="tempat-kompetisi"
-                                class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" disabled value="<?= $result[0]['file_karya'] ?>">
-                        </div>
                         <div class="kegiatan-input-file-container">
                             <label for="karya" class="kegiatan-input-file-label">
                                 <div class="kegiatan-input-file-content">
-                                    <!-- Ikon file awal -->
-                                    <svg id="default-icon" class="kegiatan-input-file-icon" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                    </svg>
-
-                                    <!-- Teks yang muncul sebelum file dipilih -->
-                                    <p id="file-description" class="kegiatan-input-file-text">
-                                        <span class="kegiatan-input-file-highlight font-semi-bold">Click to
-                                            upload</span> or drag and drop
+                                    <p class="kegiatan-input-file-highlight font-semi-bold">
+                                        <?= htmlspecialchars($result[0]['file_karya'], ENT_QUOTES, 'UTF-8'); ?>
                                     </p>
-                                    <p id="file-subtext" class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG,
-                                        JPG, or GIF (MAX. 800x400px)</p>
-                                    <svg id="file-icon" class="kegiatan-input-file-icon hidden" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="size-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12" />
-                                    </svg>
-                                    <p id="file-name" class="kegiatan-input-file-highlight hidden font-semi-bold"></p>
                                 </div>
                                 <input id="karya" name="karya" type="file" class="kegiatan-input-file-hidden" />
                             </label>
@@ -160,26 +137,11 @@ $allDosen = $dataDosen->getAllDosen();
                     </div>
                     <div class="kegiatan-group">
                         <label for="sertifikat" class="kegiatan-label font-bold">File Sertifikat</label>
-                        <div class="kegiatan-group">
-                            <img src="../public/Prestasi/Sertifikat/<?php echo $result[0]['file_sertifikat'] ?>" style="max-width: 80%;">
-                        </div>
                         <div class="kegiatan-input-file-container">
                             <label for="sertifikat" class="kegiatan-input-file-label">
                                 <div class="kegiatan-input-file-content">
-                                    <img id="file-preview" class="hidden kegiatan-file-preview"
-                                        alt="Preview Sertifikat" />
-                                    <svg class="kegiatan-input-file-icon" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                    </svg>
-                                    <p class="kegiatan-input-file-text">
-                                        <span class="kegiatan-input-file-highlight font-semi-bold">Click to
-                                            upload</span> or drag and drop
-                                    </p>
-                                    <p class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG, JPG or GIF (MAX.
-                                        800x400px)</p>
+                                    <img id="file-preview" class="kegiatan-file-preview"
+                                        alt="Preview Sertifikat" src="../public/Prestasi/Sertifikat/<?php echo $result[0]['file_sertifikat'] ?>" />
                                 </div>
                                 <input id="sertifikat" name="sertifikat" type="file"
                                     class="kegiatan-input-file-hidden" />
@@ -188,26 +150,11 @@ $allDosen = $dataDosen->getAllDosen();
                     </div>
                     <div class="kegiatan-group">
                         <label for="poster" class="kegiatan-label font-bold">Foto Poster</label>
-                        <div class="kegiatan-group">
-                            <img src="../public/Prestasi/Poster/<?php echo $result[0]['file_poster'] ?>" style="max-width: 80%;">
-                        </div>
                         <div class="kegiatan-input-file-container">
                             <label for="poster" class="kegiatan-input-file-label">
                                 <div class="kegiatan-input-file-content">
-                                    <img id="poster-preview" class="hidden kegiatan-file-preview"
-                                        alt="Preview Poster" />
-                                    <svg class="kegiatan-input-file-icon" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                    </svg>
-                                    <p class="kegiatan-input-file-text">
-                                        <span class="kegiatan-input-file-highlight font-semi-bold">Click to
-                                            upload</span> or drag and drop
-                                    </p>
-                                    <p class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG, JPG or GIF (MAX.
-                                        800x400px)</p>
+                                    <img id="poster-preview" class="kegiatan-file-preview"
+                                        alt="Preview Poster" src="../public/Prestasi/Poster/<?php echo $result[0]['file_poster'] ?>" />
                                 </div>
                                 <input id="poster" name="poster" type="file" class="kegiatan-input-file-hidden" />
                             </label>
@@ -215,26 +162,11 @@ $allDosen = $dataDosen->getAllDosen();
                     </div>
                     <div class="kegiatan-group">
                         <label for="dokumentasi" class="kegiatan-label font-bold">Foto Dokumentasi</label>
-                        <div class="kegiatan-group">
-                            <img src="../public/Prestasi/Dokumentasi/<?php echo $result[0]['file_dokumentasi'] ?>" style="max-width: 80%;">
-                        </div>
                         <div class="kegiatan-input-file-container">
                             <label for="dokumentasi" class="kegiatan-input-file-label">
                                 <div class="kegiatan-input-file-content">
-                                    <img id="dokumentasi-preview" class="hidden kegiatan-file-preview"
-                                        alt="Preview Dokumentasi" />
-                                    <svg class="kegiatan-input-file-icon" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                    </svg>
-                                    <p class="kegiatan-input-file-text">
-                                        <span class="kegiatan-input-file-highlight font-semi-bold">Click to
-                                            upload</span> or drag and drop
-                                    </p>
-                                    <p class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG, JPG or GIF (MAX.
-                                        800x400px)</p>
+                                    <img id="dokumentasi-preview" class=" kegiatan-file-preview"
+                                        alt="Preview Dokumentasi" src="../public/Prestasi/Dokumentasi/<?php echo $result[0]['file_dokumentasi'] ?>" />
                                 </div>
                                 <input id="dokumentasi" name="dokumentasi" type="file"
                                     class="kegiatan-input-file-hidden" />
@@ -244,35 +176,12 @@ $allDosen = $dataDosen->getAllDosen();
                 </div>
                 <div class="kegiatan-group">
                         <label for="surat-tugas" class="kegiatan-label font-bold">File Surat Tugas</label>
-                        <div class="kegiatan-group">
-                            <input type="text" id="test" name="test"
-                                class="kegiatan-input font-semi-bold" disabled value="<?= $result[0]['surat_tugas'] ?>">
-                        </div>
                         <div class="kegiatan-input-file-container">
                             <label for="file-surat-tugas" class="kegiatan-input-file-label">
                                 <div class="kegiatan-input-file-content">
-                                    <!-- Ikon file awal -->
-                                    <svg id="default-tugas-icon" class="kegiatan-input-file-icon" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                    </svg>
-
-                                    <!-- Teks yang muncul sebelum file dipilih -->
-                                    <p id="file-tugas-description" class="kegiatan-input-file-text">
-                                        <span class="kegiatan-input-file-highlight font-semi-bold">Click to
-                                            upload</span> or drag and drop
+                                    <p class="kegiatan-input-file-highlight font-semi-bold">
+                                        <?= htmlspecialchars($result[0]['surat_tugas'], ENT_QUOTES, 'UTF-8'); ?>
                                     </p>
-                                    <p id="file-tugas-subtext" class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG,
-                                        JPG, or GIF (MAX. 800x400px)</p>
-                                    <svg id="file-tugas-icon" class="kegiatan-input-file-icon hidden" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="size-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12" />
-                                    </svg>
-                                    <p id="file-tugas-name" class="kegiatan-input-file-highlight hidden font-semi-bold"></p>
                                 </div>
                                 <input id="surat-tugas" name="surat-tugas" type="file" class="kegiatan-input-file-hidden" />
                             </label>
