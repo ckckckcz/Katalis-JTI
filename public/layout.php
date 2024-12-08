@@ -82,7 +82,6 @@
     <script src="/katalis/public/js/input.js"></script>
     <script src="/katalis/public/js/sidebar.js"></script>
     <script src="/katalis/public/js/validasi.js"></script>
-    <script src="/katalis/public/js/stepper.js"></script>
     <script src="/katalis/public/js/Notification/Blog/blog.js"></script>
     <script src="/katalis/public/js/Notification/Event/event.js"></script>
     <script src="/katalis/public/js/statusMahasiswa.js"></script>
