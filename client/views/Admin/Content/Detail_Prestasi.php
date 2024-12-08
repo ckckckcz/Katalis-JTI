@@ -15,6 +15,7 @@ $allDosen = $dataDosen->getAllDosen();
             <form action="../server/proses/prestasi/EditPrestasi.php" method="post" enctype="multipart/form-data"
                 class="kegiatan-form">
                 <div class="kegiatan-grid">
+                    <input id="id-prestasi" name="id-prestasi" type="text" class="kegiatan-input-file-hidden" value="<?php echo $_GET['id'] ?>"/>
                     <div class="kegiatan-group">
                         <label for="nama-kompetisi" class="kegiatan-label font-bold">Nama Kompetisi</label>
                         <input type="text" id="nama-kompetisi" name="nama-kompetisi"
@@ -244,14 +245,14 @@ $allDosen = $dataDosen->getAllDosen();
                 <div class="kegiatan-group">
                         <label for="surat-tugas" class="kegiatan-label font-bold">File Surat Tugas</label>
                         <div class="kegiatan-group">
-                            <input type="text" id="surat-tugas" name="surat-tugas"
+                            <input type="text" id="test" name="test"
                                 class="kegiatan-input font-semi-bold" disabled value="<?= $result[0]['surat_tugas'] ?>">
                         </div>
                         <div class="kegiatan-input-file-container">
-                            <label for="karya" class="kegiatan-input-file-label">
+                            <label for="file-surat-tugas" class="kegiatan-input-file-label">
                                 <div class="kegiatan-input-file-content">
                                     <!-- Ikon file awal -->
-                                    <svg id="default-icon" class="kegiatan-input-file-icon" aria-hidden="true"
+                                    <svg id="default-tugas-icon" class="kegiatan-input-file-icon" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                             stroke-width="2"
@@ -259,28 +260,28 @@ $allDosen = $dataDosen->getAllDosen();
                                     </svg>
 
                                     <!-- Teks yang muncul sebelum file dipilih -->
-                                    <p id="file-description" class="kegiatan-input-file-text">
+                                    <p id="file-tugas-description" class="kegiatan-input-file-text">
                                         <span class="kegiatan-input-file-highlight font-semi-bold">Click to
                                             upload</span> or drag and drop
                                     </p>
-                                    <p id="file-subtext" class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG,
+                                    <p id="file-tugas-subtext" class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG,
                                         JPG, or GIF (MAX. 800x400px)</p>
-                                    <svg id="file-icon" class="kegiatan-input-file-icon hidden" aria-hidden="true"
+                                    <svg id="file-tugas-icon" class="kegiatan-input-file-icon hidden" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12" />
                                     </svg>
-                                    <p id="file-name" class="kegiatan-input-file-highlight hidden font-semi-bold"></p>
+                                    <p id="file-tugas-name" class="kegiatan-input-file-highlight hidden font-semi-bold"></p>
                                 </div>
-                                <input id="karya" name="karya" type="file" class="kegiatan-input-file-hidden" />
+                                <input id="surat-tugas" name="surat-tugas" type="file" class="kegiatan-input-file-hidden" />
                             </label>
                         </div>
                     </div>
                 <div class="kegiatan-group">
                     <label for="deskripsi" class="kegiatan-label font-bold">Deskripsi Kegiatan</label>
                     <textarea id="deskripsi" name="deskripsi" class="kegiatan-input kegiatan-deskripsi font-semi-bold"
-                        placeholder="Masukkan deskripsi kegiatan"><?= $result[0]['surat_tugas'] ?></textarea>
+                        placeholder="Masukkan deskripsi kegiatan"><?= $result[0]['deskripsi'] ?></textarea>
                 </div>
                 <div class="kegiatan-group">
                     <label for="status-validasi" class="kegiatan-label font-bold">Status Validasi</label>
@@ -288,7 +289,7 @@ $allDosen = $dataDosen->getAllDosen();
                         class="kegiatan-input kegiatan-select font-semi-bold">
                         <?php 
                         if ($result[0]['status_validasi'] == 'proses_validasi') {
-                            echo "<option value='{$result[0]['status_validasi']} selected'>Proses Validasi</option>";
+                            echo "<option value='{$result[0]['status_validasi']}' selected>Proses Validasi</option>";
                             echo '<option value="data_tervalidasi">Data Tervalidasi</option>';
                             echo '<option value="tidak_divalidasi">Data Tidak Valid</option>';
                         } else if ($result[0]['status_validasi'] == 'data_tervalidasi') {
@@ -374,4 +375,37 @@ $allDosen = $dataDosen->getAllDosen();
             }
         });
     });
+    // $(document).ready(function () {
+    //     $('#surat-tugas').on('change', function (event) {
+    //         const file = event.target.files[1];
+
+    //         if (file) {
+    //             const fileName = file.name;
+    //             const fileType = file.type;
+
+    //             // Menyembunyikan teks instruksi, subtext, dan ikon default
+    //             $('#file-tugas-description').addClass('hidden');
+    //             $('#file-tugas-subtext').addClass('hidden');
+    //             $('#default-tugas-icon').addClass('hidden');
+
+    //             // Menampilkan nama file
+    //             $('#file-tugas-name').removeClass('hidden').text(fileName);
+
+    //             // Menampilkan ikon PDF jika file PDF
+    //             if (fileType === 'application/pdf') {
+    //                 $('#file-tugas-icon').removeClass('hidden');
+    //             } else {
+    //                 // Sembunyikan ikon PDF jika file bukan PDF
+    //                 $('#file-tugas-icon').addClass('hidden');
+    //             }
+    //         } else {
+    //             // Reset ke kondisi awal jika file dihapus
+    //             $('#file-tugas-description').removeClass('hidden');
+    //             $('#file-tugas-subtext').removeClass('hidden');
+    //             $('#default-tugas-icon').removeClass('hidden');
+    //             $('#file-tugas-name').addClass('hidden');
+    //             $('#file-tugas-icon').addClass('hidden');
+    //         }
+    //     });
+    // });
 </script>
