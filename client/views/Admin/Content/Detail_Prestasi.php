@@ -194,21 +194,20 @@ $allDosen = $dataDosen->getAllDosen();
                 </div>
                 <div class="kegiatan-group">
                     <label for="status-validasi" class="kegiatan-label font-bold">Status Validasi</label>
-                    <select id="status-validasi" name="status-validasi"
-                        class="kegiatan-input kegiatan-select font-semi-bold">
-                        <?php 
+                    <select id="status-validasi" name="status-validasi" class="kegiatan-input kegiatan-select font-semi-bold">
+                        <?php
                         if ($result[0]['status_validasi'] == 'proses_validasi') {
-                            echo "<option value='{$result[0]['status_validasi']}' selected>Proses Validasi</option>";
+                            echo "<option value='proses_validasi' selected>Proses Validasi</option>";
                             echo '<option value="data_tervalidasi">Data Tervalidasi</option>';
                             echo '<option value="tidak_divalidasi">Data Tidak Valid</option>';
                         } else if ($result[0]['status_validasi'] == 'data_tervalidasi') {
                             echo '<option value="proses_validasi">Proses Validasi</option>';
-                            echo "<option value='{$result[0]['status_validasi']}' selected>Data Tervalidasi</option>";
+                            echo "<option value='data_tervalidasi' selected>Data Tervalidasi</option>";
                             echo '<option value="tidak_divalidasi">Data Tidak Valid</option>';
                         } else {
                             echo '<option value="proses_validasi">Proses Validasi</option>';
                             echo '<option value="data_tervalidasi">Data Tervalidasi</option>';
-                            echo "<option value='{$result[0]['status_validasi']}' selected>Data Tidak Valid</option>";
+                            echo "<option value='tidak_divalidasi' selected>Data Tidak Valid</option>";
                         }
                         ?>
                     </select>
@@ -284,37 +283,22 @@ $allDosen = $dataDosen->getAllDosen();
             }
         });
     });
-    // $(document).ready(function () {
-    //     $('#surat-tugas').on('change', function (event) {
-    //         const file = event.target.files[1];
+</script>
 
-    //         if (file) {
-    //             const fileName = file.name;
-    //             const fileType = file.type;
+<script>
+    function setTextColor() {
+        const selectElement = document.getElementById('status-validasi');
+        const selectedValue = selectElement.value;
 
-    //             // Menyembunyikan teks instruksi, subtext, dan ikon default
-    //             $('#file-tugas-description').addClass('hidden');
-    //             $('#file-tugas-subtext').addClass('hidden');
-    //             $('#default-tugas-icon').addClass('hidden');
-
-    //             // Menampilkan nama file
-    //             $('#file-tugas-name').removeClass('hidden').text(fileName);
-
-    //             // Menampilkan ikon PDF jika file PDF
-    //             if (fileType === 'application/pdf') {
-    //                 $('#file-tugas-icon').removeClass('hidden');
-    //             } else {
-    //                 // Sembunyikan ikon PDF jika file bukan PDF
-    //                 $('#file-tugas-icon').addClass('hidden');
-    //             }
-    //         } else {
-    //             // Reset ke kondisi awal jika file dihapus
-    //             $('#file-tugas-description').removeClass('hidden');
-    //             $('#file-tugas-subtext').removeClass('hidden');
-    //             $('#default-tugas-icon').removeClass('hidden');
-    //             $('#file-tugas-name').addClass('hidden');
-    //             $('#file-tugas-icon').addClass('hidden');
-    //         }
-    //     });
-    // });
+        // Set color based on value
+        if (selectedValue === 'proses_validasi') {
+            selectElement.style.color = 'orange'; // Warna teks untuk proses validasi
+        } else if (selectedValue === 'data_tervalidasi') {
+            selectElement.style.color = 'green'; // Warna teks untuk data tervalidasi
+        } else if (selectedValue === 'tidak_divalidasi') {
+            selectElement.style.color = 'red'; // Warna teks untuk data tidak valid
+        }
+    }
+    document.getElementById('status-validasi').addEventListener('change', setTextColor);
+    window.onload = setTextColor;
 </script>
