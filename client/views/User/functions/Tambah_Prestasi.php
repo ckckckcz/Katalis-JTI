@@ -6,12 +6,13 @@ include('./server/model/Prestasi.php');
     <div class="admin-container">
         <h1 class="font-bold kegiatan-title">Tambah Prestasi</h1>
         <div class="kegiatan-card">
-            <form action="../server/proses/prestasi/TambahPrestasi.php" method="post" enctype="multipart/form-data" class="kegiatan-form">
+            <form action="../server/proses/prestasi/TambahPrestasi.php" method="post" enctype="multipart/form-data" class="kegiatan-form" id="tambah-prestasi-form">
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
                         <label for="nama-kompetisi" class="kegiatan-label font-bold">Nama Kompetisi</label>
                         <input type="text" id="nama-kompetisi" name="nama-kompetisi" class="kegiatan-input font-semi-bold"
                             placeholder="Masukkan nama kompetisi">
+                        <p id="nama-kompetisi-error" class="error-message font-semi-bold"></p>
                     </div>
                     <div class="kegiatan-group">
                         <label for="tingkat-lomba" class="kegiatan-label font-bold">Tingkat Kompetisi</label>
@@ -20,6 +21,7 @@ include('./server/model/Prestasi.php');
                             <option value="nasional">National</option>
                             <option value="lokal">Lokal</option>
                         </select>
+                        <span class="error-message font-bold"></span>
                     </div>
                 </div>
                 <div class="kegiatan-grid">
@@ -27,6 +29,7 @@ include('./server/model/Prestasi.php');
                         <label for="tempat-kompetisi" class="kegiatan-label font-bold">Tempat Kompetisi</label>
                         <input type="text" id="tempat-kompetisi" name="tempat-kompetisi" class="kegiatan-input font-semi-bold"
                             placeholder="Masukkan nama kompetisi">
+                        <span class="error-message font-bold"></span>
                     </div>
                     <div class="kegiatan-group">
                         <label for="jenis-kompetisi" class="kegiatan-label font-bold">Jenis Kompetisi</label>
@@ -34,6 +37,7 @@ include('./server/model/Prestasi.php');
                             <option value="akademik">Akademik</option>
                             <option value="non_akademik">Non Akademik</option>
                         </select>
+                        <span class="error-message font-bold"></span>
                     </div>
                 </div>
                 <div class="kegiatan-grid">
@@ -41,11 +45,13 @@ include('./server/model/Prestasi.php');
                         <label for="tanggal-mulai" class="kegiatan-label font-bold">Tanggal Mulai</label>
                         <input type="date" id="tanggal-mulai" name="tanggal-mulai" class="kegiatan-input font-semi-bold"
                             placeholder="Masukkan nama kompetisi">
+                        <span class="error-message font-bold"></span>
                     </div>
                     <div class="kegiatan-group">
                         <label for="tanggal-selesai" class="kegiatan-label font-bold">Tanggal Selesai</label>
                         <input type="date" id="tanggal-selesai" name="tanggal-selesai" class="kegiatan-input font-semi-bold"
                             placeholder="Masukkan nama kompetisi">
+                        <span class="error-message font-bold"></span>
                     </div>
                 </div>
                 <div class="kegiatan-grid">
@@ -53,11 +59,13 @@ include('./server/model/Prestasi.php');
                         <label for="peringkat" class="kegiatan-label font-bold">Peringkat</label>
                         <input type="number" id="peringkat" name="peringkat" class="kegiatan-input font-semi-bold"
                             placeholder="Masukkan peringkat (1,2,3) jika ada">
+                        <span class="error-message font-bold"></span>
                     </div>
                     <div class="kegiatan-group">
                         <label for="dosen-pembimbing" class="kegiatan-label font-bold">Dosen Pembimbing</label>
                         <input type="text" id="dosen-pembimbing" name="dosen-pembimbing" class="kegiatan-input font-semi-bold"
                             placeholder="Masukkan nama dosen pembimbing">
+                        <span class="error-message font-bold"></span>
                     </div>
                 </div>
                 <div class="kegiatan-grid">
@@ -85,6 +93,7 @@ include('./server/model/Prestasi.php');
                                     <p id="file-name" class="kegiatan-input-file-highlight hidden font-semi-bold"></p>
                                 </div>
                                 <input id="karya" name="karya" type="file" class="kegiatan-input-file-hidden" />
+                                <span class="error-message font-bold"></span>
                             </label>
                         </div>
                     </div>
@@ -106,6 +115,7 @@ include('./server/model/Prestasi.php');
                                     <p class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                 </div>
                                 <input id="sertifikat" name="sertifikat" type="file" class="kegiatan-input-file-hidden" />
+                                <span class="error-message font-bold"></span>
                             </label>
                         </div>
                     </div>
@@ -127,6 +137,7 @@ include('./server/model/Prestasi.php');
                                     <p class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                 </div>
                                 <input id="poster" name="poster" type="file" class="kegiatan-input-file-hidden" />
+                                <span class="error-message font-bold"></span>
                             </label>
                         </div>
                     </div>
@@ -148,6 +159,7 @@ include('./server/model/Prestasi.php');
                                     <p class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                 </div>
                                 <input id="dokumentasi" name="dokumentasi" type="file" class="kegiatan-input-file-hidden" />
+                                <span class="error-message font-bold"></span>
                             </label>
                         </div>
                     </div>
@@ -156,6 +168,7 @@ include('./server/model/Prestasi.php');
                     <label for="deskripsi" class="kegiatan-label font-bold">Deskripsi Kegiatan</label>
                     <textarea id="deskripsi" name="deskripsi" class="kegiatan-input kegiatan-deskripsi font-semi-bold"
                         placeholder="Masukkan deskripsi kegiatan"></textarea>
+                    <span class="error-message font-bold"></span>
                 </div>
                 <div class="actions">
                     <button type="submit" name="submit" value="submit" class="button-primary font-bold">Submit Prestasi</button>
@@ -227,4 +240,45 @@ include('./server/model/Prestasi.php');
             }
         });
     });
+$(document).ready(function () {
+    $('#tambah-prestasi-form').on('submit', function (e) {
+        e.preventDefault();
+
+        let isValid = true;
+
+        $('#nama-kompetisi, #tempat-kompetisi, #tingkat-lomba, #jenis-kompetisi, #tanggal-mulai, #tanggal-selesai, #peringkat, #dosen-pembimbing, #karya, #sertifikat, #poster, #dokumentasi, #deskripsi').each(function () {
+            const input = $(this);
+            const value = input.val().trim();
+            const errorMessage = input.siblings('.error-message');
+            
+            console.log("Validasi untuk: ", input.attr('id'), " dengan nilai: ", value); // Debugging log
+
+            // Cek jika elemen adalah select dan nilai kosong
+            if (input.is('select') && value === "") {
+                console.log("Validasi gagal untuk select: ", input.attr('id')); // Debugging log
+                isValid = false;
+                input.addClass('error-border');
+                errorMessage.text('Form harus diisi').show();
+            } else if (!value) {  // Validasi umum untuk input teks
+                console.log("Validasi gagal untuk input: ", input.attr('id')); // Debugging log
+                isValid = false;
+                input.addClass('error-border');
+                errorMessage.text('Form harus diisi').show();
+            } else {
+                input.removeClass('error-border');
+                errorMessage.hide();
+            }
+        });
+
+        if (isValid) {
+            this.submit();
+        }
+    });
+
+    $('#nama-kompetisi, #tempat-kompetisi, #tingkat-lomba, #jenis-kompetisi, #tanggal-mulai, #tanggal-selesai, #peringkat, #dosen-pembimbing, #karya, #sertifikat, #poster, #dokumentasi, #deskripsi').on('input change', function () {
+        const input = $(this);
+        input.removeClass('error-border');
+        input.siblings('.error-message').hide();
+    });
+});
 </script>

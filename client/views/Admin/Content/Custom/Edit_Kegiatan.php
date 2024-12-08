@@ -24,7 +24,7 @@ $old = $kegiatan->getById($_GET['id']);
                     <label for="nama-kegiatan" class="kegiatan-label font-bold">Nama Kegiatan</label>
                     <input type="text" id="nama-kegiatan" name="nama-kegiatan" class="kegiatan-input font-semi-bold"
                         placeholder="Masukkan nama kegiatan" value="<?php echo $old[0]['nama_event'] ?>">
-                    <p id="nama-kegiatan-error" class="error-message font-semi-bold"></p>
+                    <span class="error-message font-bold"></span>
                 </div>
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
