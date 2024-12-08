@@ -97,6 +97,7 @@ class Prestasi {
     function getAllById($id) {
         $sql = "SELECT 
                 d.nama_lengkap as dosen_pembimbing,
+                p.id_prestasi,
                 p.nama_kegiatan,
                 p.id_dosen,
                 p.jenis_kegiatan,
@@ -148,8 +149,9 @@ class Prestasi {
                 file_poster,
                 file_dokumentasi,
                 file_sertifikat,
+                surat_tugas,
                 status_validasi)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $this->stmt = $this->conn->prepare($sql);
         $this->stmt->bindParam(1, $value['id_mahasiswa']);
         $this->stmt->bindParam(2, $value['nama_kegiatan']);
@@ -166,6 +168,64 @@ class Prestasi {
         $this->stmt->bindParam(13, $value['file_dokumentasi']);
         $this->stmt->bindParam(14, $value['file_sertifikat']);
         $this->stmt->bindParam(15, $value['status_validasi']);
+        if ($this->stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        };
+    }
+
+    function getById($id) {
+        $sql = "SELECT 
+                *
+                FROM prestasi 
+                WHERE id_prestasi = :id";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam('id', $id);
         $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    function updatePrestasi($value) {
+        $sql = "UPDATE Prestasi SET 
+                nama_kegiatan = ?,
+                jenis_kegiatan = ?,
+                tanggal_mulai = ?,
+                tanggal_selesai = ?,
+                tingkat_lomba = ?,
+                peringkat = ?,
+                lokasi = ?,
+                deskripsi = ?,
+                id_dosen = ?,
+                file_karya = ?,
+                file_poster = ?,
+                file_dokumentasi = ?,
+                file_sertifikat = ?,
+                surat_tugas = ?,
+                status_validasi = ?
+                WHERE id_prestasi = ?";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam(1, $value['nama_kegiatan']);
+        $this->stmt->bindParam(2, $value['jenis_kegiatan']);
+        $this->stmt->bindParam(3, $value['tanggal_mulai']);
+        $this->stmt->bindParam(4, $value['tanggal_selesai']);
+        $this->stmt->bindParam(5, $value['tingkat_lomba']);
+        $this->stmt->bindParam(6, $value['peringkat']);
+        $this->stmt->bindParam(7, $value['lokasi']);
+        $this->stmt->bindParam(8, $value['deskripsi']);
+        $this->stmt->bindParam(9, $value['id_dosen']);
+        $this->stmt->bindParam(10, $value['file_karya']);
+        $this->stmt->bindParam(11, $value['file_poster']);
+        $this->stmt->bindParam(12, $value['file_dokumentasi']);
+        $this->stmt->bindParam(13, $value['file_sertifikat']);
+        $this->stmt->bindParam(14, $value['file_surat_tugas']);
+        $this->stmt->bindParam(15, $value['status_validasi']);
+        $this->stmt->bindParam(16, $value['id_prestasi']);
+        if ($this->stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        };
     }
 }
