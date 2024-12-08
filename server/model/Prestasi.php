@@ -98,6 +98,7 @@ class Prestasi {
         $sql = "SELECT 
                 d.nama_lengkap as dosen_pembimbing,
                 p.nama_kegiatan,
+                p.id_dosen,
                 p.jenis_kegiatan,
                 p.tanggal_mulai,
                 p.tanggal_selesai,

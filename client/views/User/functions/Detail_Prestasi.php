@@ -63,7 +63,7 @@ $result = $data->getAllById($_GET['id']);
                         <label for="peringkat" class="kegiatan-label font-bold">Peringkat</label>
                         <?php
                             if($result[0]['peringkat'] == 0){
-                                echo '<input type="number" id="peringkat" name="peringkat" class="kegiatan-input font-semi-bold" placeholder="-" disabled>';
+                                echo '<input type="number" id="peringkat" name="peringkat" class="kegiatan-input font-semi-bold" value="-" disabled>';
                             } else {
                                 echo '<input type="number" id="peringkat" name="peringkat" class="kegiatan-input font-semi-bold"
                                 value="' . $result[0]['peringkat'] . '">';
@@ -79,24 +79,36 @@ $result = $data->getAllById($_GET['id']);
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
                         <label for="karya" class="kegiatan-label font-bold">File Karya</label>
-                        <img id="dokumentasi-preview-user" class="kegiatan-file-preview" alt="Preview Dokumentasi" src="" />
+                        <div class="kegiatan-group">
+                            <input type="text" id="tempat-kompetisi" name="tempat-kompetisi"
+                                class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" disabled value="<?= $result[0]['file_karya'] ?>">
+                        </div>
                     </div>
                     <div class="kegiatan-group">
                         <label for="sertifikat" class="kegiatan-label font-bold">File Sertifikat</label>
-                        <img id="dokumentasi-preview-user" class="kegiatan-file-preview" alt="Preview Dokumentasi" src="" />
+                        <div class="kegiatan-group">
+                            <img src="../public/Prestasi/Sertifikat/<?php echo $result[0]['file_sertifikat'] ?>" style="max-width: 80%;">
+                        </div>
                     </div>
                     <div class="kegiatan-group">
                         <label for="poster" class="kegiatan-label font-bold">Foto Poster</label>
-                        <img id="dokumentasi-preview-user" class="kegiatan-file-preview" alt="Preview Dokumentasi" src="" />
+                        <div class="kegiatan-group">
+                            <img src="../public/Prestasi/Poster/<?php echo $result[0]['file_poster'] ?>" style="max-width: 80%;">
+                        </div>
                     </div>
                     <div class="kegiatan-group">
                         <label for="dokumentasi" class="kegiatan-label font-bold">Foto Dokumentasi</label>
-                        <img id="dokumentasi-preview-user" class="kegiatan-file-preview" alt="Preview Dokumentasi" src="" />
+                        <div class="kegiatan-group">
+                            <img src="../public/Prestasi/Dokumentasi/<?php echo $result[0]['file_dokumentasi'] ?>" style="max-width: 80%;">
+                        </div>
                     </div>
                 </div>
                 <div class="kegiatan-group">
                     <label for="surat-tugas" class="kegiatan-label font-bold">File Surat Tugas</label>
-                    <img id="dokumentasi-preview-user" class="kegiatan-file-preview" alt="Preview Dokumentasi" src="" />
+                    <div class="kegiatan-group">
+                        <input type="text" id="surat-tugas" name="surat-tugas"
+                            class="kegiatan-input font-semi-bold" disabled value="<?= $result[0]['surat_tugas'] ?>">
+                    </div>
                 </div>
                 <div class="kegiatan-group">
                     <label for="deskripsi" class="kegiatan-label font-bold">Deskripsi Kegiatan</label>

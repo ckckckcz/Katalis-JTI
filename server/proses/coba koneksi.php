@@ -8,21 +8,21 @@ require_once '../model/Berita.php';
 require_once '../model/Prestasi.php';
 require_once '../model/Dosen.php';
 
-// $user = new Users();
+$user = new Users();
 // $admin = new Admin();
-// $mhs = new Mahasiswa();
+$mhs = new Mahasiswa();
 $evt = new Event();
 $berita = new Berita();
 $dosen = new Dosen();
 $prestasi = new Prestasi();
 
-// var_dump($user->getAllUsers());
 // var_dump($admin->getAllAdmin());
 echo "<pre>";
-var_dump($berita->getBerita());
+// var_dump($user->getAllUsers());
+// var_dump($berita->getBerita());
 // var_dump($dosen->getAllDosen());
 // var_dump($evt->getAllEvent());
-// var_dump($prestasi->getAllPrestasi());
+var_dump($prestasi->getAllPrestasi());
 // var_dump($prestasi->getAllById(2));
 // var_dump($mhs->getAllMahasiswa());
 echo "<pre>";
