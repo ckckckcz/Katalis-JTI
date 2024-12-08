@@ -83,15 +83,11 @@ $old = $kegiatan->getById($_GET['id']);
                 </div>
                 <div class="kegiatan-group">
                     <label for="poster-kompetisi" class="kegiatan-label font-bold">File Poster Kompetisi</label>
-                    <div>
-                        <img src="../public/Prestasi/PosterEvent/<?php echo $old[0]['poster_gambar'] ?>"
-                            style="max-width: 80%;">
-                    </div>
                     <div class="kegiatan-input-file-container">
                         <label for="dropzone-file" class="kegiatan-input-file-label">
                             <div class="kegiatan-input-file-content">
                                 <img id="poster-kompetisi-preview" class="hidden kegiatan-file-preview"
-                                    alt="Preview Poster" />
+                                    alt="Preview Poster" src="../public/Prestasi/PosterEvent/<?php echo $old[0]['poster_gambar'] ?>" />
                                 <svg id="default-icon-kompetisi" class="kegiatan-input-file-icon" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
