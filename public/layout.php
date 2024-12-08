@@ -19,6 +19,7 @@
     ?>
     <link rel="stylesheet" href="/katalis/public/styles/font.css">
     <link rel="stylesheet" href="/katalis/public/styles/Navbar.css">
+    <link rel="stylesheet" href="/katalis/public/styles/Validation.css">
     <link rel="stylesheet" href="/katalis/public/styles/Footer.css">
     <link rel="stylesheet" href="/katalis/public/styles/Home.css">
     <link rel="stylesheet" href="/katalis/public/styles/Leaderboard.css">

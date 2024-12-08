@@ -1,0 +1,10 @@
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none;
+    margin-top: 5px;
+}
+.error-border {
+    border: 2px solid red !important;
+    outline: none;
+}

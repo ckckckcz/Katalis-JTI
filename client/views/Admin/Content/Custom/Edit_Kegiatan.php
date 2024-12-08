@@ -17,30 +17,32 @@ $old = $kegiatan->getById($_GET['id']);
         <h1 class="font-bold kegiatan-title">Edit Kegiatan</h1>
         <div class="kegiatan-card">
             <form action="../server/proses/event/EditEvent.php" method="post" enctype="multipart/form-data"
-                class="kegiatan-form">
-                <input id="id-event" name="id-event" type="text" class="kegiatan-input-file-hidden" value="<?php echo $_GET['id'] ?>"/>
+                class="kegiatan-form" id="edit-kegiatan-form">
+                <input id="id-event" name="id-event" type="text" class="kegiatan-input-file-hidden"
+                    value="<?php echo $_GET['id'] ?>" />
                 <div class="kegiatan-group">
                     <label for="nama-kegiatan" class="kegiatan-label font-bold">Nama Kegiatan</label>
                     <input type="text" id="nama-kegiatan" name="nama-kegiatan" class="kegiatan-input font-semi-bold"
                         placeholder="Masukkan nama kegiatan" value="<?php echo $old[0]['nama_event'] ?>">
+                    <p id="nama-kegiatan-error" class="error-message font-semi-bold"></p>
                 </div>
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
                         <label for="Tingkat" class="kegiatan-label font-bold">Tingkat Kompetisi</label>
                         <select id="Tingkat" name="tingkat" class="kegiatan-input kegiatan-select font-semi-bold">
-                            <?php 
+                            <?php
                             if ($old[0]['tingkat_lomba'] == 'internasional') {
                                 echo "<option value='{$old[0]['tingkat_lomba']}'>International</option>";
                                 echo '<option value="nasional">National</option>';
                                 echo '<option value="lokal">Lokal</option>';
                             } else if ($old[0]['tingkat_lomba'] == 'nasional') {
                                 echo "<option value='{$old[0]['tingkat_lomba']}'>National</option>";
-                                echo '<option value="nasional">International</option>';
+                                echo '<option value="internasional">International</option>';
                                 echo '<option value="lokal">Lokal</option>';
                             } else {
                                 echo "<option value='{$old[0]['tingkat_lomba']}'>Lokal</option>";
-                                echo '<option value="nasional">International</option>';
-                                echo '<option value="lokal">National</option>';
+                                echo '<option value="nasional">National</option>';
+                                echo '<option value="internasional">International</option>';
                             }
                             ?>
                         </select>
@@ -48,37 +50,42 @@ $old = $kegiatan->getById($_GET['id']);
                     <div class="kegiatan-group">
                         <label for="tempat-kompetisi" class="kegiatan-label font-bold">Tempat Kompetisi</label>
                         <input type="text" id="tempat-kompetisi" name="tempat-kompetisi"
-                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" value="<?php  echo $old[0]['instansi_penyelenggara'] ?>">
+                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi"
+                            value="<?php echo $old[0]['instansi_penyelenggara'] ?>">
+                        <p id="tempat-kompetisi-error" class="error-message font-semi-bold"></p>
                     </div>
                 </div>
                 <div class="kegiatan-group">
                     <label for="url-kompetisi" class="kegiatan-label font-bold">URL Kompetisi</label>
                     <input type="text" id="url-kompetisi" name="url-kompetisi" class="kegiatan-input font-semi-bold"
-                        placeholder="Masukkan nama kompetisi" value="<?php echo $old[0]['url_event'] ?>">
+                        placeholder="Masukkan URL Kompetisi" value="<?php echo $old[0]['url_event'] ?>">
+                    <p id="url-kompetisi-error" class="error-message font-semi-bold"></p>
                 </div>
                 <div class="kegiatan-group">
                     <label for="deskripsi-kegiatan" class="kegiatan-label font-bold">Deskripsi Kegiatan</label>
                     <textarea id="deskripsi-kegiatan" name="deskripsi-kegiatan"
                         class="kegiatan-input kegiatan-deskripsi font-semi-bold"
                         placeholder="Masukkan deskripsi kegiatan"><?php echo $old[0]['deskripsi'] ?></textarea>
+                    <p id="deskripsi-kegiatan-error" class="error-message font-semi-bold"></p>
                 </div>
                 <hr class="kegiatan-hr">
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
                         <label for="tanggal-mulai" class="kegiatan-label font-bold">Tanggal Mulai</label>
                         <input type="date" id="tanggal-mulai" name="tanggal-mulai" class="kegiatan-input font-semi-bold"
-                            placeholder="Masukkan nama kompetisi" value="<?php echo $old[0]['tanggal_mulai'] ?>">
+                            value="<?php echo $old[0]['tanggal_mulai'] ?>">
                     </div>
                     <div class="kegiatan-group">
                         <label for="tanggal-selesai" class="kegiatan-label font-bold">Tanggal Selesai</label>
                         <input type="date" id="tanggal-selesai" name="tanggal-selesai"
-                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" value="<?php echo $old[0]['tanggal_mulai'] ?>">
+                            class="kegiatan-input font-semi-bold" value="<?php echo $old[0]['tanggal_selesai'] ?>">
                     </div>
                 </div>
                 <div class="kegiatan-group">
                     <label for="poster-kompetisi" class="kegiatan-label font-bold">File Poster Kompetisi</label>
                     <div>
-                        <img src="../public/Prestasi/PosterEvent/<?php echo $old[0]['poster_gambar'] ?>" style="max-width: 80%;">
+                        <img src="../public/Prestasi/PosterEvent/<?php echo $old[0]['poster_gambar'] ?>"
+                            style="max-width: 80%;">
                     </div>
                     <div class="kegiatan-input-file-container">
                         <label for="dropzone-file" class="kegiatan-input-file-label">
@@ -103,9 +110,10 @@ $old = $kegiatan->getById($_GET['id']);
                         </label>
                     </div>
                 </div>
-                <div class="actions">
+                <div class="actions gap-5">
                     <button type="submit" class="button-primary font-bold ">Submit Edit</button>
-                    <button type="button" class="button-delete font-bold" onclick="window.location.href='/katalis/kegiatan' ">Batal Edit</button>
+                    <button type="button" class="button-delete font-bold"
+                        onclick="window.location.href='/katalis/kegiatan' ">Batal Edit</button>
                 </div>
             </form>
         </div>
@@ -146,5 +154,36 @@ $old = $kegiatan->getById($_GET['id']);
             }
         });
     });
+$(document).ready(function () {
+        $('#edit-kegiatan-form').on('submit', function (e) {
+            e.preventDefault();
 
+            let isValid = true;
+
+            $('#nama-kegiatan, #tempat-kompetisi, #url-kompetisi, #deskripsi-kegiatan').each(function () {
+                const input = $(this);
+                const value = input.val().trim();
+                const errorMessage = input.siblings('.error-message');
+
+                if (!value) {
+                    isValid = false;
+                    input.addClass('error-border');
+                    errorMessage.text('Form harus diisi').show();
+                } else {
+                    input.removeClass('error-border');
+                    errorMessage.hide();
+                }
+            });
+
+            if (isValid) {
+                this.submit();
+            }
+        });
+
+        $('#nama-kegiatan, #tempat-kompetisi, #url-kompetisi, #deskripsi-kegiatan').on('input change', function () {
+            const input = $(this);
+            input.removeClass('error-border');
+            input.siblings('.error-message').hide();
+        });
+    });
 </script>
