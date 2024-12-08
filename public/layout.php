@@ -70,7 +70,7 @@
 
     <?php
     // Menampilkan Footer jika bukan halaman Login, Register, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Forgot.php' && $currentFile !== 'Admin.php' && $currentFile != 'Kegiatan.php' && $currentFile != 'Export.php' && $currentFile != 'Mahasiswa.php' && $currentFile != 'Prestasi.php' && $currentFile != 'Tambah_Kegiatan.php' && $currentFile != 'Tambah_Prestasi.php' && $currentFile != 'Dashboard.php' && $currentFile != 'Berita.php' &&  $currentFile != 'Tambah_Berita.php' && $currentFile != 'detailBlog.php' && $currentFile != 'Tambah_Berita.php' && $currentFile != 'Detail_Prestasi.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Forgot.php' && $currentFile !== 'Admin.php' && $currentFile != 'Kegiatan.php' && $currentFile != 'Export.php' && $currentFile != 'Mahasiswa.php' && $currentFile != 'Prestasi.php' && $currentFile != 'Tambah_Kegiatan.php' && $currentFile != 'Tambah_Prestasi.php' && $currentFile != 'Dashboard.php' && $currentFile != 'Berita.php' &&  $currentFile != 'Tambah_Berita.php' && $currentFile != 'detailBlog.php' && $currentFile != 'Tambah_Berita.php' && $currentFile != 'Detail_Prestasi.php' && $currentFile != 'Edit_Berita.php') {
         include('./client/components/Footer.php');
     }
     ?>

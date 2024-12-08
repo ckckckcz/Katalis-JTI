@@ -78,6 +78,7 @@ class Berita {
         $sql = "SELECT 
                 b.id_prestasi,
                 'Juara ' + CONVERT(varchar, p.peringkat) + ' ' + p.nama_kegiatan as input_prestasi,
+                p.file_dokumentasi,
                 b.nama_berita,
                 b.deskripsi,
                 b.url_demo
@@ -103,7 +104,7 @@ class Berita {
         $this->stmt->bindParam(2, $value['nama_berita']);
         $this->stmt->bindParam(3, $value['deskripsi']);
         $this->stmt->bindParam(4, $value['url_demo']);
-        $this->stmt->bindParam(4, $id);
+        $this->stmt->bindParam(5, $id);
         if ($this->stmt->execute()) {
             return true;  // Successfully inserted
         } else {

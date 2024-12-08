@@ -11,12 +11,13 @@ $old = $berita->getById($_GET['id']);
     <div class="admin-container">
         <h1 class="font-bold berita-title">Edit Berita</h1>
         <div class="berita-card">
-            <form action="../server/proses/berita/TambahBerita.php" method="post" class="berita-form">
+            <form action="../server/proses/berita/EditBerita.php" method="post" class="berita-form">
                 <div class="berita-grid">
                     <div class="berita-group">
                         <label for="nama-berita" class="berita-label font-bold">Nama berita</label>
                         <input type="text" id="nama-berita" name="nama-berita" class="berita-input font-semi-bold"
                             placeholder="Masukkan nama berita" value="<?php echo $old[0]['nama_berita'] ?>">
+                        <input type="text" id="id-berita" name="id-berita" class="berita-input-file-hidden" value="<?php echo $_GET['id'] ?>">
                     </div>
                     <div class="berita-group">
                         <label for="prestasi" class="berita-label font-bold">Prestasi</label>
@@ -52,7 +53,7 @@ $old = $berita->getById($_GET['id']);
                 <hr class="berita-hr">
                 <div class="actions">
                     <button type="submit" class="button-primary font-bold">Submit Edit</button>
-                    <button type="submit" class="button-delete font-bold">Batal Edit</button>
+                    <button type="button" class="button-delete font-bold" onclick="window.location.href='/katalis/berita'">Batal Edit</button>
                 </div>
             </form>
         </div>

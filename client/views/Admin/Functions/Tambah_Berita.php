@@ -8,7 +8,7 @@
     <div class="admin-container">
         <h1 class="font-bold berita-title">Tambah Berita</h1>
         <div class="berita-card">
-            <form id="berita-form" class="berita-form"> 
+            <form id="berita-form" method="post" action="../server/proses/berita/TambahBerita.php" class="berita-form"> 
                 <div class="berita-grid">
                     <div class="berita-group">
                         <label for="nama-berita" class="berita-label font-bold">Nama berita</label>
@@ -42,7 +42,8 @@
                 </div>
                 <hr class="berita-hr">
                 <div class="actions">
-                    <button type="button" id="submit-button-upload-berita" class="button-primary font-bold">Submit Berita</button>
+                    <!-- <button type="button" id="submit-button-upload-berita" class="button-primary font-bold">Submit Berita</button> -->
+                    <button type="submit" class="button-primary font-bold">Submit Berita</button>
                 </div>
             </form>
         </div>
