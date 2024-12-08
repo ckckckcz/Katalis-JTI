@@ -33,7 +33,7 @@ CREATE TABLE Event (
     tanggal_mulai DATE NOT NULL,
     tanggal_selesai DATE NOT NULL,
     url_event VARCHAR(255) NOT NULL,
-    poster_gambar VARCHAR(255) NOT NULL,
+    poster_gambar VARCHAR(max) NOT NULL,
 	dibuat_pada DATE DEFAULT GETDATE()
 	);
 
@@ -49,11 +49,11 @@ CREATE TABLE Prestasi (
     peringkat INT NOT NULL,
     lokasi VARCHAR(255) NOT NULL,
     deskripsi TEXT NOT NULL,
-    file_karya VARCHAR(255) NOT NULL UNIQUE,
-    file_poster VARCHAR(255) NOT NULL,
-    file_dokumentasi VARCHAR(255) NOT NULL,
-    file_sertifikat VARCHAR(255)NOT NULL,
-	surat_tugas VARCHAR (255) NOT NULL,
+    file_karya VARCHAR(max) NOT NULL UNIQUE,
+    file_poster VARCHAR(max) NOT NULL,
+    file_dokumentasi VARCHAR(max) NOT NULL,
+    file_sertifikat VARCHAR(max)NOT NULL,
+	surat_tugas VARCHAR (max) NOT NULL,
 	status_validasi VARCHAR(20) CHECK (status_validasi IN ('proses_validasi', 'tidak_divalidasi', 'data_tervalidasi')) NOT NULL,
 	dibuat_pada DATE DEFAULT GETDATE(),
     FOREIGN KEY (id_mahasiswa) REFERENCES Mahasiswa(nim) ON DELETE CASCADE ON UPDATE CASCADE,
