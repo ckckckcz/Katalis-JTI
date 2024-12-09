@@ -14,7 +14,7 @@ CREATE TABLE Mahasiswa (
 );
 
 CREATE TABLE Dosen (
-	nidn VARCHAR(20) PRIMARY KEY,
+	nip VARCHAR(20) PRIMARY KEY, 
     nama_lengkap VARCHAR(50) NOT NULL,
     Jurusan VARCHAR(100) NOT NULL
 );
@@ -33,7 +33,7 @@ CREATE TABLE Event (
     tanggal_mulai DATE NOT NULL,
     tanggal_selesai DATE NOT NULL,
     url_event VARCHAR(255) NOT NULL,
-    poster_gambar VARCHAR(max) NOT NULL,
+    poster_gambar VARCHAR(255) NOT NULL,
 	dibuat_pada DATE DEFAULT GETDATE()
 	);
 
@@ -49,15 +49,14 @@ CREATE TABLE Prestasi (
     peringkat INT NOT NULL,
     lokasi VARCHAR(255) NOT NULL,
     deskripsi TEXT NOT NULL,
-    file_karya VARCHAR(max) NOT NULL UNIQUE,
-    file_poster VARCHAR(max) NOT NULL,
-    file_dokumentasi VARCHAR(max) NOT NULL,
-    file_sertifikat VARCHAR(max)NOT NULL,
-	surat_tugas VARCHAR (max) NOT NULL,
+    file_poster VARCHAR(255) NOT NULL,
+    file_dokumentasi VARCHAR(255) NOT NULL,
+    file_sertifikat VARCHAR(255)NOT NULL,
+	surat_tugas VARCHAR (255) NOT NULL,
 	status_validasi VARCHAR(20) CHECK (status_validasi IN ('proses_validasi', 'tidak_divalidasi', 'data_tervalidasi')) NOT NULL,
 	dibuat_pada DATE DEFAULT GETDATE(),
     FOREIGN KEY (id_mahasiswa) REFERENCES Mahasiswa(nim) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (id_dosen) REFERENCES Dosen(nidn) ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY (id_dosen) REFERENCES Dosen(nip) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Berita (
@@ -75,15 +74,21 @@ INSERT INTO Users (username, password, role) VALUES
 ('2024001', 'password2', 'admin'),
 ('2341720032', 'password3', 'mahasiswa'),
 ('2341720054', 'password4', 'mahasiswa'),
-('24410702300', 'password5', 'mahasiswa');
+('24410702300', 'password5', 'mahasiswa'),
+('2341720209', 'password6', 'mahasiswa'),
+('2341720120', 'password7', 'mahasiswa'),
+('22341760184', 'password8', 'mahasiswa'),
+('2341720092', 'password9', 'mahasiswa');
 
 
 INSERT INTO Mahasiswa (nim, nama_lengkap, prodi, tahun_angkatan, status_mahasiswa) VALUES
 ('2341720032', 'Cakra Wangsa M.A.W', 'Teknik Informatika', '2024-09-01', 'aktif'),
 ('2341720054', 'Galung Erlyan Tama', 'Teknik Informatika', '2024-09-01', 'aktif'),
-('24410702300', 'Naditya P A', 'Teknik Informatika', '2024-09-01', 'aktif'),
-('2341720209', 'Riovaldo Alfiyan F R', 'Teknik Informatika', '2024-09-01', 'aktif'),
-('2341720120', 'Roy Wijaya', 'Teknik Informatika', '2024-09-01', 'aktif');
+('24410702300', 'Naditya Prasetya Andino', 'Teknik Informatika', '2024-09-01', 'aktif'),
+('2341720209', 'Riovaldo Alfiyan Fahmi Rahman', 'Teknik Informatika', '2024-09-01', 'aktif'),
+('2341720120', 'Roy Wijaya', 'Teknik Informatika', '2024-09-01', 'aktif'),
+('2341760184', 'Yonanda Mayla Rusdiati', 'Sistem Informasi Bisnis', '2024-09-01', 'aktif'),
+('2341720092', 'Fikri Muhammad Abdillah', 'Teknik Informatika', '2024-09-01', 'aktif');
 
 
 INSERT INTO Admin (nip, nama_lengkap) VALUES
@@ -93,25 +98,26 @@ INSERT INTO Admin (nip, nama_lengkap) VALUES
 ('2024004', 'Siti Aminah'),
 ('2024005', 'Doni Wahyudi');
 
-INSERT INTO Dosen (nidn, nama_lengkap, jurusan) VALUES
+INSERT INTO Dosen (nip, nama_lengkap, jurusan) VALUES
 ('197903132008121002', 'Arief Prasetyo, S.Kom', 'Teknologi Informasi'),
 ('197305102008011010', 'Indra Dharma Wijaya, ST., MMT', 'Teknologi Informasi'),
 ('198211302014041001', 'Luqman Affandi, S.Kom., MMSI', 'Teknologi Informasi');
 
 INSERT INTO Event (nama_event, tingkat_lomba, instansi_penyelenggara, deskripsi, tanggal_mulai, tanggal_selesai, url_event, poster_gambar) VALUES
-('Lomba Pemrograman Nasional', 'nasional', 'Kemenristek', 'Lomba Pemrograman Tingkat Nasional', '2024-05-10', '2024-05-15', 'https://lomba1.com', 'AI Innovation Challenge_2024.jpg'),
-('Lomba Pemrograman Lokal', 'lokal', 'Komunitas Pemrograman', 'Lomba Pemrograman Tingkat Lokal', '2024-03-01', '2024-03-03', 'https://lomba2.com', 'Intuitiva UI UX Competition_2024.jpg'),
-('Lomba Pemrograman Universitas', 'nasional', 'Universitas A', 'Lomba Pemrograman Tingkat Universitas', '2024-06-20', '2024-06-25', 'https://lomba3.com', 'FESIFO 2.0_2024.jpg');
+('AI Innovation Challenge', 'nasional', 'Universitas Indonesia', 'Lomba Pemrograman Machine Learning Tingkat Nasional', '2024-05-10', '2024-05-15', 'https://compfest.id/competition', 'AI Innovation Challenge_2024.jpg'),
+('Capture The Flag', 'nasional', 'Universitas Indonesia', 'Lomba Capture The Flag Cyber Security', '2024-08-31', '2024-10-06', 'https://compfest.id/competition', 'Cyber Security Compfest_2024.jpg'),
+('KMIPN VI', 'nasional', 'Politeknik Negeri Jakarta', 'Lomba Pemrograman Internet Of Things', '2024-07-01', '2024-07-04', 'https://tik.pnj.ac.id/readmore/kmipn-vi', 'KMIPN VI_2024.jpg');
 
-INSERT INTO Prestasi (id_mahasiswa, id_dosen, nama_kegiatan, jenis_kegiatan, tanggal_mulai, tanggal_selesai, tingkat_lomba, peringkat, lokasi, deskripsi, file_karya, file_poster, file_dokumentasi, file_sertifikat, surat_tugas, status_validasi) VALUES
-('2341720032', '197903132008121002', 'AI Innovation Challenge', 'akademik', '2024-05-10', '2024-05-15', 'nasional', 2, 'Jakarta', 'Prestasi gemilang oleh mahasiswa Teknik Informatika.', 'Sqill Quest_1.pdf', 'AI Innovation Challenge_1.jpg', 'dokumentasi AI Innovation Challenge_1.jpg', 'sertif AI Innovation Challenge_1.jpg', 'surat_tugas_AI_Innovation_Challenge_1.pdf', 'proses_validasi'),
-('2341720054', '197305102008011010', 'Intuitiva UI UX Competition', 'akademik', '2024-01-05', '2024-01-08', 'nasional', 0, 'Malang', 'Prestasi luar biasa oleh mahasiswa Teknik Informatika.', 'Pintar Path_2.pdf', 'Intuitiva UI UX Competition_2.jpg', 'dokumentasi Intuitiva UI UX Competition_2.jpg', 'sertif Intuitiva UI UX Competition_2.jpg', 'surat_tugas_Intuitiva_UI_UX_Competition_2.pdf', 'proses_validasi'),
-('24410702300', '198211302014041001', 'FESIFO 2.0', 'akademik', '2024-03-20', '2024-03-25', 'nasional', 0, 'Garut', 'Prestasi membanggakan oleh mahasiswa Teknologi Informasi.', 'ReWear_3.pdf', 'FESIFO 2.0_3.jpg', 'dokumentasi FESIFO 2.0.jpg_3', 'sertif FESIFO 2.0_3.jpg', 'surat_tugas_FESIFO_2.0_3.pdf', 'proses_validasi');
-	
-INSERT INTO Berita (id_prestasi, nama_berita, deskripsi,url_demo) VALUES
-(1, 'Mahasiswa Raih Juara 2 AI Innovation Challenge', 'Prestasi gemilang oleh mahasiswa Teknik Informatika.','https://youtu.be/oaYWN9_gLzk?si=a0J-4dT05GALLbQJ'),
-(2, 'Mahasiswa Raih 10 Besar Intuitiva UI UX Competition', 'Prestasi luar biasa oleh mahasiswa Teknik Informatika.','https://www.youtube.com/live/aGNTJkomLu0?si=T6dexZLsxInHMqkJ'),
-(3, 'Mahasiswa Raih 10 Besar FESIFO 2.0 ', 'Prestasi membanggakan oleh mahasiswa Teknologi Informasi.', 'https://youtu.be/VOXmSFzgI_s?si=OD5IA_lelDvEP8wK');
+INSERT INTO Prestasi (id_mahasiswa, id_dosen, nama_kegiatan, jenis_kegiatan, tanggal_mulai, tanggal_selesai, tingkat_lomba, peringkat, lokasi, deskripsi, file_poster, file_dokumentasi, file_sertifikat, surat_tugas, status_validasi) VALUES
+('2341720209', '197903132008121002', 'AI Innovation Challenge', 'akademik', '2024-05-10', '2024-05-15', 'nasional', 2, 'Jakarta', 'Prestasi gemilang oleh mahasiswa Teknik Informatika.', 'poster AI Innovation Challenge_1.jpg', 'dokumentasi AI Innovation Challenge_1.jpg', 'sertif AI Innovation Challenge_1.jpg', 'surat_tugas_AI_Innovation_Challenge_1.pdf', 'proses_validasi'),
+('2341720092', '197903132008121002', 'Capture The Flag Compfest', 'akademik', '2024-08-31', '2024-09-01', 'nasional', 1, 'Jakarta', 'Prestasi yang sangat membanggakan diperoleh oleh mahasiswa Teknologi Informasi.', 'poster CTF Compfest_2.jpg', 'dokumentasi CTFCompfest_2.jpg', 'sertif CTFCompfest_2.pdf', 'ST COMPFEST 24_2.pdf', 'proses_validasi'),
+('2341760184', '197305102008011010', 'KMIPN VI', 'akademik', '2024-07-01', '2024-07-04', 'nasional', 3, 'Jakarta', 'Prestasi yang sangat membanggakan diperoleh oleh mahasiswa Sistem Informasi Bisnis.', 'poster KMIPN VI_3.jpg', 'dokumentasi KMIPN VI_3.jpg', 'sertif KMIPN VI_3.pdf', 'SURAT TUGAS KMIPN_3.pdf', 'proses_validasi');
+
+INSERT INTO Berita (id_prestasi, nama_berita, deskripsi, url_demo) VALUES
+(1, 'Mahasiswa Raih Juara 2 AI Innovation Challenge', 'Prestasi gemilang oleh mahasiswa Teknik Informatika.', 'https://youtu.be/oaYWN9_gLzk?si=a0J-4dT05GALLbQJ'),
+(2, 'Mahasiswa Raih Juara 1 Capture The Flag Compfest', 'Prestasi yang sangat membanggakan diperoleh oleh mahasiswa Teknologi Informasi.', 'https://youtu.be/rZZXTcz19G0?si=2bcPuLf4jmdLwhn-'), 
+(3, 'Mahasiswa Raih Juara 3 KMIPN VI', 'Prestasi yang sangat membanggakan diperoleh oleh mahasiswa Sistem Informasi Bisnis.', 'https://youtu.be/3K-yPSmZoxA?si=HZrqQntNATiluWze');
+
 
 --Leaderboard
 SELECT DISTINCT
@@ -188,7 +194,7 @@ BEGIN
 END;
 
 
--- Melihat definisi trigger TriggerPrestasiInsert
+--definisi trigger TriggerPrestasiInsert
 SELECT 
     OBJECT_DEFINITION(OBJECT_ID(N'TriggerPrestasiInsert')) AS TriggerDefinition;
 
@@ -212,4 +218,6 @@ BEGIN
 END;
 
 EXEC GetTrafficPrestasiPerBulan @bulan = 12, @tahun = 2024;
+
+
 
