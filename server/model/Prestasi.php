@@ -37,7 +37,10 @@ class Prestasi {
         $sql = "SELECT
                     id_prestasi,
                     nama_kegiatan,
-                    tingkat_lomba
+                    tingkat_lomba,
+                    jenis_kegiatan,
+                    peringkat,
+                    status_validasi
                 FROM dbo.Prestasi 
                 WHERE id_mahasiswa = :id_mahasiswa";
         $this->stmt = $this->conn->prepare($sql);
