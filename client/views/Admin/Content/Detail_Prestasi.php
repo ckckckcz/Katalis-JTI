@@ -7,25 +7,26 @@ $data = new Prestasi();
 $dataDosen = new Dosen();
 $result = $data->getAllById($_GET['id']);
 $allDosen = $dataDosen->getAllDosen();
+var_dump($result);
 ?>
 <section class="admin-section">
     <div class="admin-container">
         <h1 class="font-bold kegiatan-title">Detail Prestasi</h1>
         <div class="kegiatan-card">
             <form action="../server/proses/prestasi/EditPrestasi.php" method="post" enctype="multipart/form-data"
-                class="kegiatan-form">
-                <div class="kegiatan-grid">
-                    <input id="id-prestasi" name="id-prestasi" type="text" class="kegiatan-input-file-hidden" value="<?php echo $_GET['id'] ?>"/>
-                    <div class="kegiatan-group">
-                        <label for="nama-kompetisi" class="kegiatan-label font-bold">Nama Kompetisi</label>
-                        <input type="text" id="nama-kompetisi" name="nama-kompetisi"
-                            class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" value="<?= $result[0]['nama_kegiatan'] ?>">
-                    </div>
-                    <div class="kegiatan-group">
-                        <label for="tingkat-lomba" class="kegiatan-label font-bold">Tingkat Kompetisi</label>
-                        <select id="tingkat-lomba" name="tingkat-lomba"
-                            class="kegiatan-input kegiatan-select font-semi-bold">
-                            <?php 
+            class="kegiatan-form">
+            <div class="kegiatan-grid">
+                <input id="id-prestasi" name="id-prestasi" type="text" class="kegiatan-input-file-hidden" value="<?php echo $_GET['id'] ?>"/>
+                <div class="kegiatan-group">
+                    <label for="nama-kompetisi" class="kegiatan-label font-bold">Nama Kompetisi</label>
+                    <input type="text" id="nama-kompetisi" name="nama-kompetisi"
+                    class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" value="<?= $result[0]['nama_kegiatan'] ?>">
+                </div>
+                <div class="kegiatan-group">
+                    <label for="tingkat-lomba" class="kegiatan-label font-bold">Tingkat Kompetisi</label>
+                    <select id="tingkat-lomba" name="tingkat-lomba"
+                    class="kegiatan-input kegiatan-select font-semi-bold">
+                    <?php 
                             if ($result[0]['tingkat_lomba'] == 'internasional') {
                                 echo '<option value="lokal">Lokal</option>';
                                 echo '<option value="nasional">National</option>';
@@ -114,27 +115,14 @@ $allDosen = $dataDosen->getAllDosen();
                             <?php 
                                 echo "<option value='{$result[0]['id_dosen']}' selected>{$result[0]['dosen_pembimbing']}</option>";
                                 foreach ($allDosen as $data) {
-                                    if ($data['nidn'] == $result[0]['id_dosen']) continue;
-                                    echo "<option value='{$data['nidn']}'>{$data['nama_lengkap']}</option>";
+                                    if ($data['nip'] == $result[0]['id_dosen']) continue;
+                                    echo "<option value='{$data['nip']}'>{$data['nama_lengkap']}</option>";
                                 }
                             ?>
                         </select>
                     </div>
                 </div>
                 <div class="kegiatan-grid">
-                    <div class="kegiatan-group">
-                        <label for="karya" class="kegiatan-label font-bold">File Karya</label>
-                        <div class="kegiatan-input-file-container">
-                            <label for="karya" class="kegiatan-input-file-label">
-                                <div class="kegiatan-input-file-content">
-                                    <p class="kegiatan-input-file-highlight font-semi-bold">
-                                        <?= htmlspecialchars($result[0]['file_karya'], ENT_QUOTES, 'UTF-8'); ?>
-                                    </p>
-                                </div>
-                                <input id="karya" name="karya" type="file" class="kegiatan-input-file-hidden" />
-                            </label>
-                        </div>
-                    </div>
                     <div class="kegiatan-group">
                         <label for="sertifikat" class="kegiatan-label font-bold">File Sertifikat</label>
                         <div class="kegiatan-input-file-container">
@@ -145,6 +133,19 @@ $allDosen = $dataDosen->getAllDosen();
                                 </div>
                                 <input id="sertifikat" name="sertifikat" type="file"
                                     class="kegiatan-input-file-hidden" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="kegiatan-group">
+                        <label for="surat-tugas" class="kegiatan-label font-bold">File Surat Tugas</label>
+                        <div class="kegiatan-input-file-container">
+                            <label for="file-surat-tugas" class="kegiatan-input-file-label">
+                                <div class="kegiatan-input-file-content">
+                                    <p class="kegiatan-input-file-highlight font-semi-bold">
+                                        <?= htmlspecialchars($result[0]['surat_tugas'], ENT_QUOTES, 'UTF-8'); ?>
+                                    </p>
+                                </div>
+                                <input id="surat-tugas" name="surat-tugas" type="file" class="kegiatan-input-file-hidden" />
                             </label>
                         </div>
                     </div>
@@ -174,19 +175,6 @@ $allDosen = $dataDosen->getAllDosen();
                         </div>
                     </div>
                 </div>
-                <div class="kegiatan-group">
-                        <label for="surat-tugas" class="kegiatan-label font-bold">File Surat Tugas</label>
-                        <div class="kegiatan-input-file-container">
-                            <label for="file-surat-tugas" class="kegiatan-input-file-label">
-                                <div class="kegiatan-input-file-content">
-                                    <p class="kegiatan-input-file-highlight font-semi-bold">
-                                        <?= htmlspecialchars($result[0]['surat_tugas'], ENT_QUOTES, 'UTF-8'); ?>
-                                    </p>
-                                </div>
-                                <input id="surat-tugas" name="surat-tugas" type="file" class="kegiatan-input-file-hidden" />
-                            </label>
-                        </div>
-                    </div>
                 <div class="kegiatan-group">
                     <label for="deskripsi" class="kegiatan-label font-bold">Deskripsi Kegiatan</label>
                     <textarea id="deskripsi" name="deskripsi" class="kegiatan-input kegiatan-deskripsi font-semi-bold"

@@ -78,16 +78,16 @@ $result = $data->getAllById($_GET['id']);
                 </div>
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
-                        <label for="karya" class="kegiatan-label font-bold">File Karya</label>
-                        <div class="kegiatan-group">
-                            <input type="text" id="tempat-kompetisi" name="tempat-kompetisi"
-                                class="kegiatan-input font-semi-bold" placeholder="Masukkan nama kompetisi" disabled value="<?= $result[0]['file_karya'] ?>">
-                        </div>
-                    </div>
-                    <div class="kegiatan-group">
                         <label for="sertifikat" class="kegiatan-label font-bold">File Sertifikat</label>
                         <div class="kegiatan-group">
                             <img src="../public/Prestasi/Sertifikat/<?php echo $result[0]['file_sertifikat'] ?>" style="max-width: 80%;">
+                        </div>
+                    </div>
+                    <div class="kegiatan-group">
+                        <label for="surat-tugas" class="kegiatan-label font-bold">File Surat Tugas</label>
+                        <div class="kegiatan-group">
+                            <input type="text" id="surat-tugas" name="surat-tugas"
+                                class="kegiatan-input font-semi-bold" disabled value="<?= $result[0]['surat_tugas'] ?>">
                         </div>
                     </div>
                     <div class="kegiatan-group">
@@ -101,13 +101,6 @@ $result = $data->getAllById($_GET['id']);
                         <div class="kegiatan-group">
                             <img src="../public/Prestasi/Dokumentasi/<?php echo $result[0]['file_dokumentasi'] ?>" style="max-width: 80%;">
                         </div>
-                    </div>
-                </div>
-                <div class="kegiatan-group">
-                    <label for="surat-tugas" class="kegiatan-label font-bold">File Surat Tugas</label>
-                    <div class="kegiatan-group">
-                        <input type="text" id="surat-tugas" name="surat-tugas"
-                            class="kegiatan-input font-semi-bold" disabled value="<?= $result[0]['surat_tugas'] ?>">
                     </div>
                 </div>
                 <div class="kegiatan-group">
