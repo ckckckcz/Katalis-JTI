@@ -139,14 +139,13 @@ class Prestasi {
                 p.peringkat,
                 p.lokasi,
                 p.deskripsi,
-                p.file_karya,
                 p.file_poster,
                 p.file_sertifikat,
                 p.file_dokumentasi,
                 p.surat_tugas,
                 p.status_validasi
                 FROM dbo.Prestasi p
-                JOIN dbo.Dosen d ON p.id_dosen = d.nidn
+                JOIN dbo.Dosen d ON p.id_dosen = d.nip
                 WHERE p.id_prestasi = :id";
         $this->stmt = $this->conn->prepare($sql);
         $this->stmt->bindParam('id', $id);
