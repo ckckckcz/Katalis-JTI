@@ -38,7 +38,9 @@
                                         <td class='table-prestasi-cell'>" . ucwords($p['tingkat_lomba']) . "</td>
                                         <td class='table-prestasi-cell'>
                                             <span class='prestasi-status $class'>
-                                                $p[status_validasi]
+                                            " .
+                                                ucwords(preg_replace('/_/', ' ', $p['status_validasi']))
+                                            . "
                                             </span>
                                         </td>
                                         <td class='table-prestasi-cell'>
