@@ -14,7 +14,7 @@ CREATE TABLE Mahasiswa (
 );
 
 CREATE TABLE Dosen (
-	nip VARCHAR(20) PRIMARY KEY, 
+	nip VARCHAR(20) PRIMARY KEY,	
     nama_lengkap VARCHAR(50) NOT NULL,
     Jurusan VARCHAR(100) NOT NULL
 );
@@ -69,6 +69,19 @@ CREATE TABLE Berita (
     FOREIGN KEY (id_prestasi) REFERENCES Prestasi(id_prestasi) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+CREATE TABLE Notifikasi (
+    id_notifikasi INT PRIMARY KEY IDENTITY(1,1),
+    id_prestasi INT NULL,
+    id_user INT NULL,
+    pesan TEXT NOT NULL, 
+    status_baca BIT DEFAULT 0, 
+    dibuat_pada DATE DEFAULT GETDATE(), 
+    FOREIGN KEY (id_prestasi) REFERENCES Prestasi(id_prestasi) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (id_user) REFERENCES Users(id_user) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+
 INSERT INTO Users (username, password, role) VALUES
 ('2024005', 'password1', 'admin'),
 ('2024001', 'password2', 'admin'),
@@ -118,6 +131,29 @@ INSERT INTO Berita (id_prestasi, nama_berita, deskripsi, url_demo) VALUES
 (2, 'Mahasiswa Raih Juara 1 Capture The Flag Compfest', 'Prestasi yang sangat membanggakan diperoleh oleh mahasiswa Teknologi Informasi.', 'https://youtu.be/rZZXTcz19G0?si=2bcPuLf4jmdLwhn-'), 
 (3, 'Mahasiswa Raih Juara 3 KMIPN VI', 'Prestasi yang sangat membanggakan diperoleh oleh mahasiswa Sistem Informasi Bisnis.', 'https://youtu.be/3K-yPSmZoxA?si=HZrqQntNATiluWze');
 
+-- Tambahkan data dummy ke tabel Notifikasi
+INSERT INTO Notifikasi (id_prestasi, id_user, pesan, status_baca)
+VALUES 
+(1, 1, 'Prestasi telah divalidasi oleh admin.', 0),
+(2, 2, 'Prestasi Anda sedang diproses validasi.', 0),
+(3, 3, 'Selamat! Prestasi Anda telah divalidasi.', 1);
+
+-- Tambah data dummy untuk admin
+INSERT INTO Notifikasi (id_prestasi, id_user, pesan, status_baca)
+VALUES
+(1, 1, 'Harap segera verifikasi prestasi.', 0),
+(2, 1, 'Proses validasi prestasi sedang berjalan.', 0),
+(3, 1, 'Prestasi telah berhasil divalidasi.', 0);
+
+-- Tambah data dummy untuk mahasiswa
+INSERT INTO Notifikasi (id_prestasi, id_user, pesan, status_baca)
+VALUES
+(1, 2, 'Silakan lengkapi dokumen prestasi.', 0),
+(2, 2, 'Dokumen prestasi sedang diverifikasi.', 0),
+(3, 2, 'Prestasi Anda telah divalidasi.', 0),
+(1, 3, 'Data anda kurang valid.', 0),
+(2, 3, 'Input ulang data File sertifikat!.', 0),
+(3, 3, 'Selamat! Verifikasi prestasi telah selesai.', 0);
 
 --Leaderboard
 SELECT DISTINCT
@@ -179,26 +215,6 @@ JOIN
 
 	SELECT id_prestasi FROM Prestasi;
 
---trigger notifikasi prestasi mahasiswa belum fix
-CREATE TRIGGER TriggerPrestasiInsert
-ON Prestasi
-AFTER INSERT
-AS
-BEGIN
-    DECLARE @id_mahasiswa VARCHAR(20), @nama_kegiatan VARCHAR(100), @pesan VARCHAR(255);
-    SELECT @id_mahasiswa = inserted.id_mahasiswa,
-           @nama_kegiatan = inserted.nama_kegiatan
-    FROM inserted;
-    SET @pesan = 'Prestasi baru telah ditambahkan untuk mahasiswa dengan ID ' + @id_mahasiswa + ' pada kegiatan ' + @nama_kegiatan;
-    INSERT INTO Notifikasi (pesan, dibuat_pada) VALUES (@pesan, GETDATE());
-END;
-
-
---definisi trigger TriggerPrestasiInsert
-SELECT 
-    OBJECT_DEFINITION(OBJECT_ID(N'TriggerPrestasiInsert')) AS TriggerDefinition;
-
-
 --traffic update
 CREATE PROCEDURE GetTrafficPrestasiPerBulan
     @bulan INT,
@@ -220,4 +236,84 @@ END;
 EXEC GetTrafficPrestasiPerBulan @bulan = 12, @tahun = 2024;
 
 
+--notifikasi Prestasi
+--mhs
+CREATE OR ALTER PROCEDURE GetMahasiswaNotifikasi
+    @nim VARCHAR(20)
+AS
+BEGIN
+    SELECT 
+        n.id_notifikasi as id_prestasi,
+        COALESCE(p.nama_kegiatan, 'Informasi Umum') AS prestasi,
+        n.pesan,
+        n.dibuat_pada,
+        n.status_baca AS status,
+        n.id_notifikasi AS id_status
+    FROM Notifikasi n
+    LEFT JOIN Prestasi p ON n.id_prestasi = p.id_prestasi
+    LEFT JOIN Mahasiswa m ON p.id_mahasiswa = m.nim
+    WHERE m.nim = @nim OR n.id_user = (SELECT id_user FROM Users WHERE username = @nim)
+    ORDER BY n.dibuat_pada DESC;
+END;
 
+--admin
+CREATE OR ALTER PROCEDURE GetAdminNotifikasi
+    @nip_admin VARCHAR(20)
+AS
+BEGIN
+    SELECT 
+        n.id_notifikasi as id_prestasi,
+        COALESCE(p.nama_kegiatan, 'Informasi Umum') AS prestasi,
+        n.pesan,
+        n.dibuat_pada,
+        n.status_baca AS status,
+        n.id_notifikasi AS id_status,
+        COALESCE(m.nama_lengkap, 'Sistem') AS mahasiswa_nama,
+        COALESCE(m.nim, 'N/A') AS mahasiswa_nim,
+        COALESCE(p.tingkat_lomba, 'N/A') AS prestasi_tingkat,
+        COALESCE(p.status_validasi, 'N/A') AS status_validasi
+    FROM Notifikasi n
+    LEFT JOIN Prestasi p ON n.id_prestasi = p.id_prestasi
+    LEFT JOIN Mahasiswa m ON p.id_mahasiswa = m.nim
+    LEFT JOIN Users u ON n.id_user = u.id_user
+    WHERE u.username = @nip_admin
+    ORDER BY n.dibuat_pada DESC;
+END;
+
+
+EXEC GetMahasiswaNotifikasi @nim = '2341720092'
+
+EXEC GetAdminNotifikasi @nip_admin = '2024005'
+
+--Menandai Notifikasi sebagai Dibaca
+CREATE OR ALTER PROCEDURE MarkNotificationAsRead
+    @id_notifikasi INT
+AS
+BEGIN
+    UPDATE Notifikasi
+    SET status_baca = 1
+    WHERE id_notifikasi = @id_notifikasi
+END;
+
+EXEC MarkNotificationAsRead @id_notifikasi = 22;
+
+--Membuat Notifikasi Baru
+CREATE OR ALTER PROCEDURE CreateNotification
+    @id_prestasi INT = NULL,
+    @id_user INT = NULL,
+    @pesan TEXT
+AS
+BEGIN
+    INSERT INTO Notifikasi (id_prestasi, id_user, pesan)
+    VALUES (@id_prestasi, @id_user, @pesan)
+    
+    SELECT SCOPE_IDENTITY() AS new_notification_id
+END;
+
+--membuat notifikasi baru
+EXEC CreateNotification 
+    @id_prestasi = 2, 
+    @id_user = 2, 
+    @pesan = 'Data anda gagal divalidasi'
+
+select * from Notifikasi;
