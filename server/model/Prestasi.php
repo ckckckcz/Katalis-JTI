@@ -73,6 +73,62 @@ class Prestasi {
         return $result;
     }
 
+    function getCountForStatistik($tipe) {
+        $sql = "WITH AllMonths AS (
+                    SELECT 1 AS bulan
+                    UNION ALL
+                    SELECT 2
+                    UNION ALL
+                    SELECT 3
+                    UNION ALL
+                    SELECT 4
+                    UNION ALL
+                    SELECT 5
+                    UNION ALL
+                    SELECT 6
+                    UNION ALL
+                    SELECT 7
+                    UNION ALL
+                    SELECT 8
+                    UNION ALL
+                    SELECT 9
+                    UNION ALL
+                    SELECT 10
+                    UNION ALL
+                    SELECT 11
+                    UNION ALL
+                    SELECT 12
+                )
+                SELECT 
+                    m.bulan,
+                    COALESCE(p.tingkat_lomba, ?) AS tingkat_lomba, 
+                    COUNT(p.id_prestasi) AS jumlah
+                FROM AllMonths m
+                LEFT JOIN Prestasi p
+                    ON m.bulan = MONTH(p.dibuat_pada) 
+                AND YEAR(p.dibuat_pada) = YEAR(GETDATE())
+                AND p.tingkat_lomba = ? -- Filter tingkat lomba yang diinginkan
+                GROUP BY m.bulan, p.tingkat_lomba
+                ORDER BY m.bulan;";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->bindParam(1, $tipe);
+        $this->stmt->bindParam(2, $tipe);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    function test() {
+        $sql = "SELECT tingkat_lomba, MONTH(dibuat_pada) AS bulan, COUNT(*) AS jumlah 
+        FROM prestasi 
+        GROUP BY tingkat_lomba, MONTH(dibuat_pada)
+        ORDER BY tingkat_lomba, bulan";
+        $this->stmt = $this->conn->prepare($sql);
+        $this->stmt->execute();
+        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     function getForBerita() {
         $sql = "SELECT 
                 'Juara ' + CONVERT(varchar, peringkat) + ' ' + nama_kegiatan as input_prestasi,
@@ -228,7 +284,6 @@ class Prestasi {
                 lokasi = ?,
                 deskripsi = ?,
                 id_dosen = ?,
-                file_karya = ?,
                 file_poster = ?,
                 file_dokumentasi = ?,
                 file_sertifikat = ?,
@@ -245,13 +300,12 @@ class Prestasi {
         $this->stmt->bindParam(7, $value['lokasi']);
         $this->stmt->bindParam(8, $value['deskripsi']);
         $this->stmt->bindParam(9, $value['id_dosen']);
-        $this->stmt->bindParam(10, $value['file_karya']);
-        $this->stmt->bindParam(11, $value['file_poster']);
-        $this->stmt->bindParam(12, $value['file_dokumentasi']);
-        $this->stmt->bindParam(13, $value['file_sertifikat']);
-        $this->stmt->bindParam(14, $value['file_surat_tugas']);
-        $this->stmt->bindParam(15, $value['status_validasi']);
-        $this->stmt->bindParam(16, $value['id_prestasi']);
+        $this->stmt->bindParam(10, $value['file_poster']);
+        $this->stmt->bindParam(11, $value['file_dokumentasi']);
+        $this->stmt->bindParam(12, $value['file_sertifikat']);
+        $this->stmt->bindParam(13, $value['file_surat-tugas']);
+        $this->stmt->bindParam(14, $value['status_validasi']);
+        $this->stmt->bindParam(15, $value['id_prestasi']);
         if ($this->stmt->execute()) {
             return true;
         } else {
