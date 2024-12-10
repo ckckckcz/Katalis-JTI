@@ -39,10 +39,9 @@ switch ($request) {
         $filePath = 'client/views/auth/Forgot.php';
         break;
     case $location . '/logout':
-        if ($_SESSION['is_login'] == true) {
+        header('Location: /katalis');
+        if (isset($_SESSION['is_login'])) {
             $filePath = 'server/proses/Logout.php';
-        } else {
-            http_response_code(404);
         }
         break;
     // Admin Dashboard Routing
