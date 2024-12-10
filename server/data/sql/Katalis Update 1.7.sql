@@ -258,9 +258,6 @@ GROUP BY m.bulan, p.tingkat_lomba
 ORDER BY m.bulan;
 
 
-EXEC GetTrafficPrestasiPerBulan;
-
-
 --notifikasi
 --mhs
 CREATE OR ALTER PROCEDURE GetMahasiswaNotifikasi
