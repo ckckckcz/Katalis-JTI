@@ -220,44 +220,42 @@ JOIN
 	SELECT id_prestasi FROM Prestasi;
 
 --traffic update
-CREATE OR ALTER PROCEDURE GetTrafficPrestasiPerBulan
-AS
-BEGIN
-    ;WITH AllMonths AS (
-        SELECT 1 AS bulan
-        UNION ALL
-        SELECT 2
-        UNION ALL
-        SELECT 3
-        UNION ALL
-        SELECT 4
-        UNION ALL
-        SELECT 5
-        UNION ALL
-        SELECT 6
-        UNION ALL
-        SELECT 7
-        UNION ALL
-        SELECT 8
-        UNION ALL
-        SELECT 9
-        UNION ALL
-        SELECT 10
-        UNION ALL
-        SELECT 11
-        UNION ALL
-        SELECT 12
-    )
-    SELECT 
-        m.bulan,
-        'nasional' AS tingkat_lomba,
-        COUNT(p.id_prestasi) AS hasil_count
-    FROM AllMonths m
-    LEFT JOIN Prestasi p
-        ON m.bulan = MONTH(p.dibuat_pada) AND YEAR(p.dibuat_pada) = YEAR(GETDATE())
-    GROUP BY m.bulan
-    ORDER BY m.bulan;
-END;
+WITH AllMonths AS (
+    SELECT 1 AS bulan
+    UNION ALL
+    SELECT 2
+    UNION ALL
+    SELECT 3
+    UNION ALL
+    SELECT 4
+    UNION ALL
+    SELECT 5
+    UNION ALL
+    SELECT 6
+    UNION ALL
+    SELECT 7
+    UNION ALL
+    SELECT 8
+    UNION ALL
+    SELECT 9
+    UNION ALL
+    SELECT 10
+    UNION ALL
+    SELECT 11
+    UNION ALL
+    SELECT 12
+)
+SELECT 
+    m.bulan,
+    COALESCE(p.tingkat_lomba, 'nasional') AS tingkat_lomba, 
+    COUNT(p.id_prestasi) AS hasil_count
+FROM AllMonths m
+LEFT JOIN Prestasi p
+    ON m.bulan = MONTH(p.dibuat_pada) 
+   AND YEAR(p.dibuat_pada) = YEAR(GETDATE())
+   AND p.tingkat_lomba = 'nasional' -- Filter tingkat lomba yang diinginkan
+GROUP BY m.bulan, p.tingkat_lomba
+ORDER BY m.bulan;
 
 
 EXEC GetTrafficPrestasiPerBulan;
