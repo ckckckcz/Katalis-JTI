@@ -175,14 +175,13 @@ class Prestasi {
                 peringkat,
                 lokasi,
                 deskripsi,
-                dosen_pembimbing,
-                file_karya,
+                id_dosen,
                 file_poster,
                 file_dokumentasi,
                 file_sertifikat,
                 surat_tugas,
                 status_validasi)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $this->stmt = $this->conn->prepare($sql);
         $this->stmt->bindParam(1, $value['id_mahasiswa']);
         $this->stmt->bindParam(2, $value['nama_kegiatan']);
@@ -193,11 +192,11 @@ class Prestasi {
         $this->stmt->bindParam(7, $value['peringkat']);
         $this->stmt->bindParam(8, $value['lokasi']);
         $this->stmt->bindParam(9, $value['deskripsi']);
-        $this->stmt->bindParam(10, $value['dosen_pembimbing']);
-        $this->stmt->bindParam(11, $value['file_karya']);
-        $this->stmt->bindParam(12, $value['file_poster']);
-        $this->stmt->bindParam(13, $value['file_dokumentasi']);
-        $this->stmt->bindParam(14, $value['file_sertifikat']);
+        $this->stmt->bindParam(10, $value['id_dosen']);
+        $this->stmt->bindParam(11, $value['file_poster']);
+        $this->stmt->bindParam(12, $value['file_dokumentasi']);
+        $this->stmt->bindParam(13, $value['file_sertifikat']);
+        $this->stmt->bindParam(14, $value['file_surat-tugas']);
         $this->stmt->bindParam(15, $value['status_validasi']);
         if ($this->stmt->execute()) {
             return true;

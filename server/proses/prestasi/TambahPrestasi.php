@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $value['peringkat'] =  empty($_POST['peringkat']) ? 0 : $_POST['peringkat'];
     $value['lokasi'] = $_POST['tempat-kompetisi'];
     $value['deskripsi'] = $_POST['deskripsi'];
-    $value['dosen_pembimbing'] = $_POST['dosen-pembimbing'];
+    $value['id_dosen'] = $_POST['dosen-pembimbing'];
     $value['status_validasi'] = 'proses_validasi';
 
     // Ambil ID terakhir
@@ -28,13 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Direktori tujuan
     $targetDirectory = [
-        'karya' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Karya/',
         'poster' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Poster/',
         'dokumentasi' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Dokumentasi/',
-        'sertifikat' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Sertifikat/'
+        'sertifikat' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Sertifikat/',
+        'surat-tugas' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/SuratTugas/'
     ];
 
-    $fileKeys = ['karya', 'poster', 'dokumentasi', 'sertifikat'];
+    $fileKeys = ['poster', 'dokumentasi', 'sertifikat', 'surat-tugas'];
 
     foreach ($fileKeys as $key) {
         if (isset($_FILES[$key]) && $_FILES[$key]['error'] == 0) {
