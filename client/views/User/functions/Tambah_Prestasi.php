@@ -1,6 +1,10 @@
 <?php
 include('./client/components/User/Sidebar.php');
 include('./server/model/Prestasi.php');
+include('./server/model/Dosen.php');
+
+$dataDosen = new Dosen();
+$allDosen = $dataDosen->getAllDosen();
 ?>
 <section class="admin-section">
     <div class="admin-container">
@@ -57,22 +61,55 @@ include('./server/model/Prestasi.php');
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
                         <label for="peringkat" class="kegiatan-label font-bold">Peringkat</label>
-                        <input type="number" id="peringkat" name="peringkat" class="kegiatan-input font-semi-bold"
-                            placeholder="Masukkan peringkat (1,2,3) jika ada">
+                        <select id="peringkat" name="peringkat"
+                            class="kegiatan-input kegiatan-select font-semi-bold">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="0">- (Tidak Juara)</option>
+                        </select>
                         <span class="error-message font-bold"></span>
                     </div>
                     <div class="kegiatan-group">
                         <label for="dosen-pembimbing" class="kegiatan-label font-bold">Dosen Pembimbing</label>
-                        <input type="text" id="dosen-pembimbing" name="dosen-pembimbing" class="kegiatan-input font-semi-bold"
-                            placeholder="Masukkan nama dosen pembimbing">
+                        <select id="dosen-pembimbing" name="dosen-pembimbing"
+                            class="kegiatan-input kegiatan-select font-semi-bold">
+                            <?php 
+                                foreach ($allDosen as $data) {
+                                    echo "<option value='{$data['nip']}'>{$data['nama_lengkap']}</option>";
+                                }
+                            ?>
+                        </select>
                         <span class="error-message font-bold"></span>
                     </div>
                 </div>
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
-                        <label for="karya" class="kegiatan-label font-bold">File Karya</label>
+                        <label for="sertifikat" class="kegiatan-label font-bold">File Sertifikat</label>
                         <div class="kegiatan-input-file-container">
-                            <label for="karya" class="kegiatan-input-file-label">
+                            <label for="sertifikat" class="kegiatan-input-file-label">
+                                <div class="kegiatan-input-file-content">
+                                    <img id="file-preview" class="hidden kegiatan-file-preview" alt="Preview Sertifikat" />
+                                    <svg class="kegiatan-input-file-icon" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                    </svg>
+                                    <p class="kegiatan-input-file-text">
+                                        <span class="kegiatan-input-file-highlight font-semi-bold">Click to upload</span> or drag and drop
+                                    </p>
+                                    <p class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                </div>
+                                <input id="sertifikat" name="sertifikat" type="file" class="kegiatan-input-file-hidden" />
+                                <span class="error-message font-bold"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="kegiatan-group">
+                        <label for="surat-tugas" class="kegiatan-label font-bold">Surat Tugas</label>
+                        <div class="kegiatan-input-file-container">
+                            <label for="surat-tugas" class="kegiatan-input-file-label">
                                 <div class="kegiatan-input-file-content">
                                     <!-- Ikon file awal -->
                                     <svg id="default-icon" class="kegiatan-input-file-icon" aria-hidden="true"
@@ -92,29 +129,7 @@ include('./server/model/Prestasi.php');
                                     </svg>
                                     <p id="file-name" class="kegiatan-input-file-highlight hidden font-semi-bold"></p>
                                 </div>
-                                <input id="karya" name="karya" type="file" class="kegiatan-input-file-hidden" />
-                                <span class="error-message font-bold"></span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="kegiatan-group">
-                        <label for="sertifikat" class="kegiatan-label font-bold">File Sertifikat</label>
-                        <div class="kegiatan-input-file-container">
-                            <label for="sertifikat" class="kegiatan-input-file-label">
-                                <div class="kegiatan-input-file-content">
-                                    <img id="file-preview" class="hidden kegiatan-file-preview" alt="Preview Sertifikat" />
-                                    <svg class="kegiatan-input-file-icon" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                    </svg>
-                                    <p class="kegiatan-input-file-text">
-                                        <span class="kegiatan-input-file-highlight font-semi-bold">Click to upload</span> or drag and drop
-                                    </p>
-                                    <p class="kegiatan-input-file-subtext font-semi-bold">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                                </div>
-                                <input id="sertifikat" name="sertifikat" type="file" class="kegiatan-input-file-hidden" />
+                                <input id="surat-tugas" name="surat-tugas" type="file" class="kegiatan-input-file-hidden" />
                                 <span class="error-message font-bold"></span>
                             </label>
                         </div>
@@ -246,7 +261,7 @@ $(document).ready(function () {
 
         let isValid = true;
 
-        $('#nama-kompetisi, #tempat-kompetisi, #tingkat-lomba, #jenis-kompetisi, #tanggal-mulai, #tanggal-selesai, #peringkat, #dosen-pembimbing, #karya, #sertifikat, #poster, #dokumentasi, #deskripsi').each(function () {
+        $('#nama-kompetisi, #tempat-kompetisi, #tingkat-lomba, #jenis-kompetisi, #tanggal-mulai, #tanggal-selesai, #peringkat, #dosen-pembimbing, #surat-tugas, #sertifikat, #poster, #dokumentasi, #deskripsi').each(function () {
             const input = $(this);
             const value = input.val().trim();
             const errorMessage = input.siblings('.error-message');
