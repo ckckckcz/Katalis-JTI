@@ -134,21 +134,21 @@ INSERT INTO Berita (id_prestasi, nama_berita, deskripsi, url_demo) VALUES
 (2, 'Mahasiswa Raih Juara 1 Capture The Flag Compfest', 'Prestasi yang sangat membanggakan diperoleh oleh mahasiswa Teknologi Informasi.', 'https://youtu.be/rZZXTcz19G0?si=2bcPuLf4jmdLwhn-'), 
 (3, 'Mahasiswa Raih Juara 3 KMIPN VI', 'Prestasi yang sangat membanggakan diperoleh oleh mahasiswa Sistem Informasi Bisnis.', 'https://youtu.be/3K-yPSmZoxA?si=HZrqQntNATiluWze'),
 
--- Tambahkan data dummy ke tabel Notifikasi
+--Notifikasi
 INSERT INTO Notifikasi (id_prestasi, id_user, pesan, status_baca)
 VALUES 
 (1, 1, 'Prestasi telah divalidasi oleh admin.', 0),
 (2, 2, 'Prestasi Anda sedang diproses validasi.', 0),
 (3, 3, 'Selamat! Prestasi Anda telah divalidasi.', 1);
 
--- Tambah data dummy untuk admin
+--admin
 INSERT INTO Notifikasi (id_prestasi, id_user, pesan, status_baca)
 VALUES
 (1, 1, 'Harap segera verifikasi prestasi.', 0),
 (2, 1, 'Proses validasi prestasi sedang berjalan.', 0),
 (3, 1, 'Prestasi telah berhasil divalidasi.', 0);
 
--- Tambah data dummy untuk mahasiswa
+--mahasiswa
 INSERT INTO Notifikasi (id_prestasi, id_user, pesan, status_baca)
 VALUES
 (1, 2, 'Silakan lengkapi dokumen prestasi.', 0),
@@ -220,24 +220,47 @@ JOIN
 	SELECT id_prestasi FROM Prestasi;
 
 --traffic update
-CREATE PROCEDURE GetTrafficPrestasiPerBulan
-    @bulan INT,
-    @tahun INT
+CREATE OR ALTER PROCEDURE GetTrafficPrestasiPerBulan
 AS
 BEGIN
+    ;WITH AllMonths AS (
+        SELECT 1 AS bulan
+        UNION ALL
+        SELECT 2
+        UNION ALL
+        SELECT 3
+        UNION ALL
+        SELECT 4
+        UNION ALL
+        SELECT 5
+        UNION ALL
+        SELECT 6
+        UNION ALL
+        SELECT 7
+        UNION ALL
+        SELECT 8
+        UNION ALL
+        SELECT 9
+        UNION ALL
+        SELECT 10
+        UNION ALL
+        SELECT 11
+        UNION ALL
+        SELECT 12
+    )
     SELECT 
-        CAST(p.dibuat_pada AS DATE) AS tanggal_input, 
-        m.nama_lengkap AS mahasiswa_berprestasi,
-        COUNT(p.id_prestasi) AS jumlah_prestasi,
-        STRING_AGG(CONCAT('Juara ', p.peringkat, ' (', p.tingkat_lomba, ')'), ', ') AS daftar_juara 
-    FROM Prestasi p
-    JOIN Mahasiswa m ON p.id_mahasiswa = m.nim 
-    WHERE MONTH(p.dibuat_pada) = @bulan AND YEAR(p.dibuat_pada) = @tahun
-    GROUP BY CAST(p.dibuat_pada AS DATE), m.nama_lengkap
-    ORDER BY tanggal_input, m.nama_lengkap;
+        m.bulan,
+        'nasional' AS tingkat_lomba,
+        COUNT(p.id_prestasi) AS hasil_count
+    FROM AllMonths m
+    LEFT JOIN Prestasi p
+        ON m.bulan = MONTH(p.dibuat_pada) AND YEAR(p.dibuat_pada) = YEAR(GETDATE())
+    GROUP BY m.bulan
+    ORDER BY m.bulan;
 END;
 
-EXEC GetTrafficPrestasiPerBulan @bulan = 12, @tahun = 2024;
+
+EXEC GetTrafficPrestasiPerBulan;
 
 
 --notifikasi
