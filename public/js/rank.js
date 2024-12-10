@@ -23,7 +23,7 @@ function createChart(chartId, chartLabel, chartData, colors) {
                 y: {
                     beginAtZero: true,
                     suggestedMin: 0,
-                    suggestedMax: 100
+                    suggestedMax: 10
                 }
             },
             plugins: {
@@ -55,31 +55,22 @@ const colors3 = {
     pointBackgroundColor: 'rgba(75, 192, 192, 1)'
 };
 
-// Struktur untuk menampung data
-const datasets = {
-    'Regional': Array(12).fill(0),
-    'Nasional': Array(12).fill(0),
-    'International': Array(12).fill(0)
-};
-
 // Fungsi untuk mengambil data menggunakan AJAX
 async function fetchData() {
     try {
-        const response = await $.ajax({
-            url: '../server/data/php/getPrestasi.php',
-            method: 'GET',
-            dataType: 'json'
-        });
+        const response = await fetch('./server/proses/GetStatistik.php');
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        console.log(data);
 
         // Mengisi datasets dengan data yang diterima
-        response.forEach(item => {
-            const { tingkat_lomba, bulan, jumlah } = item;
-            if (!datasets[tingkat_lomba]) {
-                datasets[tingkat_lomba] = Array(12).fill(0);
-            }
-            // Menyusun data berdasarkan bulan yang benar (bulan dimulai dari 1, jadi kita kurangi 1)
-            datasets[tingkat_lomba][bulan] = jumlah; // Menyesuaikan dengan index array (bulan dimulai dari 1)
-        });
+        createChart('bsb-chart-1', 'Regional', data.Regional, colors1);
+        createChart('bsb-chart-2', 'Nasional', data.Nasional, colors2);
+        createChart('bsb-chart-3', 'International', data.International, colors3);
 
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -94,6 +85,4 @@ function createCharts() {
 }
 
 // Memanggil fetchData dan setelah selesai memanggil createCharts
-fetchData().then(() => {
-    createCharts();
-});
+fetchData()
