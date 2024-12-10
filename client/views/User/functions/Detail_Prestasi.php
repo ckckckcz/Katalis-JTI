@@ -79,27 +79,51 @@ $result = $data->getAllById($_GET['id']);
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
                         <label for="sertifikat" class="kegiatan-label font-bold">File Sertifikat</label>
-                        <div class="kegiatan-group">
-                            <img src="../public/Prestasi/Sertifikat/<?php echo $result[0]['file_sertifikat'] ?>" style="max-width: 80%;">
+                        <div class="kegiatan-input-file-container">
+                            <label for="sertifikat" class="kegiatan-input-file-label">
+                                <div class="kegiatan-input-file-content">
+                                    <img id="file-preview" class="kegiatan-file-preview"
+                                        alt="Preview Sertifikat" src="../public/Prestasi/Sertifikat/<?php echo $result[0]['file_sertifikat'] ?>" />
+                                </div>
+                                <input id="sertifikat" name="sertifikat" type="file" class="kegiatan-input-file-hidden" />
+                            </label>
                         </div>
                     </div>
                     <div class="kegiatan-group">
                         <label for="surat-tugas" class="kegiatan-label font-bold">File Surat Tugas</label>
-                        <div class="kegiatan-group">
-                            <input type="text" id="surat-tugas" name="surat-tugas"
-                                class="kegiatan-input font-semi-bold" disabled value="<?= $result[0]['surat_tugas'] ?>">
+                        <div class="kegiatan-input-file-container">
+                            <label for="file-surat-tugas" class="kegiatan-input-file-label">
+                                <div class="kegiatan-input-file-content">
+                                    <p class="kegiatan-input-file-highlight font-semi-bold">
+                                        <?= htmlspecialchars($result[0]['surat_tugas'], ENT_QUOTES, 'UTF-8'); ?>
+                                    </p>
+                                </div>
+                                <input id="surat-tugas" name="surat-tugas" type="file" class="kegiatan-input-file-hidden" />
+                            </label>
                         </div>
                     </div>
                     <div class="kegiatan-group">
                         <label for="poster" class="kegiatan-label font-bold">Foto Poster</label>
-                        <div class="kegiatan-group">
-                            <img src="../public/Prestasi/Poster/<?php echo $result[0]['file_poster'] ?>" style="max-width: 80%;">
+                        <div class="kegiatan-input-file-container">
+                            <label for="poster" class="kegiatan-input-file-label">
+                                <div class="kegiatan-input-file-content">
+                                    <img id="poster-preview" class="kegiatan-file-preview" alt="Preview Poster"
+                                        src="../public/Prestasi/Poster/<?php echo $result[0]['file_poster'] ?>" />
+                                </div>
+                                <input id="poster" name="poster" type="file" class="kegiatan-input-file-hidden" />
+                            </label>
                         </div>
                     </div>
                     <div class="kegiatan-group">
                         <label for="dokumentasi" class="kegiatan-label font-bold">Foto Dokumentasi</label>
-                        <div class="kegiatan-group">
-                            <img src="../public/Prestasi/Dokumentasi/<?php echo $result[0]['file_dokumentasi'] ?>" style="max-width: 80%;">
+                        <div class="kegiatan-input-file-container">
+                            <label for="dokumentasi" class="kegiatan-input-file-label">
+                                <div class="kegiatan-input-file-content">
+                                    <img id="dokumentasi-preview" class=" kegiatan-file-preview" alt="Preview Dokumentasi"
+                                        src="../public/Prestasi/Dokumentasi/<?php echo $result[0]['file_dokumentasi'] ?>" />
+                                </div>
+                                <input id="dokumentasi" name="dokumentasi" type="file" class="kegiatan-input-file-hidden" />
+                            </label>
                         </div>
                     </div>
                 </div>

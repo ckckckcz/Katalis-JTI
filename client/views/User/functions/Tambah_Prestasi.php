@@ -21,6 +21,7 @@ $allDosen = $dataDosen->getAllDosen();
                     <div class="kegiatan-group">
                         <label for="tingkat-lomba" class="kegiatan-label font-bold">Tingkat Kompetisi</label>
                         <select id="tingkat-lomba" name="tingkat-lomba" class="kegiatan-input kegiatan-select font-semi-bold">
+                            <option value="">Pilih Tingkat Kompetisi</option>
                             <option value="internasional">International</option>
                             <option value="nasional">National</option>
                             <option value="lokal">Lokal</option>
@@ -38,6 +39,7 @@ $allDosen = $dataDosen->getAllDosen();
                     <div class="kegiatan-group">
                         <label for="jenis-kompetisi" class="kegiatan-label font-bold">Jenis Kompetisi</label>
                         <select id="jenis-kompetisi" name="jenis-kompetisi" class="kegiatan-input kegiatan-select font-semi-bold">
+                            <option value="">Pilih Jenis Kompetisi</option>
                             <option value="akademik">Akademik</option>
                             <option value="non_akademik">Non Akademik</option>
                         </select>
@@ -61,23 +63,23 @@ $allDosen = $dataDosen->getAllDosen();
                 <div class="kegiatan-grid">
                     <div class="kegiatan-group">
                         <label for="peringkat" class="kegiatan-label font-bold">Peringkat</label>
-                        <select id="peringkat" name="peringkat"
-                            class="kegiatan-input kegiatan-select font-semi-bold">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="0">- (Tidak Juara)</option>
-                        </select>
-                        <span class="error-message font-bold"></span>
+                        <select id="peringkat" name="peringkat" class="kegiatan-input kegiatan-select font-semi-bold">
+                        <option value="">Pilih Peringkat</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="0">- (Tidak Juara)</option>
+                    </select>
+                    <span class="error-message font-bold"></span>
                     </div>
                     <div class="kegiatan-group">
                         <label for="dosen-pembimbing" class="kegiatan-label font-bold">Dosen Pembimbing</label>
-                        <select id="dosen-pembimbing" name="dosen-pembimbing"
-                            class="kegiatan-input kegiatan-select font-semi-bold">
-                            <?php 
-                                foreach ($allDosen as $data) {
-                                    echo "<option value='{$data['nip']}'>{$data['nama_lengkap']}</option>";
-                                }
+                        <select id="dosen-pembimbing" name="dosen-pembimbing" class="kegiatan-input kegiatan-select font-semi-bold">
+                            <option value="">Pilih Dosen Pembimbing</option>
+                            <?php
+                            foreach ($allDosen as $data) {
+                                echo "<option value='{$data['nip']}'>{$data['nama_lengkap']}</option>";
+                            }
                             ?>
                         </select>
                         <span class="error-message font-bold"></span>
@@ -255,45 +257,56 @@ $allDosen = $dataDosen->getAllDosen();
             }
         });
     });
-$(document).ready(function () {
-    $('#tambah-prestasi-form').on('submit', function (e) {
-        e.preventDefault();
+    $(document).ready(function () {
+        $('#tambah-prestasi-form').on('submit', function (e) {
+            e.preventDefault();
 
-        let isValid = true;
+            let isValid = true;
 
-        $('#nama-kompetisi, #tempat-kompetisi, #tingkat-lomba, #jenis-kompetisi, #tanggal-mulai, #tanggal-selesai, #peringkat, #dosen-pembimbing, #surat-tugas, #sertifikat, #poster, #dokumentasi, #deskripsi').each(function () {
-            const input = $(this);
-            const value = input.val().trim();
-            const errorMessage = input.siblings('.error-message');
-            
-            console.log("Validasi untuk: ", input.attr('id'), " dengan nilai: ", value); // Debugging log
+            // Daftar elemen input yang wajib diisi
+            const requiredFields = [
+                '#nama-kompetisi',
+                '#tempat-kompetisi',
+                '#tingkat-lomba',
+                '#jenis-kompetisi',
+                '#tanggal-mulai',
+                '#tanggal-selesai',
+                '#peringkat',
+                '#dosen-pembimbing',
+                '#surat-tugas',
+                '#sertifikat',
+                '#poster',
+                '#dokumentasi',
+                '#deskripsi'
+            ];
 
-            // Cek jika elemen adalah select dan nilai kosong
-            if (input.is('select') && value === "") {
-                console.log("Validasi gagal untuk select: ", input.attr('id')); // Debugging log
-                isValid = false;
-                input.addClass('error-border');
-                errorMessage.text('Form harus diisi').show();
-            } else if (!value) {  // Validasi umum untuk input teks
-                console.log("Validasi gagal untuk input: ", input.attr('id')); // Debugging log
-                isValid = false;
-                input.addClass('error-border');
-                errorMessage.text('Form harus diisi').show();
-            } else {
-                input.removeClass('error-border');
-                errorMessage.hide();
+            $(requiredFields.join(', ')).each(function () {
+                const input = $(this);
+                const value = input.val().trim();
+                const errorMessage = input.siblings('.error-message');
+
+                // Validasi input
+                if (value === '') {
+                    isValid = false;
+                    input.addClass('error-border');
+                    errorMessage.text('Form harus diisi').show();
+                } else {
+                    input.removeClass('error-border');
+                    errorMessage.hide();
+                }
+            });
+
+            // Jika semua validasi berhasil, submit form
+            if (isValid) {
+                this.submit();
             }
         });
 
-        if (isValid) {
-            this.submit();
-        }
+        // Hilangkan pesan error saat input berubah
+        $(document).on('input change', '.kegiatan-input', function () {
+            const input = $(this);
+            input.removeClass('error-border');
+            input.siblings('.error-message').hide();
+        });
     });
-
-    $('#nama-kompetisi, #tempat-kompetisi, #tingkat-lomba, #jenis-kompetisi, #tanggal-mulai, #tanggal-selesai, #peringkat, #dosen-pembimbing, #karya, #sertifikat, #poster, #dokumentasi, #deskripsi').on('input change', function () {
-        const input = $(this);
-        input.removeClass('error-border');
-        input.siblings('.error-message').hide();
-    });
-});
 </script>
