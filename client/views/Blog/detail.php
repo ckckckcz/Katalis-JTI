@@ -1,3 +1,4 @@
+
 <?php
 
 $id = isset($_GET['id']) ? $_GET['id'] : 1; 
@@ -11,6 +12,19 @@ if (isset($data[$id])) {
     echo "Data tidak ditemukan.";
     exit;
 }
+    function convertYoutubeUrlToEmbed($url)
+    {
+        if (
+            preg_match('/youtu\.be\/([a-zA-Z0-9_-]+)/', $url, $matches) ||
+            preg_match('/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/', $url, $matches)
+        ) {
+            return 'https://www.youtube.com/embed/' . $matches[1];
+        }
+        return $url; // Kembalikan URL asli jika tidak cocok
+    }
+
+    $videoUrl = $blog['video_url'];
+    $embedUrl = convertYoutubeUrlToEmbed($videoUrl);
 ?>
 
 <section class="blog-section">
@@ -20,15 +34,15 @@ if (isset($data[$id])) {
         <?php
         foreach ($blog['description'] as $index => $paragraph) {
             echo "<p class='detail-paragraph'>{$paragraph}</p>";
-            
             if ($index === 2) {
-                echo "<div class='blog-img'>
-                        <iframe width='560' height='315' src='{$blog['video_url']}' title='YouTube video player'
-                            frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
-                            picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin'
-                            allowfullscreen class='detail-img'></iframe>
-                        <h5>{$blog['video_caption']}</h5>
-                        </div>";
+                $iframeHtml = "<div class='blog-img'>
+                    <iframe width='560' height='315' src='{$embedUrl}' title='YouTube video player'
+                        frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+                        picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin'
+                        allowfullscreen class='detail-img'></iframe>
+                    <h5>{$blog['video_caption']}</h5>
+                    </div>";
+                echo $iframeHtml;
             }
         }
         ?>
