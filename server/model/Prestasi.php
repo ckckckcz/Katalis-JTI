@@ -118,17 +118,6 @@ class Prestasi {
         return $result;
     }
 
-    function test() {
-        $sql = "SELECT tingkat_lomba, MONTH(dibuat_pada) AS bulan, COUNT(*) AS jumlah 
-        FROM prestasi 
-        GROUP BY tingkat_lomba, MONTH(dibuat_pada)
-        ORDER BY tingkat_lomba, bulan";
-        $this->stmt = $this->conn->prepare($sql);
-        $this->stmt->execute();
-        $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
     function getForBerita() {
         $sql = "SELECT 
                 'Juara ' + CONVERT(varchar, peringkat) + ' ' + nama_kegiatan as input_prestasi,
