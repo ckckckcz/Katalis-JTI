@@ -91,7 +91,12 @@ $allDosen = $dataDosen->getAllDosen();
                         <div class="kegiatan-input-file-container">
                             <label for="sertifikat" class="kegiatan-input-file-label">
                                 <div class="kegiatan-input-file-content">
-                                    <img id="file-preview" class="hidden kegiatan-file-preview" alt="Preview Sertifikat" />
+                                    <div class="kegiatan-file-preview-container relative">
+                                        <img id="file-preview" class="hidden kegiatan-file-preview" alt="Preview Sertifikat" />
+                                        <div class="hover-overlay hidden absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                                            <button id="view-button" type="button" class="hover-view-button px-4 py-2 bg-blue-500 text-white font-bold rounded">View in Tab</button>
+                                        </div>
+                                    </div>
                                     <svg class="kegiatan-input-file-icon" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"

@@ -1,5 +1,5 @@
 <?php
-include_once './server/model/Berita.php';
+include './server/model/Berita.php';
 include './server/php/cutText.php';
 
 $data = new Berita();
@@ -19,7 +19,7 @@ $berita = $data->getAllBerita();
                         <div class="blog-text font-regular"> <?php echo $b['tanggal_upload']; ?></div>
                         <div class="actions">
                             <button type="button" class="button-primary font-bold"
-                                onclick="window.location.href='/katalis/blog/read?id=<?php echo $b['id_berita'] ?>'">Baca Artikel</button>
+                                onclick="window.location.href='/katalis/blog/read'">Baca Artikel</button>
                         </div>
                     </div>
                 </div>

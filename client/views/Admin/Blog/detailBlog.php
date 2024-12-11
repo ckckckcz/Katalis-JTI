@@ -13,6 +13,22 @@ include('./server/model/Berita.php');
 //     echo "Data tidak ditemukan.";
 //     exit;
 // }
+
+function convertYoutubeUrlToEmbed($url)
+{
+    if (preg_match('/youtu\.be\/([a-zA-Z0-9_-]+)/', $url, $matches)) {
+        return 'https://www.youtube.com/embed/' . $matches[1];
+    } elseif (preg_match('/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/', $url, $matches)) {
+        return 'https://www.youtube.com/embed/' . $matches[1];
+    } elseif (preg_match('/youtube\.com\/embed\/([a-zA-Z0-9_-]+)/', $url, $matches)) {
+        return 'https://www.youtube.com/embed/' . $matches[1];
+    } elseif (preg_match('/youtube\.com\/v\/([a-zA-Z0-9_-]+)/', $url, $matches)) {
+        return 'https://www.youtube.com/embed/' . $matches[1];
+    }
+    return null;
+}
+
+$urlDemo = isset($dataBerita['url_demo']) ? convertYoutubeUrlToEmbed($dataBerita['url_demo']) : null;
 $id = $_GET['id'];
 $berita = new Berita();
 $dataBerita = $berita->getById($id);
@@ -27,11 +43,14 @@ $dataBerita = $berita->getById($id);
             <h1 class="blog-detail-title font-bold"><?php echo $dataBerita[0]['nama_berita']; ?></h1>
             <hr class="blog-hr-2">
             <div class="blog-detail-paragraph font-regular">
-                <div class='blog-img'>
-                    <iframe width="560" height="315" src="<?php echo $dataBerita[0]["url_demo"] ?>" title="YouTube video player"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
-                        picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen class="detail-img"></iframe>
+                <div class="blog-img">
+                    <?php if ($urlDemo): ?>
+                        <iframe width="560" height="315" src="<?php echo $urlDemo; ?>" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    <?php else: ?>
+                        <p>Video tidak tersedia.</p>
+                    <?php endif; ?>
                 </div>
                 <p class='detail-paragraph'><?php echo $dataBerita[0]['deskripsi'] ?></p>
                 <?php

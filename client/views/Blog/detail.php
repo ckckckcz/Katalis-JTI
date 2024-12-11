@@ -24,18 +24,20 @@ $dataBerita = $berita->getById($id);
         <div class='blog-img'>
             <iframe width="560" height="315" src="<?php echo $dataBerita[0]["url_demo"] ?>" title="YouTube video player"
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
-                picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen class="detail-img"></iframe>
+                picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                class="detail-img"></iframe>
         </div>
         <p class='detail-paragraph'><?php echo $dataBerita[0]['deskripsi'] ?></p>
     </div>
     <h1 class="font-bold blog-detail-diskusi">Diskusi</h1>
     <div class="kegiatan-group">
         <textarea id="deskripsi-kegiatan" class="blog-input font-semi-bold"
-        placeholder="Tulis Komentar Anda Disini..."></textarea>
+            placeholder="Tulis Komentar Anda Disini..."></textarea>
         <div class="actions gap-5">
-            <button type="button" class="button-primary font-bold"onclick="window.location.href='/katalis/login'">Komentar</button>
-            <button type="button" class="button-back font-bold"onclick="window.location.href='/katalis/blog'">Kembali</button>
+            <button type="button" class="button-primary font-bold"
+                onclick="window.location.href='/katalis/login'">Komentar</button>
+            <button type="button" class="button-back font-bold"
+                onclick="window.location.href='/katalis/blog'">Kembali</button>
         </div>
     </div>
     <hr class="blog-hr-2">
