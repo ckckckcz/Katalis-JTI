@@ -263,7 +263,6 @@ $allDosen = $dataDosen->getAllDosen();
 
             let isValid = true;
 
-            // Daftar elemen input yang wajib diisi
             const requiredFields = [
                 '#nama-kompetisi',
                 '#tempat-kompetisi',
