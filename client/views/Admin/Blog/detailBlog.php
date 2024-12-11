@@ -28,10 +28,10 @@ function convertYoutubeUrlToEmbed($url)
     return null;
 }
 
-$urlDemo = isset($dataBerita['url_demo']) ? convertYoutubeUrlToEmbed($dataBerita['url_demo']) : null;
 $id = $_GET['id'];
 $berita = new Berita();
 $dataBerita = $berita->getById($id);
+$urlDemo = isset($dataBerita[0]['url_demo']) ? convertYoutubeUrlToEmbed($dataBerita[0]['url_demo']) : null;
 ?>
 <section class="admin-section">
     <div class="admin-container">
@@ -47,7 +47,7 @@ $dataBerita = $berita->getById($id);
                     <?php if ($urlDemo): ?>
                         <iframe width="560" height="315" src="<?php echo $urlDemo; ?>" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                            allowfullscreen class="detail-img"></iframe>
                     <?php else: ?>
                         <p>Video tidak tersedia.</p>
                     <?php endif; ?>
