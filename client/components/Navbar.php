@@ -1,8 +1,9 @@
 <nav class="navbar">
     <div class="container">
         <!-- Logo -->
-        <div href="https://flowbite.com/" class="logo">
-            <span class="logo-text font-bold">Katalis</span>
+        <div href="javascript:void(0)" class="logo">
+            <img src="/katalis/public/img/katalis.png" class="sidebar-logo-img" alt="Katalis Logo" />
+            <span class="logo-text font-bold">Katalis JTI</span>
         </div>
 
         <!-- Navbar Content (Links) -->
