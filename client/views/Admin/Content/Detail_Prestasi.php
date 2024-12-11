@@ -7,7 +7,6 @@ $data = new Prestasi();
 $dataDosen = new Dosen();
 $result = $data->getAllById($_GET['id']);
 $allDosen = $dataDosen->getAllDosen();
-var_dump($result);
 ?>
 <section class="admin-section">
     <div class="admin-container">

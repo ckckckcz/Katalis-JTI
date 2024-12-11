@@ -16,62 +16,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $value['peringkat'] =  $_POST['peringkat'];
     $value['lokasi'] = $_POST['tempat-kompetisi'];
     $value['deskripsi'] = $_POST['deskripsi'];
-    $value['dosen_pembimbing'] = $_POST['dosen-pembimbing'];
+    $value['id_dosen'] = $_POST['dosen-pembimbing'];
     $value['status_validasi'] = $_POST['status-validasi'];
     $value['id_prestasi'] = $_POST['id-prestasi'];
-
-    // Ambil ID terakhir
-    $lastId = $prestasi->getLastId();
-    $id = $lastId + 1;
-    if ($id == null) {
-        $id = 0;
-    }
-
-    if (isset($_FILES['poster-kompetisi']) && $_FILES['poster-kompetisi']['error'] === UPLOAD_ERR_OK) {
-
-        // Direktori tujuan
-        $targetDirectory = [
-            'karya' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Karya/',
-            'poster' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Poster/',
-            'dokumentasi' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Dokumentasi/',
-            'sertifikat' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Sertifikat/',
-            'surat-tugas' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/SuratTugas/'
-        ];
-
-        $fileKeys = ['karya', 'poster', 'dokumentasi', 'sertifikat', 'surat-tugas'];
+    $value['file_poster'] = $old[0]['file_poster'];
+    $value['file_dokumentasi'] = $old[0]['file_dokumentasi'];
+    $value['file_sertifikat'] = $old[0]['file_sertifikat'];
+    $value['file_surat-tugas'] = $old[0]['surat_tugas'];
 
 
-        foreach ($fileKeys as $key) {
-            if (isset($_FILES[$key]) && $_FILES[$key]['error'] == 0) {
-                $extension = strtolower(pathinfo($_FILES[$key]['name'], PATHINFO_EXTENSION));
-                // if (!in_array($extension, ['jpg', 'jpeg', 'png'])) {
-                //     die("Hanya file dengan format JPG, JPEG, PNG yang diperbolehkan untuk $key.");
-                // }
+    // Direktori tujuan
+    $targetDirectory = [
+        'poster' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Poster/',
+        'dokumentasi' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Dokumentasi/',
+        'sertifikat' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Sertifikat/',
+        'surat-tugas' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/SuratTugas/'
+    ];
 
-                $uniqueFileName = $_FILES[$key]['name'] . "_$id." . $extension;
-                $targetPath = $targetDirectory[$key] . $uniqueFileName;
+    $fileKeys = ['poster', 'dokumentasi', 'sertifikat', 'surat-tugas'];
+    $fileKeysOld = ['file_poster', 'file_dokumentasi', 'file_sertifikat', 'surat_tugas'];
 
-                if (file_exists($targetPath)) {
-                    die("File dengan nama $uniqueFileName sudah ada.");
+    foreach ($fileKeys as  $index => $key) {
+        if (isset($_FILES[$key]) && $_FILES[$key]['error'] == 0) {
+            $extension = strtolower(pathinfo($_FILES[$key]['name'], PATHINFO_EXTENSION));
+            $uniqueFileName = $_FILES[$key]['name'] . "_{$old[0]['id_prestasi']}." . $extension;
+            $targetPath = $targetDirectory[$key] . $uniqueFileName;
+            
+            // if (!in_array($extension, ['jpg', 'jpeg', 'png'])) {
+            //     die("Hanya file dengan format JPG, JPEG, PNG yang diperbolehkan untuk $key.");
+            // }
+
+            if (!empty($old[0][$fileKeysOld[$index]])) {
+                $oldFilePath = $targetDirectory[$fileKeys[$index]] . $old[0][$fileKeysOld[$index]];
+                if (file_exists($oldFilePath)) {
+                    unlink($oldFilePath);
                 }
+            }
 
-                if (move_uploaded_file($_FILES[$key]['tmp_name'], $targetPath)) {
-                    $value["file_$key"] = $uniqueFileName;
-                } else {
-                    die("Gagal mengunggah file $key.");
-                }
+            if (move_uploaded_file($_FILES[$key]['tmp_name'], $targetPath)) {
+                $value["file_$key"] = $uniqueFileName;
             } else {
-                $value["file_$key"] = null; // Jika file tidak diunggah
+                die("Gagal mengunggah file $key.");
             }
         }
-    } else {
-        $value["file_karya"] = $old[0]['file_karya'];
-        $value["file_poster"] = $old[0]['file_poster'];
-        $value["file_dokumentasi"] = $old[0]['file_dokumentasi'];
-        $value["file_sertifikat"] = $old[0]['file_sertifikat'];
-        $value["file_surat_tugas"] = $old[0]['surat_tugas'];
-    }
-
+    } 
+    
     // Simpan data ke database
     if ($prestasi->updatePrestasi($value)) {
         echo "Prestasi berhasil diupdate.";
