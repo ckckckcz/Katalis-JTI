@@ -1,5 +1,5 @@
 .home-section {
-  background-color: #f3f0ee;
+  background-color: #FCFAEE;
   color: #111827;
   padding: 2rem 0.5rem;
   max-width: 100%;
@@ -132,7 +132,7 @@
   font-weight: 500;
   text-align: center;
   color: #111827;
-  background-color: #f3f0ee;
+  background-color: #FCFAEE;
   border: 1px solid #d1d5db;
   border-radius: 0.5rem;
   transition: background-color 0.2s, color 0.2s;

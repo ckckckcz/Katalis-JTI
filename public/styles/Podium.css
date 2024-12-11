@@ -1,5 +1,5 @@
 .podium-rank-section {
-  background-color: #f3f0ee;
+  background-color: #FCFAEE;
   color-scheme: dark;
 }
   
@@ -109,7 +109,7 @@
   align-items: center; /* Pusatkan elemen secara horizontal */
   justify-content: flex-end; /* Teks tetap di bagian bawah */
   text-align: center;
-  background: #f9fafb;
+  background: white;
   padding-bottom: 20px;
   font-size: 20px;
   color: #000;
