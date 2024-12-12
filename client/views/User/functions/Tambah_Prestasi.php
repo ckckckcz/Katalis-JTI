@@ -230,6 +230,39 @@ $allDosen = $dataDosen->getAllDosen();
         });
     });
     $(document).ready(function () {
+        $('#surat-tugas').on('change', function (event) {
+            const file = event.target.files[0];
+            
+            if (file) {
+                const fileName = file.name;
+                const fileType = file.type;
+
+                // Menyembunyikan teks instruksi, subtext, dan ikon default
+                $('#file-description').addClass('hidden');
+                $('#file-subtext').addClass('hidden');
+                $('#default-icon').addClass('hidden');
+                
+                // Menampilkan nama file
+                $('#file-name').removeClass('hidden').text(fileName);
+
+                // Menampilkan ikon PDF jika file PDF
+                if (fileType === 'application/pdf') {
+                    $('#file-icon').removeClass('hidden');
+                } else {
+                    // Sembunyikan ikon PDF jika file bukan PDF
+                    $('#file-icon').addClass('hidden');
+                }
+            } else {
+                // Reset ke kondisi awal jika file dihapus
+                $('#file-description').removeClass('hidden');
+                $('#file-subtext').removeClass('hidden');
+                $('#default-icon').removeClass('hidden');
+                $('#file-name').addClass('hidden');
+                $('#file-icon').addClass('hidden');
+            }
+        });
+    });
+    $(document).ready(function () {
         $('#karya').on('change', function (event) {
             const file = event.target.files[0];
             
