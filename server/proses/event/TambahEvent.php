@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $value['poster_gambar'] = $newFileName;
 
         // ganti ini ke folder kalian sendiri
-        $targetDirectory = 'D:/Apps/Laragon/www/katalis/public/Prestasi/PosterEvent/';
+        $targetDirectory = 'C:/xampp/htdocs/katalis/public/Prestasi/PosterEvent/';
         $targetFile = $targetDirectory . $newFileName;
         $imageFileType = strtolower(pathinfo($targetFile, flags: PATHINFO_EXTENSION));
 

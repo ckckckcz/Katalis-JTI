@@ -5,7 +5,7 @@ class Database {
         // $servername = "GE08T\MSSQLKATALIS";
         // $dbname = "Katalis_New";
         $servername = "RIOVALDOALFIYAN\MSQLRIO";
-        $dbname = "katalis_new";
+        $dbname = "katalis_testing";
     
         try {
             $conn = new PDO("sqlsrv:Server=$servername;Database=$dbname");

@@ -27,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Direktori tujuan
     $targetDirectory = [
-        'poster' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Poster/',
-        'dokumentasi' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Dokumentasi/',
-        'sertifikat' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/Sertifikat/',
-        'surat-tugas' => 'D:/Apps/Laragon/www/katalis/public/Prestasi/SuratTugas/'
+        'poster' => 'C:/xampp/htdocs/katalis/public/Prestasi/Poster/',
+        'dokumentasi' => 'C:/xampp/htdocs/katalis/public/Prestasi/Dokumentasi/',
+        'sertifikat' => 'C:/xampp/htdocs/katalis/public/Prestasi/Sertifikat/',
+        'surat-tugas' => 'C:/xampp/htdocs/katalis/public/Prestasi/SuratTugas/'
     ];
 
     $fileKeys = ['poster', 'dokumentasi', 'sertifikat', 'surat-tugas'];

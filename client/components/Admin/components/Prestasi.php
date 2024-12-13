@@ -43,3 +43,8 @@ include './server/model/Berita.php';
                 </table>
         </div>
 </div>
+<script>
+        document.querySelectorAll('.table-prestasi-cell').forEach(cell => {
+                cell.textContent = cell.textContent.replace(/(\d+)\.0$/, '$1');
+        });
+</script>

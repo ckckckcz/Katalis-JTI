@@ -112,6 +112,9 @@ $allDosen = $dataDosen->getAllDosen();
                                 <span class="error-message font-bold"></span>
                             </label>
                         </div>
+                        <div class="actions" style="margin-top:10px">
+                            <button type="button" class="button-primary font-bold">Preview</button>
+                        </div>
                     </div>
                     <div class="kegiatan-group">
                         <label for="surat-tugas" class="kegiatan-label font-bold">Surat Tugas</label>
@@ -140,6 +143,9 @@ $allDosen = $dataDosen->getAllDosen();
                                 <span class="error-message font-bold"></span>
                             </label>
                         </div>
+                        <div class="actions" style="margin-top:10px">
+                            <button type="button" class="button-primary font-bold">Preview</button>
+                        </div>
                     </div>
                     <div class="kegiatan-group">
                         <label for="poster" class="kegiatan-label font-bold">Foto Poster</label>
@@ -161,6 +167,9 @@ $allDosen = $dataDosen->getAllDosen();
                                 <input id="poster" name="poster" type="file" class="kegiatan-input-file-hidden" />
                                 <span class="error-message font-bold"></span>
                             </label>
+                        </div>
+                        <div class="actions" style="margin-top:10px">
+                            <button type="button" class="button-primary font-bold">Preview</button>
                         </div>
                     </div>
                     <div class="kegiatan-group">
@@ -184,6 +193,9 @@ $allDosen = $dataDosen->getAllDosen();
                                 <span class="error-message font-bold"></span>
                             </label>
                         </div>
+                        <div class="actions" style="margin-top:10px">
+                            <button type="button" class="button-primary font-bold">Preview</button>
+                        </div>
                     </div>
                 </div>
                 <div class="kegiatan-group">
@@ -201,6 +213,82 @@ $allDosen = $dataDosen->getAllDosen();
 </section>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const fileInputs = document.querySelectorAll('.kegiatan-input-file-hidden');
+        const previewButtons = document.querySelectorAll('.button-primary');
+
+        // Tambahkan elemen untuk popup
+        const popup = document.createElement('div');
+        popup.style.display = 'none';
+        popup.style.position = 'fixed';
+        popup.style.top = '0';
+        popup.style.left = '0';
+        popup.style.width = '100%';
+        popup.style.height = '100%';
+        popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        popup.style.zIndex = '1000';
+        popup.style.justifyContent = 'center';
+        popup.style.alignItems = 'center';
+
+        const popupContent = document.createElement('div');
+        popupContent.style.position = 'relative';
+        popupContent.style.padding = '20px';
+        popupContent.style.borderRadius = '8px';
+        popupContent.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+
+        const closeButton = document.createElement('button');
+        closeButton.innerText = 'Close';
+        closeButton.style.position = 'absolute';
+        closeButton.style.top = '10px';
+        closeButton.style.right = '10px';
+        closeButton.style.background = 'red';
+        closeButton.style.color = 'white';
+        closeButton.style.border = 'none';
+        closeButton.style.borderRadius = '4px';
+        closeButton.style.padding = '5px 10px';
+        closeButton.style.cursor = 'pointer';
+
+        closeButton.onclick = () => {
+            popup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        };
+
+        popup.appendChild(popupContent);
+        popup.appendChild(closeButton);
+        document.body.appendChild(popup);
+
+        fileInputs.forEach((fileInput, index) => {
+            const previewButton = previewButtons[index];
+            previewButton.style.display = 'none';
+
+            fileInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+
+                if (file) {
+                    // Tampilkan tombol preview jika file terdeteksi
+                    previewButton.style.display = 'inline-block';
+
+                    // Tambahkan event klik pada tombol preview
+                    previewButton.onclick = () => {
+                        const fileURL = URL.createObjectURL(file);
+                        const img = document.createElement('img');
+                        img.src = fileURL;
+                        img.style.maxWidth = '100%';
+                        img.style.maxHeight = '80vh';
+
+                        popupContent.innerHTML = '';
+                        popupContent.appendChild(img);
+
+                        popup.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                    };
+                } else {
+                    // Sembunyikan tombol preview jika tidak ada file
+                    previewButton.style.display = 'none';
+                }
+            });
+        });
+    });
     $(document).ready(function () {
         // Fungsi untuk menampilkan preview gambar
         function showPreview(input, previewId, iconId) {
@@ -295,55 +383,55 @@ $allDosen = $dataDosen->getAllDosen();
             }
         });
     });
-    $(document).ready(function () {
-        $('#tambah-prestasi-form').on('submit', function (e) {
-            e.preventDefault();
+    // $(document).ready(function () {
+    //     $('#tambah-prestasi-form').on('submit', function (e) {
+    //         e.preventDefault();
 
-            let isValid = true;
+    //         let isValid = true;
 
-            const requiredFields = [
-                '#nama-kompetisi',
-                '#tempat-kompetisi',
-                '#tingkat-lomba',
-                '#jenis-kompetisi',
-                '#tanggal-mulai',
-                '#tanggal-selesai',
-                '#peringkat',
-                '#dosen-pembimbing',
-                '#surat-tugas',
-                '#sertifikat',
-                '#poster',
-                '#dokumentasi',
-                '#deskripsi'
-            ];
+    //         const requiredFields = [
+    //             '#nama-kompetisi',
+    //             '#tempat-kompetisi',
+    //             '#tingkat-lomba',
+    //             '#jenis-kompetisi',
+    //             '#tanggal-mulai',
+    //             '#tanggal-selesai',
+    //             '#peringkat',
+    //             '#dosen-pembimbing',
+    //             '#surat-tugas',  
+    //             '#sertifikat',
+    //             '#poster',
+    //             '#dokumentasi',
+    //             '#deskripsi'
+    //         ];
 
-            $(requiredFields.join(', ')).each(function () {
-                const input = $(this);
-                const value = input.val().trim();
-                const errorMessage = input.siblings('.error-message');
+    //         $(requiredFields.join(', ')).each(function () {
+    //             const input = $(this);
+    //             const value = input.val().trim();
+    //             const errorMessage = input.siblings('.error-message');
 
-                // Validasi input
-                if (value === '') {
-                    isValid = false;
-                    input.addClass('error-border');
-                    errorMessage.text('Form harus diisi').show();
-                } else {
-                    input.removeClass('error-border');
-                    errorMessage.hide();
-                }
-            });
+    //             // Validasi input
+    //             if (value === '') {
+    //                 isValid = false;
+    //                 input.addClass('error-border');
+    //                 errorMessage.text('Form harus diisi').show();
+    //             } else {
+    //                 input.removeClass('error-border');
+    //                 errorMessage.hide();
+    //             }
+    //         });
 
-            // Jika semua validasi berhasil, submit form
-            if (isValid) {
-                this.submit();
-            }
-        });
+    //         // Jika semua validasi berhasil, submit form
+    //         if (isValid) {
+    //             this.submit();
+    //         }
+    //     });
 
-        // Hilangkan pesan error saat input berubah
-        $(document).on('input change', '.kegiatan-input', function () {
-            const input = $(this);
-            input.removeClass('error-border');
-            input.siblings('.error-message').hide();
-        });
-    });
+    //     // Hilangkan pesan error saat input berubah
+    //     $(document).on('input change', '.kegiatan-input', function () {
+    //         const input = $(this);
+    //         input.removeClass('error-border');
+    //         input.siblings('.error-message').hide();
+    //     });
+    // });
 </script>

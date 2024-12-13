@@ -27,30 +27,36 @@ class Berita {
 
     function getForLeaderboard() {
         $sql = "SELECT DISTINCT
-                    ROW_NUMBER() OVER (ORDER BY total_poin DESC) AS ranking,
-                    nama_mahasiswa,
-                    prodi,
-                    total_poin
-                FROM (
-                    SELECT 
-                        m.nama_lengkap AS nama_mahasiswa,
-                        m.prodi,
-                        SUM(
-                            CASE 
-                                WHEN p.tingkat_lomba = 'internasional' THEN 3
-                                WHEN p.tingkat_lomba = 'nasional' THEN 2
-                                WHEN p.tingkat_lomba = 'lokal' THEN 1
-                                ELSE 0
-                            END
-                        ) AS total_poin
-                    FROM 
-                        Mahasiswa m
-                    JOIN 
-                        Prestasi p ON m.nim = p.id_mahasiswa
-                    GROUP BY 
-                        m.nama_lengkap, m.prodi
-                ) AS Subquery
-                ORDER BY 
+                ROW_NUMBER() OVER (ORDER BY total_poin DESC) AS ranking,
+                nama_mahasiswa,
+                prodi,
+                total_poin
+            FROM (
+                SELECT 
+                    m.nama_lengkap AS nama_mahasiswa,
+                    m.prodi,
+                    SUM(
+                        CASE 
+                            WHEN p.tingkat_lomba = 'internasional' AND p.peringkat = 1 THEN 6
+                            WHEN p.tingkat_lomba = 'internasional' AND p.peringkat = 2 THEN 5
+                            WHEN p.tingkat_lomba = 'internasional' AND p.peringkat = 3 THEN 4
+                            WHEN p.tingkat_lomba = 'nasional' AND p.peringkat = 1 THEN 4
+                            WHEN p.tingkat_lomba = 'nasional' AND p.peringkat = 2 THEN 3
+                            WHEN p.tingkat_lomba = 'nasional' AND p.peringkat = 3 THEN 2
+                            WHEN p.tingkat_lomba = 'lokal' AND p.peringkat = 1 THEN 2
+                            WHEN p.tingkat_lomba = 'lokal' AND p.peringkat = 2 THEN 1
+                            WHEN p.tingkat_lomba = 'lokal' AND p.peringkat = 3 THEN 0.5
+                            ELSE 0
+                        END
+                    ) AS total_poin
+                FROM 
+                    Mahasiswa m
+                JOIN 
+                    Prestasi p ON m.nim = p.id_mahasiswa
+                GROUP BY 
+                    m.nama_lengkap, m.prodi
+            ) AS Subquery
+            ORDER BY 
                 total_poin DESC;";
         $this->stmt = $this->conn->prepare($sql);
         $this->stmt->execute();
