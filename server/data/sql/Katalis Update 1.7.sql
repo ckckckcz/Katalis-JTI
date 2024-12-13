@@ -196,9 +196,11 @@ ORDER BY
 
 
 --Filter Mawapres
-SELECT *
-FROM Prestasi
-where DAY(dibuat_pada) BETWEEN 1 AND 30;
+SELECT * FROM Prestasi
+WHERE 
+    DAY(dibuat_pada) BETWEEN 1 AND 30
+    AND MONTH(dibuat_pada) = 12
+    AND YEAR(dibuat_pada) = 2024;
 
 --export data Mawapres
 SELECT 
