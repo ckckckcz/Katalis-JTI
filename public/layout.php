@@ -10,7 +10,7 @@
 
     if ($currentFile === 'Login.php' || $currentFile === 'Register.php' || $currentFile === 'Forgot.php') {
         echo '<link rel="stylesheet" href="/katalis/public/styles/globalAuth.css">';
-    } elseif ($currentFile === 'Admin.php' || $currentFile != 'Kegiatan.php' || $currentFile != 'Prestasi.php' || $currentFile != 'Export.php' || $currentFile != 'Mahasiswa.php' || $currentFile != 'Tambah_Kegiatan.php' || $currentFile != 'Tambah_Prestasi.php' || $currentFile != 'Dashboard.php' || $currentFile != 'Berita.php' || $currentFile != 'Tambah_Berita.php' || $currentFile != 'detailBlog.php' || $currentFile != 'Detail_Kegiatan.php' || $currentFile != 'Edit_Berita.php' || $currentFile != 'Detail_Prestasi.php' || $currentFile != 'Edit_Kegiatan.php') {
+    } elseif ($currentFile === 'Admin.php' || $currentFile != 'Kegiatan.php' || $currentFile != 'Prestasi.php' || $currentFile != 'Export.php' || $currentFile != 'Mahasiswa.php' || $currentFile != 'Tambah_Kegiatan.php' || $currentFile != 'Tambah_Prestasi.php' || $currentFile != 'Dashboard.php' || $currentFile != 'Berita.php' || $currentFile != 'Tambah_Berita.php' || $currentFile != 'detailBlog.php' || $currentFile != 'Detail_Kegiatan.php' || $currentFile != 'Edit_Berita.php' || $currentFile != 'Detail_Prestasi.php' || $currentFile != 'Edit_Kegiatan.php' || $currentFile != 'Dosen.php' || $currentFile != 'Tambah_Dosen.php') {
         echo '<link rel="stylesheet" href="/katalis/public/styles/globalAdmin.css">';
     } else {
         echo '<link rel="stylesheet" href="/katalis/public/styles/global.css">';
@@ -55,7 +55,7 @@
 <body>
     <?php
     // Menampilkan Navbar jika bukan halaman Login, Daftar, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Forgot.php' && $currentFile !== 'Admin.php' && $currentFile != 'Kegiatan.php' && $currentFile != 'Export.php' && $currentFile != 'Mahasiswa.php' && $currentFile != 'Prestasi.php' && $currentFile != 'Tambah_Kegiatan.php' && $currentFile != 'Tambah_Prestasi.php' && $currentFile != 'Dashboard.php' && $currentFile != 'Berita.php' &&  $currentFile != 'Tambah_Berita.php' && $currentFile != 'detailBlog.php' && $currentFile != 'Tambah_Berita.php' && $currentFile != 'Detail_Prestasi.php' && $currentFile != 'Edit_Berita.php' && $currentFile != 'Edit_Kegiatan.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Forgot.php' && $currentFile !== 'Admin.php' && $currentFile != 'Kegiatan.php' && $currentFile != 'Export.php' && $currentFile != 'Mahasiswa.php' && $currentFile != 'Prestasi.php' && $currentFile != 'Tambah_Kegiatan.php' && $currentFile != 'Tambah_Prestasi.php' && $currentFile != 'Dashboard.php' && $currentFile != 'Berita.php' &&  $currentFile != 'Tambah_Berita.php' && $currentFile != 'detailBlog.php' && $currentFile != 'Tambah_Berita.php' && $currentFile != 'Detail_Prestasi.php' && $currentFile != 'Edit_Berita.php' && $currentFile != 'Edit_Kegiatan.php' && $currentFile != 'Dosen.php' && $currentFile != 'Tambah_Dosen.php') {
         include('./client/components/Navbar.php');
     }
     ?>
@@ -71,7 +71,7 @@
 
     <?php
     // Menampilkan Footer jika bukan halaman Login, Register, atau Admin
-    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Forgot.php' && $currentFile !== 'Admin.php' && $currentFile != 'Kegiatan.php' && $currentFile != 'Export.php' && $currentFile != 'Mahasiswa.php' && $currentFile != 'Prestasi.php' && $currentFile != 'Tambah_Kegiatan.php' && $currentFile != 'Tambah_Prestasi.php' && $currentFile != 'Dashboard.php' && $currentFile != 'Berita.php' &&  $currentFile != 'Tambah_Berita.php' && $currentFile != 'detailBlog.php' && $currentFile != 'Tambah_Berita.php' && $currentFile != 'Detail_Prestasi.php' && $currentFile != 'Edit_Berita.php' && $currentFile != 'Edit_Kegiatan.php') {
+    if ($currentFile !== 'Login.php' && $currentFile !== 'Register.php' && $currentFile !== 'Forgot.php' && $currentFile !== 'Admin.php' && $currentFile != 'Kegiatan.php' && $currentFile != 'Export.php' && $currentFile != 'Mahasiswa.php' && $currentFile != 'Prestasi.php' && $currentFile != 'Tambah_Kegiatan.php' && $currentFile != 'Tambah_Prestasi.php' && $currentFile != 'Dashboard.php' && $currentFile != 'Berita.php' &&  $currentFile != 'Tambah_Berita.php' && $currentFile != 'detailBlog.php' && $currentFile != 'Tambah_Berita.php' && $currentFile != 'Detail_Prestasi.php' && $currentFile != 'Edit_Berita.php' && $currentFile != 'Edit_Kegiatan.php' && $currentFile != 'Dosen.php' && $currentFile != 'Tambah_Dosen.php') {
         include('./client/components/Footer.php');
     }
     ?>

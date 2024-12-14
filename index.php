@@ -77,6 +77,14 @@ switch ($request) {
         checkAdmin();
         $filePath = 'client/views/admin/User/Mahasiswa.php';
         break;
+    case $location . '/daftarDosen':
+        checkAdmin();
+        $filePath = 'client/views/admin/User/Dosen.php';
+        break;
+    case $location . '/tambahDosen':
+        checkAdmin();
+        $filePath = 'client/views/admin/Functions/Tambah_Dosen.php';
+        break;
     // CRUD ADMIN
     case $location . '/kegiatan/tambah_kegiatan':
         checkAdmin();
