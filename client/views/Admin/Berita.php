@@ -24,7 +24,7 @@ $berita = $data->getAllBerita();
                     <img src="/katalis/public/Prestasi/Dokumentasi/<?php echo $b['file_dokumentasi']; ?>" alt="Desk with laptop and flowers" class="blog-image" />
                     <div class="blog-content">
                         <div class="blog-title font-bold"><?php echo cutText($b['nama_berita'], 6); ?></div>
-                        <div class="blog-text font-regular"> <?php echo $b['tanggal_upload']; ?></div>
+                        <div class="blog-text font-regular tanggalUpload"> <?php echo $b['tanggal_upload']; ?></div>
                         <div class="actions gap-5">
                             <button type="button" class="button-primary font-bold"
                                 onclick="window.location.href='/katalis/detailBerita?id=<?php echo $b['id_berita'] ?>'">Baca Artikel</button>
@@ -39,3 +39,12 @@ $berita = $data->getAllBerita();
         </div>
     </div>
 </section>
+<script>
+    function formatTanggal(tanggal) {
+        const [tahun, bulan, hari] = tanggal.split('-');
+        return `${hari}-${bulan}-${tahun}`;
+    }
+    document.querySelectorAll('.tanggalUpload').forEach(function(elem) {
+        elem.textContent = formatTanggal(elem.textContent);
+    });
+</script>

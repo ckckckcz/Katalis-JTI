@@ -39,8 +39,8 @@
                                         <td class='table-prestasi-cell'>$e[nama_event]</td>
                                         <td class='table-prestasi-cell'>" . ucwords($e['tingkat_lomba']) . "</td>
                                         <td class='table-prestasi-cell'>$e[instansi_penyelenggara]</td>
-                                        <td class='table-prestasi-cell'>$e[tanggal_mulai]</td>
-                                        <td class='table-prestasi-cell'>$e[tanggal_selesai]</td>
+                                        <td class='table-prestasi-cell tanggalMulai'>$e[tanggal_mulai]</td>
+                                        <td class='table-prestasi-cell tanggalSelesai'>$e[tanggal_selesai]</td>
                                         <td class='table-prestasi-cell'>
                                             <a href='/katalis/kegiatan/edit?id=$e[id_event]' class='table-prestasi-link'>Detail</a>
                                         </td>
@@ -59,3 +59,19 @@
         </div>
     </div>
 </section>
+<script>
+    function formatTanggal(tanggal) {
+        const [tahun, bulan, hari] = tanggal.split('-');
+        return `${hari}-${bulan}-${tahun}`;
+    }
+
+    // Format semua elemen dengan class 'tanggalMulai'
+    document.querySelectorAll('.tanggalMulai').forEach(function(elem) {
+        elem.textContent = formatTanggal(elem.textContent);
+    });
+
+    // Format semua elemen dengan class 'tanggalSelesai'
+    document.querySelectorAll('.tanggalSelesai').forEach(function(elem) {
+        elem.textContent = formatTanggal(elem.textContent);
+    });
+</script>
