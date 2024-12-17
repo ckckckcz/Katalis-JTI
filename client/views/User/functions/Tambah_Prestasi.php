@@ -2,6 +2,7 @@
 include('./client/components/User/Sidebar.php');
 include('./server/model/Prestasi.php');
 include('./server/model/Dosen.php');
+include('./client/components/Notification/Prestasi/notif_upload.php');
 
 $dataDosen = new Dosen();
 $allDosen = $dataDosen->getAllDosen();
@@ -205,7 +206,7 @@ $allDosen = $dataDosen->getAllDosen();
                     <span class="error-message font-bold"></span>
                 </div>
                 <div class="actions">
-                    <button type="submit" name="submit" value="submit" class="button-primary font-bold">Submit Prestasi</button>
+                    <button type="submit" class="button-primary font-bold">Submit Prestasi</button>
                 </div>
             </form>
         </div>
