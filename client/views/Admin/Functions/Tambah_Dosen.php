@@ -5,8 +5,7 @@ include('./client/components/Admin/Sidebar.php');
     <div class="admin-container">
         <h1 class="font-bold kegiatan-title">Tambah Dosen</h1>
         <div class="kegiatan-card">
-            <form action="../server/proses/event/TambahEvent.php" method="post" enctype="multipart/form-data"
-                class="kegiatan-form">
+            <form action="./server/proses/dosen/TambahDosen.php" method="post" class="kegiatan-form">
                 <div class="kegiatan-group">
                     <label for="nip-dosen" class="kegiatan-label font-bold">NIP Dosen</label>
                     <input type="text" id="nip-dosen" name="nip-dosen" class="kegiatan-input font-semi-bold"
